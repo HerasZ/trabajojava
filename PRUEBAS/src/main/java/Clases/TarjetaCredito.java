@@ -1,4 +1,4 @@
-package com.mycompany.pruebas;
+package Clases;
 
 import java.time.LocalDate;
 

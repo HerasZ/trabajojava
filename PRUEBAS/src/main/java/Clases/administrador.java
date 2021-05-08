@@ -1,4 +1,4 @@
-package com.mycompany.pruebas;
+package Clases;
 
 public class administrador {
     //atributos
