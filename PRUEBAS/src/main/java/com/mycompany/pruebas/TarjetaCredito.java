@@ -1,11 +1,14 @@
-package com.mycompany.trabajojava;
+package com.mycompany.pruebas;
 
 import java.time.LocalDate;
 
-public class tarjetaCredito {
+public class TarjetaCredito {
     //atributos
     private String numero;
     private LocalDate caducidad;
     private double saldo;
+    
+    
+   
     
 }

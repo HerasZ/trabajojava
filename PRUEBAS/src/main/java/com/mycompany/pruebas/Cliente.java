@@ -1,14 +1,14 @@
-package com.mycompany.trabajojava;
+package com.mycompany.pruebas;
 
-public class cliente {
-        //atributos
+public class Cliente {
+    //atributos
     private String dni;
     private String nombre;
     private String correoelectronico;
     private String clave;
-    private tarjetaCredito tarjetacredito;
+    private TarjetaCredito tarjetacredito;
     //constructor
-    public cliente(String dni, String nombre, String correoelectronico, String clave, tarjetaCredito tarjetacredito) {
+    public Cliente(String dni, String nombre, String correoelectronico, String clave, TarjetaCredito tarjetacredito) {
         this.dni = dni;
         this.nombre = nombre;
         this.correoelectronico = correoelectronico;
@@ -32,7 +32,7 @@ public class cliente {
         return clave;
     }
 
-    public tarjetaCredito getTarjetacredito() {
+    public TarjetaCredito getTarjetacredito() {
         return tarjetacredito;
     }
     //setter
@@ -52,7 +52,7 @@ public class cliente {
         this.clave = clave;
     }
 
-    public void setTarjetacredito(tarjetaCredito tarjetacredito) {
+    public void setTarjetacredito(TarjetaCredito tarjetacredito) {
         this.tarjetacredito = tarjetacredito;
     }
 
@@ -60,7 +60,6 @@ public class cliente {
     public String toString() {
         return "Cliente{" + "dni=" + dni + ", nombre=" + nombre + ", correoelectronico=" + correoelectronico + ", clave=" + clave + ", tarjetacredito=" + tarjetacredito + '}';
     }
-    
     
     
 }

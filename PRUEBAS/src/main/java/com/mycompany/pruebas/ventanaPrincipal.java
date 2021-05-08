@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.trabajojava;
+package com.mycompany.pruebas;
 
 /**
  *
  * @author Francisco
  */
-public class ventanaPrincipal1 extends javax.swing.JFrame {
+public class ventanaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form ventanaPrincipal
      */
-    public ventanaPrincipal1() {
+    public ventanaPrincipal() {
         initComponents();
         buttonGroup1.add(jRBAdministrador);
         buttonGroup1.add(jRBCliente);
@@ -36,14 +36,14 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
         jRBAdministrador = new javax.swing.JRadioButton();
         jRBCliente = new javax.swing.JRadioButton();
         jPanelAdministrador = new javax.swing.JPanel();
-        jLabelClave = new javax.swing.JLabel();
-        jPasswordFieldClave = new javax.swing.JPasswordField();
-        jLabelCorreo = new javax.swing.JLabel();
-        jTextFieldCorreo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jButtonAccederAdminnitrador = new javax.swing.JButton();
         jPanelCliente = new javax.swing.JPanel();
-        jButtonRegistrarse = new javax.swing.JButton();
-        jButtonEntrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,19 +61,19 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
             }
         });
 
-        jLabelClave.setText("Clave:");
+        jLabel2.setText("Clave:");
 
-        jPasswordFieldClave.addActionListener(new java.awt.event.ActionListener() {
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldClaveActionPerformed(evt);
+                jPasswordField1ActionPerformed(evt);
             }
         });
 
-        jLabelCorreo.setText("Correo electrónico:");
+        jLabel1.setText("Correo electrónico:");
 
-        jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCorreoActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
@@ -87,14 +87,14 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelCorreo))
+                        .addComponent(jLabel1))
                     .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jLabelClave)))
+                        .addComponent(jLabel2)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldCorreo)
-                    .addComponent(jPasswordFieldClave))
+                    .addComponent(jTextField1)
+                    .addComponent(jPasswordField1))
                 .addContainerGap())
             .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                 .addGap(104, 104, 104)
@@ -106,27 +106,27 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
             .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCorreo)
-                    .addComponent(jTextFieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelClave)
-                    .addComponent(jPasswordFieldClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jButtonAccederAdminnitrador, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButtonRegistrarse.setText("Registrarse");
-        jButtonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Registrarse");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarseActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jButtonEntrar.setText("Entrar");
-        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Entrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEntrarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -136,9 +136,9 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
             jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelClienteLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButtonRegistrarse)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jButtonEntrar)
+                .addComponent(jButton2)
                 .addGap(37, 37, 37))
         );
         jPanelClienteLayout.setVerticalGroup(
@@ -146,8 +146,8 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
             .addGroup(jPanelClienteLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRegistrarse)
-                    .addComponent(jButtonEntrar))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -203,21 +203,21 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRBAdministradorActionPerformed
 
-    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jPasswordFieldClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldClaveActionPerformed
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegistrarseActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEntrarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,37 +236,36 @@ public class ventanaPrincipal1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ventanaPrincipal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaPrincipal1().setVisible(true);
+                new ventanaPrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAccederAdminnitrador;
-    private javax.swing.JButton jButtonEntrar;
-    private javax.swing.JButton jButtonRegistrarse;
-    private javax.swing.JLabel jLabelClave;
-    private javax.swing.JLabel jLabelCorreo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanelAdministrador;
     private javax.swing.JPanel jPanelCliente;
-    private javax.swing.JPasswordField jPasswordFieldClave;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JRadioButton jRBAdministrador;
     private javax.swing.JRadioButton jRBCliente;
-    private javax.swing.JTextField jTextFieldCorreo;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
