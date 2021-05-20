@@ -78,6 +78,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonAccederAdminnitrador.setText("Acceder");
+        jButtonAccederAdminnitrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAccederAdminnitradorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAdministradorLayout = new javax.swing.GroupLayout(jPanelAdministrador);
         jPanelAdministrador.setLayout(jPanelAdministradorLayout);
@@ -218,6 +223,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButtonAccederAdminnitradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccederAdminnitradorActionPerformed
+
+       
+    }//GEN-LAST:event_jButtonAccederAdminnitradorActionPerformed
 
     /**
      * @param args the command line arguments
