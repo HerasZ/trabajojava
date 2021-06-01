@@ -1,13 +1,10 @@
 package Clases;
 
-public class Administrador {
+public class Administrador extends Usuario {
     //atributos
-    private String correo;
-    private String clave;
 
-    public Administrador(String correo, String clave) {
-        this.correo = correo;
-        this.clave = clave;
+    public Administrador(String correoelectronico, String clave) {
+        super(clave, correoelectronico);
     }
-    
+
 }
