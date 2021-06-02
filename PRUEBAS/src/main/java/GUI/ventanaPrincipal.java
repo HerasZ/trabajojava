@@ -16,11 +16,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
      */
     public ventanaPrincipal() {
         initComponents();
-        buttonGroup1.add(jRBAdministrador);
-        buttonGroup1.add(jRBCliente);
-        jPanelAdministrador.setVisible(false);
-        jPanelCliente.setVisible(false);
-        
     }
 
     /**
@@ -33,33 +28,16 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jRBAdministrador = new javax.swing.JRadioButton();
-        jRBCliente = new javax.swing.JRadioButton();
         jPanelAdministrador = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButtonAccederAdminnitrador = new javax.swing.JButton();
-        jPanelCliente = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonAccederAdminnitrador = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jRBAdministrador.setText("Administrador");
-        jRBAdministrador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRBAdministradorActionPerformed(evt);
-            }
-        });
-
-        jRBCliente.setText("Cliente");
-        jRBCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRBClienteActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Clave:");
 
@@ -77,13 +55,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButtonAccederAdminnitrador.setText("Acceder");
-        jButtonAccederAdminnitrador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAccederAdminnitradorActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelAdministradorLayout = new javax.swing.GroupLayout(jPanelAdministrador);
         jPanelAdministrador.setLayout(jPanelAdministradorLayout);
         jPanelAdministradorLayout.setHorizontalGroup(
@@ -98,13 +69,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel2)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addComponent(jPasswordField1))
                 .addContainerGap())
-            .addGroup(jPanelAdministradorLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jButtonAccederAdminnitrador)
-                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanelAdministradorLayout.setVerticalGroup(
             jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,8 +84,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jButtonAccederAdminnitrador, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jButton1.setText("Registrarse");
@@ -128,33 +94,15 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Entrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAccederAdminnitrador.setText("Acceder");
+        jButtonAccederAdminnitrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonAccederAdminnitradorActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelClienteLayout = new javax.swing.GroupLayout(jPanelCliente);
-        jPanelCliente.setLayout(jPanelClienteLayout);
-        jPanelClienteLayout.setHorizontalGroup(
-            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(37, 37, 37))
-        );
-        jPanelClienteLayout.setVerticalGroup(
-            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel3.setText("J A V A F L I X");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,50 +111,40 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(jRBAdministrador))
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addComponent(jRBCliente))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
+                        .addGap(135, 135, 135)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(204, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jButtonAccederAdminnitrador))))))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButtonAccederAdminnitrador});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jRBAdministrador)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jRBCliente)
-                .addGap(23, 23, 23)
                 .addComponent(jPanelAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jButtonAccederAdminnitrador, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jButton1)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButtonAccederAdminnitrador});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRBClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBClienteActionPerformed
-        // TODO add your handling code here:
-        if (jRBCliente.isSelected()) {
-            jPanelAdministrador.setVisible(false);
-            jPanelCliente.setVisible(true);
-        }
-    }//GEN-LAST:event_jRBClienteActionPerformed
-
-    private void jRBAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBAdministradorActionPerformed
-        // TODO add your handling code here:
-        if (jRBAdministrador.isSelected()) {
-            jPanelCliente.setVisible(false);
-            jPanelAdministrador.setVisible(true);
-        }
-    }//GEN-LAST:event_jRBAdministradorActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -218,11 +156,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new registroUsuario(this).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonAccederAdminnitradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccederAdminnitradorActionPerformed
 
@@ -267,15 +203,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAccederAdminnitrador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanelAdministrador;
-    private javax.swing.JPanel jPanelCliente;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRBAdministrador;
-    private javax.swing.JRadioButton jRBCliente;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
