@@ -11,6 +11,7 @@ import Excepciones.EmailNoValido;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import Clases.UtilJavaflix;
+import java.time.format.DateTimeParseException;
 
 /**
  *
@@ -110,7 +111,7 @@ public class registroUsuario extends javax.swing.JFrame {
 
         jLabel6.setText("Num. de tarjeta");
 
-        jLabel7.setText("Caducidad");
+        jLabel7.setText("Caducidad(yyyy-MM-dd)");
 
         jLabel8.setText("Saldo");
 
@@ -120,7 +121,9 @@ public class registroUsuario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        caducidadfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        caducidadfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+
+        saldofield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Datos Bancarios");
@@ -141,19 +144,18 @@ public class registroUsuario extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPasswordFieldContraseña)
+                            .addComponent(jFormattedTextFieldCorreoelectronico)
+                            .addComponent(jTextFieldNombre)
+                            .addComponent(jFormattedTextFieldDNI)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPasswordFieldContraseña)
-                                    .addComponent(jFormattedTextFieldCorreoelectronico)
-                                    .addComponent(jTextFieldNombre)
-                                    .addComponent(jFormattedTextFieldDNI)
+                                    .addComponent(numtarjetafield, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(caducidadfield, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(saldofield, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(numtarjetafield, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(saldofield, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel5)
@@ -170,6 +172,8 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {caducidadfield, numtarjetafield, saldofield});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel6, jLabel7, jLabel8});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,6 +217,10 @@ public class registroUsuario extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4});
 
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel6, jLabel7, jLabel8});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {caducidadfield, numtarjetafield, saldofield});
+
         jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,14 +239,21 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
         try{
+            // Hacemos esto para validar los dos campos 
             validaremail(jFormattedTextFieldCorreoelectronico.getText());
-            TarjetaCredito nuevatarjeta = new TarjetaCredito(numtarjetafield.getText(),LocalDate.parse(caducidadfield.getText()),
+            LocalDate fechacaducidad = LocalDate.parse(caducidadfield.getText());
+                    
+            TarjetaCredito nuevatarjeta = new TarjetaCredito(numtarjetafield.getText(),fechacaducidad,
                                             Double.parseDouble(saldofield.getText()));
             Cliente nuevocliente = new Cliente(jFormattedTextFieldDNI.getText(),jTextFieldNombre.getText(),
                                     jFormattedTextFieldCorreoelectronico.getText(),String.valueOf(jPasswordFieldContraseña.getPassword()),nuevatarjeta);
             UtilJavaflix.addUsuario(nuevocliente);
         } catch (EmailNoValido ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (DateTimeParseException ex) {
+            JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar dd-MM-yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            System.out.println(UtilJavaflix.getUsuarios());
         }
     }//GEN-LAST:event_jButtonSiguienteActionPerformed
 

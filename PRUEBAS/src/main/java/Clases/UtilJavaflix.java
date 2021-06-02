@@ -34,6 +34,18 @@ public class UtilJavaflix {
         UtilJavaflix.peliculas.add(pelicula);
     }
 
+    public static ArrayList<Serie> getSeries() {
+        return series;
+    }
+
+    public static ArrayList<Pelicula> getPeliculas() {
+        return peliculas;
+    }
+
+    public static ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
     public static void addUsuario(Usuario usuario) {
         UtilJavaflix.usuarios.add(usuario);
     }
