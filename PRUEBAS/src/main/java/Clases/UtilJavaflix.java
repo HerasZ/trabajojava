@@ -26,11 +26,22 @@ public class UtilJavaflix {
         UtilJavaflix.usuarios = usuarios;
     }
 
+    public static void addSerie(Serie serie) {
+        UtilJavaflix.series.add(serie);
+    }
+
+    public static void addPelicula(Pelicula pelicula) {
+        UtilJavaflix.peliculas.add(pelicula);
+    }
+
+    public static void addUsuario(Usuario usuario) {
+        UtilJavaflix.usuarios.add(usuario);
+    }
+
     public static void guardarDatos() {
         try {
             if (!series.isEmpty() || !peliculas.isEmpty() || !usuarios.isEmpty()) {
-                try ( FileOutputStream ostreampro = new FileOutputStream("datosjavaflix.dat");  
-                        ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
+                try ( FileOutputStream ostreampro = new FileOutputStream("datosjavaflix.dat");  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
                     oospro.writeObject(series);
                     oospro.writeObject(peliculas);
                     oospro.writeObject(usuarios);
@@ -48,8 +59,7 @@ public class UtilJavaflix {
 
     public static void cargarDatos() {
         try {
-            try ( FileInputStream istreampro = new FileInputStream("datosjavaflix.dat"); 
-                  ObjectInputStream oispro = new ObjectInputStream(istreampro)) {
+            try ( FileInputStream istreampro = new FileInputStream("datosjavaflix.dat");  ObjectInputStream oispro = new ObjectInputStream(istreampro)) {
                 series = (ArrayList) oispro.readObject();
                 peliculas = (ArrayList) oispro.readObject();
                 usuarios = (ArrayList) oispro.readObject();
