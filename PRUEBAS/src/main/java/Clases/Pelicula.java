@@ -21,6 +21,27 @@ public class Pelicula extends Contenido {
         this.duracion = duracion;
         this.director = director;
     }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula{" + "duracion=" + duracion + ", director=" + director + '}';
+    }
     
   
     

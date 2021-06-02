@@ -18,5 +18,26 @@ public class Capitulo {
         this.titulo = titulo;
         this.duración = duración;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public int getDuración() {
+        return duración;
+    }
+
+    public void setDuración(int duración) {
+        this.duración = duración;
+    }
+
+    @Override
+    public String toString() {
+        return "Capitulo{" + "titulo=" + titulo + ", duraci\u00f3n=" + duración + '}';
+    }
     
 }

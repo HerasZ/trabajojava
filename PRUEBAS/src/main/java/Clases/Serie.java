@@ -13,12 +13,33 @@ import java.util.ArrayList;
  */
 public class Serie extends Contenido {
     private int temporadas;
-    private Capitulo capitulos;
+    private ArrayList<String> capitulos;
 
-    public Serie(int temporadas, Capitulo capitulos, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores) {
+    public Serie(int temporadas, ArrayList<String> capitulos, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores) {
         super(titulo, sinopsis, genero, anno, actores);
         this.temporadas = temporadas;
         this.capitulos = capitulos;
+    }
+
+    public int getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(int temporadas) {
+        this.temporadas = temporadas;
+    }
+
+    public ArrayList<String> getCapitulos() {
+        return capitulos;
+    }
+
+    public void setCapitulos(ArrayList<String> capitulos) {
+        this.capitulos = capitulos;
+    }
+
+    @Override
+    public String toString() {
+        return "Serie{" + "temporadas=" + temporadas + ", capitulos=" + capitulos + '}';
     }
     
 

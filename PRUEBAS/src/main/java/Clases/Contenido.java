@@ -26,5 +26,50 @@ public abstract class Contenido {
         this.anno = anno;
         this.actores = actores;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getAnno() {
+        return anno;
+    }
+
+    public void setAnno(int anno) {
+        this.anno = anno;
+    }
+
+    public ArrayList<String> getActores() {
+        return actores;
+    }
+
+    public void setActores(ArrayList<String> actores) {
+        this.actores = actores;
+    }
+
+    @Override
+    public String toString() {
+        return "Contenido{" + "titulo=" + titulo + ", sinopsis=" + sinopsis + ", genero=" + genero + ", anno=" + anno + ", actores=" + actores + '}';
+    }
     
 }

@@ -35,4 +35,10 @@ public abstract class Usuario {
         this.correoelectronico = correoelectronico;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "clave=" + clave + ", correoelectronico=" + correoelectronico + '}';
+    }
+    
+
 }

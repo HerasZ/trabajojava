@@ -1,9 +1,9 @@
 package Clases;
 
-public class Administrador extends Usuario {
+public class administrador extends Usuario {
     //atributos
 
-    public Administrador(String correoelectronico, String clave) {
+    public administrador(String correoelectronico, String clave) {
         super(clave, correoelectronico);
     }
 
