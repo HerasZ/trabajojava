@@ -320,7 +320,8 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
         this.setVisible(false);
-        registroUsuario registro = new registroUsuario(); 
+        registroUsuario registro = new registroUsuario();
+        registro.setVisible(true);
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
     private void jLabelRegistrarsebuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseEntered
