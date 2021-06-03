@@ -150,7 +150,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("INTRODUCE LOS DATOS PARA EMPEZAR A VER");
+        jLabel4.setText("INTRODUCE LOS DATOS PARA EMPEZAR");
 
         javax.swing.GroupLayout jPanelRegistrarseLayout = new javax.swing.GroupLayout(jPanelRegistrarse);
         jPanelRegistrarse.setLayout(jPanelRegistrarseLayout);
@@ -185,7 +185,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanel2.add(jLabelDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 300, -1));
 
         jTextFieldDNIRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldDNIRegistro.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldDNIRegistro.setForeground(java.awt.Color.gray);
         jTextFieldDNIRegistro.setText("Escriba su DNI");
         jTextFieldDNIRegistro.setToolTipText("");
         jTextFieldDNIRegistro.setBorder(null);
@@ -207,7 +207,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanel2.add(jLabelNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 300, -1));
 
         jTextFieldNombreRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldNombreRegistro.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldNombreRegistro.setForeground(java.awt.Color.gray);
         jTextFieldNombreRegistro.setText("Escriba su nombre");
         jTextFieldNombreRegistro.setBorder(null);
         jTextFieldNombreRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,7 +227,8 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelNumTarjetaRegistro.setText("Nº TARJETA");
         jPanel2.add(jLabelNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 300, -1));
 
-        jTextFieldCERegistro.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldCERegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jTextFieldCERegistro.setForeground(java.awt.Color.gray);
         jTextFieldCERegistro.setText("Escriba su correo electrónico");
         jTextFieldCERegistro.setBorder(null);
         jTextFieldCERegistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,14 +251,26 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelClaveRegistro.setText("CLAVE");
         jPanel2.add(jLabelClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 300, 20));
 
-        jTextFieldCaducidadRegistro.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldCaducidadRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jTextFieldCaducidadRegistro.setForeground(java.awt.Color.gray);
         jTextFieldCaducidadRegistro.setText("Escriba la fecha de caducidad de la tarjeta");
         jTextFieldCaducidadRegistro.setBorder(null);
+        jTextFieldCaducidadRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldCaducidadRegistroMousePressed(evt);
+            }
+        });
         jPanel2.add(jTextFieldCaducidadRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, -1));
 
-        jTextFieldSaldoRegistro.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldSaldoRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jTextFieldSaldoRegistro.setForeground(java.awt.Color.gray);
         jTextFieldSaldoRegistro.setText("Escriba su saldo");
         jTextFieldSaldoRegistro.setBorder(null);
+        jTextFieldSaldoRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldSaldoRegistroMousePressed(evt);
+            }
+        });
         jPanel2.add(jTextFieldSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 300, -1));
 
         jLabelDATOSBANCARIOS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -273,7 +286,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelCERegistro.setText("CORREO ELECTRÓNICO");
         jPanel2.add(jLabelCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 300, 20));
 
-        jPasswordFieldClaveRegistro.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordFieldClaveRegistro.setForeground(java.awt.Color.gray);
         jPasswordFieldClaveRegistro.setText("**********");
         jPasswordFieldClaveRegistro.setBorder(null);
         jPasswordFieldClaveRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -284,8 +297,14 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanel2.add(jPasswordFieldClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 300, -1));
 
         jFormattedTextFieldNumTarjetaRegistro.setBorder(null);
-        jFormattedTextFieldNumTarjetaRegistro.setForeground(new java.awt.Color(204, 204, 204));
-        jFormattedTextFieldNumTarjetaRegistro.setText("Escriba el numero de tarjeta");
+        jFormattedTextFieldNumTarjetaRegistro.setColumns(16);
+        jFormattedTextFieldNumTarjetaRegistro.setForeground(java.awt.Color.gray);
+        try {
+            jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldNumTarjetaRegistro.setText("0000-0000-0000-0000    ");
         jFormattedTextFieldNumTarjetaRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldNumTarjetaRegistroMousePressed(evt);
@@ -429,8 +448,8 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
         // TODO add your handling code here:
-        if (jFormattedTextFieldNumTarjetaRegistro.getText().equals("Escriba el número de tarjeta")){
-            jFormattedTextFieldNumTarjetaRegistro.setText("");
+        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).equals("0000-0000-0000-0000")){
+            jFormattedTextFieldNumTarjetaRegistro.setValue("");
             jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.black);
         }
         if (jTextFieldCaducidadRegistro.getText().isEmpty()){
@@ -442,6 +461,38 @@ public class registroUsuario extends javax.swing.JFrame {
             jTextFieldSaldoRegistro.setForeground(Color.gray);
         }
     }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
+
+    private void jTextFieldCaducidadRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCaducidadRegistroMousePressed
+        // TODO add your handling code here:
+        if (jTextFieldCaducidadRegistro.getText().equals("Escriba la fecha de caducidad de la tarjeta")){
+            jTextFieldCaducidadRegistro.setText("");
+            jTextFieldCaducidadRegistro.setForeground(Color.black);
+        }
+        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).isEmpty()){
+            jFormattedTextFieldNumTarjetaRegistro.setValue(0000000000000000);
+            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);   
+        }
+        if (jTextFieldSaldoRegistro.getText().isEmpty()){
+            jTextFieldSaldoRegistro.setText("Escriba su saldo");
+            jTextFieldSaldoRegistro.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldCaducidadRegistroMousePressed
+
+    private void jTextFieldSaldoRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSaldoRegistroMousePressed
+        // TODO add your handling code here:
+        if (jTextFieldSaldoRegistro.getText().equals("Escriba su saldo")){
+            jTextFieldSaldoRegistro.setText("");
+            jTextFieldSaldoRegistro.setForeground(Color.black);
+        }
+        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).isEmpty()){
+            jFormattedTextFieldNumTarjetaRegistro.setValue(0000000000000000);
+            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);   
+        }
+        if (jTextFieldCaducidadRegistro.getText().isEmpty()){
+            jTextFieldCaducidadRegistro.setText("Escriba la fecha de caducidad de la tarjeta");
+            jTextFieldCaducidadRegistro.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldSaldoRegistroMousePressed
 
     /**
      * @param args the command line arguments
