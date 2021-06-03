@@ -52,9 +52,8 @@ public class UtilJavaflix {
 
     public static void guardarDatos() {
         try {
-            File datosjavaflix = new File("datosjavaflix.txt");
+            File datosjavaflix = new File("datosjavaflix.dat");
             try {
-                System.out.println(datosjavaflix.length());
                 if (datosjavaflix.length() == 0) {
                     datosjavaflix.createNewFile();
                 }
@@ -66,6 +65,7 @@ public class UtilJavaflix {
                     oospro.writeObject(series);
                     oospro.writeObject(peliculas);
                     oospro.writeObject(clientes);
+                    System.out.println(clientes);
                 }
             } else {
                 System.out.println("Error: No hay datos para guardar");

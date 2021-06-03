@@ -1,8 +1,9 @@
 package Clases;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class TarjetaCredito {
+public class TarjetaCredito implements Serializable {
     //atributos
     private String numero;
     private LocalDate caducidad;

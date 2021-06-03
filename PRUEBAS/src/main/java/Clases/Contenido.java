@@ -5,13 +5,14 @@
  */
 package Clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Daniel
  */
-public abstract class Contenido {
+public abstract class Contenido implements Serializable {
     private String titulo;
     private String sinopsis;
     private String genero;

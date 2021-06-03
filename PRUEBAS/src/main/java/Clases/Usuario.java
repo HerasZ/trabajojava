@@ -5,11 +5,13 @@
  */
 package Clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Heras
  */
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
 
     private String clave;
     private String correoelectronico;

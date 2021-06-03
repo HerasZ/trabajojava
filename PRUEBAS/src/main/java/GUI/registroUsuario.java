@@ -5,15 +5,19 @@
  */
 package GUI;
 
-
+import Clases.Cliente;
+import Clases.TarjetaCredito;
 import java.awt.Color;
 
 import Clases.UtilJavaflix;
 
-
 import java.awt.Color;
 
 import Clases.UtilJavaflix;
+import Excepciones.EmailNoValido;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,18 +25,36 @@ import Clases.UtilJavaflix;
  */
 public class registroUsuario extends javax.swing.JFrame {
 
+    private ventanaPrincipal padre;
+
     /**
      * Creates new form ventanaPrincipal
      */
-    
-    public registroUsuario() {
-        UtilJavaflix.cargarDatos();
+    public registroUsuario(ventanaPrincipal main) {
+        padre = main;
         initComponents();
-        System.out.println(UtilJavaflix.getClientes());
+        this.setVisible(true);
     }
 
-    registroUsuario(ventanaPrincipal aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void validaremail(String email) throws EmailNoValido {
+        int atposition = 0, dotposition = 0, flag = 0, atcount = 0;
+        for (int i = 0; i < email.length(); i++) {
+
+            if (email.charAt(i) == '@') {
+                atcount++;
+                atposition = i;
+                if (atcount >= 2) {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (email.charAt(i) == '.') {
+                dotposition = i;
+            }
+        }
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length() || flag == 1) {
+            throw new EmailNoValido("Error en el formato del e-mail");
+        }
     }
 
     /**
@@ -54,7 +76,6 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanelRegistrarse = new javax.swing.JPanel();
         jLabelRegistrarsebuttom = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelDNIRegistro = new javax.swing.JLabel();
@@ -69,7 +90,6 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelCaducidadRegistro = new javax.swing.JLabel();
         jLabelSaldoRegistro = new javax.swing.JLabel();
         jLabelClaveRegistro = new javax.swing.JLabel();
-        jTextFieldCaducidadRegistro = new javax.swing.JTextField();
         jTextFieldSaldoRegistro = new javax.swing.JTextField();
         jLabelDATOSBANCARIOS = new javax.swing.JLabel();
         jSeparatorNumTarjetaRegistro = new javax.swing.JSeparator();
@@ -78,6 +98,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jSeparatorCERegistro = new javax.swing.JSeparator();
         jLabelCERegistro = new javax.swing.JLabel();
         jPasswordFieldClaveRegistro = new javax.swing.JPasswordField();
+        jFormattedTextFieldCaducidad = new javax.swing.JFormattedTextField();
         jFormattedTextFieldNumTarjetaRegistro = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
 
@@ -102,11 +123,8 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelDEJAVAFLIX.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelDEJAVAFLIX.setText("DE JAVAFLIX");
         jPanel1.add(jLabelDEJAVAFLIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 410, 70));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Francisco\\Documents\\GitHub\\trabajojava\\IMAGENES\\palomitas bien rojo recorte 4.jpg")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Francisco\\Documents\\GitHub\\trabajojava\\IMAGENES\\palomitas bien rojo recorte 2.jpg")); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
 
@@ -129,8 +147,9 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelRegistrarsebuttom.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabelRegistrarsebuttom.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegistrarsebuttom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelRegistrarsebuttom.setText("REGISTRASRE");
+        jLabelRegistrarsebuttom.setText("REGISTRARSE");
         jLabelRegistrarsebuttom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelRegistrarsebuttom.setFocusable(false);
         jLabelRegistrarsebuttom.setMaximumSize(new java.awt.Dimension(62, 17));
         jLabelRegistrarsebuttom.setMinimumSize(new java.awt.Dimension(62, 17));
         jLabelRegistrarsebuttom.setName(""); // NOI18N
@@ -147,26 +166,15 @@ public class registroUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("INTRODUCE LOS DATOS PARA EMPEZAR");
-
         javax.swing.GroupLayout jPanelRegistrarseLayout = new javax.swing.GroupLayout(jPanelRegistrarse);
         jPanelRegistrarse.setLayout(jPanelRegistrarseLayout);
         jPanelRegistrarseLayout.setHorizontalGroup(
             jPanelRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelRegistrarseLayout.setVerticalGroup(
             jPanelRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRegistrarseLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(47, 47, 47))
+            .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 240, 90));
@@ -251,17 +259,6 @@ public class registroUsuario extends javax.swing.JFrame {
         jLabelClaveRegistro.setText("CLAVE");
         jPanel2.add(jLabelClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 300, 20));
 
-        jTextFieldCaducidadRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldCaducidadRegistro.setForeground(java.awt.Color.gray);
-        jTextFieldCaducidadRegistro.setText("Escriba la fecha de caducidad de la tarjeta");
-        jTextFieldCaducidadRegistro.setBorder(null);
-        jTextFieldCaducidadRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldCaducidadRegistroMousePressed(evt);
-            }
-        });
-        jPanel2.add(jTextFieldCaducidadRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, -1));
-
         jTextFieldSaldoRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldSaldoRegistro.setForeground(java.awt.Color.gray);
         jTextFieldSaldoRegistro.setText("Escriba su saldo");
@@ -296,6 +293,17 @@ public class registroUsuario extends javax.swing.JFrame {
         });
         jPanel2.add(jPasswordFieldClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 300, -1));
 
+        jFormattedTextFieldCaducidad.setBorder(null);
+        jFormattedTextFieldCaducidad.setColumns(16);
+        jFormattedTextFieldCaducidad.setForeground(java.awt.Color.gray);
+        jFormattedTextFieldCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        jFormattedTextFieldCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jFormattedTextFieldCaducidadMousePressed(evt);
+            }
+        });
+        jPanel2.add(jFormattedTextFieldCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, -1));
+
         jFormattedTextFieldNumTarjetaRegistro.setBorder(null);
         jFormattedTextFieldNumTarjetaRegistro.setColumns(16);
         jFormattedTextFieldNumTarjetaRegistro.setForeground(java.awt.Color.gray);
@@ -304,7 +312,6 @@ public class registroUsuario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldNumTarjetaRegistro.setText("0000-0000-0000-0000    ");
         jFormattedTextFieldNumTarjetaRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldNumTarjetaRegistroMousePressed(evt);
@@ -315,7 +322,6 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Francisco\\Documents\\GitHub\\trabajojava\\IMAGENES\\palomitas bien rojo.jpg")); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
@@ -338,36 +344,54 @@ public class registroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDNIRegistroActionPerformed
 
     private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
-        this.setVisible(false);
-        registroUsuario registro = new registroUsuario();
-        registro.setVisible(true);
+        try{
+            // Hacemos esto para validar los dos campos 
+            validaremail(jTextFieldCERegistro.getText());
+            LocalDate fechacaducidad = LocalDate.parse(jFormattedTextFieldCaducidad.getText());
+                    
+            TarjetaCredito nuevatarjeta = new TarjetaCredito(jFormattedTextFieldNumTarjetaRegistro.getText(),fechacaducidad,
+                                            Double.parseDouble(jTextFieldSaldoRegistro.getText()));
+            Cliente nuevocliente = new Cliente(jTextFieldDNIRegistro.getText(),jTextFieldNombreRegistro.getText(),
+                                    jTextFieldCERegistro.getText(),String.valueOf(jPasswordFieldClaveRegistro.getPassword()),nuevatarjeta);
+            UtilJavaflix.addUsuario(nuevocliente);
+            UtilJavaflix.guardarDatos();
+            JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente","Registro completado", JOptionPane.INFORMATION_MESSAGE);
+            padre.setVisible(true);
+            this.dispose();
+        } catch (EmailNoValido ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (DateTimeParseException ex) {
+            JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar dd-MM-yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            System.out.println(UtilJavaflix.getClientes());
+        }
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
     private void jLabelRegistrarsebuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseEntered
         // TODO add your handling code here:
-        jPanelRegistrarse.setBackground(new Color(148,13,30));
+        jPanelRegistrarse.setBackground(new Color(148, 13, 30));
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseEntered
 
     private void jLabelRegistrarsebuttomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseExited
         // TODO add your handling code here:
-        jPanelRegistrarse.setBackground(new Color(180,45,49));
+        jPanelRegistrarse.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseExited
 
     private void jTextFieldDNIRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDNIRegistroMousePressed
         // TODO add your handling code here:
-        if (jTextFieldDNIRegistro.getText().equals("Escriba su DNI")){
+        if (jTextFieldDNIRegistro.getText().equals("Escriba su DNI")) {
             jTextFieldDNIRegistro.setText("");
             jTextFieldDNIRegistro.setForeground(Color.black);
         }
-        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).isEmpty()){
+        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).isEmpty()) {
             jPasswordFieldClaveRegistro.setText("**********");
             jPasswordFieldClaveRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldNombreRegistro.getText().isEmpty()){
+        if (jTextFieldNombreRegistro.getText().isEmpty()) {
             jTextFieldNombreRegistro.setText("Escriba su nombre");
             jTextFieldNombreRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldCERegistro.getText().isEmpty()){
+        if (jTextFieldCERegistro.getText().isEmpty()) {
             jTextFieldCERegistro.setText("Escriba su correo electrónico");
             jTextFieldCERegistro.setForeground(Color.gray);
         }
@@ -375,6 +399,8 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
+        padre.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     private void jTextFieldNombreRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreRegistroActionPerformed
@@ -388,19 +414,19 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jTextFieldNombreRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreRegistroMousePressed
         // TODO add your handling code here:
-        if (jTextFieldNombreRegistro.getText().equals("Escriba su nombre")){
+        if (jTextFieldNombreRegistro.getText().equals("Escriba su nombre")) {
             jTextFieldNombreRegistro.setText("");
             jTextFieldNombreRegistro.setForeground(Color.black);
         }
-        if (jTextFieldDNIRegistro.getText().isEmpty()){
+        if (jTextFieldDNIRegistro.getText().isEmpty()) {
             jTextFieldDNIRegistro.setText("Escriba su DNI");
             jTextFieldDNIRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldCERegistro.getText().isEmpty()){
+        if (jTextFieldCERegistro.getText().isEmpty()) {
             jTextFieldCERegistro.setText("Escriba su correo electrónico");
             jTextFieldCERegistro.setForeground(Color.gray);
         }
-        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).isEmpty()){
+        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).isEmpty()) {
             jPasswordFieldClaveRegistro.setText("**********");
             jPasswordFieldClaveRegistro.setForeground(Color.gray);
         }
@@ -408,19 +434,19 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jTextFieldCERegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCERegistroMousePressed
         // TODO add your handling code here:
-        if (jTextFieldCERegistro.getText().equals("Escriba su correo electrónico")){
+        if (jTextFieldCERegistro.getText().equals("Escriba su correo electrónico")) {
             jTextFieldCERegistro.setText("");
             jTextFieldCERegistro.setForeground(Color.black);
         }
-        if (jTextFieldDNIRegistro.getText().isEmpty()){
+        if (jTextFieldDNIRegistro.getText().isEmpty()) {
             jTextFieldDNIRegistro.setText("Escriba su DNI");
-            jTextFieldDNIRegistro.setForeground(Color.gray);   
+            jTextFieldDNIRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldNombreRegistro.getText().isEmpty()){
+        if (jTextFieldNombreRegistro.getText().isEmpty()) {
             jTextFieldNombreRegistro.setText("Escriba su nombre");
             jTextFieldNombreRegistro.setForeground(Color.gray);
         }
-        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).isEmpty()){
+        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).isEmpty()) {
             jPasswordFieldClaveRegistro.setText("**********");
             jPasswordFieldClaveRegistro.setForeground(Color.gray);
         }
@@ -428,117 +454,79 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jPasswordFieldClaveRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveRegistroMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).equals("**********")){
-        jPasswordFieldClaveRegistro.setText("");
-        jPasswordFieldClaveRegistro.setForeground(Color.black);
+        if (String.valueOf(jPasswordFieldClaveRegistro.getPassword()).equals("**********")) {
+            jPasswordFieldClaveRegistro.setText("");
+            jPasswordFieldClaveRegistro.setForeground(Color.black);
         }
-        if (jTextFieldDNIRegistro.getText().isEmpty()){
+        if (jTextFieldDNIRegistro.getText().isEmpty()) {
             jTextFieldDNIRegistro.setText("Escriba su DNI");
-            jTextFieldDNIRegistro.setForeground(Color.gray);   
+            jTextFieldDNIRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldNombreRegistro.getText().isEmpty()){
+        if (jTextFieldNombreRegistro.getText().isEmpty()) {
             jTextFieldNombreRegistro.setText("Escriba su nombre");
             jTextFieldNombreRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldCERegistro.getText().isEmpty()){
+        if (jTextFieldCERegistro.getText().isEmpty()) {
             jTextFieldCERegistro.setText("Escriba su correo electrónico");
             jTextFieldCERegistro.setForeground(Color.gray);
         }
     }//GEN-LAST:event_jPasswordFieldClaveRegistroMousePressed
 
-    private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
+    private void jFormattedTextFieldCaducidadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCaducidadMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).equals("0000-0000-0000-0000")){
-            jFormattedTextFieldNumTarjetaRegistro.setValue("");
-            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.black);
+        if (String.valueOf(jFormattedTextFieldCaducidad.getText()).equals("")) {
+            jFormattedTextFieldCaducidad.setText("");
+            jFormattedTextFieldCaducidad.setForeground(Color.black);
         }
-        if (jTextFieldCaducidadRegistro.getText().isEmpty()){
-            jTextFieldCaducidadRegistro.setText("Escriba la fecha de caducidad de la tarjeta");
-            jTextFieldCaducidadRegistro.setForeground(Color.gray);   
+        if (jFormattedTextFieldNumTarjetaRegistro.getText().isEmpty()) {
+            jFormattedTextFieldNumTarjetaRegistro.setText("0000 0000 0000 0000");
+            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldSaldoRegistro.getText().isEmpty()){
+        if (jTextFieldSaldoRegistro.getText().isEmpty()) {
             jTextFieldSaldoRegistro.setText("Escriba su saldo");
             jTextFieldSaldoRegistro.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
-
-    private void jTextFieldCaducidadRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCaducidadRegistroMousePressed
-        // TODO add your handling code here:
-        if (jTextFieldCaducidadRegistro.getText().equals("Escriba la fecha de caducidad de la tarjeta")){
-            jTextFieldCaducidadRegistro.setText("");
-            jTextFieldCaducidadRegistro.setForeground(Color.black);
-        }
-        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).isEmpty()){
-            jFormattedTextFieldNumTarjetaRegistro.setValue(0000000000000000);
-            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);   
-        }
-        if (jTextFieldSaldoRegistro.getText().isEmpty()){
-            jTextFieldSaldoRegistro.setText("Escriba su saldo");
-            jTextFieldSaldoRegistro.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_jTextFieldCaducidadRegistroMousePressed
+    }//GEN-LAST:event_jFormattedTextFieldCaducidadMousePressed
 
     private void jTextFieldSaldoRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSaldoRegistroMousePressed
         // TODO add your handling code here:
-        if (jTextFieldSaldoRegistro.getText().equals("Escriba su saldo")){
+        if (String.valueOf(jTextFieldSaldoRegistro.getText()).equals("Escriba su saldo")) {
             jTextFieldSaldoRegistro.setText("");
             jTextFieldSaldoRegistro.setForeground(Color.black);
         }
-        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).isEmpty()){
-            jFormattedTextFieldNumTarjetaRegistro.setValue(0000000000000000);
-            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);   
+        if (jFormattedTextFieldNumTarjetaRegistro.getText().isEmpty()) {
+            jFormattedTextFieldNumTarjetaRegistro.setText("0000 0000 0000 0000");
+            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);
         }
-        if (jTextFieldCaducidadRegistro.getText().isEmpty()){
-            jTextFieldCaducidadRegistro.setText("Escriba la fecha de caducidad de la tarjeta");
-            jTextFieldCaducidadRegistro.setForeground(Color.gray);
+        if (jFormattedTextFieldCaducidad.getText().isEmpty()) {
+            jFormattedTextFieldCaducidad.setText("");
+            jFormattedTextFieldCaducidad.setForeground(Color.gray);
         }
     }//GEN-LAST:event_jTextFieldSaldoRegistroMousePressed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(registroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(registroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(registroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(registroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
+        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).equals("0000 0000 0000 0000")) {
+            jFormattedTextFieldNumTarjetaRegistro.setText("");
+            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.black);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+        if (jTextFieldSaldoRegistro.getText().isEmpty()) {
+            jTextFieldSaldoRegistro.setText("Escriba su saldo");
+            jTextFieldSaldoRegistro.setForeground(Color.gray);
+        }
+        if (jFormattedTextFieldCaducidad.getText().isEmpty()) {
+            jFormattedTextFieldCaducidad.setText("");
+            jFormattedTextFieldCaducidad.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new registroUsuario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCaducidad;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumTarjetaRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelCERegistro;
@@ -565,7 +553,6 @@ public class registroUsuario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorNumTarjetaRegistro;
     private javax.swing.JSeparator jSeparatorSaldoRegistro;
     private javax.swing.JTextField jTextFieldCERegistro;
-    private javax.swing.JTextField jTextFieldCaducidadRegistro;
     private javax.swing.JTextField jTextFieldDNIRegistro;
     private javax.swing.JTextField jTextFieldNombreRegistro;
     private javax.swing.JTextField jTextFieldSaldoRegistro;
