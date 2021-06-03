@@ -544,7 +544,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Francisco\Downloads\palomitas bien rojo.jpg"/>
+              <Image iconType="2" name="C:\Users\Francisco\Documents\GitHub\trabajojava\IMAGENES\palomitas bien rojo.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
