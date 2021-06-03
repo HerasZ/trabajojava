@@ -239,7 +239,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCorreoelectronicoActionPerformed
 
     private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
-        // TODO add your handling code here:
+        this.setVisible(false);
+        registroUsuario registro = new registroUsuario(this); 
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
     private void jLabelAccederbuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseEntered

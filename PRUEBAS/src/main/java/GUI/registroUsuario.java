@@ -27,6 +27,7 @@ public class registroUsuario extends javax.swing.JFrame {
     public registroUsuario(ventanaPrincipal principal) {
         menu = principal;
         initComponents();
+        this.setVisible(true);
     }
     
     private void validaremail(String email) throws EmailNoValido {
