@@ -12,7 +12,7 @@ public class UtilJavaflix {
     //Array para guardar todas las series,peliculas y usuarios registrados.
     private static ArrayList<Serie> series = new ArrayList<Serie>();
     private static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
-    private static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     public static void setSeries(ArrayList<Serie> series) {
         UtilJavaflix.series = series;
@@ -22,8 +22,8 @@ public class UtilJavaflix {
         UtilJavaflix.peliculas = peliculas;
     }
 
-    public static void setUsuarios(ArrayList<Usuario> usuarios) {
-        UtilJavaflix.usuarios = usuarios;
+    public static void setClientes(ArrayList<Cliente> clientes) {
+        UtilJavaflix.clientes = clientes;
     }
 
     public static void addSerie(Serie serie) {
@@ -42,21 +42,30 @@ public class UtilJavaflix {
         return peliculas;
     }
 
-    public static ArrayList<Usuario> getUsuarios() {
-        return usuarios;
+    public static ArrayList<Cliente> getClientes() {
+        return clientes;
     }
 
-    public static void addUsuario(Usuario usuario) {
-        UtilJavaflix.usuarios.add(usuario);
+    public static void addUsuario(Cliente cliente) {
+        UtilJavaflix.clientes.add(cliente);
     }
 
     public static void guardarDatos() {
         try {
-            if (!series.isEmpty() || !peliculas.isEmpty() || !usuarios.isEmpty()) {
-                try ( FileOutputStream ostreampro = new FileOutputStream("datosjavaflix.dat");  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
+            File datosjavaflix = new File("datosjavaflix.txt");
+            try {
+                System.out.println(datosjavaflix.length());
+                if (datosjavaflix.length() == 0) {
+                    datosjavaflix.createNewFile();
+                }
+            } catch (IOException e) {
+                System.out.println("Error de Input/Output al crear archivo:"+ e.getMessage());
+            }
+            if (!series.isEmpty() || !peliculas.isEmpty() || !clientes.isEmpty()) {
+                try ( FileOutputStream ostreampro = new FileOutputStream(datosjavaflix);  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
                     oospro.writeObject(series);
                     oospro.writeObject(peliculas);
-                    oospro.writeObject(usuarios);
+                    oospro.writeObject(clientes);
                 }
             } else {
                 System.out.println("Error: No hay datos para guardar");
@@ -74,7 +83,7 @@ public class UtilJavaflix {
             try ( FileInputStream istreampro = new FileInputStream("datosjavaflix.dat");  ObjectInputStream oispro = new ObjectInputStream(istreampro)) {
                 series = (ArrayList) oispro.readObject();
                 peliculas = (ArrayList) oispro.readObject();
-                usuarios = (ArrayList) oispro.readObject();
+                clientes = (ArrayList) oispro.readObject();
             }
         } catch (IOException ioe) {
             System.out.println("Error de Input/Output: " + ioe.getMessage());

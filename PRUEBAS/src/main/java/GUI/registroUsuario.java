@@ -129,7 +129,7 @@ public class registroUsuario extends javax.swing.JFrame {
 
         caducidadfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
-        saldofield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        saldofield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Datos Bancarios");
@@ -262,7 +262,7 @@ public class registroUsuario extends javax.swing.JFrame {
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar dd-MM-yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
-            System.out.println(UtilJavaflix.getUsuarios());
+            System.out.println(UtilJavaflix.getClientes());
         }
     }//GEN-LAST:event_jButtonSiguienteActionPerformed
 
