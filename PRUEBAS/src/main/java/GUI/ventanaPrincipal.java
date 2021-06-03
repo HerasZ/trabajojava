@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Clases.UtilJavaflix;
+
 /**
  *
  * @author Francisco
@@ -15,7 +17,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
      * Creates new form ventanaPrincipal
      */
     public ventanaPrincipal() {
+        UtilJavaflix.cargarDatos();
         initComponents();
+        System.out.println(UtilJavaflix.getClientes());
     }
 
     /**
@@ -38,6 +42,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel2.setText("Clave:");
 
@@ -164,6 +173,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
        
     }//GEN-LAST:event_jButtonAccederActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        UtilJavaflix.guardarDatos();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
