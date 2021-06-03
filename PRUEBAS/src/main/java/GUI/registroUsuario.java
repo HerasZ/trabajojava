@@ -389,9 +389,9 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jTextFieldCERegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCERegistroMousePressed
         // TODO add your handling code here:
-        if (jTextFieldNombreRegistro.getText().equals("Escriba su correo electrónico")){
-            jTextFieldNombreRegistro.setText("");
-            jTextFieldNombreRegistro.setForeground(Color.black);
+        if (jTextFieldCERegistro.getText().equals("Escriba su correo electrónico")){
+            jTextFieldCERegistro.setText("");
+            jTextFieldCERegistro.setForeground(Color.black);
         }
         if (jTextFieldDNIRegistro.getText().isEmpty()){
             jTextFieldDNIRegistro.setText("Escriba su DNI");
@@ -430,8 +430,8 @@ public class registroUsuario extends javax.swing.JFrame {
     private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
         // TODO add your handling code here:
         if (jFormattedTextFieldNumTarjetaRegistro.getText().equals("Escriba el número de tarjeta")){
-            jTextFieldNombreRegistro.setText("");
-            jTextFieldNombreRegistro.setForeground(Color.black);
+            jFormattedTextFieldNumTarjetaRegistro.setText("");
+            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.black);
         }
         if (jTextFieldCaducidadRegistro.getText().isEmpty()){
             jTextFieldCaducidadRegistro.setText("Escriba la fecha de caducidad de la tarjeta");
