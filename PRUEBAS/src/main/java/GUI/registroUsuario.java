@@ -81,7 +81,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jFormattedTextFieldNumTarjetaRegistro = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -302,6 +302,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 

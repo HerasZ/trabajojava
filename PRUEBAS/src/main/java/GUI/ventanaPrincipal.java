@@ -189,7 +189,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabelRegistrarsebuttom.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabelRegistrarsebuttom.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegistrarsebuttom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelRegistrarsebuttom.setText("REGISTRARSE");
+        jLabelRegistrarsebuttom.setText("REGISTRASRE");
         jLabelRegistrarsebuttom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelRegistrarsebuttom.setMaximumSize(new java.awt.Dimension(62, 17));
         jLabelRegistrarsebuttom.setMinimumSize(new java.awt.Dimension(62, 17));
@@ -223,6 +223,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 640));
 
         jLabelImagenPalomitas.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelImagenPalomitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
         jLabelImagenPalomitas.setText("jLabel2");
         jPanel1.add(jLabelImagenPalomitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
