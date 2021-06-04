@@ -5,15 +5,17 @@
  */
 package GUI;
 
-
 import java.awt.Color;
 
 import Clases.UtilJavaflix;
 
-
 import java.awt.Color;
 
 import Clases.UtilJavaflix;
+import Excepciones.EmailNoEncontrado;
+import Excepciones.EmailNoValido;
+import Excepciones.PasswordIncorrecta;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -240,7 +242,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jLabelAccederbuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseClicked
         // TODO add your handling code here:
-        
+        try {
+            UtilJavaflix.validarEmail(jTextFieldCEAcceso.getText());
+            UtilJavaflix.iniciarSesion(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()));
+        } catch (EmailNoValido | EmailNoEncontrado | PasswordIncorrecta ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jLabelAccederbuttomMouseClicked
 
     private void jTextFieldCEAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEAccesoActionPerformed
@@ -249,13 +256,13 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
         this.setVisible(false);
-        registroUsuario registro = new registroUsuario(this); 
+        registroUsuario registro = new registroUsuario(this);
         registro.setVisible(true);
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
     private void jLabelAccederbuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseEntered
         // TODO add your handling code here:   
-        jPanelAcceder.setBackground(new Color(148,13,30));
+        jPanelAcceder.setBackground(new Color(148, 13, 30));
     }//GEN-LAST:event_jLabelAccederbuttomMouseEntered
 
     private void jLabelAccederbuttomMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseReleased
@@ -268,26 +275,26 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jLabelAccederbuttomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseExited
         // TODO add your handling code here:
-        jPanelAcceder.setBackground(new Color(180,45,49));
+        jPanelAcceder.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabelAccederbuttomMouseExited
 
     private void jLabelRegistrarsebuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseEntered
         // TODO add your handling code here:
-        jPanelRegistrarse.setBackground(new Color(148,13,30));
+        jPanelRegistrarse.setBackground(new Color(148, 13, 30));
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseEntered
 
     private void jLabelRegistrarsebuttomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseExited
         // TODO add your handling code here:
-        jPanelRegistrarse.setBackground(new Color(180,45,49));
+        jPanelRegistrarse.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseExited
 
     private void jTextFieldCEAccesoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCEAccesoMousePressed
         // TODO add your handling code here:
-        if (jTextFieldCEAcceso.getText().equals("Escriba su correo electrónico")){
+        if (jTextFieldCEAcceso.getText().equals("Escriba su correo electrónico")) {
             jTextFieldCEAcceso.setText("");
             jTextFieldCEAcceso.setForeground(Color.black);
         }
-        if (String.valueOf(jPasswordFieldClaveAcceso.getPassword()).isEmpty()){
+        if (String.valueOf(jPasswordFieldClaveAcceso.getPassword()).isEmpty()) {
             jPasswordFieldClaveAcceso.setText("**********");
             jPasswordFieldClaveAcceso.setForeground(Color.gray);
         }
@@ -295,18 +302,18 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jPasswordFieldClaveAccesoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveAccesoMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(jPasswordFieldClaveAcceso.getPassword()).equals("**********")){
-        jPasswordFieldClaveAcceso.setText("");
-        jPasswordFieldClaveAcceso.setForeground(Color.black);
+        if (String.valueOf(jPasswordFieldClaveAcceso.getPassword()).equals("**********")) {
+            jPasswordFieldClaveAcceso.setText("");
+            jPasswordFieldClaveAcceso.setForeground(Color.black);
         }
-        if (jTextFieldCEAcceso.getText().isEmpty()){
-        jTextFieldCEAcceso.setText("Escriba su correo electrónico");
-        jTextFieldCEAcceso.setForeground(Color.gray);
+        if (jTextFieldCEAcceso.getText().isEmpty()) {
+            jTextFieldCEAcceso.setText("Escriba su correo electrónico");
+            jTextFieldCEAcceso.setForeground(Color.gray);
         }
     }//GEN-LAST:event_jPasswordFieldClaveAccesoMousePressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      
+
     }//GEN-LAST:event_formWindowClosing
 
     /**

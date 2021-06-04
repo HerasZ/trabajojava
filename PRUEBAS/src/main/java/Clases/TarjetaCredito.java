@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class TarjetaCredito implements Serializable {
+
     //atributos
     private String numero;
     private LocalDate caducidad;
@@ -44,8 +45,4 @@ public class TarjetaCredito implements Serializable {
         return "TarjetaCredito{" + "numero=" + numero + ", caducidad=" + caducidad + ", saldo=" + saldo + '}';
     }
 
-    
-    
-   
-    
 }

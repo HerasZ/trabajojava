@@ -41,6 +41,5 @@ public abstract class Usuario implements Serializable {
     public String toString() {
         return "Usuario{" + "clave=" + clave + ", correoelectronico=" + correoelectronico + '}';
     }
-    
 
 }

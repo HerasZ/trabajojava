@@ -36,27 +36,6 @@ public class registroUsuario extends javax.swing.JFrame {
         this.setVisible(true);
     }
 
-    private void validaremail(String email) throws EmailNoValido {
-        int atposition = 0, dotposition = 0, flag = 0, atcount = 0;
-        for (int i = 0; i < email.length(); i++) {
-
-            if (email.charAt(i) == '@') {
-                atcount++;
-                atposition = i;
-                if (atcount >= 2) {
-                    flag = 1;
-                    break;
-                }
-            }
-            if (email.charAt(i) == '.') {
-                dotposition = i;
-            }
-        }
-        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length() || flag == 1) {
-            throw new EmailNoValido("Error en el formato del e-mail");
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -308,10 +287,11 @@ public class registroUsuario extends javax.swing.JFrame {
         jFormattedTextFieldNumTarjetaRegistro.setColumns(16);
         jFormattedTextFieldNumTarjetaRegistro.setForeground(java.awt.Color.gray);
         try {
-            jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-####-####")));
+            jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### #### #### ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldNumTarjetaRegistro.setText("0000 0000 0000 0000            ");
         jFormattedTextFieldNumTarjetaRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldNumTarjetaRegistroMousePressed(evt);
@@ -344,18 +324,18 @@ public class registroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDNIRegistroActionPerformed
 
     private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
-        try{
+        try {
             // Hacemos esto para validar los dos campos 
-            validaremail(jTextFieldCERegistro.getText());
+            UtilJavaflix.validarEmail(jTextFieldCERegistro.getText());
             LocalDate fechacaducidad = LocalDate.parse(jFormattedTextFieldCaducidad.getText());
-                    
-            TarjetaCredito nuevatarjeta = new TarjetaCredito(jFormattedTextFieldNumTarjetaRegistro.getText(),fechacaducidad,
-                                            Double.parseDouble(jTextFieldSaldoRegistro.getText()));
-            Cliente nuevocliente = new Cliente(jTextFieldDNIRegistro.getText(),jTextFieldNombreRegistro.getText(),
-                                    jTextFieldCERegistro.getText(),String.valueOf(jPasswordFieldClaveRegistro.getPassword()),nuevatarjeta);
+
+            TarjetaCredito nuevatarjeta = new TarjetaCredito(jFormattedTextFieldNumTarjetaRegistro.getText(), fechacaducidad,
+                    Double.parseDouble(jTextFieldSaldoRegistro.getText()));
+            Cliente nuevocliente = new Cliente(jTextFieldDNIRegistro.getText(), jTextFieldNombreRegistro.getText(),
+                    jTextFieldCERegistro.getText(), String.valueOf(jPasswordFieldClaveRegistro.getPassword()), nuevatarjeta);
             UtilJavaflix.addUsuario(nuevocliente);
             UtilJavaflix.guardarDatos();
-            JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente","Registro completado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
             padre.setVisible(true);
             this.dispose();
         } catch (EmailNoValido ex) {

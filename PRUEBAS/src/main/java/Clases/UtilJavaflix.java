@@ -1,5 +1,8 @@
 package Clases;
 
+import Excepciones.EmailNoEncontrado;
+import Excepciones.EmailNoValido;
+import Excepciones.PasswordIncorrecta;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -58,7 +61,7 @@ public class UtilJavaflix {
                     datosjavaflix.createNewFile();
                 }
             } catch (IOException e) {
-                System.out.println("Error de Input/Output al crear archivo:"+ e.getMessage());
+                System.out.println("Error de Input/Output al crear archivo:" + e.getMessage());
             }
             if (!series.isEmpty() || !peliculas.isEmpty() || !clientes.isEmpty()) {
                 try ( FileOutputStream ostreampro = new FileOutputStream(datosjavaflix);  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
@@ -90,5 +93,37 @@ public class UtilJavaflix {
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
         }
+    }
+        public static void validarEmail(String email) throws EmailNoValido {
+        int atposition = 0, dotposition = 0, flag = 0, atcount = 0;
+        for (int i = 0; i < email.length(); i++) {
+
+            if (email.charAt(i) == '@') {
+                atcount++;
+                atposition = i;
+                if (atcount >= 2) {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (email.charAt(i) == '.') {
+                dotposition = i;
+            }
+        }
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length() || flag == 1) {
+            throw new EmailNoValido("Error en el formato del e-mail");
+        }
+    }
+    public static void iniciarSesion(String email_provided, String pass_provided) throws EmailNoEncontrado, PasswordIncorrecta {
+        for (Cliente cliente_actual : clientes) {
+            if (cliente_actual.getCorreoelectronico().equals(email_provided)) {
+                if (!cliente_actual.getClave().equals(pass_provided)) {
+                    throw new PasswordIncorrecta("La contraseña no es correcta");
+                } else {
+                    return;
+                }
+            }
+        }
+        throw new EmailNoEncontrado("El email especificado no esta registrado");
     }
 }
