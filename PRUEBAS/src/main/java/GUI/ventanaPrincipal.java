@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Clases.Cliente;
 import java.awt.Color;
 
 import Clases.UtilJavaflix;
@@ -29,7 +30,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     public ventanaPrincipal() {
         UtilJavaflix.cargarDatos();
         initComponents();
-        System.out.println(UtilJavaflix.getClientes());
     }
 
     /**
@@ -244,7 +244,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             UtilJavaflix.validarEmail(jTextFieldCEAcceso.getText());
-            UtilJavaflix.iniciarSesion(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()));
+            Cliente cliente_logeado = UtilJavaflix.iniciarSesion(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()));
+            JOptionPane.showMessageDialog(rootPane, "Bienvenido,"+cliente_logeado.getNombre() , "Inicio de sesion correcto", JOptionPane.INFORMATION_MESSAGE);
         } catch (EmailNoValido | EmailNoEncontrado | PasswordIncorrecta ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

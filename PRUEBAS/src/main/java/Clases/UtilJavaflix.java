@@ -114,13 +114,13 @@ public class UtilJavaflix {
             throw new EmailNoValido("Error en el formato del e-mail");
         }
     }
-    public static void iniciarSesion(String email_provided, String pass_provided) throws EmailNoEncontrado, PasswordIncorrecta {
+    public static Cliente iniciarSesion(String email_provided, String pass_provided) throws EmailNoEncontrado, PasswordIncorrecta {
         for (Cliente cliente_actual : clientes) {
             if (cliente_actual.getCorreoelectronico().equals(email_provided)) {
                 if (!cliente_actual.getClave().equals(pass_provided)) {
                     throw new PasswordIncorrecta("La contraseña no es correcta");
                 } else {
-                    return;
+                    return cliente_actual;
                 }
             }
         }
