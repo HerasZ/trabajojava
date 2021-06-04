@@ -33,6 +33,7 @@ public class registroUsuario extends javax.swing.JFrame {
     public registroUsuario(ventanaPrincipal main) {
         padre = main;
         initComponents();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
@@ -49,7 +50,10 @@ public class registroUsuario extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jPanelRegistro = new javax.swing.JPanel();
         jPanelOpcionesRegistro = new javax.swing.JPanel();
-        jLabelSalirRegistro = new javax.swing.JLabel();
+        jPanelCerrarRegistro = new javax.swing.JPanel();
+        jLabelCerrarRegistro = new javax.swing.JLabel();
+        jPanelAtrasRegistro = new javax.swing.JPanel();
+        jLabelAtrasRegistro = new javax.swing.JLabel();
         jLabelCREATUCUENTARegistro = new javax.swing.JLabel();
         jLabelDEJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelDoblezRegistro = new javax.swing.JLabel();
@@ -85,6 +89,7 @@ public class registroUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -94,35 +99,51 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelOpcionesRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelOpcionesRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelSalirRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelSalirRegistro.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabelSalirRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelSalirRegistro.setText("X");
-        jLabelSalirRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCerrarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelSalirRegistroMouseClicked(evt);
+                jPanelCerrarRegistroMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelSalirRegistroMouseEntered(evt);
+                jPanelCerrarRegistroMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelSalirRegistroMouseExited(evt);
+                jPanelCerrarRegistroMouseExited(evt);
             }
         });
+        jPanelCerrarRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelOpcionesRegistroLayout = new javax.swing.GroupLayout(jPanelOpcionesRegistro);
-        jPanelOpcionesRegistro.setLayout(jPanelOpcionesRegistroLayout);
-        jPanelOpcionesRegistroLayout.setHorizontalGroup(
-            jPanelOpcionesRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOpcionesRegistroLayout.createSequentialGroup()
-                .addComponent(jLabelSalirRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 740, Short.MAX_VALUE))
-        );
-        jPanelOpcionesRegistroLayout.setVerticalGroup(
-            jPanelOpcionesRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSalirRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
+        jLabelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelCerrarRegistro.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        jLabelCerrarRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCerrarRegistro.setText("X");
+        jPanelCerrarRegistro.add(jLabelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+
+        jPanelOpcionesRegistro.add(jPanelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+
+        jPanelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAtrasRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelAtrasRegistroMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelAtrasRegistroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelAtrasRegistroMouseExited(evt);
+            }
+        });
+        jPanelAtrasRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAtrasRegistro.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jLabelAtrasRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAtrasRegistro.setText("< ");
+        jPanelAtrasRegistro.add(jLabelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
+
+        jPanelOpcionesRegistro.add(jPanelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
 
         jPanelRegistro.add(jPanelOpcionesRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
@@ -316,6 +337,10 @@ public class registroUsuario extends javax.swing.JFrame {
         jFormattedTextFieldCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         jFormattedTextFieldCaducidad.setText("0000 00 00\n");
         jFormattedTextFieldCaducidad.setToolTipText("");
+        jFormattedTextFieldCaducidad.setMinimumSize(new java.awt.Dimension(1, 14));
+        jFormattedTextFieldCaducidad.setPreferredSize(new java.awt.Dimension(128, 14));
+        jFormattedTextFieldCaducidad.setSelectionEnd(19);
+        jFormattedTextFieldCaducidad.setSelectionStart(19);
         jFormattedTextFieldCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldCaducidadMousePressed(evt);
@@ -540,32 +565,50 @@ public class registroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
 
-    private void jLabelSalirRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirRegistroMouseEntered
+    private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
-        jLabelSalirRegistro.setBackground(new Color(232,17,35));
-        jLabelSalirRegistro.setForeground(new Color(255,255,255));
-    }//GEN-LAST:event_jLabelSalirRegistroMouseEntered
+        jPanelCerrarRegistro.setBackground( new Color(232,17,35));
+        jLabelCerrarRegistro.setForeground( new Color(255,255,255));
+    }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
 
-    private void jLabelSalirRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirRegistroMouseExited
+    private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
         // TODO add your handling code here:
-        jLabelSalirRegistro.setBackground(new Color(255,255,255));
-        jLabelSalirRegistro.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_jLabelSalirRegistroMouseExited
+        jPanelCerrarRegistro.setBackground( new Color(255,255,255));
+        jLabelCerrarRegistro.setForeground( new Color(0,0,0));
+    }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
 
-    private void jLabelSalirRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirRegistroMouseClicked
+    private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
+        // TODO add your handling code here:
+        jPanelAtrasRegistro.setBackground( new Color(229,229,229));
+    }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
+
+    private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
+        // TODO add your handling code here:
+        jPanelAtrasRegistro.setBackground( new Color(255,255,255));
+    }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
+
+    private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         padre.setVisible(true);
-    }//GEN-LAST:event_jLabelSalirRegistroMouseClicked
+    }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
+
+    private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
+        // TODO add your handling code here:      
+        System.exit(0);
+        
+    }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JFormattedTextField jFormattedTextFieldCaducidad;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumTarjetaRegistro;
+    private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCERegistro;
     private javax.swing.JLabel jLabelCREATUCUENTARegistro;
     private javax.swing.JLabel jLabelCaducidadRegistro;
+    private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelClaveRegistro;
     private javax.swing.JLabel jLabelDATOSBANCARIOS;
     private javax.swing.JLabel jLabelDEJAVAFLIXRegistro;
@@ -579,7 +622,8 @@ public class registroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNumTarjetaRegistro;
     private javax.swing.JLabel jLabelRegistrarsebuttomRegistro;
     private javax.swing.JLabel jLabelSaldoRegistro;
-    private javax.swing.JLabel jLabelSalirRegistro;
+    private javax.swing.JPanel jPanelAtrasRegistro;
+    private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelIntroDatosRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistrarseRegistro;

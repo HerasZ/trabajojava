@@ -43,6 +43,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanelAcceso = new javax.swing.JPanel();
+        jPanelOpcionesAcceso = new javax.swing.JPanel();
+        jPanelCerrarAcceso = new javax.swing.JPanel();
+        jLabelCerrarAcceso = new javax.swing.JLabel();
         jLabelJAVAFLIXAcceso = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraAcceso = new javax.swing.JLabel();
         jLabelINICIARSESIONAcceso = new javax.swing.JLabel();
@@ -63,6 +66,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabelFondoAcceso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -71,17 +75,43 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jPanelAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanelOpcionesAcceso.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelOpcionesAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelCerrarAcceso.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCerrarAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelCerrarAccesoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCerrarAccesoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCerrarAccesoMouseExited(evt);
+            }
+        });
+        jPanelCerrarAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelCerrarAcceso.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        jLabelCerrarAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCerrarAcceso.setText("X");
+        jPanelCerrarAcceso.add(jLabelCerrarAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+
+        jPanelOpcionesAcceso.add(jPanelCerrarAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+
+        jPanelAcceso.add(jPanelOpcionesAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
+
         jLabelJAVAFLIXAcceso.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
         jLabelJAVAFLIXAcceso.setForeground(new java.awt.Color(255, 255, 255));
         jLabelJAVAFLIXAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJAVAFLIXAcceso.setText("JAVAFLIX");
-        jPanelAcceso.add(jLabelJAVAFLIXAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 540, 130));
+        jPanelAcceso.add(jLabelJAVAFLIXAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
 
         jLabelJAVAFLIXSombraAcceso.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
         jLabelJAVAFLIXSombraAcceso.setForeground(new java.awt.Color(112, 101, 101));
         jLabelJAVAFLIXSombraAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJAVAFLIXSombraAcceso.setText("JAVAFLIX");
-        jPanelAcceso.add(jLabelJAVAFLIXSombraAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 540, 130));
+        jPanelAcceso.add(jLabelJAVAFLIXSombraAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
 
         jLabelINICIARSESIONAcceso.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
         jLabelINICIARSESIONAcceso.setForeground(new java.awt.Color(255, 255, 255));
@@ -321,6 +351,24 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowClosing
 
+    private void jPanelCerrarAccesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseEntered
+        // TODO add your handling code here:
+        jPanelCerrarAcceso.setBackground( new Color(232,17,35));
+        jLabelCerrarAcceso.setForeground( new Color(255,255,255));
+    }//GEN-LAST:event_jPanelCerrarAccesoMouseEntered
+
+    private void jPanelCerrarAccesoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseExited
+        // TODO add your handling code here:
+        jPanelCerrarAcceso.setBackground( new Color(255,255,255));
+        jLabelCerrarAcceso.setForeground( new Color(0,0,0));
+    }//GEN-LAST:event_jPanelCerrarAccesoMouseExited
+
+    private void jPanelCerrarAccesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseClicked
+        // TODO add your handling code here:       
+        System.exit(0);
+        
+    }//GEN-LAST:event_jPanelCerrarAccesoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -351,7 +399,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         /* Create and djLabelINICIARSESIONthe form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaPrincipal().setVisible(true);
+                ventanaPrincipal acceso = new ventanaPrincipal();
+                acceso.setLocationRelativeTo(null);
+                acceso.setVisible(true);
+                
               
             }
         });
@@ -362,6 +413,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabelAccederbuttomAcceso;
     private javax.swing.JLabel jLabelCEAcceso;
+    private javax.swing.JLabel jLabelCerrarAcceso;
     private javax.swing.JLabel jLabelClaveAcceso;
     private javax.swing.JLabel jLabelDoblezAcceso;
     private javax.swing.JLabel jLabelFondoAcceso;
@@ -373,7 +425,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRegistrarsebuttomAcceso;
     private javax.swing.JPanel jPanelAccederAcceso;
     private javax.swing.JPanel jPanelAcceso;
+    private javax.swing.JPanel jPanelCerrarAcceso;
     private javax.swing.JPanel jPanelIntroDatosAcceso;
+    private javax.swing.JPanel jPanelOpcionesAcceso;
     private javax.swing.JPanel jPanelRegistrarseAcceso;
     private javax.swing.JPasswordField jPasswordFieldClaveAcceso;
     private javax.swing.JSeparator jSeparatorCEAcceso;
