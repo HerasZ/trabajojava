@@ -399,7 +399,7 @@ public class registroUsuario extends javax.swing.JFrame {
                     Double.parseDouble(jTextFieldSaldoRegistro.getText()));
             Cliente nuevocliente = new Cliente(jTextFieldDNIRegistro.getText(), jTextFieldNombreRegistro.getText(),
                     jTextFieldCERegistro.getText(), String.valueOf(jPasswordFieldClaveRegistro.getPassword()), nuevatarjeta);
-            UtilJavaflix.addUsuario(nuevocliente);
+            UtilJavaflix.addCliente(nuevocliente);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
             padre.setVisible(true);

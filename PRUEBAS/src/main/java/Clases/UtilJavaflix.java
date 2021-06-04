@@ -1,10 +1,14 @@
 package Clases;
 
+import Excepciones.CriterioNoValido;
 import Excepciones.EmailNoEncontrado;
 import Excepciones.EmailNoValido;
 import Excepciones.PasswordIncorrecta;
+import java.util.*;
 import java.io.*;
-import java.util.ArrayList;
+import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +20,7 @@ public class UtilJavaflix {
     private static ArrayList<Serie> series = new ArrayList<Serie>();
     private static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
     private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    private static final Administrador admin = new Administrador("admin@javaflix.com", "admin");
 
     public static void setSeries(ArrayList<Serie> series) {
         UtilJavaflix.series = series;
@@ -49,7 +54,7 @@ public class UtilJavaflix {
         return clientes;
     }
 
-    public static void addUsuario(Cliente cliente) {
+    public static void addCliente(Cliente cliente) {
         UtilJavaflix.clientes.add(cliente);
     }
 
@@ -68,7 +73,6 @@ public class UtilJavaflix {
                     oospro.writeObject(series);
                     oospro.writeObject(peliculas);
                     oospro.writeObject(clientes);
-                    System.out.println(clientes);
                 }
             } else {
                 System.out.println("Error: No hay datos para guardar");
@@ -94,7 +98,8 @@ public class UtilJavaflix {
             System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
         }
     }
-        public static void validarEmail(String email) throws EmailNoValido {
+
+    public static void validarEmail(String email) throws EmailNoValido {
         int atposition = 0, dotposition = 0, flag = 0, atcount = 0;
         for (int i = 0; i < email.length(); i++) {
 
@@ -114,6 +119,11 @@ public class UtilJavaflix {
             throw new EmailNoValido("Error en el formato del e-mail");
         }
     }
+
+    public static boolean checkAdminlogin(String email_provided,String pass_provided) {
+        return(email_provided.equals(UtilJavaflix.admin.getCorreoelectronico()) && pass_provided.equals(UtilJavaflix.admin.getClave()));
+    }
+
     public static Cliente iniciarSesion(String email_provided, String pass_provided) throws EmailNoEncontrado, PasswordIncorrecta {
         for (Cliente cliente_actual : clientes) {
             if (cliente_actual.getCorreoelectronico().equals(email_provided)) {
@@ -125,5 +135,32 @@ public class UtilJavaflix {
             }
         }
         throw new EmailNoEncontrado("El email especificado no esta registrado");
+    }
+
+    public static ArrayList<Cliente> busquedaClientes(ArrayList<Cliente> clientes, String valorbuscado, String criterio) throws CriterioNoValido {
+        ArrayList<Cliente> clientesbuscado = new ArrayList<>();
+        String valoractual = null;
+        for (Cliente cliente : clientes) {
+            switch (criterio) {
+                case "DNI":
+                    valoractual = cliente.getDni();
+                    break;
+                case "Nombre":
+                    valoractual = cliente.getNombre();
+                    break;
+                case "Correo electronico":
+                    valoractual = cliente.getCorreoelectronico();
+                    break;
+                case "Clave":
+                    valoractual = cliente.getClave();
+                    break;
+                default:
+                    throw new CriterioNoValido("El criterio especificado no se puede encontrar");
+            }
+            if (valoractual.contains(criterio)) {
+                clientesbuscado.add(cliente);
+            }
+        }
+        return clientesbuscado;
     }
 }
