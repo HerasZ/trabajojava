@@ -47,16 +47,16 @@ public class registroUsuario extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
-        jLabelCREATUCUENTA = new javax.swing.JLabel();
-        jLabelDEJAVAFLIX = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanelRegistrarse = new javax.swing.JPanel();
-        jLabelRegistrarsebuttom = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelRegistro = new javax.swing.JPanel();
+        jLabelCREATUCUENTARegistro = new javax.swing.JLabel();
+        jLabelDEJAVAFLIXRegistro = new javax.swing.JLabel();
+        jLabelDoblezRegistro = new javax.swing.JLabel();
+        jLabelFondoEtiquetasRegistro = new javax.swing.JLabel();
+        jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
+        jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
+        jPanelRegistrarseRegistro = new javax.swing.JPanel();
+        jLabelRegistrarsebuttomRegistro = new javax.swing.JLabel();
+        jPanelIntroDatosRegistro = new javax.swing.JPanel();
         jLabelDNIRegistro = new javax.swing.JLabel();
         jTextFieldDNIRegistro = new javax.swing.JTextField();
         jSeparatorDNIRegistro = new javax.swing.JSeparator();
@@ -79,7 +79,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jPasswordFieldClaveRegistro = new javax.swing.JPasswordField();
         jFormattedTextFieldCaducidad = new javax.swing.JFormattedTextField();
         jFormattedTextFieldNumTarjetaRegistro = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelFondoRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -89,87 +89,90 @@ public class registroUsuario extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCREATUCUENTA.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
-        jLabelCREATUCUENTA.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCREATUCUENTA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelCREATUCUENTA.setText("CREA TU CUENTA");
-        jPanel1.add(jLabelCREATUCUENTA, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 430, 70));
+        jLabelCREATUCUENTARegistro.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
+        jLabelCREATUCUENTARegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCREATUCUENTARegistro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelCREATUCUENTARegistro.setText("CREA TU CUENTA");
+        jPanelRegistro.add(jLabelCREATUCUENTARegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 430, 70));
 
-        jLabelDEJAVAFLIX.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
-        jLabelDEJAVAFLIX.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDEJAVAFLIX.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelDEJAVAFLIX.setText("DE JAVAFLIX");
-        jPanel1.add(jLabelDEJAVAFLIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 410, 70));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
+        jLabelDEJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
+        jLabelDEJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDEJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelDEJAVAFLIXRegistro.setText("DE JAVAFLIX");
+        jPanelRegistro.add(jLabelDEJAVAFLIXRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 410, 70));
 
-        jLabel7.setText("jLabel7");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
+        jLabelDoblezRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/doblez.jpg"))); // NOI18N
+        jPanelRegistro.add(jLabelDoblezRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("JAVAFLIX");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 540, 130));
+        jLabelFondoEtiquetasRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondoetiquetas.jpg"))); // NOI18N
+        jLabelFondoEtiquetasRegistro.setText("jLabel7");
+        jPanelRegistro.add(jLabelFondoEtiquetasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
 
-        jPanelRegistrarse.setBackground(new java.awt.Color(180, 45, 49));
-        jPanelRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelRegistrarse.setPreferredSize(new java.awt.Dimension(170, 62));
-        jPanelRegistrarse.setRequestFocusEnabled(false);
-        jPanelRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIXRegistro.setText("JAVAFLIX");
+        jPanelRegistro.add(jLabelJAVAFLIXRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 540, 130));
+
+        jLabelJAVAFLIXSombraRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIXSombraRegistro.setForeground(new java.awt.Color(112, 101, 101));
+        jLabelJAVAFLIXSombraRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIXSombraRegistro.setText("JAVAFLIX");
+        jPanelRegistro.add(jLabelJAVAFLIXSombraRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 540, 130));
+
+        jPanelRegistrarseRegistro.setBackground(new java.awt.Color(180, 45, 49));
+        jPanelRegistrarseRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelRegistrarseRegistro.setPreferredSize(new java.awt.Dimension(170, 62));
+        jPanelRegistrarseRegistro.setRequestFocusEnabled(false);
+        jPanelRegistrarseRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelRegistrarseMouseEntered(evt);
+                jPanelRegistrarseRegistroMouseEntered(evt);
             }
         });
 
-        jLabelRegistrarsebuttom.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabelRegistrarsebuttom.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelRegistrarsebuttom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelRegistrarsebuttom.setText("REGISTRARSE");
-        jLabelRegistrarsebuttom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelRegistrarsebuttom.setFocusable(false);
-        jLabelRegistrarsebuttom.setMaximumSize(new java.awt.Dimension(62, 17));
-        jLabelRegistrarsebuttom.setMinimumSize(new java.awt.Dimension(62, 17));
-        jLabelRegistrarsebuttom.setName(""); // NOI18N
-        jLabelRegistrarsebuttom.setPreferredSize(new java.awt.Dimension(62, 17));
-        jLabelRegistrarsebuttom.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelRegistrarsebuttomRegistro.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelRegistrarsebuttomRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistrarsebuttomRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelRegistrarsebuttomRegistro.setText("REGISTRARSE");
+        jLabelRegistrarsebuttomRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelRegistrarsebuttomRegistro.setFocusable(false);
+        jLabelRegistrarsebuttomRegistro.setMaximumSize(new java.awt.Dimension(62, 17));
+        jLabelRegistrarsebuttomRegistro.setMinimumSize(new java.awt.Dimension(62, 17));
+        jLabelRegistrarsebuttomRegistro.setName(""); // NOI18N
+        jLabelRegistrarsebuttomRegistro.setPreferredSize(new java.awt.Dimension(62, 17));
+        jLabelRegistrarsebuttomRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRegistrarsebuttomMouseClicked(evt);
+                jLabelRegistrarsebuttomRegistroMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelRegistrarsebuttomMouseEntered(evt);
+                jLabelRegistrarsebuttomRegistroMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelRegistrarsebuttomMouseExited(evt);
+                jLabelRegistrarsebuttomRegistroMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelRegistrarseLayout = new javax.swing.GroupLayout(jPanelRegistrarse);
-        jPanelRegistrarse.setLayout(jPanelRegistrarseLayout);
-        jPanelRegistrarseLayout.setHorizontalGroup(
-            jPanelRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelRegistrarseRegistroLayout = new javax.swing.GroupLayout(jPanelRegistrarseRegistro);
+        jPanelRegistrarseRegistro.setLayout(jPanelRegistrarseRegistroLayout);
+        jPanelRegistrarseRegistroLayout.setHorizontalGroup(
+            jPanelRegistrarseRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelRegistrarsebuttomRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
         );
-        jPanelRegistrarseLayout.setVerticalGroup(
-            jPanelRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+        jPanelRegistrarseRegistroLayout.setVerticalGroup(
+            jPanelRegistrarseRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelRegistrarsebuttomRegistro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 240, 90));
+        jPanelRegistro.add(jPanelRegistrarseRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 240, 90));
 
-        jLabel6.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(112, 101, 101));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("JAVAFLIX");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 540, 130));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelIntroDatosRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelIntroDatosRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelDNIRegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelDNIRegistro.setText("DNI");
-        jPanel2.add(jLabelDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 300, -1));
+        jPanelIntroDatosRegistro.add(jLabelDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 300, -1));
 
         jTextFieldDNIRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldDNIRegistro.setForeground(java.awt.Color.gray);
@@ -186,12 +189,12 @@ public class registroUsuario extends javax.swing.JFrame {
                 jTextFieldDNIRegistroActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 300, -1));
-        jPanel2.add(jSeparatorDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 310, 20));
+        jPanelIntroDatosRegistro.add(jTextFieldDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 300, -1));
+        jPanelIntroDatosRegistro.add(jSeparatorDNIRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 310, 20));
 
         jLabelNombreRegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelNombreRegistro.setText("NOMBRE");
-        jPanel2.add(jLabelNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 300, -1));
+        jPanelIntroDatosRegistro.add(jLabelNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 300, -1));
 
         jTextFieldNombreRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldNombreRegistro.setForeground(java.awt.Color.gray);
@@ -207,12 +210,12 @@ public class registroUsuario extends javax.swing.JFrame {
                 jTextFieldNombreRegistroActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, -1));
-        jPanel2.add(jSeparatorNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 310, 20));
+        jPanelIntroDatosRegistro.add(jTextFieldNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, -1));
+        jPanelIntroDatosRegistro.add(jSeparatorNombreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 310, 20));
 
         jLabelNumTarjetaRegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelNumTarjetaRegistro.setText("Nº TARJETA");
-        jPanel2.add(jLabelNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 300, -1));
+        jPanelIntroDatosRegistro.add(jLabelNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 300, -1));
 
         jTextFieldCERegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldCERegistro.setForeground(java.awt.Color.gray);
@@ -223,20 +226,20 @@ public class registroUsuario extends javax.swing.JFrame {
                 jTextFieldCERegistroMousePressed(evt);
             }
         });
-        jPanel2.add(jTextFieldCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 300, -1));
-        jPanel2.add(jSeparatorClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 310, 20));
+        jPanelIntroDatosRegistro.add(jTextFieldCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 300, -1));
+        jPanelIntroDatosRegistro.add(jSeparatorClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 310, 20));
 
         jLabelCaducidadRegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelCaducidadRegistro.setText("CADUCIDAD (YYYY-MM-DD)");
-        jPanel2.add(jLabelCaducidadRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 300, -1));
+        jPanelIntroDatosRegistro.add(jLabelCaducidadRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 300, -1));
 
         jLabelSaldoRegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelSaldoRegistro.setText("SALDO");
-        jPanel2.add(jLabelSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 300, -1));
+        jPanelIntroDatosRegistro.add(jLabelSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 300, -1));
 
         jLabelClaveRegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelClaveRegistro.setText("CLAVE");
-        jPanel2.add(jLabelClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 300, 20));
+        jPanelIntroDatosRegistro.add(jLabelClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 300, 20));
 
         jTextFieldSaldoRegistro.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldSaldoRegistro.setForeground(java.awt.Color.gray);
@@ -247,20 +250,20 @@ public class registroUsuario extends javax.swing.JFrame {
                 jTextFieldSaldoRegistroMousePressed(evt);
             }
         });
-        jPanel2.add(jTextFieldSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 300, -1));
+        jPanelIntroDatosRegistro.add(jTextFieldSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 300, -1));
 
         jLabelDATOSBANCARIOS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelDATOSBANCARIOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelDATOSBANCARIOS.setText("DATOS BANCARIOS");
-        jPanel2.add(jLabelDATOSBANCARIOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 410, -1));
-        jPanel2.add(jSeparatorNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 310, 20));
-        jPanel2.add(jSeparatorCaducidadRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 310, 20));
-        jPanel2.add(jSeparatorSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 660, 310, 20));
-        jPanel2.add(jSeparatorCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 310, 20));
+        jPanelIntroDatosRegistro.add(jLabelDATOSBANCARIOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 410, -1));
+        jPanelIntroDatosRegistro.add(jSeparatorNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 310, 20));
+        jPanelIntroDatosRegistro.add(jSeparatorCaducidadRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 310, 20));
+        jPanelIntroDatosRegistro.add(jSeparatorSaldoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 660, 310, 20));
+        jPanelIntroDatosRegistro.add(jSeparatorCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 310, 20));
 
         jLabelCERegistro.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelCERegistro.setText("CORREO ELECTRÓNICO");
-        jPanel2.add(jLabelCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 300, 20));
+        jPanelIntroDatosRegistro.add(jLabelCERegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 300, 20));
 
         jPasswordFieldClaveRegistro.setForeground(java.awt.Color.gray);
         jPasswordFieldClaveRegistro.setText("**********");
@@ -270,7 +273,7 @@ public class registroUsuario extends javax.swing.JFrame {
                 jPasswordFieldClaveRegistroMousePressed(evt);
             }
         });
-        jPanel2.add(jPasswordFieldClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 300, -1));
+        jPanelIntroDatosRegistro.add(jPasswordFieldClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 300, -1));
 
         jFormattedTextFieldCaducidad.setBorder(null);
         jFormattedTextFieldCaducidad.setColumns(16);
@@ -281,7 +284,7 @@ public class registroUsuario extends javax.swing.JFrame {
                 jFormattedTextFieldCaducidadMousePressed(evt);
             }
         });
-        jPanel2.add(jFormattedTextFieldCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, -1));
+        jPanelIntroDatosRegistro.add(jFormattedTextFieldCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, -1));
 
         jFormattedTextFieldNumTarjetaRegistro.setBorder(null);
         jFormattedTextFieldNumTarjetaRegistro.setColumns(16);
@@ -297,24 +300,24 @@ public class registroUsuario extends javax.swing.JFrame {
                 jFormattedTextFieldNumTarjetaRegistroMousePressed(evt);
             }
         });
-        jPanel2.add(jFormattedTextFieldNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 300, -1));
+        jPanelIntroDatosRegistro.add(jFormattedTextFieldNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 300, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
+        jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
+        jLabelFondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFondoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
+        jLabelFondoRegistro.setText("jLabel2");
+        jPanelRegistro.add(jLabelFondoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -324,7 +327,7 @@ public class registroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDNIRegistroActionPerformed
 
-    private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
+    private void jLabelRegistrarsebuttomRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomRegistroMouseClicked
         try {
             // Hacemos esto para validar los dos campos 
             UtilJavaflix.validarEmail(jTextFieldCERegistro.getText());
@@ -346,17 +349,17 @@ public class registroUsuario extends javax.swing.JFrame {
         } finally {
             System.out.println(UtilJavaflix.getClientes());
         }
-    }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
+    }//GEN-LAST:event_jLabelRegistrarsebuttomRegistroMouseClicked
 
-    private void jLabelRegistrarsebuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseEntered
+    private void jLabelRegistrarsebuttomRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelRegistrarse.setBackground(new Color(148, 13, 30));
-    }//GEN-LAST:event_jLabelRegistrarsebuttomMouseEntered
+        jPanelRegistrarseRegistro.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabelRegistrarsebuttomRegistroMouseEntered
 
-    private void jLabelRegistrarsebuttomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseExited
+    private void jLabelRegistrarsebuttomRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomRegistroMouseExited
         // TODO add your handling code here:
-        jPanelRegistrarse.setBackground(new Color(180, 45, 49));
-    }//GEN-LAST:event_jLabelRegistrarsebuttomMouseExited
+        jPanelRegistrarseRegistro.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabelRegistrarsebuttomRegistroMouseExited
 
     private void jTextFieldDNIRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDNIRegistroMousePressed
         // TODO add your handling code here:
@@ -388,10 +391,10 @@ public class registroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreRegistroActionPerformed
 
-    private void jPanelRegistrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRegistrarseMouseEntered
+    private void jPanelRegistrarseRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRegistrarseRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelRegistrarse.setOpaque(rootPaneCheckingEnabled);
-    }//GEN-LAST:event_jPanelRegistrarseMouseEntered
+        jPanelRegistrarseRegistro.setOpaque(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_jPanelRegistrarseRegistroMouseEntered
 
     private void jTextFieldNombreRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreRegistroMousePressed
         // TODO add your handling code here:
@@ -505,25 +508,25 @@ public class registroUsuario extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JFormattedTextField jFormattedTextFieldCaducidad;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumTarjetaRegistro;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelCERegistro;
-    private javax.swing.JLabel jLabelCREATUCUENTA;
+    private javax.swing.JLabel jLabelCREATUCUENTARegistro;
     private javax.swing.JLabel jLabelCaducidadRegistro;
     private javax.swing.JLabel jLabelClaveRegistro;
     private javax.swing.JLabel jLabelDATOSBANCARIOS;
-    private javax.swing.JLabel jLabelDEJAVAFLIX;
+    private javax.swing.JLabel jLabelDEJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelDNIRegistro;
+    private javax.swing.JLabel jLabelDoblezRegistro;
+    private javax.swing.JLabel jLabelFondoEtiquetasRegistro;
+    private javax.swing.JLabel jLabelFondoRegistro;
+    private javax.swing.JLabel jLabelJAVAFLIXRegistro;
+    private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
     private javax.swing.JLabel jLabelNombreRegistro;
     private javax.swing.JLabel jLabelNumTarjetaRegistro;
-    private javax.swing.JLabel jLabelRegistrarsebuttom;
+    private javax.swing.JLabel jLabelRegistrarsebuttomRegistro;
     private javax.swing.JLabel jLabelSaldoRegistro;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelRegistrarse;
+    private javax.swing.JPanel jPanelIntroDatosRegistro;
+    private javax.swing.JPanel jPanelRegistrarseRegistro;
+    private javax.swing.JPanel jPanelRegistro;
     private javax.swing.JPasswordField jPasswordFieldClaveRegistro;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparatorCERegistro;
