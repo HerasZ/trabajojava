@@ -168,8 +168,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="127" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel3" max="32767" attributes="0"/>
-                          <Component id="jPanel2" max="32767" attributes="0"/>
+                          <Component id="jPanelContenidos" max="32767" attributes="0"/>
+                          <Component id="jPanelUsuarios" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
@@ -182,9 +182,9 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanelUsuarios" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="69" max="32767" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanelContenidos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -200,7 +200,7 @@
                 <Property name="text" type="java.lang.String" value="Panel de Administrador"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel2">
+            <Container class="javax.swing.JPanel" name="jPanelUsuarios">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="31" green="2d" red="b4" type="rgb"/>
@@ -231,10 +231,13 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Consulta de Usuarios"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="jPanelContenidos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="31" green="2d" red="b4" type="rgb"/>

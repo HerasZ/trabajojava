@@ -282,9 +282,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             if (UtilJavaflix.checkAdminlogin(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()))){
                 this.dispose();
                 ventanaAdmin ventanaAdmin = new ventanaAdmin(this);
-            }
+            } else {
             Cliente cliente_logeado = UtilJavaflix.iniciarSesion(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()));
             JOptionPane.showMessageDialog(rootPane, "Bienvenido,"+cliente_logeado.getNombre() , "Inicio de sesion correcto", JOptionPane.INFORMATION_MESSAGE);
+            }
         } catch (EmailNoValido | EmailNoEncontrado | PasswordIncorrecta ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

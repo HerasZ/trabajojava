@@ -20,12 +20,12 @@ import javax.swing.JOptionPane;
  */
 public class consultaUsuarios extends javax.swing.JFrame {
 
-    private ventanaPrincipal padre;
+    private ventanaAdmin padre;
 
     /**
      * Creates new form ventanaPrincipal
      */
-    public consultaUsuarios(ventanaPrincipal main) {
+    public consultaUsuarios(ventanaAdmin main) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
