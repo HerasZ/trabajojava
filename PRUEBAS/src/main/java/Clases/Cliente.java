@@ -6,7 +6,7 @@ public class Cliente extends Usuario {
     private String dni;
     private String nombre;
     private TarjetaCredito tarjetacredito;
-    private String plan;
+    private PlanSuscripcion plan;
 
     //constructor
     public Cliente(String dni, String nombre, String correoelectronico, String clave, TarjetaCredito tarjetacredito) {
@@ -16,11 +16,11 @@ public class Cliente extends Usuario {
         this.tarjetacredito = tarjetacredito;
     }
 
-    public String getPlan() {
+    public PlanSuscripcion getPlan() {
         return plan;
     }
 
-    public void setPlan(String plan) {
+    public void setPlan(PlanSuscripcion plan) {
         this.plan = plan;
     }
 
