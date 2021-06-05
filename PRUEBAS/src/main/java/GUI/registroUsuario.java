@@ -27,6 +27,10 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private ventanaPrincipal padre;
 
+    public ventanaPrincipal getPadre() {
+        return padre;
+    }
+    
     /**
      * Creates new form ventanaPrincipal
      */
@@ -394,15 +398,10 @@ public class registroUsuario extends javax.swing.JFrame {
             // Hacemos esto para validar los dos campos 
             UtilJavaflix.validarEmail(jTextFieldCERegistro.getText());
             LocalDate fechacaducidad = LocalDate.parse(jFormattedTextFieldCaducidad.getText());
-
             TarjetaCredito nuevatarjeta = new TarjetaCredito(jFormattedTextFieldNumTarjetaRegistro.getText(), fechacaducidad,
                     Double.parseDouble(jTextFieldSaldoRegistro.getText()));
-            Cliente nuevocliente = new Cliente(jTextFieldDNIRegistro.getText(), jTextFieldNombreRegistro.getText(),
+            planregistroUsuario nuevocliente = new planregistroUsuario(this, jTextFieldDNIRegistro.getText(), jTextFieldNombreRegistro.getText(),
                     jTextFieldCERegistro.getText(), String.valueOf(jPasswordFieldClaveRegistro.getPassword()), nuevatarjeta);
-            UtilJavaflix.addCliente(nuevocliente);
-            UtilJavaflix.guardarDatos();
-            JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
-            padre.setVisible(true);
             this.dispose();
         } catch (EmailNoValido ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -445,7 +444,7 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
-        padre.setVisible(true);
+        this.padre.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -567,24 +566,24 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(232,17,35));
-        jLabelCerrarRegistro.setForeground( new Color(255,255,255));
+        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
+        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
 
     private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(255,255,255));
-        jLabelCerrarRegistro.setForeground( new Color(0,0,0));
+        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
+        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(229,229,229));
+        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
 
     private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(255,255,255));
+        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
@@ -596,7 +595,7 @@ public class registroUsuario extends javax.swing.JFrame {
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
-        
+
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
 

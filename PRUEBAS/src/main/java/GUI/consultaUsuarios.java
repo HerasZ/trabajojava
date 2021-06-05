@@ -168,6 +168,12 @@ public class consultaUsuarios extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
@@ -209,16 +215,22 @@ public class consultaUsuarios extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(180, 45, 49));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Buscar");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel4MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -364,18 +376,6 @@ public class consultaUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
-        try {
-            ArrayList<Cliente> clientesfiltrados = UtilJavaflix.busquedaClientes(UtilJavaflix.getClientes(), jTextField1.getText(), String.valueOf(jComboBox1.getSelectedItem()));
-            limpiarTabla();
-            setTablaactual(clientesfiltrados);
-            showTabla(getTablaactual());
-        } catch (CriterioNoValido ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jPanel1MouseClicked
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // Codigo para pedir al admin si quiere elimnar al usuario clicado dentro de la tabla
         try {
@@ -387,6 +387,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
                 ArrayList<Cliente> listacompletaclientes = UtilJavaflix.getClientes();
                 listacompletaclientes.remove(listacompletaclientes.indexOf(clienteselect));
                 UtilJavaflix.setClientes(listacompletaclientes);
+                JOptionPane.showMessageDialog(rootPane, "Usuario dado de baja correctamente");
                 //Actualizamos la tabla en pantalla para quitar el cliente eliminado
                 limpiarTabla();
                 tablaactual_temporal.remove(tablaactual_temporal.indexOf(clienteselect));
@@ -397,6 +398,28 @@ public class consultaUsuarios extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        try {
+            ArrayList<Cliente> clientesfiltrados = UtilJavaflix.busquedaClientes(UtilJavaflix.getClientes(), jTextField1.getText(), String.valueOf(jComboBox1.getSelectedItem()));
+            limpiarTabla();
+            setTablaactual(clientesfiltrados);
+            showTabla(getTablaactual());
+        } catch (CriterioNoValido ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        // TODO add your handling code here:
+        jPanel1.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        // TODO add your handling code here:
+        jPanel1.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabel4MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

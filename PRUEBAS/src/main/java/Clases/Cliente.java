@@ -9,11 +9,12 @@ public class Cliente extends Usuario {
     private PlanSuscripcion plan;
 
     //constructor
-    public Cliente(String dni, String nombre, String correoelectronico, String clave, TarjetaCredito tarjetacredito) {
+    public Cliente(String dni, String nombre, String correoelectronico, String clave, TarjetaCredito tarjetacredito,PlanSuscripcion plan) {
         super(clave, correoelectronico);
         this.dni = dni;
         this.nombre = nombre;
         this.tarjetacredito = tarjetacredito;
+        this.plan = plan;
     }
 
     public PlanSuscripcion getPlan() {

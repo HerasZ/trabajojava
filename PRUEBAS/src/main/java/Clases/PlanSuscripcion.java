@@ -5,21 +5,21 @@
  */
 package Clases;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author Heras
  */
-public class PlanSuscripcion {
+public class PlanSuscripcion implements Serializable {
     private String tipo;
     private LocalDate fecha;
     private Cliente cliente;
 
-    public PlanSuscripcion(String tipo, LocalDate fecha, Cliente cliente) {
+    public PlanSuscripcion(String tipo, LocalDate fecha) {
         this.tipo = tipo;
         this.fecha = fecha;
-        this.cliente = cliente;
     }
 
     public String getTipo() {

@@ -6,6 +6,7 @@
 package GUI;
 
 import Clases.Cliente;
+import Clases.PlanSuscripcion;
 import Clases.TarjetaCredito;
 import java.awt.Color;
 
@@ -25,16 +26,27 @@ import javax.swing.JOptionPane;
  */
 public class planregistroUsuario extends javax.swing.JFrame {
 
-    private ventanaPrincipal padre;
+    private registroUsuario padre;
+    private String dni;
+    private String nombre;
+    private String email;
+    private String pass;
+    private TarjetaCredito tarjeta;
 
     /**
      * Creates new form ventanaPrincipal
      */
-    public planregistroUsuario(ventanaPrincipal main) {
+    public planregistroUsuario(registroUsuario main, String dni, String nombre, String email, String pass, TarjetaCredito tarjeta) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+
+        this.dni = dni;
+        this.nombre = nombre;
+        this.email = email;
+        this.pass = pass;
+        this.tarjeta = tarjeta;
     }
 
     /**
@@ -181,6 +193,11 @@ public class planregistroUsuario extends javax.swing.JFrame {
         jLabelJavaFlixBasicoPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelJavaFlixBasicoPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJavaFlixBasicoPrecio.setText("8,99€ ");
+        jLabelJavaFlixBasicoPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixBasicoPrecioMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelJavaFlixBasicoPrecioLayout = new javax.swing.GroupLayout(jPanelJavaFlixBasicoPrecio);
         jPanelJavaFlixBasicoPrecio.setLayout(jPanelJavaFlixBasicoPrecioLayout);
@@ -219,6 +236,11 @@ public class planregistroUsuario extends javax.swing.JFrame {
         jLabelJavaFlixEstandarPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelJavaFlixEstandarPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJavaFlixEstandarPrecio.setText("11,99€");
+        jLabelJavaFlixEstandarPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixEstandarPrecioMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelJavaFlixEstandarPrecioLayout = new javax.swing.GroupLayout(jPanelJavaFlixEstandarPrecio);
         jPanelJavaFlixEstandarPrecio.setLayout(jPanelJavaFlixEstandarPrecioLayout);
@@ -258,8 +280,8 @@ public class planregistroUsuario extends javax.swing.JFrame {
         jLabelJavaFlixPremiumPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJavaFlixPremiumPrecio.setText("15,99€\n");
         jLabelJavaFlixPremiumPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelJavaFlixPremiumPrecioMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixPremiumPrecioMouseClicked(evt);
             }
         });
 
@@ -267,21 +289,13 @@ public class planregistroUsuario extends javax.swing.JFrame {
         jPanelJavaFlixPremiumPrecio.setLayout(jPanelJavaFlixPremiumPrecioLayout);
         jPanelJavaFlixPremiumPrecioLayout.setHorizontalGroup(
             jPanelJavaFlixPremiumPrecioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-            .addGroup(jPanelJavaFlixPremiumPrecioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelJavaFlixPremiumPrecioLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelJavaFlixPremiumPrecioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelJavaFlixPremiumPrecioLayout.setVerticalGroup(
             jPanelJavaFlixPremiumPrecioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-            .addGroup(jPanelJavaFlixPremiumPrecioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelJavaFlixPremiumPrecioLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
         jPanelIntroDatosRegistro.add(jPanelJavaFlixPremiumPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 130, 60));
@@ -309,30 +323,30 @@ public class planregistroUsuario extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
-        padre.setVisible(true);
+        this.padre.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(232,17,35));
-        jLabelCerrarRegistro.setForeground( new Color(255,255,255));
+        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
+        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
 
     private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(255,255,255));
-        jLabelCerrarRegistro.setForeground( new Color(0,0,0));
+        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
+        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(229,229,229));
+        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
 
     private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(255,255,255));
+        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
@@ -344,41 +358,74 @@ public class planregistroUsuario extends javax.swing.JFrame {
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
-        
+
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
     private void jPanelJavaFlixBasicoPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixBasicoPrecioMouseEntered
         // TODO add your handling code here:
-        jPanelJavaFlixBasicoPrecio.setBackground(new Color(126,16,27));
+        jPanelJavaFlixBasicoPrecio.setBackground(new Color(126, 16, 27));
     }//GEN-LAST:event_jPanelJavaFlixBasicoPrecioMouseEntered
 
     private void jPanelJavaFlixEstandarPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixEstandarPrecioMouseEntered
         // TODO add your handling code here:
-        jPanelJavaFlixEstandarPrecio.setBackground(new Color(126,16,27));
+        jPanelJavaFlixEstandarPrecio.setBackground(new Color(126, 16, 27));
     }//GEN-LAST:event_jPanelJavaFlixEstandarPrecioMouseEntered
 
     private void jPanelJavaFlixPremiumPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixPremiumPrecioMouseEntered
         // TODO add your handling code here:
-        jPanelJavaFlixBasicoPrecio.setBackground(new Color(180,45,49));
+        jPanelJavaFlixBasicoPrecio.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jPanelJavaFlixPremiumPrecioMouseEntered
-
-    private void jLabelJavaFlixPremiumPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixPremiumPrecioMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelJavaFlixPremiumPrecioMouseEntered
 
     private void jPanelJavaFlixBasicoPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixBasicoPrecioMouseExited
         // TODO add your handling code here:
-        jPanelJavaFlixBasicoPrecio.setBackground(new Color(180,45,49));
+        jPanelJavaFlixBasicoPrecio.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jPanelJavaFlixBasicoPrecioMouseExited
 
     private void jPanelJavaFlixEstandarPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixEstandarPrecioMouseExited
         // TODO add your handling code here:
-        jPanelJavaFlixEstandarPrecio.setBackground(new Color(180,45,49));
+        jPanelJavaFlixEstandarPrecio.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jPanelJavaFlixEstandarPrecioMouseExited
 
     private void jPanelJavaFlixPremiumPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixPremiumPrecioMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelJavaFlixPremiumPrecioMouseExited
+
+    private void jLabelJavaFlixBasicoPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixBasicoPrecioMouseClicked
+        // TODO add your handling code here:
+        PlanSuscripcion plannuevo = new PlanSuscripcion("Basico", LocalDate.now());
+        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.email, this.pass, this.tarjeta, plannuevo);
+        plannuevo.setCliente(nuevocliente);
+        JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
+        UtilJavaflix.addCliente(nuevocliente);
+        UtilJavaflix.guardarDatos();
+        this.dispose();
+        this.padre.getPadre().setVisible(true);
+    }//GEN-LAST:event_jLabelJavaFlixBasicoPrecioMouseClicked
+
+    private void jLabelJavaFlixEstandarPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixEstandarPrecioMouseClicked
+        // TODO add your handling code here:
+        PlanSuscripcion plannuevo = new PlanSuscripcion("Estandar", LocalDate.now());
+        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.email, this.pass, this.tarjeta, plannuevo);
+        plannuevo.setCliente(nuevocliente);
+        JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
+        UtilJavaflix.addCliente(nuevocliente);
+        UtilJavaflix.guardarDatos();
+        this.dispose();
+        this.padre.getPadre().setVisible(true);
+    }//GEN-LAST:event_jLabelJavaFlixEstandarPrecioMouseClicked
+
+    private void jLabelJavaFlixPremiumPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixPremiumPrecioMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        PlanSuscripcion plannuevo = new PlanSuscripcion("Premium", LocalDate.now());
+        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.email, this.pass, this.tarjeta, plannuevo);
+        plannuevo.setCliente(nuevocliente);
+        JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
+        UtilJavaflix.addCliente(nuevocliente);
+        UtilJavaflix.guardarDatos();
+        this.dispose();
+        this.padre.getPadre().setVisible(true);
+    }//GEN-LAST:event_jLabelJavaFlixPremiumPrecioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
