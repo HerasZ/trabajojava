@@ -13,6 +13,8 @@ import Clases.UtilJavaflix;
 import Excepciones.CriterioNoValido;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -21,6 +23,15 @@ import javax.swing.JOptionPane;
 public class consultaUsuarios extends javax.swing.JFrame {
 
     private ventanaAdmin padre;
+
+    public ArrayList<Cliente> getTablaactual() {
+        return tablaactual;
+    }
+
+    public void setTablaactual(ArrayList<Cliente> tablaactual) {
+        this.tablaactual = tablaactual;
+    }
+    private ArrayList<Cliente> tablaactual;
 
     /**
      * Creates new form ventanaPrincipal
@@ -31,11 +42,12 @@ public class consultaUsuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        setTabla(UtilJavaflix.getClientes());
+        setTablaactual(UtilJavaflix.getClientes());
+        showTabla(getTablaactual());
 
     }
 
-    private void setTabla(ArrayList<Cliente> clientes_a_ordenar) {
+    private void showTabla(ArrayList<Cliente> clientes_a_ordenar) {
         int contador = 0;
         for (Cliente cliente : clientes_a_ordenar) {
             jTable1.setValueAt(cliente.getDni(), contador, 0);
@@ -50,17 +62,11 @@ public class consultaUsuarios extends javax.swing.JFrame {
         }
     }
 
-    private void limpiarTabla(int longitud_lista) {
-        int contador = 0;
-        for (int i = 0; i < longitud_lista; i++) {
-            jTable1.setValueAt(null, contador, 0);
-            jTable1.setValueAt(null, contador, 1);
-            jTable1.setValueAt(null, contador, 2);
-            jTable1.setValueAt(null, contador, 3);
-            jTable1.setValueAt(null, contador, 4);
-            jTable1.setValueAt(null, contador, 5);
-            jTable1.setValueAt(null, contador, 6);
-            jTable1.setValueAt(null, contador, 7);
+    private void limpiarTabla() {
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            for (int j = 0; j < jTable1.getColumnCount(); j++) {
+                jTable1.setValueAt(null, i, j);
+            }
         }
     }
 
@@ -91,6 +97,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
@@ -157,6 +164,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -167,15 +175,34 @@ public class consultaUsuarios extends javax.swing.JFrame {
             new String [] {
                 "DNI", "Nombre", "Correo electronico", "Clave", "Plan", "Nº Tarjeta", "Caducidad", "Saldo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel1.setText("Ajustes de consulta");
 
+        jLabel2.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
         jLabel2.setText("Buscar:");
 
+        jTextField1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
         jLabel3.setText("en:");
 
+        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Nombre", "Correo electronico", "Clave" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +217,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Buscar");
@@ -205,29 +233,36 @@ public class consultaUsuarios extends javax.swing.JFrame {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
         );
 
+        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabel5.setText("Haga clic en un usuario para darlo de baja del sistema");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addGap(65, 65, 65)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField1)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel3))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel1)
-                        .addGap(45, 45, 45)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -235,9 +270,9 @@ public class consultaUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(75, 75, 75)
                         .addComponent(jLabel1)
-                        .addGap(52, 52, 52)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -245,12 +280,14 @@ public class consultaUsuarios extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
+                        .addGap(37, 37, 37)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jPanelRegistro.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
@@ -322,8 +359,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
-        System.exit(0);
-
+        UtilJavaflix.cerrarPrograma();
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -333,12 +369,36 @@ public class consultaUsuarios extends javax.swing.JFrame {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
         try {
-            ArrayList<Cliente> clientesfiltrados =UtilJavaflix.busquedaClientes(UtilJavaflix.getClientes(), jTextField1.getText(), String.valueOf(jComboBox1.getSelectedItem()));
-            System.out.println(clientesfiltrados);
+            ArrayList<Cliente> clientesfiltrados = UtilJavaflix.busquedaClientes(UtilJavaflix.getClientes(), jTextField1.getText(), String.valueOf(jComboBox1.getSelectedItem()));
+            limpiarTabla();
+            setTablaactual(clientesfiltrados);
+            showTabla(getTablaactual());
         } catch (CriterioNoValido ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // Codigo para pedir al admin si quiere elimnar al usuario clicado dentro de la tabla
+        try {
+            ArrayList<Cliente> tablaactual_temporal = getTablaactual();
+            Cliente clienteselect = tablaactual_temporal.get(jTable1.getSelectedRow());
+            int elecborrado = JOptionPane.showConfirmDialog(rootPane, "¿Dar de baja al usuario " + clienteselect.getNombre() + "?", "Confirmar eliminacion", JOptionPane.YES_NO_OPTION);
+            // El admin confirma querer eliminar al cliente seleccionado:
+            if (elecborrado == JOptionPane.YES_OPTION) {
+                ArrayList<Cliente> listacompletaclientes = UtilJavaflix.getClientes();
+                listacompletaclientes.remove(listacompletaclientes.indexOf(clienteselect));
+                UtilJavaflix.setClientes(listacompletaclientes);
+                //Actualizamos la tabla en pantalla para quitar el cliente eliminado
+                limpiarTabla();
+                tablaactual_temporal.remove(tablaactual_temporal.indexOf(clienteselect));
+                setTablaactual(tablaactual_temporal);
+                showTabla(getTablaactual());
+            }
+        } catch (IndexOutOfBoundsException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -348,6 +408,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFondoRegistro;

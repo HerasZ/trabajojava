@@ -120,8 +120,8 @@ public class UtilJavaflix {
         }
     }
 
-    public static boolean checkAdminlogin(String email_provided,String pass_provided) {
-        return(email_provided.equals(UtilJavaflix.admin.getCorreoelectronico()) && pass_provided.equals(UtilJavaflix.admin.getClave()));
+    public static boolean checkAdminlogin(String email_provided, String pass_provided) {
+        return (email_provided.equals(UtilJavaflix.admin.getCorreoelectronico()) && pass_provided.equals(UtilJavaflix.admin.getClave()));
     }
 
     public static Cliente iniciarSesion(String email_provided, String pass_provided) throws EmailNoEncontrado, PasswordIncorrecta {
@@ -138,6 +138,9 @@ public class UtilJavaflix {
     }
 
     public static ArrayList<Cliente> busquedaClientes(ArrayList<Cliente> clientes, String valorbuscado, String criterio) throws CriterioNoValido {
+        if ("".equals(valorbuscado)) {
+            return clientes;
+        }
         ArrayList<Cliente> clientesbuscado = new ArrayList<>();
         String valoractual = null;
         for (Cliente cliente : clientes) {
@@ -162,5 +165,10 @@ public class UtilJavaflix {
             }
         }
         return clientesbuscado;
+    }
+
+    public static void cerrarPrograma() {
+        UtilJavaflix.guardarDatos();
+        System.exit(0);
     }
 }

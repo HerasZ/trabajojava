@@ -371,7 +371,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jPanelCerrarAccesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseClicked
         // TODO add your handling code here:       
-        System.exit(0);
+        UtilJavaflix.cerrarPrograma();
         
     }//GEN-LAST:event_jPanelCerrarAccesoMouseClicked
 

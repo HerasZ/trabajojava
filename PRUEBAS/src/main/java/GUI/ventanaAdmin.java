@@ -256,7 +256,7 @@ public class ventanaAdmin extends javax.swing.JFrame {
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
-        System.exit(0);
+        UtilJavaflix.cerrarPrograma();
         
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
