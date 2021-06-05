@@ -52,7 +52,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
             jTable1.setValueAt(cliente.getNombre(), contador, 1);
             jTable1.setValueAt(cliente.getCorreoelectronico(), contador, 2);
             jTable1.setValueAt(cliente.getClave(), contador, 3);
-            jTable1.setValueAt(cliente.getPlan(), contador, 4);
+            jTable1.setValueAt(cliente.getPlan().getTipo(), contador, 4);
             jTable1.setValueAt(cliente.getTarjetacredito().getNumero(), contador, 5);
             jTable1.setValueAt(cliente.getTarjetacredito().getCaducidad(), contador, 6);
             jTable1.setValueAt(cliente.getTarjetacredito().getSaldo(), contador, 7);
