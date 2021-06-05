@@ -157,7 +157,7 @@ public class UtilJavaflix {
                 default:
                     throw new CriterioNoValido("El criterio especificado no se puede encontrar");
             }
-            if (valoractual.contains(criterio)) {
+            if (valoractual.contains(valorbuscado)) {
                 clientesbuscado.add(cliente);
             }
         }
