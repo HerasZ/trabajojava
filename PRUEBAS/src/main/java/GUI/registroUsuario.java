@@ -89,6 +89,8 @@ public class registroUsuario extends javax.swing.JFrame {
         jPasswordFieldClaveRegistro = new javax.swing.JPasswordField();
         jFormattedTextFieldCaducidad = new javax.swing.JFormattedTextField();
         jFormattedTextFieldNumTarjetaRegistro = new javax.swing.JFormattedTextField();
+        jLabelNumTarjeta = new javax.swing.JLabel();
+        jLabelCaducidad = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -328,6 +330,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jPasswordFieldClaveRegistro.setForeground(java.awt.Color.gray);
         jPasswordFieldClaveRegistro.setText("**********");
         jPasswordFieldClaveRegistro.setBorder(null);
+        jPasswordFieldClaveRegistro.setCaretPosition(0);
         jPasswordFieldClaveRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPasswordFieldClaveRegistroMousePressed(evt);
@@ -337,36 +340,47 @@ public class registroUsuario extends javax.swing.JFrame {
 
         jFormattedTextFieldCaducidad.setBorder(null);
         jFormattedTextFieldCaducidad.setColumns(16);
-        jFormattedTextFieldCaducidad.setForeground(java.awt.Color.gray);
         jFormattedTextFieldCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
-        jFormattedTextFieldCaducidad.setText("0000 00 00\n");
         jFormattedTextFieldCaducidad.setToolTipText("");
         jFormattedTextFieldCaducidad.setMinimumSize(new java.awt.Dimension(1, 14));
+        jFormattedTextFieldCaducidad.setOpaque(false);
         jFormattedTextFieldCaducidad.setPreferredSize(new java.awt.Dimension(128, 14));
-        jFormattedTextFieldCaducidad.setSelectionEnd(19);
-        jFormattedTextFieldCaducidad.setSelectionStart(19);
         jFormattedTextFieldCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldCaducidadMousePressed(evt);
+            }
+        });
+        jFormattedTextFieldCaducidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCaducidadActionPerformed(evt);
             }
         });
         jPanelIntroDatosRegistro.add(jFormattedTextFieldCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, -1));
 
         jFormattedTextFieldNumTarjetaRegistro.setBorder(null);
         jFormattedTextFieldNumTarjetaRegistro.setColumns(16);
-        jFormattedTextFieldNumTarjetaRegistro.setForeground(java.awt.Color.gray);
         try {
-            jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### #### #### ####")));
+            jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldNumTarjetaRegistro.setText("0000 0000 0000 0000            ");
+        jFormattedTextFieldNumTarjetaRegistro.setText("");
+        jFormattedTextFieldNumTarjetaRegistro.setToolTipText("");
+        jFormattedTextFieldNumTarjetaRegistro.setOpaque(false);
         jFormattedTextFieldNumTarjetaRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldNumTarjetaRegistroMousePressed(evt);
             }
         });
         jPanelIntroDatosRegistro.add(jFormattedTextFieldNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 300, -1));
+
+        jLabelNumTarjeta.setForeground(java.awt.Color.gray);
+        jLabelNumTarjeta.setText("####-####-####-####");
+        jPanelIntroDatosRegistro.add(jLabelNumTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 290, -1));
+
+        jLabelCaducidad.setForeground(java.awt.Color.gray);
+        jLabelCaducidad.setText("yyyy-mm-dd");
+        jPanelIntroDatosRegistro.add(jLabelCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 580, 290, -1));
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
 
@@ -520,12 +534,10 @@ public class registroUsuario extends javax.swing.JFrame {
     private void jFormattedTextFieldCaducidadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCaducidadMousePressed
         // TODO add your handling code here:
         if (String.valueOf(jFormattedTextFieldCaducidad.getText()).equals("")) {
-            jFormattedTextFieldCaducidad.setText("");
-            jFormattedTextFieldCaducidad.setForeground(Color.black);
+            jLabelCaducidad.setText("");
         }
         if (jFormattedTextFieldNumTarjetaRegistro.getText().isEmpty()) {
-            jFormattedTextFieldNumTarjetaRegistro.setText("0000 0000 0000 0000");
-            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);
+            jLabelNumTarjeta.setText("####-####-####-####");
         }
         if (jTextFieldSaldoRegistro.getText().isEmpty()) {
             jTextFieldSaldoRegistro.setText("Escriba su saldo");
@@ -540,27 +552,23 @@ public class registroUsuario extends javax.swing.JFrame {
             jTextFieldSaldoRegistro.setForeground(Color.black);
         }
         if (jFormattedTextFieldNumTarjetaRegistro.getText().isEmpty()) {
-            jFormattedTextFieldNumTarjetaRegistro.setText("0000 0000 0000 0000");
-            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.gray);
+            jLabelNumTarjeta.setText("####-####-####-####");
         }
         if (jFormattedTextFieldCaducidad.getText().isEmpty()) {
-            jFormattedTextFieldCaducidad.setText("");
-            jFormattedTextFieldCaducidad.setForeground(Color.gray);
+            jLabelCaducidad.setText("yyyy-mm-dd");
         }
     }//GEN-LAST:event_jTextFieldSaldoRegistroMousePressed
 
     private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
-        if (String.valueOf(jFormattedTextFieldNumTarjetaRegistro.getText()).equals("0000 0000 0000 0000")) {
-            jFormattedTextFieldNumTarjetaRegistro.setText("");
-            jFormattedTextFieldNumTarjetaRegistro.setForeground(Color.black);
+        if (jFormattedTextFieldNumTarjetaRegistro.getText().equals("")) {
+            jLabelNumTarjeta.setText("");
         }
         if (jTextFieldSaldoRegistro.getText().isEmpty()) {
             jTextFieldSaldoRegistro.setText("Escriba su saldo");
             jTextFieldSaldoRegistro.setForeground(Color.gray);
         }
         if (jFormattedTextFieldCaducidad.getText().isEmpty()) {
-            jFormattedTextFieldCaducidad.setText("");
-            jFormattedTextFieldCaducidad.setForeground(Color.gray);
+            jLabelCaducidad.setText("yyyy-mm-dd");
         }
     }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
 
@@ -598,6 +606,10 @@ public class registroUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
+    private void jFormattedTextFieldCaducidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCaducidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCaducidadActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -606,6 +618,7 @@ public class registroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCERegistro;
     private javax.swing.JLabel jLabelCREATUCUENTARegistro;
+    private javax.swing.JLabel jLabelCaducidad;
     private javax.swing.JLabel jLabelCaducidadRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelClaveRegistro;
@@ -618,6 +631,7 @@ public class registroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
     private javax.swing.JLabel jLabelNombreRegistro;
+    private javax.swing.JLabel jLabelNumTarjeta;
     private javax.swing.JLabel jLabelNumTarjetaRegistro;
     private javax.swing.JLabel jLabelRegistrarsebuttomRegistro;
     private javax.swing.JLabel jLabelSaldoRegistro;
