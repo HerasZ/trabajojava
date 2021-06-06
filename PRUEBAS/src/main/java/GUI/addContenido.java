@@ -12,6 +12,7 @@ import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -187,10 +188,7 @@ public class addContenido extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Temporada", "Capitulos"
@@ -423,6 +421,8 @@ public class addContenido extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.temporadas.size() > 0) {
             limpiarTabla();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(new Object[]{null,null});
             showTabla(temporadas);
         }
     }//GEN-LAST:event_formWindowActivated

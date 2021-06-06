@@ -13,6 +13,7 @@ import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -181,11 +182,7 @@ public class addCapitulo extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Capitulo", "Duracion"
@@ -354,6 +351,8 @@ public class addCapitulo extends javax.swing.JFrame {
             Capitulo nuevocapitulo = new Capitulo(jTextField1.getText(), jFormattedTextField1.getText());
             addCapituloactual(nuevocapitulo);
             limpiarTabla();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(new Object[]{null,null});
             showTabla(capitulos_temporada);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
