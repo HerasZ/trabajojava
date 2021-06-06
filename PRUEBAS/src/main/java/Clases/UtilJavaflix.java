@@ -6,9 +6,7 @@ import Excepciones.EmailNoValido;
 import Excepciones.PasswordIncorrecta;
 import java.util.*;
 import java.io.*;
-import java.lang.reflect.Field;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,10 +67,10 @@ public class UtilJavaflix {
                 System.out.println("Error de Input/Output al crear archivo:" + e.getMessage());
             }
             if (!series.isEmpty() || !peliculas.isEmpty() || !clientes.isEmpty()) {
-                try ( FileOutputStream ostreampro = new FileOutputStream(datosjavaflix);  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
-                    oospro.writeObject(series);
-                    oospro.writeObject(peliculas);
-                    oospro.writeObject(clientes);
+                try ( FileOutputStream fileoutput = new FileOutputStream(datosjavaflix);  ObjectOutputStream objectoutput = new ObjectOutputStream(fileoutput)) {
+                    objectoutput.writeObject(series);
+                    objectoutput.writeObject(peliculas);
+                    objectoutput.writeObject(clientes);
                 }
             } else {
                 System.out.println("Error: No hay datos para guardar");
@@ -87,10 +85,10 @@ public class UtilJavaflix {
 
     public static void cargarDatos() {
         try {
-            try ( FileInputStream istreampro = new FileInputStream("datosjavaflix.dat");  ObjectInputStream oispro = new ObjectInputStream(istreampro)) {
-                series = (ArrayList) oispro.readObject();
-                peliculas = (ArrayList) oispro.readObject();
-                clientes = (ArrayList) oispro.readObject();
+            try ( FileInputStream fileinput = new FileInputStream("datosjavaflix.dat");  ObjectInputStream objectinput = new ObjectInputStream(fileinput)) {
+                series = (ArrayList) objectinput.readObject();
+                peliculas = (ArrayList) objectinput.readObject();
+                clientes = (ArrayList) objectinput.readObject();
             }
         } catch (IOException ioe) {
             System.out.println("Error de Input/Output: " + ioe.getMessage());
@@ -165,6 +163,33 @@ public class UtilJavaflix {
             }
         }
         return clientesbuscado;
+    }
+    
+    public static void generarFactura(PlanSuscripcion sub, double precio) {
+        String rutanuevafactura = "./Facturas/" + sub.getCliente().getDni()+".txt";
+
+        try {
+            File dirFacturas = new File("./Facturas");
+
+            if (!dirFacturas.exists()) {
+                dirFacturas.mkdir();
+            }
+
+            try ( FileWriter fw = new FileWriter(rutanuevafactura);  PrintWriter salida = new PrintWriter(new BufferedWriter(fw))) {
+                salida.println("-------------------------------- Factura JavaFlix --------------------------------");
+                salida.println("\n");
+                salida.println("-------------------------------- Fecha: " + sub.getFecha() + " -------------------------------");
+                salida.println("\n");
+                salida.println("------------------------------- Datos del cliente -------------------------------");
+                salida.println("Nombre del cliente: " + sub.getCliente().getNombre());
+                salida.println("DNI del cliente: " + sub.getCliente().getDni());
+                salida.println("Numero de tarjeta: " + sub.getCliente().getTarjetacredito().getNumero());
+                salida.println("\n");
+                salida.println("Precio de la suscripcion "+ sub.getTipo()+": "+ precio +"€");
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static void cerrarPrograma() {

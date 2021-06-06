@@ -401,22 +401,8 @@ public class planregistroUsuario extends javax.swing.JFrame {
         plannuevo.setCliente(nuevocliente);
         JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         UtilJavaflix.addCliente(nuevocliente);
-        try {
-            File suscripcion = new File(nuevocliente.getDni());
-            suscripcion.createNewFile();   
-        } catch (IOException e) {
-            System.out.println("Error de Input/Output al crear archivo:" + e.getMessage());
-        }
-        try ( FileOutputStream ostreampro = new FileOutputStream(nuevocliente.getDni());  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
-            oospro.writeObject(plannuevo.getCliente());
-            oospro.writeObject(plannuevo.getFecha());
-            oospro.writeObject(plannuevo.getTipo());
-        } catch (IOException ioe) {
-            System.out.println("Error de Input/Output: " + ioe.getMessage());
-        } finally {
-
-        }
         UtilJavaflix.guardarDatos();
+        UtilJavaflix.generarFactura(plannuevo,8.99);
         this.dispose();
         this.padre.getPadre().setVisible(true);
     }//GEN-LAST:event_jLabelJavaFlixBasicoPrecioMouseClicked
@@ -428,22 +414,8 @@ public class planregistroUsuario extends javax.swing.JFrame {
         plannuevo.setCliente(nuevocliente);
         JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         UtilJavaflix.addCliente(nuevocliente);
-        try {
-            File suscripcion = new File(nuevocliente.getDni());
-            suscripcion.createNewFile();   
-        } catch (IOException e) {
-            System.out.println("Error de Input/Output al crear archivo:" + e.getMessage());
-        }
-        try ( FileOutputStream ostreampro = new FileOutputStream(nuevocliente.getDni());  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
-            oospro.writeObject(plannuevo.getCliente());
-            oospro.writeObject(plannuevo.getFecha());
-            oospro.writeObject(plannuevo.getTipo());
-        } catch (IOException ioe) {
-            System.out.println("Error de Input/Output: " + ioe.getMessage());
-        } finally {
-
-        }
         UtilJavaflix.guardarDatos();
+        UtilJavaflix.generarFactura(plannuevo,11.99);
         this.dispose();
         this.padre.getPadre().setVisible(true);
     }//GEN-LAST:event_jLabelJavaFlixEstandarPrecioMouseClicked
@@ -456,22 +428,8 @@ public class planregistroUsuario extends javax.swing.JFrame {
         plannuevo.setCliente(nuevocliente);
         JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         UtilJavaflix.addCliente(nuevocliente);
-        try {
-            File suscripcion = new File(nuevocliente.getDni());
-            suscripcion.createNewFile();   
-        } catch (IOException e) {
-            System.out.println("Error de Input/Output al crear archivo:" + e.getMessage());
-        }
-        try ( FileOutputStream ostreampro = new FileOutputStream(nuevocliente.getDni());  ObjectOutputStream oospro = new ObjectOutputStream(ostreampro)) {
-            oospro.writeObject(plannuevo.getCliente());
-            oospro.writeObject(plannuevo.getFecha());
-            oospro.writeObject(plannuevo.getTipo());
-        } catch (IOException ioe) {
-            System.out.println("Error de Input/Output: " + ioe.getMessage());
-        } finally {
-
-        }
         UtilJavaflix.guardarDatos();
+        UtilJavaflix.generarFactura(plannuevo,15.99);
         this.dispose();
         this.padre.getPadre().setVisible(true);
     }//GEN-LAST:event_jLabelJavaFlixPremiumPrecioMouseClicked
