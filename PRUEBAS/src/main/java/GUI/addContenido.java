@@ -5,11 +5,14 @@
  */
 package GUI;
 
+import Clases.Capitulo;
 import Clases.Cliente;
 import Clases.TarjetaCredito;
+import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
-
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,12 +20,41 @@ import Clases.UtilJavaflix;
  */
 public class addContenido extends javax.swing.JFrame {
 
-    private ventanaAdmin padre;
+    private adminContenidos padre;
+    private ArrayList<Temporada> temporadas = new ArrayList<Temporada>();
+
+    public ArrayList<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(ArrayList<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+    public void addTemporadas (Temporada temporada) {
+        this.temporadas.add(temporada);
+    }
+
+    private void showTabla(ArrayList<Temporada> Temporadas) {
+        int contador = 0;
+        for (Temporada temporadaactual : Temporadas) {
+            jTable1.setValueAt(Temporadas.indexOf(temporadaactual)+1, contador, 0);
+            jTable1.setValueAt(temporadaactual.getCapitulos().size(), contador, 1);
+            contador++;
+        }
+    }
+
+    private void limpiarTabla() {
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            for (int j = 0; j < jTable1.getColumnCount(); j++) {
+                jTable1.setValueAt(null, i, j);
+            }
+        }
+    }
 
     /**
      * Creates new form ventanaPrincipal
      */
-    public addContenido(ventanaAdmin main) {
+    public addContenido(adminContenidos main) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -73,6 +105,9 @@ public class addContenido extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1239, 725));
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -153,10 +188,7 @@ public class addContenido extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Temporada", "Capitulos"
@@ -346,24 +378,24 @@ public class addContenido extends javax.swing.JFrame {
 
     private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(232,17,35));
-        jLabelCerrarRegistro.setForeground( new Color(255,255,255));
+        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
+        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
 
     private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(255,255,255));
-        jLabelCerrarRegistro.setForeground( new Color(0,0,0));
+        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
+        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(229,229,229));
+        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
 
     private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(255,255,255));
+        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
@@ -375,12 +407,25 @@ public class addContenido extends javax.swing.JFrame {
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
-        
+
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        addCapitulo nuevatemporada = new addCapitulo(this);
+        this.setEnabled(false);
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        if (this.temporadas.size() > 0) {
+            limpiarTabla();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(new Object[]{null,null});
+            showTabla(temporadas);
+        }
+    }//GEN-LAST:event_formWindowActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

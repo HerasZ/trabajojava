@@ -158,6 +158,9 @@ public class adminContenidos extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Añadir nuevo contenido");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel3MouseEntered(evt);
             }
@@ -276,7 +279,6 @@ public class adminContenidos extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
         
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -299,6 +301,13 @@ public class adminContenidos extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanelContenidos.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        addContenido nuevocontenido = new addContenido(this);
+ 
+    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -13,6 +13,7 @@ import Clases.UtilJavaflix;
 import Excepciones.CriterioNoValido;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,7 +22,8 @@ import javax.swing.JOptionPane;
 public class consultaUsuarios extends javax.swing.JFrame {
 
     private ventanaAdmin padre;
-
+    private ArrayList<Cliente> tablaactual;
+    
     public ArrayList<Cliente> getTablaactual() {
         return tablaactual;
     }
@@ -29,7 +31,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
     public void setTablaactual(ArrayList<Cliente> tablaactual) {
         this.tablaactual = tablaactual;
     }
-    private ArrayList<Cliente> tablaactual;
+
 
     /**
      * Creates new form ventanaPrincipal
@@ -47,7 +49,9 @@ public class consultaUsuarios extends javax.swing.JFrame {
 
     private void showTabla(ArrayList<Cliente> clientes_a_ordenar) {
         int contador = 0;
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (Cliente cliente : clientes_a_ordenar) {
+            model.addRow(new Object[]{null,null});
             jTable1.setValueAt(cliente.getDni(), contador, 0);
             jTable1.setValueAt(cliente.getNombre(), contador, 1);
             jTable1.setValueAt(cliente.getCorreoelectronico(), contador, 2);
@@ -165,16 +169,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "DNI", "Nombre", "Correo electronico", "Clave", "Plan", "Nº Tarjeta", "Caducidad", "Saldo"
@@ -389,16 +384,17 @@ public class consultaUsuarios extends javax.swing.JFrame {
                 UtilJavaflix.setClientes(listacompletaclientes);
                 JOptionPane.showMessageDialog(rootPane, "Usuario dado de baja correctamente");
                 //Actualizamos la tabla en pantalla para quitar el cliente eliminado
-                limpiarTabla();
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.removeRow(jTable1.getSelectedRow());
                 tablaactual_temporal.remove(tablaactual_temporal.indexOf(clienteselect));
                 setTablaactual(tablaactual_temporal);
-                showTabla(getTablaactual());
+                limpiarTabla();
+                showTabla(tablaactual_temporal);
             }
         } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex.getMessage());
-        }
     }//GEN-LAST:event_jTable1MouseClicked
-
+    }
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         try {
@@ -441,7 +437,6 @@ public class consultaUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;

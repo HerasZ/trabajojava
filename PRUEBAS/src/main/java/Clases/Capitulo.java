@@ -12,11 +12,11 @@ package Clases;
 public class Capitulo {
     
     private String titulo;
-    private int duración;
+    private String duracion;
 
-    public Capitulo(String titulo, int duración) {
+    public Capitulo(String titulo, String duracion) {
         this.titulo = titulo;
-        this.duración = duración;
+        this.duracion = duracion;
     }
 
     public String getTitulo() {
@@ -27,17 +27,17 @@ public class Capitulo {
         this.titulo = titulo;
     }
 
-    public int getDuración() {
-        return duración;
+    public String getDuracion() {
+        return duracion;
     }
 
-    public void setDuración(int duración) {
-        this.duración = duración;
+    public void setDuración(String duracion) {
+        this.duracion = duracion;
     }
 
     @Override
     public String toString() {
-        return "Capitulo{" + "titulo=" + titulo + ", duraci\u00f3n=" + duración + '}';
+        return "Capitulo{" + "titulo=" + titulo + ", duracion=" + duracion + '}';
     }
     
 }
