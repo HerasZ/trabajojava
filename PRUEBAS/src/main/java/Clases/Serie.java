@@ -5,43 +5,32 @@
  */
 package Clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Daniel
  */
-public class Serie extends Contenido {
-    private int temporadas;
-    private ArrayList<Capitulo> capitulos = new ArrayList<Capitulo>();
+public class Serie extends Contenido implements Serializable {
+    
+    private ArrayList<Temporada> temporada;
 
-    public Serie(int temporadas, ArrayList<Capitulo> capitulos, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores) {
+    public Serie(ArrayList<Temporada> temporada, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores) {
         super(titulo, sinopsis, genero, anno, actores);
-        this.temporadas = temporadas;
-        this.capitulos = capitulos;
+        this.temporada = temporada;
     }
 
-    public int getTemporadas() {
-        return temporadas;
+    public ArrayList<Temporada> getTemporada() {
+        return temporada;
     }
 
-    public void setTemporadas(int temporadas) {
-        this.temporadas = temporadas;
+    public void setTemporada(ArrayList<Temporada> temporada) {
+        this.temporada = temporada;
     }
 
-    public ArrayList<Capitulo> getCapitulos() {
-        return capitulos;
-    }
-
-    public void setCapitulos(ArrayList<Capitulo> capitulos) {
-        this.capitulos = capitulos;
-    }
-
-    @Override
-    public String toString() {
-        return "Serie{" + "temporadas=" + temporadas + ", capitulos=" + capitulos + '}';
     }
     
 
     
-}
+

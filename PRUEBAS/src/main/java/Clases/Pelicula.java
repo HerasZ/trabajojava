@@ -5,13 +5,14 @@
  */
 package Clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Daniel
  */
-public class Pelicula extends Contenido {
+public class Pelicula extends Contenido implements Serializable {
     
     private int duracion;
     private String director;
