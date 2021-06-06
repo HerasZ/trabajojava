@@ -15,14 +15,14 @@ import Clases.UtilJavaflix;
  *
  * @author Francisco
  */
-public class ventanaAdmin extends javax.swing.JFrame {
+public class adminContenidos extends javax.swing.JFrame {
 
-    private ventanaPrincipal padre;
+    private ventanaAdmin padre;
 
     /**
      * Creates new form ventanaPrincipal
      */
-    public ventanaAdmin(ventanaPrincipal main) {
+    public adminContenidos(ventanaAdmin main) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -120,14 +120,14 @@ public class ventanaAdmin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Panel de Administrador");
+        jLabel1.setText("Gestion de contenido");
 
         jPanelUsuarios.setBackground(new java.awt.Color(180, 45, 49));
 
         jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Consulta de Usuarios");
+        jLabel2.setText("Modificacion contenidos");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -156,11 +156,8 @@ public class ventanaAdmin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Consulta de contenidos");
+        jLabel3.setText("Añadir nuevo contenido");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel3MouseEntered(evt);
             }
@@ -280,7 +277,7 @@ public class ventanaAdmin extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        consultaUsuarios consultausuarios = new consultaUsuarios(this);
+        
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
@@ -302,12 +299,6 @@ public class ventanaAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanelContenidos.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabel3MouseExited
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        adminContenidos gestioncontenido = new adminContenidos(this);
-    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
