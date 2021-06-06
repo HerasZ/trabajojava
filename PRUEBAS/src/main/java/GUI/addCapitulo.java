@@ -5,11 +5,14 @@
  */
 package GUI;
 
+import Clases.Capitulo;
 import Clases.Cliente;
 import Clases.TarjetaCredito;
+import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
-
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +21,7 @@ import Clases.UtilJavaflix;
 public class addCapitulo extends javax.swing.JFrame {
 
     private addContenido padre;
-
+    private ArrayList<Capitulo> capitulos_temporada = new ArrayList<Capitulo>();
     /**
      * Creates new form ventanaPrincipal
      */
@@ -27,6 +30,27 @@ public class addCapitulo extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+    
+    public void addCapituloactual(Capitulo capitulo) {
+        capitulos_temporada.add(capitulo);
+    }
+
+    private void showTabla(ArrayList<Capitulo> capitulos_a_ordenar) {
+        int contador = 0;
+        for (Capitulo capituloactual : capitulos_a_ordenar) {
+            jTable1.setValueAt(capituloactual.getTitulo(), contador, 0);
+            jTable1.setValueAt(capituloactual.getDuracion(), contador, 1);
+            contador++;
+        }
+    }
+
+    private void limpiarTabla() {
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            for (int j = 0; j < jTable1.getColumnCount(); j++) {
+                jTable1.setValueAt(null, i, j);
+            }
+        }
     }
 
     /**
@@ -47,14 +71,15 @@ public class addCapitulo extends javax.swing.JFrame {
         jPanelAtrasRegistro = new javax.swing.JPanel();
         jLabelAtrasRegistro = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanelUsuarios = new javax.swing.JPanel();
+        jPanelFin = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
@@ -121,12 +146,12 @@ public class addCapitulo extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelUsuarios.setBackground(new java.awt.Color(180, 45, 49));
+        jPanelFin.setBackground(new java.awt.Color(180, 45, 49));
 
         jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Consulta de Usuarios");
+        jLabel2.setText("Finalizar Temporada");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -139,24 +164,20 @@ public class addCapitulo extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanelUsuariosLayout = new javax.swing.GroupLayout(jPanelUsuarios);
-        jPanelUsuarios.setLayout(jPanelUsuariosLayout);
-        jPanelUsuariosLayout.setHorizontalGroup(
-            jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelFinLayout = new javax.swing.GroupLayout(jPanelFin);
+        jPanelFin.setLayout(jPanelFinLayout);
+        jPanelFinLayout.setHorizontalGroup(
+            jPanelFinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
         );
-        jPanelUsuariosLayout.setVerticalGroup(
-            jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelFinLayout.setVerticalGroup(
+            jPanelFinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
         );
 
         jLabel4.setText("Nombre:");
 
-        jLabel5.setText("Duracion:");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
+        jLabel5.setText("Duracion(HH:MM:SS):");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,45 +193,64 @@ public class addCapitulo extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setText("Añadir Capitulo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm:ss"))));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(41, 41, 41)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(36, 36, 36)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(41, 41, 41))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(36, 36, 36)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(jTextField1))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
+                .addGap(35, 35, 35))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(271, 271, 271)
+                .addComponent(jPanelFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(76, 76, 76)
-                        .addComponent(jPanelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanelFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 240, 700, -1));
@@ -254,55 +294,78 @@ public class addCapitulo extends javax.swing.JFrame {
 
     private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(232,17,35));
-        jLabelCerrarRegistro.setForeground( new Color(255,255,255));
+        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
+        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
 
     private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(255,255,255));
-        jLabelCerrarRegistro.setForeground( new Color(0,0,0));
+        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
+        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(229,229,229));
+        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
 
     private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(255,255,255));
+        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-        padre.setVisible(true);
+        this.dispose();
+        padre.setEnabled(true);
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
-        
+
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
+        try {
+        Temporada nuevatemporada = new Temporada(capitulos_temporada);
+        padre.addTemporadas(nuevatemporada);
+        padre.setEnabled(true);
+        this.dispose();
+        } catch(NullPointerException ex) {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido crear la temporada("+ex.getMessage()+")");
+        }
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:
-        jPanelUsuarios.setBackground(new Color(148, 13, 30));
+        jPanelFin.setBackground(new Color(148, 13, 30));
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
         // TODO add your handling code here:
-        jPanelUsuarios.setBackground(new Color(180, 45, 49));
+        jPanelFin.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Capitulo nuevocapitulo = new Capitulo(jTextField1.getText(), jFormattedTextField1.getText());
+            addCapituloactual(nuevocapitulo);
+            limpiarTabla();
+            showTabla(capitulos_temporada);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Error creando el capitulo", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -314,13 +377,12 @@ public class addCapitulo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
+    private javax.swing.JPanel jPanelFin;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JPanel jPanelUsuarios;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,8 @@ import javax.swing.JOptionPane;
 public class consultaUsuarios extends javax.swing.JFrame {
 
     private ventanaAdmin padre;
-
+    private ArrayList<Cliente> tablaactual;
+    
     public ArrayList<Cliente> getTablaactual() {
         return tablaactual;
     }
@@ -29,7 +30,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
     public void setTablaactual(ArrayList<Cliente> tablaactual) {
         this.tablaactual = tablaactual;
     }
-    private ArrayList<Cliente> tablaactual;
+
 
     /**
      * Creates new form ventanaPrincipal
@@ -389,16 +390,15 @@ public class consultaUsuarios extends javax.swing.JFrame {
                 UtilJavaflix.setClientes(listacompletaclientes);
                 JOptionPane.showMessageDialog(rootPane, "Usuario dado de baja correctamente");
                 //Actualizamos la tabla en pantalla para quitar el cliente eliminado
-                limpiarTabla();
                 tablaactual_temporal.remove(tablaactual_temporal.indexOf(clienteselect));
                 setTablaactual(tablaactual_temporal);
-                showTabla(getTablaactual());
+                limpiarTabla();
+                showTabla(tablaactual_temporal);
             }
         } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex.getMessage());
-        }
     }//GEN-LAST:event_jTable1MouseClicked
-
+    }
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         try {
@@ -441,7 +441,6 @@ public class consultaUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
