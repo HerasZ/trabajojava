@@ -6,24 +6,13 @@
 package GUI;
 
 import Clases.Cliente;
-import Clases.Contenido;
 import Clases.PlanSuscripcion;
 import Clases.TarjetaCredito;
-import java.awt.Color;
-
-import Clases.UtilJavaflix;
 
 import java.awt.Color;
 
 import Clases.UtilJavaflix;
-import Excepciones.EmailNoValido;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,7 +27,6 @@ public class planregistroUsuario extends javax.swing.JFrame {
     private String email;
     private String pass;
     private TarjetaCredito tarjeta;
-    private ArrayList<Contenido> favoritos;
 
     /**
      * Creates new form ventanaPrincipal
@@ -400,20 +388,21 @@ public class planregistroUsuario extends javax.swing.JFrame {
     private void jLabelJavaFlixBasicoPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixBasicoPrecioMouseClicked
         // TODO add your handling code here:
         PlanSuscripcion plannuevo = new PlanSuscripcion("Basico", LocalDate.now());
-        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.tarjeta, plannuevo, this.favoritos, this.pass, this.email  );
+        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.tarjeta, plannuevo, this.pass, this.email  );
         plannuevo.setCliente(nuevocliente);
         JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         UtilJavaflix.addCliente(nuevocliente);
         UtilJavaflix.guardarDatos();
         UtilJavaflix.generarFactura(plannuevo,8.99);
         this.dispose();
+        this.padre.dispose();
         this.padre.getPadre().setVisible(true);
     }//GEN-LAST:event_jLabelJavaFlixBasicoPrecioMouseClicked
 
     private void jLabelJavaFlixEstandarPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixEstandarPrecioMouseClicked
         // TODO add your handling code here:
         PlanSuscripcion plannuevo = new PlanSuscripcion("Estandar", LocalDate.now());
-        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.tarjeta, plannuevo, this.favoritos, this.pass, this.email  );
+        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.tarjeta, plannuevo, this.pass, this.email  );
         plannuevo.setCliente(nuevocliente);
         JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         UtilJavaflix.addCliente(nuevocliente);
@@ -427,7 +416,7 @@ public class planregistroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         // TODO add your handling code here:
         PlanSuscripcion plannuevo = new PlanSuscripcion("Premium", LocalDate.now());
-        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.tarjeta, plannuevo, this.favoritos, this.pass, this.email  );
+        Cliente nuevocliente = new Cliente(this.dni, this.nombre, this.tarjeta, plannuevo, this.pass, this.email  );
         plannuevo.setCliente(nuevocliente);
         JOptionPane.showMessageDialog(rootPane, "Usuario registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         UtilJavaflix.addCliente(nuevocliente);

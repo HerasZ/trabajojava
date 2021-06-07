@@ -5,8 +5,6 @@
  */
 package GUI;
 
-import Clases.Cliente;
-import Clases.TarjetaCredito;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 

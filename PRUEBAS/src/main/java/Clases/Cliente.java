@@ -9,17 +9,16 @@ public class Cliente extends Usuario {
     private String nombre;
     private TarjetaCredito tarjetacredito;
     private PlanSuscripcion plan;
-    private ArrayList<Contenido> favoritos;
+    private ArrayList<Contenido> favoritos = new ArrayList<Contenido>();
 
     //constructor
 
-    public Cliente(String dni, String nombre, TarjetaCredito tarjetacredito, PlanSuscripcion plan, ArrayList<Contenido> favoritos, String clave, String correoelectronico) {
+    public Cliente(String dni, String nombre, TarjetaCredito tarjetacredito, PlanSuscripcion plan, String clave, String correoelectronico) {
         super(clave, correoelectronico);
         this.dni = dni;
         this.nombre = nombre;
         this.tarjetacredito = tarjetacredito;
         this.plan = plan;
-        this.favoritos = favoritos;
     }
     
 
@@ -63,6 +62,10 @@ public class Cliente extends Usuario {
 
     public void setFavoritos(ArrayList<Contenido> favoritos) {
         this.favoritos = favoritos;
+    }
+    
+    public void addFavoritos(Contenido contenido) {
+        favoritos.add(contenido);
     }
     
     @Override
