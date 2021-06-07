@@ -18,6 +18,7 @@ import Excepciones.EmailNoValido;
 import java.awt.Label;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,24 +40,15 @@ public class entradaUsuario extends javax.swing.JFrame {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
-    }
-        /**
-        for (i=0; i&lt;UtilJavaflix.getContenido().length); i++) {
-            trace(UtilJavaflix.getContenido()[Math.floor(Math.random()*(UtilJavaflix.getContenido().length))]);
-            UtilJavaflix.getContenido().splice(Math.floor(Math.random()*(UtilJavaflix.getContenido().length)), 1);
-        
-
-            jPanelCatalogo.add(Label)
-            labels[i].addActionListener(this);
-
+        for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
+            jPanelCatalogoTodo.add(new JLabel(UtilJavaflix.getContenido().get(i).getTitulo()));
         }
-
-        frame.add(panel, BorderLayout.NORTH);
-        frame.add(new JScrollPane(btnPnl1), BorderLayout.CENTER);
-
+        this.setVisible(true);
+        jScrollPaneCatalogoPeliculas.setVisible(false);
+        jScrollPaneCatalogoSeries.setVisible(false);
+        jScrollPaneCatalogoFavoritos.setVisible(false);
     }
-**/
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,21 +73,19 @@ public class entradaUsuario extends javax.swing.JFrame {
         jLabelPELICULAS = new javax.swing.JLabel();
         jLabelSERIES = new javax.swing.JLabel();
         jLabelFAVORITOS = new javax.swing.JLabel();
-        jScrollPaneCatalogo = new javax.swing.JScrollPane();
-        jPanelCatalogo = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jScrollPaneCatalogoTodo = new javax.swing.JScrollPane();
+        jPanelCatalogoTodo = new javax.swing.JPanel();
+        jScrollPaneCatalogoPeliculas = new javax.swing.JScrollPane();
+        jPanelCatalogoPeliculas = new javax.swing.JPanel();
+        jScrollPaneCatalogoSeries = new javax.swing.JScrollPane();
+        jPanelCatalogoSeries = new javax.swing.JPanel();
+        jScrollPaneCatalogoFavoritos = new javax.swing.JScrollPane();
+        jPanelCatalogoFavoritos = new javax.swing.JPanel();
+        jPanelBusqueda = new javax.swing.JPanel();
         jTextFieldBuscar = new javax.swing.JTextField();
         jTextFieldActor = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBoxGenero = new javax.swing.JComboBox<>();
+        jFormattedTextFieldAño = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -106,7 +96,7 @@ public class entradaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jPanelRegistro.setBackground(new java.awt.Color(31, 31, 35));
+        jPanelRegistro.setBackground(new java.awt.Color(102, 102, 102));
         jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelOpcionesRegistro.setBackground(new java.awt.Color(255, 255, 255));
@@ -203,51 +193,45 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 710));
 
-        jPanelCatalogo.setLayout(new java.awt.GridLayout(3, 3));
+        jPanelCatalogoTodo.setLayout(new java.awt.GridLayout(6, 3));
+        jScrollPaneCatalogoTodo.setViewportView(jPanelCatalogoTodo);
 
-        jLabel6.setText("jLabel6");
-        jPanelCatalogo.add(jLabel6);
+        jPanelRegistro.add(jScrollPaneCatalogoTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("jLabel1");
-        jPanelCatalogo.add(jLabel1);
+        jPanelCatalogoPeliculas.setLayout(new java.awt.GridLayout(4, 3));
+        jScrollPaneCatalogoPeliculas.setViewportView(jPanelCatalogoPeliculas);
 
-        jLabel4.setText("jLabel4");
-        jPanelCatalogo.add(jLabel4);
+        jPanelRegistro.add(jScrollPaneCatalogoPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
 
-        jLabel9.setText("jLabel9");
-        jPanelCatalogo.add(jLabel9);
+        jPanelCatalogoSeries.setLayout(new java.awt.GridLayout(4, 3));
+        jScrollPaneCatalogoSeries.setViewportView(jPanelCatalogoSeries);
 
-        jLabel8.setText("jLabel8");
-        jPanelCatalogo.add(jLabel8);
+        jPanelRegistro.add(jScrollPaneCatalogoSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
 
-        jLabel11.setText("jLabel11");
-        jPanelCatalogo.add(jLabel11);
+        jPanelCatalogoFavoritos.setLayout(new java.awt.GridLayout(4, 3));
+        jScrollPaneCatalogoFavoritos.setViewportView(jPanelCatalogoFavoritos);
 
-        jLabel10.setText("jLabel10");
-        jPanelCatalogo.add(jLabel10);
+        jPanelRegistro.add(jScrollPaneCatalogoFavoritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
 
-        jLabel7.setText("jLabel7");
-        jPanelCatalogo.add(jLabel7);
+        jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 55));
 
-        jLabel5.setText("jLabel5");
-        jPanelCatalogo.add(jLabel5);
-
-        jScrollPaneCatalogo.setViewportView(jPanelCatalogo);
-
-        jPanelRegistro.add(jScrollPaneCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
-
+        jTextFieldBuscar.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldBuscar.setForeground(java.awt.Color.gray);
         jTextFieldBuscar.setText("buscar... ");
+        jTextFieldBuscar.setMinimumSize(new java.awt.Dimension(170, 30));
+        jTextFieldBuscar.setPreferredSize(new java.awt.Dimension(170, 30));
         jTextFieldBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextFieldBuscarMouseClicked(evt);
             }
         });
-        jPanelRegistro.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 180, 30));
+        jPanelBusqueda.add(jTextFieldBuscar);
 
+        jTextFieldActor.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldActor.setForeground(java.awt.Color.gray);
         jTextFieldActor.setText("actor...");
+        jTextFieldActor.setMinimumSize(new java.awt.Dimension(170, 30));
+        jTextFieldActor.setPreferredSize(new java.awt.Dimension(170, 30));
         jTextFieldActor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextFieldActorMouseClicked(evt);
@@ -258,21 +242,26 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jTextFieldActorActionPerformed(evt);
             }
         });
-        jPanelRegistro.add(jTextFieldActor, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 180, 30));
+        jPanelBusqueda.add(jTextFieldActor);
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "acccion", "comedia", "suspense", "crimen", "romance", "aventura", " " }));
+        jComboBoxGenero.setMinimumSize(new java.awt.Dimension(170, 30));
+        jComboBoxGenero.setPreferredSize(new java.awt.Dimension(170, 30));
+        jComboBoxGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBoxGeneroActionPerformed(evt);
             }
         });
-        jPanelRegistro.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 70, 170, 30));
+        jPanelBusqueda.add(jComboBoxGenero);
 
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
-        jPanelRegistro.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 170, 30));
+        jFormattedTextFieldAño.setForeground(java.awt.Color.gray);
+        jFormattedTextFieldAño.setText("año...");
+        jFormattedTextFieldAño.setMinimumSize(new java.awt.Dimension(170, 30));
+        jFormattedTextFieldAño.setPreferredSize(new java.awt.Dimension(170, 30));
+        jPanelBusqueda.add(jFormattedTextFieldAño);
+
+        jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 980, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -346,28 +335,15 @@ public class entradaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldActorActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboBoxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGeneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jComboBoxGeneroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jComboBoxGenero;
+    private javax.swing.JFormattedTextField jFormattedTextFieldAño;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFAVORITOS;
@@ -377,12 +353,19 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSERIES;
     private javax.swing.JLabel jLabelTODO;
     private javax.swing.JPanel jPanelAtrasRegistro;
-    private javax.swing.JPanel jPanelCatalogo;
+    private javax.swing.JPanel jPanelBusqueda;
+    private javax.swing.JPanel jPanelCatalogoFavoritos;
+    private javax.swing.JPanel jPanelCatalogoPeliculas;
+    private javax.swing.JPanel jPanelCatalogoSeries;
+    private javax.swing.JPanel jPanelCatalogoTodo;
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelIntroDatosRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPaneCatalogo;
+    private javax.swing.JScrollPane jScrollPaneCatalogoFavoritos;
+    private javax.swing.JScrollPane jScrollPaneCatalogoPeliculas;
+    private javax.swing.JScrollPane jScrollPaneCatalogoSeries;
+    private javax.swing.JScrollPane jScrollPaneCatalogoTodo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldBuscar;
