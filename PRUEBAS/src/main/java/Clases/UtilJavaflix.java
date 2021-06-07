@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class UtilJavaflix {
 
     //Array para guardar todas las series,peliculas y usuarios registrados.
+    private static ArrayList<Contenido> contenido = new ArrayList<Contenido>();
     private static ArrayList<Serie> series = new ArrayList<Serie>();
     private static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
     private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -56,6 +57,14 @@ public class UtilJavaflix {
         UtilJavaflix.clientes.add(cliente);
     }
 
+    public static ArrayList<Contenido> getContenido() {
+        return contenido;
+    }
+
+    public static void setContenido(ArrayList<Contenido> contenido) {
+        UtilJavaflix.contenido = contenido;
+    }
+    
     public static void guardarDatos() {
         try {
             File datosjavaflix = new File("datosjavaflix.dat");
