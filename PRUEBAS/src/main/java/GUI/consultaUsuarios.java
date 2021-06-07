@@ -23,7 +23,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
 
     private ventanaAdmin padre;
     private ArrayList<Cliente> tablaactual;
-    
+
     public ArrayList<Cliente> getTablaactual() {
         return tablaactual;
     }
@@ -31,7 +31,6 @@ public class consultaUsuarios extends javax.swing.JFrame {
     public void setTablaactual(ArrayList<Cliente> tablaactual) {
         this.tablaactual = tablaactual;
     }
-
 
     /**
      * Creates new form ventanaPrincipal
@@ -51,7 +50,7 @@ public class consultaUsuarios extends javax.swing.JFrame {
         int contador = 0;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (Cliente cliente : clientes_a_ordenar) {
-            model.addRow(new Object[]{null,null});
+            model.addRow(new Object[]{null, null});
             jTable1.setValueAt(cliente.getDni(), contador, 0);
             jTable1.setValueAt(cliente.getNombre(), contador, 1);
             jTable1.setValueAt(cliente.getCorreoelectronico(), contador, 2);
@@ -65,10 +64,11 @@ public class consultaUsuarios extends javax.swing.JFrame {
     }
 
     private void limpiarTabla() {
-        for (int i = 0; i < jTable1.getRowCount(); i++) {
-            for (int j = 0; j < jTable1.getColumnCount(); j++) {
-                jTable1.setValueAt(null, i, j);
-            }
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
         }
     }
 

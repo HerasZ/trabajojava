@@ -77,6 +77,8 @@ public class UtilJavaflix {
             }
             if (!series.isEmpty() || !peliculas.isEmpty() || !clientes.isEmpty()) {
                 try ( FileOutputStream fileoutput = new FileOutputStream(datosjavaflix);  ObjectOutputStream objectoutput = new ObjectOutputStream(fileoutput)) {
+                    //PrintWriter pw = new PrintWriter("datosjavaflix.dat");
+                    //pw.close();
                     objectoutput.writeObject(series);
                     objectoutput.writeObject(peliculas);
                     objectoutput.writeObject(clientes);
