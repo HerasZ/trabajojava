@@ -40,13 +40,37 @@ public class entradaUsuario extends javax.swing.JFrame {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
+        String titulo;
         for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
-            jPanelCatalogoTodo.add(new JLabel(UtilJavaflix.getContenido().get(i).getTitulo()));
+            titulo = UtilJavaflix.getContenido().get(i).getTitulo();
+            JLabel portada = new JLabel();
+            jPanelTodo.add(portada);
+            portada.setText(titulo);
         }
+        for ( int i = 0; i < UtilJavaflix.getPeliculas().size(); i++) {
+            titulo = UtilJavaflix.getPeliculas().get(i).getTitulo();
+            JLabel portada = new JLabel();
+            jPanelPeliculas.add(portada);
+            portada.setText(titulo);
+        }
+        for ( int i = 0; i < UtilJavaflix.getSeries().size(); i++) {
+            titulo = UtilJavaflix.getSeries().get(i).getTitulo();
+            JLabel portada = new JLabel();
+            jPanelTodo.add(portada);
+            portada.setText(titulo);
+        }
+        /**
+        for ( int i = 0; i < Cliente.getFavoritos().size(); i++) {
+            titulo = Cliente.getFavoritos().get(i).getTitulo();
+            JLabel portada = new JLabel();
+            jPanelTodo.add(portada);
+            portada.setText(titulo);
+        }
+        **/
         this.setVisible(true);
-        jScrollPaneCatalogoPeliculas.setVisible(false);
-        jScrollPaneCatalogoSeries.setVisible(false);
-        jScrollPaneCatalogoFavoritos.setVisible(false);
+        jScrollPanePeliculas.setVisible(false);
+        jScrollPaneSeries.setVisible(false);
+        jScrollPaneFavoritos.setVisible(false);
     }
 
     /**
@@ -73,19 +97,19 @@ public class entradaUsuario extends javax.swing.JFrame {
         jLabelPELICULAS = new javax.swing.JLabel();
         jLabelSERIES = new javax.swing.JLabel();
         jLabelFAVORITOS = new javax.swing.JLabel();
-        jScrollPaneCatalogoTodo = new javax.swing.JScrollPane();
-        jPanelCatalogoTodo = new javax.swing.JPanel();
-        jScrollPaneCatalogoPeliculas = new javax.swing.JScrollPane();
-        jPanelCatalogoPeliculas = new javax.swing.JPanel();
-        jScrollPaneCatalogoSeries = new javax.swing.JScrollPane();
-        jPanelCatalogoSeries = new javax.swing.JPanel();
-        jScrollPaneCatalogoFavoritos = new javax.swing.JScrollPane();
-        jPanelCatalogoFavoritos = new javax.swing.JPanel();
         jPanelBusqueda = new javax.swing.JPanel();
         jTextFieldBuscar = new javax.swing.JTextField();
         jTextFieldActor = new javax.swing.JTextField();
         jComboBoxGenero = new javax.swing.JComboBox<>();
         jFormattedTextFieldAño = new javax.swing.JFormattedTextField();
+        jScrollPaneTodo = new javax.swing.JScrollPane();
+        jPanelTodo = new javax.swing.JPanel();
+        jScrollPanePeliculas = new javax.swing.JScrollPane();
+        jPanelPeliculas = new javax.swing.JPanel();
+        jScrollPaneSeries = new javax.swing.JScrollPane();
+        jPanelSeries = new javax.swing.JPanel();
+        jScrollPaneFavoritos = new javax.swing.JScrollPane();
+        jPanelFavoritos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -96,7 +120,6 @@ public class entradaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jPanelRegistro.setBackground(new java.awt.Color(102, 102, 102));
         jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelOpcionesRegistro.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,26 +216,6 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 710));
 
-        jPanelCatalogoTodo.setLayout(new java.awt.GridLayout(6, 3));
-        jScrollPaneCatalogoTodo.setViewportView(jPanelCatalogoTodo);
-
-        jPanelRegistro.add(jScrollPaneCatalogoTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
-
-        jPanelCatalogoPeliculas.setLayout(new java.awt.GridLayout(4, 3));
-        jScrollPaneCatalogoPeliculas.setViewportView(jPanelCatalogoPeliculas);
-
-        jPanelRegistro.add(jScrollPaneCatalogoPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
-
-        jPanelCatalogoSeries.setLayout(new java.awt.GridLayout(4, 3));
-        jScrollPaneCatalogoSeries.setViewportView(jPanelCatalogoSeries);
-
-        jPanelRegistro.add(jScrollPaneCatalogoSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
-
-        jPanelCatalogoFavoritos.setLayout(new java.awt.GridLayout(4, 3));
-        jScrollPaneCatalogoFavoritos.setViewportView(jPanelCatalogoFavoritos);
-
-        jPanelRegistro.add(jScrollPaneCatalogoFavoritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 980, 570));
-
         jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 55));
 
         jTextFieldBuscar.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
@@ -262,6 +265,43 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda.add(jFormattedTextFieldAño);
 
         jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 980, 140));
+
+        jScrollPaneTodo.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPaneTodo.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanelTodo.setForeground(new java.awt.Color(240, 240, 240));
+        jPanelTodo.setPreferredSize(new java.awt.Dimension(900, 1000));
+        jPanelTodo.setLayout(new java.awt.GridLayout(4, 3, 10, 10));
+        jScrollPaneTodo.setViewportView(jPanelTodo);
+
+        jPanelRegistro.add(jScrollPaneTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 970, 580));
+
+        jScrollPanePeliculas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPanePeliculas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanelPeliculas.setPreferredSize(new java.awt.Dimension(900, 1000));
+        jPanelPeliculas.setLayout(new java.awt.GridLayout(4, 3, 10, 10));
+        jScrollPanePeliculas.setViewportView(jPanelPeliculas);
+
+        jPanelRegistro.add(jScrollPanePeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 970, 580));
+
+        jScrollPaneSeries.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPaneSeries.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanelSeries.setPreferredSize(new java.awt.Dimension(900, 1000));
+        jPanelSeries.setLayout(new java.awt.GridLayout(4, 3, 10, 10));
+        jScrollPaneSeries.setViewportView(jPanelSeries);
+
+        jPanelRegistro.add(jScrollPaneSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 970, 580));
+
+        jScrollPaneFavoritos.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPaneFavoritos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanelFavoritos.setPreferredSize(new java.awt.Dimension(900, 1000));
+        jPanelFavoritos.setLayout(new java.awt.GridLayout(4, 3, 10, 10));
+        jScrollPaneFavoritos.setViewportView(jPanelFavoritos);
+
+        jPanelRegistro.add(jScrollPaneFavoritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 970, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,18 +394,18 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTODO;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelBusqueda;
-    private javax.swing.JPanel jPanelCatalogoFavoritos;
-    private javax.swing.JPanel jPanelCatalogoPeliculas;
-    private javax.swing.JPanel jPanelCatalogoSeries;
-    private javax.swing.JPanel jPanelCatalogoTodo;
     private javax.swing.JPanel jPanelCerrarRegistro;
+    private javax.swing.JPanel jPanelFavoritos;
     private javax.swing.JPanel jPanelIntroDatosRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
+    private javax.swing.JPanel jPanelPeliculas;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPaneCatalogoFavoritos;
-    private javax.swing.JScrollPane jScrollPaneCatalogoPeliculas;
-    private javax.swing.JScrollPane jScrollPaneCatalogoSeries;
-    private javax.swing.JScrollPane jScrollPaneCatalogoTodo;
+    private javax.swing.JPanel jPanelSeries;
+    private javax.swing.JPanel jPanelTodo;
+    private javax.swing.JScrollPane jScrollPaneFavoritos;
+    private javax.swing.JScrollPane jScrollPanePeliculas;
+    private javax.swing.JScrollPane jScrollPaneSeries;
+    private javax.swing.JScrollPane jScrollPaneTodo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldBuscar;

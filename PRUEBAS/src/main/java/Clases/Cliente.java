@@ -1,5 +1,7 @@
 package Clases;
 
+import java.util.ArrayList;
+
 public class Cliente extends Usuario {
 
     //atributos
@@ -7,15 +9,19 @@ public class Cliente extends Usuario {
     private String nombre;
     private TarjetaCredito tarjetacredito;
     private PlanSuscripcion plan;
+    private ArrayList<Contenido> favoritos;
 
     //constructor
-    public Cliente(String dni, String nombre, String correoelectronico, String clave, TarjetaCredito tarjetacredito,PlanSuscripcion plan) {
+
+    public Cliente(String dni, String nombre, TarjetaCredito tarjetacredito, PlanSuscripcion plan, ArrayList<Contenido> favoritos, String clave, String correoelectronico) {
         super(clave, correoelectronico);
         this.dni = dni;
         this.nombre = nombre;
         this.tarjetacredito = tarjetacredito;
         this.plan = plan;
+        this.favoritos = favoritos;
     }
+    
 
     public PlanSuscripcion getPlan() {
         return plan;
@@ -51,6 +57,14 @@ public class Cliente extends Usuario {
         this.tarjetacredito = tarjetacredito;
     }
 
+    public ArrayList<Contenido> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(ArrayList<Contenido> favoritos) {
+        this.favoritos = favoritos;
+    }
+    
     @Override
     public String toString() {
         return "Cliente{" + "dni=" + dni + ", nombre=" + nombre + ", tarjetacredito=" + tarjetacredito + '}';
