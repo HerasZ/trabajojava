@@ -123,6 +123,7 @@ public class addContenido extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
+        jLabelportadaserie = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         paneladdserie = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -242,11 +243,11 @@ public class addContenido extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 184, Short.MAX_VALUE)
+            .addComponent(jLabelportadaserie, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 184, Short.MAX_VALUE)
+            .addComponent(jLabelportadaserie, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
 
         jButton2.setText("Subir Foto");
@@ -557,6 +558,8 @@ public class addContenido extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         ImageIcon portadaSerie = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadaSerie.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
+        jLabelportadaserie.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -576,6 +579,7 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondoRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
+    private javax.swing.JLabel jLabelportadaserie;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
