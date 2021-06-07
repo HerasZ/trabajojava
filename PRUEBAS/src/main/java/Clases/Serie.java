@@ -7,6 +7,7 @@ package Clases;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,8 +17,8 @@ public class Serie extends Contenido implements Serializable {
     
     private ArrayList<Temporada> temporada;
 
-    public Serie(ArrayList<Temporada> temporada, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores) {
-        super(titulo, sinopsis, genero, anno, actores);
+    public Serie(ArrayList<Temporada> temporada, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores,String portada) {
+        super(titulo, sinopsis, genero, anno, actores,portada);
         this.temporada = temporada;
     }
 

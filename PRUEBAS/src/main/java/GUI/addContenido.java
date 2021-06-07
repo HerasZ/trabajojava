@@ -5,16 +5,14 @@
  */
 package GUI;
 
-import Clases.Capitulo;
-import Clases.Cliente;
-import Clases.TarjetaCredito;
+import Clases.Pelicula;
 import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-import GUI.ImageFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -79,6 +77,36 @@ public class addContenido extends javax.swing.JFrame {
         return portada;
     }
 
+    public String guardarFoto() {
+        try {
+            bimage = ImageIO.read(file);
+            File fout = new File("./portadas/" + nombreImagen);
+            ImageIO.write(bimage, extension, fout);
+            String savedimagepath = fout.getPath();
+            ImageIcon savedimage = new ImageIcon(savedimagepath);
+            //Devolvemos el path para guardarlo en el archivo de datos
+            return savedimagepath;
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar imagen");
+        }
+        return null;
+    }
+    
+    public ArrayList<String> parseActores(String actores){
+        ArrayList<String> arrayactores = new ArrayList<>();
+        String actorbuilder = "";
+        for(int i=0;i<actores.length();i++){
+            char c = actores.charAt(i);
+            if (c==',') {
+                arrayactores.add(actorbuilder);
+                actorbuilder="";
+            }else {
+                actorbuilder += c;
+            }
+        }
+        return arrayactores;
+    }
+
     /**
      * Creates new form ventanaPrincipal
      */
@@ -129,24 +157,26 @@ public class addContenido extends javax.swing.JFrame {
         jLabelportadaserie = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPanelPeliculas = new javax.swing.JPanel();
-        jTextField13 = new javax.swing.JTextField();
+        fieldTitulo = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        fieldGeneroP = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jTextField15 = new javax.swing.JTextField();
+        fieldSinopsis = new javax.swing.JTextArea();
+        fieldAnnoP = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        fieldDirector = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        fieldDuracion = new javax.swing.JFormattedTextField();
         jButton5 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jLabelportadaserie3 = new javax.swing.JLabel();
+        jLabelportadapelicula = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        fieldActoresP = new javax.swing.JTextField();
         paneladdserie = new javax.swing.JPanel();
         addserielabel = new javax.swing.JLabel();
         paneladdpelicula = new javax.swing.JPanel();
@@ -322,35 +352,35 @@ public class addContenido extends javax.swing.JFrame {
 
         jPanelPeliculas.setBackground(new java.awt.Color(255, 255, 255));
         jPanelPeliculas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelPeliculas.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 105, -1));
+        jPanelPeliculas.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 105, -1));
 
-        jLabel18.setText("Nombre:");
+        jLabel18.setText("Título:");
         jPanelPeliculas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 20));
 
         jLabel19.setText("Genero:");
         jPanelPeliculas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
-        jPanelPeliculas.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 105, -1));
+        jPanelPeliculas.add(fieldGeneroP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 105, -1));
 
         jLabel20.setText("Sinopsis:");
-        jPanelPeliculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        jPanelPeliculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane7.setViewportView(jTextArea4);
+        fieldSinopsis.setColumns(20);
+        fieldSinopsis.setRows(5);
+        jScrollPane7.setViewportView(fieldSinopsis);
 
-        jPanelPeliculas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, 90));
-        jPanelPeliculas.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 105, -1));
+        jPanelPeliculas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 90));
+        jPanelPeliculas.add(fieldAnnoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 105, -1));
 
         jLabel21.setText("Año:");
         jPanelPeliculas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
 
         jLabel22.setText("Director:");
         jPanelPeliculas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 58, 20));
-        jPanelPeliculas.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
+        jPanelPeliculas.add(fieldDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
 
         jLabel23.setText("Duracion(HH:MM:SS)");
         jPanelPeliculas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
-        jPanelPeliculas.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, -1));
+        jPanelPeliculas.add(fieldDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, -1));
 
         jButton5.setText("Subir Foto");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -358,7 +388,7 @@ public class addContenido extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelPeliculas.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 89, -1));
+        jPanelPeliculas.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 89, -1));
 
         jPanel9.setBackground(new java.awt.Color(130, 130, 130));
 
@@ -366,14 +396,14 @@ public class addContenido extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelportadaserie3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+            .addComponent(jLabelportadapelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelportadaserie3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+            .addComponent(jLabelportadapelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
 
-        jPanelPeliculas.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        jPanelPeliculas.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         jPanel11.setBackground(new java.awt.Color(180, 45, 49));
 
@@ -381,6 +411,11 @@ public class addContenido extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("CREAR PELICULA");
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -394,6 +429,10 @@ public class addContenido extends javax.swing.JFrame {
         );
 
         jPanelPeliculas.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 670, -1));
+
+        jLabel26.setText("Actores(separados por ,):");
+        jPanelPeliculas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 20));
+        jPanelPeliculas.add(fieldActoresP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 150, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -612,6 +651,9 @@ public class addContenido extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        ImageIcon portadaPelicula = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadaPelicula.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
+        jLabelportadapelicula.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -627,17 +669,39 @@ public class addContenido extends javax.swing.JFrame {
         this.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        // TODO add your handling code here:
+        String imagenfinalpath = guardarFoto();
+        try {
+            Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(),fieldDirector.getText(),fieldTitulo.getText(),
+                                    fieldSinopsis.getText(),fieldGeneroP.getText(),Integer.parseInt(fieldAnnoP.getText()),
+                                    parseActores(fieldActoresP.getText()),imagenfinalpath);
+            UtilJavaflix.addPelicula(nuevapelicula);
+            UtilJavaflix.guardarDatos();
+            JOptionPane.showMessageDialog(this, "Pelicula creada correctamente\nPortada guardada en ./portadas");
+        } catch (Exception ex){
+            JOptionPane.showMessageDialog(rootPane, "Error al crear la pelicula");
+        }
+        
+    }//GEN-LAST:event_jLabel24MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addpeliculalabel;
     private javax.swing.JLabel addserielabel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField fieldActoresP;
+    private javax.swing.JTextField fieldAnnoP;
+    private javax.swing.JTextField fieldDirector;
+    private javax.swing.JFormattedTextField fieldDuracion;
+    private javax.swing.JTextField fieldGeneroP;
+    private javax.swing.JTextArea fieldSinopsis;
+    private javax.swing.JTextField fieldTitulo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -656,6 +720,7 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -666,10 +731,10 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondoRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
+    private javax.swing.JLabel jLabelportadapelicula;
     private javax.swing.JLabel jLabelportadaserie;
     private javax.swing.JLabel jLabelportadaserie1;
     private javax.swing.JLabel jLabelportadaserie2;
-    private javax.swing.JLabel jLabelportadaserie3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -699,15 +764,10 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
