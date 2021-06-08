@@ -162,11 +162,11 @@ public class consultaContenido extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Titulo", "Tipo", "X"
+                "Titulo", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -341,7 +341,7 @@ public class consultaContenido extends javax.swing.JFrame {
         // Codigo para pedir al admin si quiere elimnar al usuario clicado dentro de la tabla
         try {
             ArrayList<Contenido> tablaactual_temporal = getTablaactual();
-            Contenido clienteselect = tablaactual_temporal.get(jTable1.getSelectedRow());
+            Contenido contenidoselect = tablaactual_temporal.get(jTable1.getSelectedRow());
         } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex.getMessage());
     }//GEN-LAST:event_jTable1MouseClicked
