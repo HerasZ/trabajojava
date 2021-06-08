@@ -5,26 +5,63 @@
  */
 package GUI;
 
+import Clases.Contenido;
 import java.awt.Color;
 import Clases.UtilJavaflix;
-
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Francisco
  */
-public class adminContenidos extends javax.swing.JFrame {
+public class consultaContenido extends javax.swing.JFrame {
 
-    private ventanaAdmin padre;
+    private adminContenidos padre;
+    private ArrayList<Contenido> tablaactual = new ArrayList<Contenido>();
+
+    public ArrayList<Contenido> getTablaactual() {
+        return tablaactual;
+    }
+
+    public void setTablaactual(ArrayList<Contenido> tablaactual) {
+        this.tablaactual = tablaactual;
+    }
 
     /**
      * Creates new form ventanaPrincipal
      */
-    public adminContenidos(ventanaAdmin main) {
+    public consultaContenido(adminContenidos main) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        tablaactual.addAll(UtilJavaflix.getPeliculas());
+        tablaactual.addAll(UtilJavaflix.getSeries());
+        showTabla(tablaactual);
+        System.out.println(tablaactual);
+
+    }
+
+    private void showTabla(ArrayList<Contenido> contenido_a_ordenar) {
+        int contador = 0;
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (Contenido contenido : contenido_a_ordenar) {
+            model.addRow(new Object[]{null, null});
+            jTable1.setValueAt(contenido.getTitulo(), contador, 0);
+            jTable1.setValueAt(contenido.getClass().toString(), contador, 1);
+            contador++;
+        }
+    }
+
+    private void limpiarTabla() {
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
+        }
     }
 
     /**
@@ -44,12 +81,15 @@ public class adminContenidos extends javax.swing.JFrame {
         jLabelCerrarRegistro = new javax.swing.JLabel();
         jPanelAtrasRegistro = new javax.swing.JPanel();
         jLabelAtrasRegistro = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jPanelUsuarios = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanelContenidos = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        labelsearch = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
@@ -114,95 +154,118 @@ public class adminContenidos extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelOpcionesRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Gestion de contenido");
+        jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jPanelUsuarios.setBackground(new java.awt.Color(180, 45, 49));
-
-        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Modificacion contenidos");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+            },
+            new String [] {
+                "Titulo", "Tipo", "X"
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel2MouseExited(evt);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-
-        javax.swing.GroupLayout jPanelUsuariosLayout = new javax.swing.GroupLayout(jPanelUsuarios);
-        jPanelUsuarios.setLayout(jPanelUsuariosLayout);
-        jPanelUsuariosLayout.setHorizontalGroup(
-            jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanelUsuariosLayout.setVerticalGroup(
-            jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-        );
-
-        jPanelContenidos.setBackground(new java.awt.Color(180, 45, 49));
-
-        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Añadir nuevo contenido");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                jTable1MouseClicked(evt);
             }
         });
+        jScrollPane2.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanelContenidosLayout = new javax.swing.GroupLayout(jPanelContenidos);
-        jPanelContenidos.setLayout(jPanelContenidosLayout);
-        jPanelContenidosLayout.setHorizontalGroup(
-            jPanelContenidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanelContenidosLayout.setVerticalGroup(
-            jPanelContenidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel1.setText("Ajustes de consulta");
+
+        jLabel2.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
+        jLabel2.setText("Buscar:");
+
+        jTextField1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(180, 45, 49));
+
+        labelsearch.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        labelsearch.setForeground(new java.awt.Color(255, 255, 255));
+        labelsearch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelsearch.setText("Buscar");
+        labelsearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelsearchMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelsearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelsearchMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelContenidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(123, 123, 123))
+            .addComponent(labelsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addComponent(jPanelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(jPanelContenidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+            .addComponent(labelsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
         );
 
-        jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabel5.setText("Haga clic en un contenido para modificarlo");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(42, 42, 42)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        jPanelRegistro.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
         jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,24 +306,24 @@ public class adminContenidos extends javax.swing.JFrame {
 
     private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(232,17,35));
-        jLabelCerrarRegistro.setForeground( new Color(255,255,255));
+        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
+        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
 
     private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground( new Color(255,255,255));
-        jLabelCerrarRegistro.setForeground( new Color(0,0,0));
+        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
+        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(229,229,229));
+        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
 
     private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground( new Color(255,255,255));
+        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
@@ -272,60 +335,63 @@ public class adminContenidos extends javax.swing.JFrame {
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
-        
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // Codigo para pedir al admin si quiere elimnar al usuario clicado dentro de la tabla
+        try {
+            ArrayList<Contenido> tablaactual_temporal = getTablaactual();
+            Contenido clienteselect = tablaactual_temporal.get(jTable1.getSelectedRow());
+        } catch (IndexOutOfBoundsException ex) {
+            System.out.println(ex.getMessage());
+    }//GEN-LAST:event_jTable1MouseClicked
+    }
+    private void labelsearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseClicked
         // TODO add your handling code here:
-        consultaContenido consultar = new consultaContenido(this);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel2MouseClicked
+        try {
+            ArrayList<Contenido> clientesfiltrados = new ArrayList<>();
+            tablaactual.stream()
+                    .filter(filtrando -> (filtrando.getTitulo().contains(jTextField1.getText())))
+                    .forEachOrdered(filtrando -> {clientesfiltrados.add(filtrando);});
+            limpiarTabla();
+            setTablaactual(clientesfiltrados);
+            showTabla(getTablaactual());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_labelsearchMouseClicked
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+    private void labelsearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseEntered
         // TODO add your handling code here:
-        jPanelUsuarios.setBackground(new Color(148, 13, 30));
-    }//GEN-LAST:event_jLabel2MouseEntered
+        jPanel1.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_labelsearchMouseEntered
 
-    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+    private void labelsearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseExited
         // TODO add your handling code here:
-        jPanelUsuarios.setBackground(new Color(180, 45, 49));
-    }//GEN-LAST:event_jLabel2MouseExited
-
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-        // TODO add your handling code here:
-        jPanelContenidos.setBackground(new Color(148, 13, 30));
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:
-        jPanelContenidos.setBackground(new Color(180, 45, 49));
-    }//GEN-LAST:event_jLabel3MouseExited
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        addContenido nuevocontenido = new addContenido(this);
- 
-    }//GEN-LAST:event_jLabel3MouseClicked
+        jPanel1.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_labelsearchMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFondoRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
-    private javax.swing.JPanel jPanelContenidos;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JPanel jPanelUsuarios;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelsearch;
     // End of variables declaration//GEN-END:variables
 }
