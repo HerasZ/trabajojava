@@ -6,8 +6,6 @@
 package GUI;
 
 import Clases.Pelicula;
-import Clases.Serie;
-import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.awt.image.BufferedImage;
@@ -18,7 +16,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,8 +27,8 @@ public class modificarPelicula extends javax.swing.JFrame {
     private String nombreImagen, rutaImagen, extension = "jpg";
     private File file;
     private BufferedImage bimage;
+    private Pelicula pelimodificar;
 
- 
     public ImageIcon cargarFoto() {
         JFileChooser filechooser = new JFileChooser();
         filechooser.addChoosableFileFilter(new ImageFilter());
@@ -84,22 +81,22 @@ public class modificarPelicula extends javax.swing.JFrame {
      */
     public modificarPelicula(consultaContenido main, Pelicula pelimodificar) {
         padre = main;
+        this.pelimodificar = pelimodificar;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        rutaImagen = pelimodificar.getPortada();
         fieldTitulo.setText(pelimodificar.getTitulo());
         fieldGeneroP.setText(pelimodificar.getTitulo());
         fieldAnnoP.setText(String.valueOf(pelimodificar.getAnno()));
         fieldDirector.setText(pelimodificar.getDirector());
         fieldDuracion.setText(pelimodificar.getDuracion());
-        fieldActoresP.setText(pelimodificar.getActores().stream().reduce(",", String::concat));
+        fieldActoresP.setText(String.join(",", pelimodificar.getActores()));
         fieldSinopsis.setText(pelimodificar.getSinopsis());
-        ImageIcon portadaanterior = new ImageIcon(pelimodificar.getPortada());
-        ImageIcon portadaredimen  = new ImageIcon(portadaanterior.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
+        ImageIcon portadaanterior = new ImageIcon(rutaImagen);
+        ImageIcon portadaredimen = new ImageIcon(portadaanterior.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
         jLabelportadapelicula.setIcon(portadaredimen);
-        
-                
-                
+
     }
 
     /**
@@ -138,7 +135,7 @@ public class modificarPelicula extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabelportadapelicula = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        crearpelicula = new javax.swing.JLabel();
+        actualizarpelicula = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         fieldActoresP = new javax.swing.JTextField();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
@@ -267,13 +264,13 @@ public class modificarPelicula extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(180, 45, 49));
 
-        crearpelicula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        crearpelicula.setForeground(new java.awt.Color(255, 255, 255));
-        crearpelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        crearpelicula.setText("ACTUALIZAR PELICULA");
-        crearpelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+        actualizarpelicula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        actualizarpelicula.setForeground(new java.awt.Color(255, 255, 255));
+        actualizarpelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        actualizarpelicula.setText("ACTUALIZAR PELICULA");
+        actualizarpelicula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                crearpeliculaMouseClicked(evt);
+                actualizarpeliculaMouseClicked(evt);
             }
         });
 
@@ -281,11 +278,11 @@ public class modificarPelicula extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(crearpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+            .addComponent(actualizarpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(crearpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(actualizarpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanelPeliculas.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 670, -1));
@@ -395,14 +392,26 @@ public class modificarPelicula extends javax.swing.JFrame {
         jLabelportadapelicula.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void crearpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearpeliculaMouseClicked
-
-    }//GEN-LAST:event_crearpeliculaMouseClicked
+    private void actualizarpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarpeliculaMouseClicked
+        try {
+            ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
+            Pelicula peliculareemplazar = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(), fieldSinopsis.getText(), fieldGeneroP.getText(),
+                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()),rutaImagen);  
+            int indexparainsertar = listacompleta.indexOf(pelimodificar);
+            System.out.println(indexparainsertar);
+            listacompleta.set(indexparainsertar,peliculareemplazar);
+            UtilJavaflix.guardarDatos();
+            JOptionPane.showMessageDialog(rootPane, "Actualizacion completada");
+            this.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_actualizarpeliculaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel actualizarpelicula;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel crearpelicula;
     private javax.swing.JTextField fieldActoresP;
     private javax.swing.JTextField fieldAnnoP;
     private javax.swing.JTextField fieldDirector;

@@ -367,17 +367,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="crearpelicula" alignment="0" pref="670" max="32767" attributes="0"/>
+                          <Component id="actualizarpelicula" alignment="0" pref="670" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="crearpelicula" alignment="0" pref="80" max="32767" attributes="0"/>
+                          <Component id="actualizarpelicula" alignment="0" pref="80" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="crearpelicula">
+                    <Component class="javax.swing.JLabel" name="actualizarpelicula">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Roboto" size="14" style="0"/>
@@ -389,7 +389,7 @@
                         <Property name="text" type="java.lang.String" value="ACTUALIZAR PELICULA"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="crearpeliculaMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="actualizarpeliculaMouseClicked"/>
                       </Events>
                     </Component>
                   </SubComponents>
