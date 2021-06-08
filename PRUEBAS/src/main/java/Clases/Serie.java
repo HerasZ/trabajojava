@@ -7,7 +7,6 @@ package Clases;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  *

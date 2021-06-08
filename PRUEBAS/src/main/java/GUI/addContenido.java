@@ -6,6 +6,7 @@
 package GUI;
 
 import Clases.Pelicula;
+import Clases.Serie;
 import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
@@ -91,16 +92,16 @@ public class addContenido extends javax.swing.JFrame {
         }
         return null;
     }
-    
-    public ArrayList<String> parseActores(String actores){
+
+    public ArrayList<String> parseActores(String actores) {
         ArrayList<String> arrayactores = new ArrayList<>();
         String actorbuilder = "";
-        for(int i=0;i<actores.length();i++){
+        for (int i = 0; i < actores.length(); i++) {
             char c = actores.charAt(i);
-            if (c==',') {
+            if (c == ',') {
                 arrayactores.add(actorbuilder);
-                actorbuilder="";
-            }else {
+                actorbuilder = "";
+            } else {
                 actorbuilder += c;
             }
         }
@@ -138,21 +139,21 @@ public class addContenido extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanelSeries = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fieldNombreS = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        fieldGeneroS = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        fieldAnnoS = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        fieldActoresS = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        fieldSinopsisS = new javax.swing.JTextArea();
         jPanel10 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
+        crearserie = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelportadaserie = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -174,7 +175,7 @@ public class addContenido extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabelportadapelicula = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
+        crearpelicula = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         fieldActoresP = new javax.swing.JTextField();
         paneladdserie = new javax.swing.JPanel();
@@ -255,22 +256,22 @@ public class addContenido extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
         jPanelSeries.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 20));
-        jPanelSeries.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 105, -1));
+        jPanelSeries.add(fieldNombreS, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 105, -1));
 
         jLabel2.setText("Sinopsis:");
         jPanelSeries.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 20));
 
         jLabel3.setText("Genero:");
         jPanelSeries.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 20));
-        jPanelSeries.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 105, -1));
+        jPanelSeries.add(fieldGeneroS, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 105, -1));
 
         jLabel6.setText("Año:");
         jPanelSeries.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 20));
-        jPanelSeries.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 105, -1));
+        jPanelSeries.add(fieldAnnoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 105, -1));
 
         jLabel7.setText("Actores(separados por ,):");
         jPanelSeries.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 20));
-        jPanelSeries.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 320, -1));
+        jPanelSeries.add(fieldActoresS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 320, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -300,29 +301,34 @@ public class addContenido extends javax.swing.JFrame {
         });
         jPanelSeries.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 133, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        fieldSinopsisS.setColumns(20);
+        fieldSinopsisS.setRows(5);
+        jScrollPane2.setViewportView(fieldSinopsisS);
 
         jPanelSeries.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 210, 90));
 
         jPanel10.setBackground(new java.awt.Color(180, 45, 49));
 
-        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("CREAR SERIE");
+        crearserie.setBackground(new java.awt.Color(255, 255, 255));
+        crearserie.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        crearserie.setForeground(new java.awt.Color(255, 255, 255));
+        crearserie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        crearserie.setText("CREAR SERIE");
+        crearserie.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearserieMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(crearserie, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(crearserie, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanelSeries.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 720, 80));
@@ -407,13 +413,13 @@ public class addContenido extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(180, 45, 49));
 
-        jLabel24.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("CREAR PELICULA");
-        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+        crearpelicula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        crearpelicula.setForeground(new java.awt.Color(255, 255, 255));
+        crearpelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        crearpelicula.setText("CREAR PELICULA");
+        crearpelicula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel24MouseClicked(evt);
+                crearpeliculaMouseClicked(evt);
             }
         });
 
@@ -421,11 +427,11 @@ public class addContenido extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+            .addComponent(crearpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(crearpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
         jPanelPeliculas.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 670, -1));
@@ -669,48 +675,60 @@ public class addContenido extends javax.swing.JFrame {
         this.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+    private void crearpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearpeliculaMouseClicked
         // TODO add your handling code here:
         String imagenfinalpath = guardarFoto();
         try {
-            Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(),fieldDirector.getText(),fieldTitulo.getText(),
-                                    fieldSinopsis.getText(),fieldGeneroP.getText(),Integer.parseInt(fieldAnnoP.getText()),
-                                    parseActores(fieldActoresP.getText()),imagenfinalpath);
+            Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(),
+                    fieldSinopsis.getText(), fieldGeneroP.getText(), Integer.parseInt(fieldAnnoP.getText()),
+                    parseActores(fieldActoresP.getText()), imagenfinalpath);
             UtilJavaflix.addPelicula(nuevapelicula);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Pelicula creada correctamente\nPortada guardada en ./portadas");
-        } catch (Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Error al crear la pelicula");
         }
-        
-    }//GEN-LAST:event_jLabel24MouseClicked
+
+    }//GEN-LAST:event_crearpeliculaMouseClicked
+
+    private void crearserieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearserieMouseClicked
+        // TODO add your handling code here:
+        String imagenfinalpath = guardarFoto();
+        try {
+            Serie nuevaserie = new Serie(temporadas,fieldNombreS.getText(),fieldSinopsisS.getText(),fieldGeneroS.getText(),Integer.parseInt(fieldAnnoS.getText()),
+                                        parseActores(fieldActoresS.getText()),imagenfinalpath);
+            UtilJavaflix.addSerie(nuevaserie);
+            UtilJavaflix.guardarDatos();
+            JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Error al crear la serie");
+        }
+
+    }//GEN-LAST:event_crearserieMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addpeliculalabel;
     private javax.swing.JLabel addserielabel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel crearpelicula;
+    private javax.swing.JLabel crearserie;
     private javax.swing.JTextField fieldActoresP;
+    private javax.swing.JTextField fieldActoresS;
     private javax.swing.JTextField fieldAnnoP;
+    private javax.swing.JTextField fieldAnnoS;
     private javax.swing.JTextField fieldDirector;
     private javax.swing.JFormattedTextField fieldDuracion;
     private javax.swing.JTextField fieldGeneroP;
+    private javax.swing.JTextField fieldGeneroS;
+    private javax.swing.JTextField fieldNombreS;
     private javax.swing.JTextArea fieldSinopsis;
+    private javax.swing.JTextArea fieldSinopsisS;
     private javax.swing.JTextField fieldTitulo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -718,14 +736,10 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFondoRegistro;
@@ -733,16 +747,10 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
     private javax.swing.JLabel jLabelportadapelicula;
     private javax.swing.JLabel jLabelportadaserie;
-    private javax.swing.JLabel jLabelportadaserie1;
-    private javax.swing.JLabel jLabelportadaserie2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
@@ -752,30 +760,9 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSeries;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel paneladdpelicula;
     private javax.swing.JPanel paneladdserie;
     // End of variables declaration//GEN-END:variables
