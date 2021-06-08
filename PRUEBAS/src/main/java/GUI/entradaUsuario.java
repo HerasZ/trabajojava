@@ -40,28 +40,29 @@ public class entradaUsuario extends javax.swing.JFrame {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
-        String titulo;
+        //crea jlabel para cada objeto de la clase
         for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
-            titulo = UtilJavaflix.getContenido().get(i).getTitulo();
+            String titulo = UtilJavaflix.getContenido().get(i).getTitulo();
             JLabel portada = new JLabel();
+            //portada.setIcon(UtilJavaflix.getContenido().get(i).getPortada());
             jPanelTodo.add(portada);
             portada.setText(titulo);
         }
         for ( int i = 0; i < UtilJavaflix.getPeliculas().size(); i++) {
-            titulo = UtilJavaflix.getPeliculas().get(i).getTitulo();
+            String titulo = UtilJavaflix.getPeliculas().get(i).getTitulo();
             JLabel portada = new JLabel();
             jPanelPeliculas.add(portada);
             portada.setText(titulo);
         }
         for ( int i = 0; i < UtilJavaflix.getSeries().size(); i++) {
-            titulo = UtilJavaflix.getSeries().get(i).getTitulo();
+            String titulo = UtilJavaflix.getSeries().get(i).getTitulo();
             JLabel portada = new JLabel();
-            jPanelTodo.add(portada);
+            jPanelSeries.add(portada);
             portada.setText(titulo);
         }
         /**
         for ( int i = 0; i < Cliente.getFavoritos().size(); i++) {
-            titulo = Cliente.getFavoritos().get(i).getTitulo();
+            String titulo = Cliente.getFavoritos().get(i).getTitulo();
             JLabel portada = new JLabel();
             jPanelTodo.add(portada);
             portada.setText(titulo);

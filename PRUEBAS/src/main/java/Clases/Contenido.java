@@ -72,6 +72,22 @@ public abstract class Contenido implements Serializable {
         this.actores = actores;
     }
 
+    public HashMap<Cliente, Integer> getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(HashMap<Cliente, Integer> calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public String getPortada() {
+        return portada;
+    }
+
+    public void setPortada(String portada) {
+        this.portada = portada;
+    }
+    
     @Override
     public String toString() {
         return "Contenido{" + "titulo=" + titulo + ", sinopsis=" + sinopsis + ", genero=" + genero + ", anno=" + anno + ", actores=" + actores + '}';
