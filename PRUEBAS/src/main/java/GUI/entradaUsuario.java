@@ -69,6 +69,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         }
         **/
         this.setVisible(true);
+        jScrollPaneTodo.setVisible(true);
         jScrollPanePeliculas.setVisible(false);
         jScrollPaneSeries.setVisible(false);
         jScrollPaneFavoritos.setVisible(false);
@@ -101,8 +102,8 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda = new javax.swing.JPanel();
         jTextFieldBuscar = new javax.swing.JTextField();
         jTextFieldActor = new javax.swing.JTextField();
-        jComboBoxGenero = new javax.swing.JComboBox<>();
         jFormattedTextFieldAño = new javax.swing.JFormattedTextField();
+        jComboBoxGenero = new javax.swing.JComboBox<>();
         jScrollPaneTodo = new javax.swing.JScrollPane();
         jPanelTodo = new javax.swing.JPanel();
         jScrollPanePeliculas = new javax.swing.JScrollPane();
@@ -111,6 +112,10 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelSeries = new javax.swing.JPanel();
         jScrollPaneFavoritos = new javax.swing.JScrollPane();
         jPanelFavoritos = new javax.swing.JPanel();
+        jToggleButtonBuscar = new javax.swing.JToggleButton();
+        jToggleButtonBuscar1 = new javax.swing.JToggleButton();
+        jToggleButtonBuscar2 = new javax.swing.JToggleButton();
+        jToggleButtonBuscar3 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -217,7 +222,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 710));
 
-        jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 55));
+        jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 45));
 
         jTextFieldBuscar.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldBuscar.setForeground(java.awt.Color.gray);
@@ -248,6 +253,12 @@ public class entradaUsuario extends javax.swing.JFrame {
         });
         jPanelBusqueda.add(jTextFieldActor);
 
+        jFormattedTextFieldAño.setForeground(java.awt.Color.gray);
+        jFormattedTextFieldAño.setText("año...");
+        jFormattedTextFieldAño.setMinimumSize(new java.awt.Dimension(170, 30));
+        jFormattedTextFieldAño.setPreferredSize(new java.awt.Dimension(170, 30));
+        jPanelBusqueda.add(jFormattedTextFieldAño);
+
         jComboBoxGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "acccion", "comedia", "suspense", "crimen", "romance", "aventura", " " }));
         jComboBoxGenero.setMinimumSize(new java.awt.Dimension(170, 30));
@@ -259,13 +270,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         });
         jPanelBusqueda.add(jComboBoxGenero);
 
-        jFormattedTextFieldAño.setForeground(java.awt.Color.gray);
-        jFormattedTextFieldAño.setText("año...");
-        jFormattedTextFieldAño.setMinimumSize(new java.awt.Dimension(170, 30));
-        jFormattedTextFieldAño.setPreferredSize(new java.awt.Dimension(170, 30));
-        jPanelBusqueda.add(jFormattedTextFieldAño);
-
-        jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 980, 140));
+        jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 980, 90));
 
         jScrollPaneTodo.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPaneTodo.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -303,6 +308,23 @@ public class entradaUsuario extends javax.swing.JFrame {
         jScrollPaneFavoritos.setViewportView(jPanelFavoritos);
 
         jPanelRegistro.add(jScrollPaneFavoritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 970, 580));
+
+        jToggleButtonBuscar.setText("BUSCAR");
+        jPanelRegistro.add(jToggleButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 90, -1));
+
+        jToggleButtonBuscar1.setText("BUSCAR");
+        jPanelRegistro.add(jToggleButtonBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 120, 90, -1));
+
+        jToggleButtonBuscar2.setText("BUSCAR");
+        jPanelRegistro.add(jToggleButtonBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 90, -1));
+
+        jToggleButtonBuscar3.setText("BUSCAR");
+        jToggleButtonBuscar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButtonBuscar3MouseClicked(evt);
+            }
+        });
+        jPanelRegistro.add(jToggleButtonBuscar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -378,7 +400,26 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jComboBoxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGeneroActionPerformed
         // TODO add your handling code here:
+        if(jTextFieldActor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Escriba el nombre de un actor para ver su contenido");
+        } else {
+            if(jScrollPaneTodo.isVisible()){
+                
+            } else if(jScrollPaneTodo.isVisible()){
+                
+            } else if(jScrollPaneTodo.isVisible()){
+               
+            } else if(jScrollPaneTodo.isVisible()){
+                
+            }
+            
+            
+        }
     }//GEN-LAST:event_jComboBoxGeneroActionPerformed
+
+    private void jToggleButtonBuscar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonBuscar3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButtonBuscar3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -410,5 +451,9 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldBuscar;
+    private javax.swing.JToggleButton jToggleButtonBuscar;
+    private javax.swing.JToggleButton jToggleButtonBuscar1;
+    private javax.swing.JToggleButton jToggleButtonBuscar2;
+    private javax.swing.JToggleButton jToggleButtonBuscar3;
     // End of variables declaration//GEN-END:variables
 }
