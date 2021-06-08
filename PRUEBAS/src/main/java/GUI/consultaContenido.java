@@ -6,6 +6,8 @@
 package GUI;
 
 import Clases.Contenido;
+import Clases.Pelicula;
+import Clases.Serie;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.util.ArrayList;
@@ -342,10 +344,18 @@ public class consultaContenido extends javax.swing.JFrame {
         try {
             ArrayList<Contenido> tablaactual_temporal = getTablaactual();
             Contenido contenidoselect = tablaactual_temporal.get(jTable1.getSelectedRow());
+            if (contenidoselect instanceof Serie) {
+                
+            } else if (contenidoselect instanceof Pelicula) {
+                modificarPelicula pelimod = new modificarPelicula(this,(Pelicula)contenidoselect);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar el elemento", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jTable1MouseClicked
-    }
+   
     private void labelsearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseClicked
         // TODO add your handling code here:
         try {
