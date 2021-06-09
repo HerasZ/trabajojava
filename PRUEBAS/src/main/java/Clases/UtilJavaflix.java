@@ -64,7 +64,7 @@ public class UtilJavaflix {
     public static void setContenido(ArrayList<Contenido> contenido) {
         UtilJavaflix.contenido = contenido;
     }
-    
+
     public static void guardarDatos() {
         try {
             File datosjavaflix = new File("datosjavaflix.dat");
@@ -173,9 +173,9 @@ public class UtilJavaflix {
         }
         return clientesbuscado;
     }
-    
+
     public static void generarFactura(PlanSuscripcion sub, double precio) {
-        String rutanuevafactura = "./Facturas/" + sub.getCliente().getDni()+".txt";
+        String rutanuevafactura = "./Facturas/" + sub.getCliente().getDni() + ".txt";
 
         try {
             File dirFacturas = new File("./Facturas");
@@ -194,7 +194,7 @@ public class UtilJavaflix {
                 salida.println("DNI del cliente: " + sub.getCliente().getDni());
                 salida.println("Numero de tarjeta: " + sub.getCliente().getTarjetacredito().getNumero());
                 salida.println("\n");
-                salida.println("Precio de la suscripcion "+ sub.getTipo()+": "+ precio +"€");
+                salida.println("Precio de la suscripcion " + sub.getTipo() + ": " + precio + "€");
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

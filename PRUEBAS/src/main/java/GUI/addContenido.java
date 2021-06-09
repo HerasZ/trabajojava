@@ -695,8 +695,8 @@ public class addContenido extends javax.swing.JFrame {
         // TODO add your handling code here:
         String imagenfinalpath = guardarFoto();
         try {
-            Serie nuevaserie = new Serie(temporadas,fieldNombreS.getText(),fieldSinopsisS.getText(),fieldGeneroS.getText(),Integer.parseInt(fieldAnnoS.getText()),
-                                        parseActores(fieldActoresS.getText()),imagenfinalpath);
+            Serie nuevaserie = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
+                    parseActores(fieldActoresS.getText()), imagenfinalpath);
             UtilJavaflix.addSerie(nuevaserie);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");

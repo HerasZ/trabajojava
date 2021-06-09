@@ -65,7 +65,7 @@ public class consultaContenido extends javax.swing.JFrame {
             dm.removeRow(i);
         }
     }
-    
+
     private void recargarDatosTabla() {
         tablaactual.clear();
         tablaactual.addAll(UtilJavaflix.getPeliculas());
@@ -354,9 +354,9 @@ public class consultaContenido extends javax.swing.JFrame {
             ArrayList<Contenido> tablaactual_temporal = getTablaactual();
             Contenido contenidoselect = tablaactual_temporal.get(jTable1.getSelectedRow());
             if (contenidoselect instanceof Serie) {
-                
+
             } else if (contenidoselect instanceof Pelicula) {
-                modificarPelicula pelimod = new modificarPelicula(this,(Pelicula)contenidoselect);
+                modificarPelicula pelimod = new modificarPelicula(this, (Pelicula) contenidoselect);
                 this.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar el elemento", "Error", JOptionPane.ERROR_MESSAGE);
@@ -365,14 +365,16 @@ public class consultaContenido extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_jTable1MouseClicked
-   
+
     private void labelsearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseClicked
         // TODO add your handling code here:
         try {
             ArrayList<Contenido> clientesfiltrados = new ArrayList<>();
             tablaactual.stream()
                     .filter(filtrando -> (filtrando.getTitulo().contains(jTextField1.getText())))
-                    .forEachOrdered(filtrando -> {clientesfiltrados.add(filtrando);});
+                    .forEachOrdered(filtrando -> {
+                        clientesfiltrados.add(filtrando);
+                    });
             limpiarTabla();
             setTablaactual(clientesfiltrados);
             showTabla(getTablaactual());

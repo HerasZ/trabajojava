@@ -36,6 +36,12 @@ public class modificarPelicula extends javax.swing.JFrame {
 
         int option = filechooser.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
+            try {
+                File borrar = new File(rutaImagen);
+                borrar.delete();
+            } catch (Exception ex) {
+                System.out.println("La portada anterior no existe en el directorio");
+            }
             file = filechooser.getSelectedFile();
             rutaImagen = file.getAbsolutePath();
             nombreImagen = file.getName();
@@ -48,6 +54,7 @@ public class modificarPelicula extends javax.swing.JFrame {
 
     public String guardarFoto() {
         try {
+
             bimage = ImageIO.read(file);
             File fout = new File("./portadas/" + nombreImagen);
             ImageIO.write(bimage, extension, fout);
@@ -396,6 +403,7 @@ public class modificarPelicula extends javax.swing.JFrame {
     private void actualizarpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarpeliculaMouseClicked
         try {
             ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
+            rutaImagen = guardarFoto();
             Pelicula peliculareemplazar = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(), fieldSinopsis.getText(), fieldGeneroP.getText(),
                     Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()), rutaImagen);
             int indexparainsertar = listacompleta.indexOf(pelimodificar);
