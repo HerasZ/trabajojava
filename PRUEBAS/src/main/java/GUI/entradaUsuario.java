@@ -5,19 +5,9 @@
  */
 package GUI;
 
-import Clases.Cliente;
-import Clases.TarjetaCredito;
-import java.awt.Color;
-
-import Clases.UtilJavaflix;
 
 import java.awt.Color;
-
 import Clases.UtilJavaflix;
-import Excepciones.EmailNoValido;
-import java.awt.Label;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
