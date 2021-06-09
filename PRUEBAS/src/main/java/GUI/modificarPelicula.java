@@ -371,7 +371,8 @@ public class modificarPelicula extends javax.swing.JFrame {
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
+        padre.setEnabled(true);
         padre.setVisible(true);
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
@@ -396,15 +397,17 @@ public class modificarPelicula extends javax.swing.JFrame {
         try {
             ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
             Pelicula peliculareemplazar = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(), fieldSinopsis.getText(), fieldGeneroP.getText(),
-                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()),rutaImagen);  
+                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()), rutaImagen);
             int indexparainsertar = listacompleta.indexOf(pelimodificar);
             System.out.println(indexparainsertar);
-            listacompleta.set(indexparainsertar,peliculareemplazar);
+            listacompleta.set(indexparainsertar, peliculareemplazar);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(rootPane, "Actualizacion completada");
+            padre.setEnabled(true);
+            padre.setVisible(true);
             this.dispose();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_actualizarpeliculaMouseClicked
 

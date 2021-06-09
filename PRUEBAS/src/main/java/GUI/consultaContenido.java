@@ -52,7 +52,7 @@ public class consultaContenido extends javax.swing.JFrame {
         for (Contenido contenido : contenido_a_ordenar) {
             model.addRow(new Object[]{null, null});
             jTable1.setValueAt(contenido.getTitulo(), contador, 0);
-            jTable1.setValueAt(contenido.getClass().toString(), contador, 1);
+            jTable1.setValueAt(contenido.getClass().getName(), contador, 1);
             contador++;
         }
     }
@@ -64,6 +64,12 @@ public class consultaContenido extends javax.swing.JFrame {
         for (int i = rowCount - 1; i >= 0; i--) {
             dm.removeRow(i);
         }
+    }
+    
+    private void recargarDatosTabla() {
+        tablaactual.clear();
+        tablaactual.addAll(UtilJavaflix.getPeliculas());
+        tablaactual.addAll(UtilJavaflix.getSeries());
     }
 
     /**
@@ -100,6 +106,9 @@ public class consultaContenido extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1239, 725));
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -348,6 +357,7 @@ public class consultaContenido extends javax.swing.JFrame {
                 
             } else if (contenidoselect instanceof Pelicula) {
                 modificarPelicula pelimod = new modificarPelicula(this,(Pelicula)contenidoselect);
+                this.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar el elemento", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -380,6 +390,13 @@ public class consultaContenido extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanel1.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_labelsearchMouseExited
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        limpiarTabla();
+        recargarDatosTabla();
+        showTabla(tablaactual);
+    }//GEN-LAST:event_formWindowActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
