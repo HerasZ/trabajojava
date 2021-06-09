@@ -124,6 +124,7 @@ public class modificarSeries extends javax.swing.JFrame {
     public modificarSeries(consultaContenido main, Serie seriemodificar) {
         padre = main;
         this.seriemodificar = seriemodificar;
+        this.temporadas = seriemodificar.getTemporada();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -457,7 +458,12 @@ public class modificarSeries extends javax.swing.JFrame {
 
     private void crearserieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearserieMouseClicked
         // TODO add your handling code here:
-        String imagenfinalpath = guardarFoto();
+        String imagenfinalpath;
+        try {
+            imagenfinalpath = guardarFoto();
+        } catch (IllegalArgumentException ex) {
+            imagenfinalpath = rutaImagen;
+        }
         try {
             Serie serieasustituir = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
                     parseActores(fieldActoresS.getText()), imagenfinalpath);
@@ -466,7 +472,9 @@ public class modificarSeries extends javax.swing.JFrame {
             listacompleta.set(indexasustituir, serieasustituir);
             UtilJavaflix.setSeries(listacompleta);
             UtilJavaflix.guardarDatos();
-            JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");
+            JOptionPane.showMessageDialog(this, "Serie actualizada correctamente");
+            this.dispose();
+            padre.setVisible(true);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Error al crear la serie");
         }
@@ -477,7 +485,7 @@ public class modificarSeries extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Temporada temporadaselect = seriemodificar.getTemporada().get(jTable1.getSelectedRow());
-            modificarCapitulo modcapitulo = new modificarCapitulo(this,temporadaselect);
+            modificarCapitulo modcapitulo = new modificarCapitulo(this, temporadaselect);
         } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex.getMessage());
         }

@@ -11,8 +11,10 @@ import Clases.TarjetaCredito;
 import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
+import Excepciones.FaltanDatos;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,19 +25,20 @@ public class modificarCapitulo extends javax.swing.JFrame {
 
     private modificarSeries padre;
     private ArrayList<Capitulo> capitulos_temporada = new ArrayList<Capitulo>();
-        
+    private Temporada temporadamodificar;
+
     /**
      * Creates new form ventanaPrincipal
      */
-    public modificarCapitulo(modificarSeries main,Temporada temporadamodificar) {
+    public modificarCapitulo(modificarSeries main, Temporada temporadamodificar) {
         padre = main;
+        this.temporadamodificar = temporadamodificar;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         capitulos_temporada = temporadamodificar.getCapitulos();
         showTabla(capitulos_temporada);
     }
-    
 
     private void showTabla(ArrayList<Capitulo> capitulos_a_ordenar) {
         int contador = 0;
@@ -56,7 +59,6 @@ public class modificarCapitulo extends javax.swing.JFrame {
             dm.removeRow(i);
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,6 +185,11 @@ public class modificarCapitulo extends javax.swing.JFrame {
                 "Capitulo", "Duracion"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -287,12 +294,14 @@ public class modificarCapitulo extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         try {
-        Temporada nuevatemporada = new Temporada(capitulos_temporada);
-        padre.addTemporadas(nuevatemporada);
-        padre.setEnabled(true);
-        this.dispose();
-        } catch(NullPointerException ex) {
-            JOptionPane.showMessageDialog(rootPane, "No se ha podido crear la temporada("+ex.getMessage()+")");
+            Temporada nuevatemporada = new Temporada(capitulos_temporada);
+            int indexsustituir = padre.getTemporadas().indexOf(temporadamodificar);
+            padre.getTemporadas().set(indexsustituir, nuevatemporada);
+            padre.setEnabled(true);
+            padre.setVisible(true);
+            this.dispose();
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido modificar la temporada(" + ex.getMessage() + ")");
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -305,6 +314,27 @@ public class modificarCapitulo extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanelFin.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        Capitulo capituloselect = capitulos_temporada.get(jTable1.getSelectedRow());
+        String newtitulo = JOptionPane.showInputDialog(this, "Nuevo titulo", capituloselect.getTitulo());
+        String newduracion = JOptionPane.showInputDialog(this, "Nueva duracion", capituloselect.getDuracion());
+        try {
+            if (newtitulo.equals("") || newduracion.equals("")) {
+                throw new FaltanDatos("No se ha modificado");
+            } else {
+                capituloselect.setTitulo(newtitulo);
+                capituloselect.setDuración(newduracion);
+                capitulos_temporada.set(jTable1.getSelectedRow(), capituloselect);
+                limpiarTabla();
+                showTabla(capitulos_temporada);
+            }
+        } catch (FaltanDatos ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
