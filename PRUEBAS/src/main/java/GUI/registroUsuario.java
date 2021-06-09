@@ -87,8 +87,8 @@ public class registroUsuario extends javax.swing.JFrame {
         jSeparatorCERegistro = new javax.swing.JSeparator();
         jLabelCERegistro = new javax.swing.JLabel();
         jPasswordFieldClaveRegistro = new javax.swing.JPasswordField();
+        jFormattedTextFieldFechaCaducidad = new javax.swing.JFormattedTextField();
         jFormattedTextFieldNumTarjetaRegistro = new javax.swing.JFormattedTextField();
-        jFormattedTextFieldNumTarjetaRegistro1 = new javax.swing.JFormattedTextField();
         jLabelFondoRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -336,32 +336,32 @@ public class registroUsuario extends javax.swing.JFrame {
         });
         jPanelIntroDatosRegistro.add(jPasswordFieldClaveRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 300, 20));
 
+        jFormattedTextFieldFechaCaducidad.setBorder(null);
+        jFormattedTextFieldFechaCaducidad.setColumns(16);
+        jFormattedTextFieldFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        jFormattedTextFieldFechaCaducidad.setToolTipText("");
+        jFormattedTextFieldFechaCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jFormattedTextFieldFechaCaducidadMousePressed(evt);
+            }
+        });
+        jPanelIntroDatosRegistro.add(jFormattedTextFieldFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, 20));
+
         jFormattedTextFieldNumTarjetaRegistro.setBorder(null);
         jFormattedTextFieldNumTarjetaRegistro.setColumns(16);
-        jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        try {
+            jFormattedTextFieldNumTarjetaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### #### #### ####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldNumTarjetaRegistro.setText("");
         jFormattedTextFieldNumTarjetaRegistro.setToolTipText("");
         jFormattedTextFieldNumTarjetaRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldNumTarjetaRegistroMousePressed(evt);
             }
         });
-        jPanelIntroDatosRegistro.add(jFormattedTextFieldNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 300, 20));
-
-        jFormattedTextFieldNumTarjetaRegistro1.setBorder(null);
-        jFormattedTextFieldNumTarjetaRegistro1.setColumns(16);
-        try {
-            jFormattedTextFieldNumTarjetaRegistro1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### #### #### ####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextFieldNumTarjetaRegistro1.setText("");
-        jFormattedTextFieldNumTarjetaRegistro1.setToolTipText("");
-        jFormattedTextFieldNumTarjetaRegistro1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jFormattedTextFieldNumTarjetaRegistro1MousePressed(evt);
-            }
-        });
-        jPanelIntroDatosRegistro.add(jFormattedTextFieldNumTarjetaRegistro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 300, 20));
+        jPanelIntroDatosRegistro.add(jFormattedTextFieldNumTarjetaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 300, 20));
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
 
@@ -392,9 +392,10 @@ public class registroUsuario extends javax.swing.JFrame {
         try {
             // Hacemos esto para validar los dos campos 
             UtilJavaflix.validarEmail(jTextFieldCERegistro.getText());
-            LocalDate fechacaducidad = LocalDate.parse(jFormattedTextFieldNumTarjetaRegistro.getText());
+            LocalDate fechacaducidad = LocalDate.parse(jFormattedTextFieldFechaCaducidad.getText());
             TarjetaCredito nuevatarjeta = new TarjetaCredito(jFormattedTextFieldNumTarjetaRegistro.getText(), fechacaducidad,
                     Double.parseDouble(jTextFieldSaldoRegistro.getText()));
+            System.out.println(nuevatarjeta);
             planregistroUsuario nuevocliente = new planregistroUsuario(this, jTextFieldDNIRegistro.getText(), jTextFieldNombreRegistro.getText(),
                     jTextFieldCERegistro.getText(), String.valueOf(jPasswordFieldClaveRegistro.getPassword()), nuevatarjeta);
             this.dispose();
@@ -520,12 +521,12 @@ public class registroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldSaldoRegistroMousePressed
 
-    private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
+    private void jFormattedTextFieldFechaCaducidadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldFechaCaducidadMousePressed
         if (jTextFieldSaldoRegistro.getText().isEmpty()) {
             jTextFieldSaldoRegistro.setText("Escriba su saldo");
             jTextFieldSaldoRegistro.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
+    }//GEN-LAST:event_jFormattedTextFieldFechaCaducidadMousePressed
 
     private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
         // TODO add your handling code here:
@@ -561,15 +562,15 @@ public class registroUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
-    private void jFormattedTextFieldNumTarjetaRegistro1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistro1MousePressed
+    private void jFormattedTextFieldNumTarjetaRegistroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistro1MousePressed
+    }//GEN-LAST:event_jFormattedTextFieldNumTarjetaRegistroMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldFechaCaducidad;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumTarjetaRegistro;
-    private javax.swing.JFormattedTextField jFormattedTextFieldNumTarjetaRegistro1;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCERegistro;
     private javax.swing.JLabel jLabelCREATUCUENTARegistro;
