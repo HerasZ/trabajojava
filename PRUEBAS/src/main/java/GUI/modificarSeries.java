@@ -6,6 +6,8 @@
 package GUI;
 
 import Clases.Pelicula;
+import Clases.Serie;
+import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.awt.image.BufferedImage;
@@ -16,18 +18,52 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Francisco
  */
-public class modificarPelicula extends javax.swing.JFrame {
+public class modificarSeries extends javax.swing.JFrame {
 
     private consultaContenido padre;
+    private ArrayList<Temporada> temporadas = new ArrayList<Temporada>();
     private String nombreImagen, rutaImagen, extension = "jpg";
     private File file;
     private BufferedImage bimage;
-    private Pelicula pelimodificar;
+    private Serie seriemodificar;
+
+    public ArrayList<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(ArrayList<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+
+    public void addTemporadas(Temporada temporada) {
+        this.temporadas.add(temporada);
+    }
+
+    private void showTabla(ArrayList<Temporada> Temporadas) {
+        int contador = 0;
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (Temporada temporadaactual : Temporadas) {
+            model.addRow(new Object[]{null, null});
+            jTable1.setValueAt(Temporadas.indexOf(temporadaactual) + 1, contador, 0);
+            jTable1.setValueAt(temporadaactual.getCapitulos().size(), contador, 1);
+            contador++;
+        }
+    }
+
+    private void limpiarTabla() {
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
+        }
+    }
 
     public ImageIcon cargarFoto() {
         JFileChooser filechooser = new JFileChooser();
@@ -54,7 +90,6 @@ public class modificarPelicula extends javax.swing.JFrame {
 
     public String guardarFoto() {
         try {
-
             bimage = ImageIO.read(file);
             File fout = new File("./portadas/" + nombreImagen);
             ImageIO.write(bimage, extension, fout);
@@ -86,24 +121,22 @@ public class modificarPelicula extends javax.swing.JFrame {
     /**
      * Creates new form ventanaPrincipal
      */
-    public modificarPelicula(consultaContenido main, Pelicula pelimodificar) {
+    public modificarSeries(consultaContenido main, Serie seriemodificar) {
         padre = main;
-        this.pelimodificar = pelimodificar;
+        this.seriemodificar = seriemodificar;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        rutaImagen = pelimodificar.getPortada();
-        fieldTitulo.setText(pelimodificar.getTitulo());
-        fieldGeneroP.setText(pelimodificar.getTitulo());
-        fieldAnnoP.setText(String.valueOf(pelimodificar.getAnno()));
-        fieldDirector.setText(pelimodificar.getDirector());
-        fieldDuracion.setText(pelimodificar.getDuracion());
-        fieldActoresP.setText(String.join(",", pelimodificar.getActores()));
-        fieldSinopsis.setText(pelimodificar.getSinopsis());
+        rutaImagen = seriemodificar.getPortada();
+        fieldNombreS.setText(seriemodificar.getTitulo());
+        fieldGeneroS.setText(seriemodificar.getGenero());
+        fieldAnnoS.setText(String.valueOf(seriemodificar.getAnno()));
+        fieldActoresS.setText(String.join(",", seriemodificar.getActores()));
+        fieldSinopsisS.setText(seriemodificar.getSinopsis());
         ImageIcon portadaanterior = new ImageIcon(rutaImagen);
-        ImageIcon portadaredimen = new ImageIcon(portadaanterior.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
-        jLabelportadapelicula.setIcon(portadaredimen);
-
+        ImageIcon portadaredimen = new ImageIcon(portadaanterior.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
+        jLabelportadaserie.setIcon(portadaredimen);
+        showTabla(seriemodificar.getTemporada());
     }
 
     /**
@@ -124,27 +157,25 @@ public class modificarPelicula extends javax.swing.JFrame {
         jPanelAtrasRegistro = new javax.swing.JPanel();
         jLabelAtrasRegistro = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanelPeliculas = new javax.swing.JPanel();
-        fieldTitulo = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        fieldGeneroP = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        fieldSinopsis = new javax.swing.JTextArea();
-        fieldAnnoP = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        fieldDirector = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        fieldDuracion = new javax.swing.JFormattedTextField();
-        jButton5 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        jLabelportadapelicula = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        actualizarpelicula = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        fieldActoresP = new javax.swing.JTextField();
+        jPanelSeries = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        fieldNombreS = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        fieldGeneroS = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        fieldAnnoS = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        fieldActoresS = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        fieldSinopsisS = new javax.swing.JTextArea();
+        jPanel10 = new javax.swing.JPanel();
+        crearserie = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabelportadaserie = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
@@ -214,108 +245,126 @@ public class modificarPelicula extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelPeliculas.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelPeliculas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelPeliculas.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 105, -1));
+        jPanelSeries.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSeries.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setText("Título:");
-        jPanelPeliculas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 20));
+        jLabel1.setText("Nombre:");
+        jPanelSeries.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 20));
+        jPanelSeries.add(fieldNombreS, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 105, -1));
 
-        jLabel19.setText("Genero:");
-        jPanelPeliculas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
-        jPanelPeliculas.add(fieldGeneroP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 105, -1));
+        jLabel2.setText("Sinopsis:");
+        jPanelSeries.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, 20));
 
-        jLabel20.setText("Sinopsis:");
-        jPanelPeliculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        jLabel3.setText("Genero:");
+        jPanelSeries.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 20));
+        jPanelSeries.add(fieldGeneroS, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 105, -1));
 
-        fieldSinopsis.setColumns(20);
-        fieldSinopsis.setRows(5);
-        jScrollPane7.setViewportView(fieldSinopsis);
+        jLabel6.setText("Año:");
+        jPanelSeries.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 20));
+        jPanelSeries.add(fieldAnnoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 105, -1));
 
-        jPanelPeliculas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 180, 90));
-        jPanelPeliculas.add(fieldAnnoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 105, -1));
+        jLabel7.setText("Actores(separados por ,):");
+        jPanelSeries.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 20));
+        jPanelSeries.add(fieldActoresS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 320, -1));
 
-        jLabel21.setText("Año:");
-        jPanelPeliculas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel22.setText("Director:");
-        jPanelPeliculas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 58, 20));
-        jPanelPeliculas.add(fieldDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
+            },
+            new String [] {
+                "Temporada", "Capitulos"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
 
-        jLabel23.setText("Duracion(HH:MM:SS)");
-        jPanelPeliculas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
-        jPanelPeliculas.add(fieldDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, -1));
-
-        jButton5.setText("Subir Foto");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jPanelPeliculas.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 89, -1));
-
-        jPanel9.setBackground(new java.awt.Color(130, 130, 130));
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelportadapelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelportadapelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-        );
-
-        jPanelPeliculas.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
-
-        jPanel11.setBackground(new java.awt.Color(180, 45, 49));
-
-        actualizarpelicula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        actualizarpelicula.setForeground(new java.awt.Color(255, 255, 255));
-        actualizarpelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        actualizarpelicula.setText("ACTUALIZAR PELICULA");
-        actualizarpelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                actualizarpeliculaMouseClicked(evt);
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanelSeries.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 220, 144));
+
+        fieldSinopsisS.setColumns(20);
+        fieldSinopsisS.setRows(5);
+        jScrollPane2.setViewportView(fieldSinopsisS);
+
+        jPanelSeries.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 210, 90));
+
+        jPanel10.setBackground(new java.awt.Color(180, 45, 49));
+
+        crearserie.setBackground(new java.awt.Color(255, 255, 255));
+        crearserie.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        crearserie.setForeground(new java.awt.Color(255, 255, 255));
+        crearserie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        crearserie.setText("ACTUALIZAR SERIE");
+        crearserie.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearserieMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(actualizarpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(crearserie, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(actualizarpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(crearserie, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
-        jPanelPeliculas.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 670, -1));
+        jPanelSeries.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 720, 80));
 
-        jLabel26.setText("Actores(separados por ,):");
-        jPanelPeliculas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 20));
-        jPanelPeliculas.add(fieldActoresP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 150, -1));
+        jPanel3.setBackground(new java.awt.Color(130, 130, 130));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelportadaserie, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelportadaserie, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+        );
+
+        jPanelSeries.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+
+        jButton2.setText("Subir Foto");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanelSeries.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 89, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(758, 758, 758))
+                .addContainerGap()
+                .addComponent(jPanelSeries, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addComponent(jPanelSeries, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 770, 480));
+        jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 900, 480));
 
         jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
         jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
@@ -390,70 +439,76 @@ public class modificarPelicula extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code h
+        // TODO add your handling code here:
+        if (this.temporadas.size() > 0) {
+            limpiarTabla();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(new Object[]{null, null});
+            showTabla(temporadas);
+        }
     }//GEN-LAST:event_formWindowActivated
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ImageIcon portadaPelicula = cargarFoto();
-        ImageIcon imgRedimensionada = new ImageIcon(portadaPelicula.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
-        jLabelportadapelicula.setIcon(imgRedimensionada);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        ImageIcon portadaSerie = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadaSerie.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
+        jLabelportadaserie.setIcon(imgRedimensionada);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void actualizarpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarpeliculaMouseClicked
+    private void crearserieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearserieMouseClicked
+        // TODO add your handling code here:
+        String imagenfinalpath = guardarFoto();
         try {
-            ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
-            rutaImagen = guardarFoto();
-            Pelicula peliculareemplazar = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(), fieldSinopsis.getText(), fieldGeneroP.getText(),
-                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()), rutaImagen);
-            int indexparainsertar = listacompleta.indexOf(pelimodificar);
-            System.out.println(indexparainsertar);
-            listacompleta.set(indexparainsertar, peliculareemplazar);
-            UtilJavaflix.setPeliculas(listacompleta);
+            Serie serieasustituir = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
+                    parseActores(fieldActoresS.getText()), imagenfinalpath);
+            ArrayList<Serie> listacompleta = UtilJavaflix.getSeries();
+            int indexasustituir = listacompleta.indexOf(seriemodificar);
+            listacompleta.set(indexasustituir,serieasustituir);
+            UtilJavaflix.setSeries(listacompleta);
             UtilJavaflix.guardarDatos();
-            JOptionPane.showMessageDialog(rootPane, "Actualizacion completada");
-            padre.setEnabled(true);
-            padre.setVisible(true);
-            this.dispose();
+            JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Error al crear la serie");
         }
-    }//GEN-LAST:event_actualizarpeliculaMouseClicked
+
+    }//GEN-LAST:event_crearserieMouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel actualizarpelicula;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField fieldActoresP;
-    private javax.swing.JTextField fieldAnnoP;
-    private javax.swing.JTextField fieldDirector;
-    private javax.swing.JFormattedTextField fieldDuracion;
-    private javax.swing.JTextField fieldGeneroP;
-    private javax.swing.JTextArea fieldSinopsis;
-    private javax.swing.JTextField fieldTitulo;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel crearserie;
+    private javax.swing.JTextField fieldActoresS;
+    private javax.swing.JTextField fieldAnnoS;
+    private javax.swing.JTextField fieldGeneroS;
+    private javax.swing.JTextField fieldNombreS;
+    private javax.swing.JTextArea fieldSinopsisS;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFondoRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
-    private javax.swing.JLabel jLabelportadapelicula;
+    private javax.swing.JLabel jLabelportadaserie;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
-    private javax.swing.JPanel jPanelPeliculas;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JPanel jPanelSeries;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

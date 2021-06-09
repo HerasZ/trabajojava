@@ -5,11 +5,13 @@
  */
 package Clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniel
  */
-public class Capitulo {
+public class Capitulo implements Serializable{
     
     private String titulo;
     private String duracion;

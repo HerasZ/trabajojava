@@ -5,9 +5,10 @@
  */
 package GUI;
 
-import Clases.Contenido;
-import Clases.Pelicula;
-import Clases.Serie;
+import Clases.Capitulo;
+import Clases.Cliente;
+import Clases.TarjetaCredito;
+import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.util.ArrayList;
@@ -18,41 +19,31 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Francisco
  */
-public class consultaContenido extends javax.swing.JFrame {
+public class modificarCapitulo extends javax.swing.JFrame {
 
-    private adminContenidos padre;
-    private ArrayList<Contenido> tablaactual = new ArrayList<Contenido>();
-
-    public ArrayList<Contenido> getTablaactual() {
-        return tablaactual;
-    }
-
-    public void setTablaactual(ArrayList<Contenido> tablaactual) {
-        this.tablaactual = tablaactual;
-    }
-
+    private addContenido padre;
+    private ArrayList<Capitulo> capitulos_temporada = new ArrayList<Capitulo>();
     /**
      * Creates new form ventanaPrincipal
      */
-    public consultaContenido(adminContenidos main) {
+    public modificarCapitulo(addContenido main) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        tablaactual.addAll(UtilJavaflix.getPeliculas());
-        tablaactual.addAll(UtilJavaflix.getSeries());
-        showTabla(tablaactual);
-        System.out.println(tablaactual);
-
+    }
+    
+    public void addCapituloactual(Capitulo capitulo) {
+        capitulos_temporada.add(capitulo);
     }
 
-    private void showTabla(ArrayList<Contenido> contenido_a_ordenar) {
+    private void showTabla(ArrayList<Capitulo> capitulos_a_ordenar) {
         int contador = 0;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        for (Contenido contenido : contenido_a_ordenar) {
+        for (Capitulo capituloactual : capitulos_a_ordenar) {
             model.addRow(new Object[]{null, null});
-            jTable1.setValueAt(contenido.getTitulo(), contador, 0);
-            jTable1.setValueAt(contenido.getClass().getName(), contador, 1);
+            jTable1.setValueAt(capituloactual.getTitulo(), contador, 0);
+            jTable1.setValueAt(capituloactual.getDuracion(), contador, 1);
             contador++;
         }
     }
@@ -66,11 +57,6 @@ public class consultaContenido extends javax.swing.JFrame {
         }
     }
 
-    private void recargarDatosTabla() {
-        tablaactual.clear();
-        tablaactual.addAll(UtilJavaflix.getPeliculas());
-        tablaactual.addAll(UtilJavaflix.getSeries());
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,15 +75,11 @@ public class consultaContenido extends javax.swing.JFrame {
         jLabelCerrarRegistro = new javax.swing.JLabel();
         jPanelAtrasRegistro = new javax.swing.JPanel();
         jLabelAtrasRegistro = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        labelsearch = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanelFin = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
@@ -106,9 +88,6 @@ public class consultaContenido extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1239, 725));
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -165,118 +144,72 @@ public class consultaContenido extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelOpcionesRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jPanelFin.setBackground(new java.awt.Color(180, 45, 49));
+
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Finalizar Temporada");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelFinLayout = new javax.swing.GroupLayout(jPanelFin);
+        jPanelFin.setLayout(jPanelFinLayout);
+        jPanelFinLayout.setHorizontalGroup(
+            jPanelFinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+        );
+        jPanelFinLayout.setVerticalGroup(
+            jPanelFinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+        );
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Titulo", "Tipo"
+                "Capitulo", "Duracion"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
-
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel1.setText("Ajustes de consulta");
-
-        jLabel2.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
-        jLabel2.setText("Buscar:");
-
-        jTextField1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-
-        jPanel1.setBackground(new java.awt.Color(180, 45, 49));
-
-        labelsearch.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        labelsearch.setForeground(new java.awt.Color(255, 255, 255));
-        labelsearch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelsearch.setText("Buscar");
-        labelsearch.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelsearchMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelsearchMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelsearchMouseExited(evt);
-            }
-        });
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanelFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(222, 222, 222))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jPanelFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel5.setText("Haga clic en un contenido para modificarlo");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(42, 42, 42)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-
-        jPanelRegistro.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 240, 610, -1));
 
         jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
         jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,6 +245,7 @@ public class consultaContenido extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
         padre.setVisible(true);
+        padre.setEnabled(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -339,89 +273,56 @@ public class consultaContenido extends javax.swing.JFrame {
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
+        padre.setEnabled(true);
         padre.setVisible(true);
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
+
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // Codigo para pedir al admin si quiere elimnar al usuario clicado dentro de la tabla
-        try {
-            ArrayList<Contenido> tablaactual_temporal = getTablaactual();
-            Contenido contenidoselect = tablaactual_temporal.get(jTable1.getSelectedRow());
-            if (contenidoselect instanceof Serie) {
-                modificarSeries seriemod = new modificarSeries(this,(Serie) contenidoselect);
-                this.setEnabled(false);
-            } else if (contenidoselect instanceof Pelicula) {
-                modificarPelicula pelimod = new modificarPelicula(this, (Pelicula) contenidoselect);
-                this.setEnabled(false);
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Error al intentar modificar el elemento", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (IndexOutOfBoundsException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }//GEN-LAST:event_jTable1MouseClicked
-
-    private void labelsearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseClicked
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         try {
-            ArrayList<Contenido> clientesfiltrados = new ArrayList<>();
-            tablaactual.stream()
-                    .filter(filtrando -> (filtrando.getTitulo().contains(jTextField1.getText())))
-                    .forEachOrdered(filtrando -> {
-                        clientesfiltrados.add(filtrando);
-                    });
-            limpiarTabla();
-            setTablaactual(clientesfiltrados);
-            showTabla(getTablaactual());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        Temporada nuevatemporada = new Temporada(capitulos_temporada);
+        padre.addTemporadas(nuevatemporada);
+        padre.setEnabled(true);
+        this.dispose();
+        } catch(NullPointerException ex) {
+            JOptionPane.showMessageDialog(rootPane, "No se ha podido crear la temporada("+ex.getMessage()+")");
         }
-    }//GEN-LAST:event_labelsearchMouseClicked
+    }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void labelsearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseEntered
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:
-        jPanel1.setBackground(new Color(148, 13, 30));
-    }//GEN-LAST:event_labelsearchMouseEntered
+        jPanelFin.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabel2MouseEntered
 
-    private void labelsearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelsearchMouseExited
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
         // TODO add your handling code here:
-        jPanel1.setBackground(new Color(180, 45, 49));
-    }//GEN-LAST:event_labelsearchMouseExited
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-        limpiarTabla();
-        recargarDatosTabla();
-        showTabla(tablaactual);
-    }//GEN-LAST:event_formWindowActivated
+        jPanelFin.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabel2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFondoRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
+    private javax.swing.JPanel jPanelFin;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel labelsearch;
     // End of variables declaration//GEN-END:variables
 }
