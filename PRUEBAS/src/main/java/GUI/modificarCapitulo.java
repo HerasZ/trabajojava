@@ -21,21 +21,21 @@ import javax.swing.table.DefaultTableModel;
  */
 public class modificarCapitulo extends javax.swing.JFrame {
 
-    private addContenido padre;
+    private modificarSeries padre;
     private ArrayList<Capitulo> capitulos_temporada = new ArrayList<Capitulo>();
+        
     /**
      * Creates new form ventanaPrincipal
      */
-    public modificarCapitulo(addContenido main) {
+    public modificarCapitulo(modificarSeries main,Temporada temporadamodificar) {
         padre = main;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        capitulos_temporada = temporadamodificar.getCapitulos();
+        showTabla(capitulos_temporada);
     }
     
-    public void addCapituloactual(Capitulo capitulo) {
-        capitulos_temporada.add(capitulo);
-    }
 
     private void showTabla(ArrayList<Capitulo> capitulos_a_ordenar) {
         int contador = 0;
@@ -151,7 +151,7 @@ public class modificarCapitulo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Finalizar Temporada");
+        jLabel2.setText("Actualizar Temporada");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);

@@ -463,7 +463,7 @@ public class modificarSeries extends javax.swing.JFrame {
                     parseActores(fieldActoresS.getText()), imagenfinalpath);
             ArrayList<Serie> listacompleta = UtilJavaflix.getSeries();
             int indexasustituir = listacompleta.indexOf(seriemodificar);
-            listacompleta.set(indexasustituir,serieasustituir);
+            listacompleta.set(indexasustituir, serieasustituir);
             UtilJavaflix.setSeries(listacompleta);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");
@@ -475,6 +475,12 @@ public class modificarSeries extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        try {
+            Temporada temporadaselect = seriemodificar.getTemporada().get(jTable1.getSelectedRow());
+            modificarCapitulo modcapitulo = new modificarCapitulo(this,temporadaselect);
+        } catch (IndexOutOfBoundsException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
 
