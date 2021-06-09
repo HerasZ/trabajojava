@@ -6,6 +6,7 @@
 package GUI;
 
 
+import Clases.Cliente;
 import Clases.Contenido;
 import java.awt.Color;
 import Clases.UtilJavaflix;
@@ -23,6 +24,7 @@ import javax.swing.JPanel;
 public class entradaUsuario extends javax.swing.JFrame {
 
     private ventanaPrincipal padre;
+    private Cliente clientelogeado;
 
     public ventanaPrincipal getPadre() {
         return padre;
@@ -46,8 +48,9 @@ public class entradaUsuario extends javax.swing.JFrame {
         }
     }
     **/
-    public entradaUsuario(ventanaPrincipal main) {
+    public entradaUsuario(ventanaPrincipal main,Cliente clientelogeado) {
         padre = main;
+        this.clientelogeado = clientelogeado;
         initComponents();
         this.setLocationRelativeTo(null);
         //crea jlabel para cada objeto de la clase
