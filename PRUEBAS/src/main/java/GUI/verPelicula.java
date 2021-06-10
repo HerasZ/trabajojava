@@ -27,6 +27,7 @@ public class verPelicula extends javax.swing.JFrame {
         padre = main;
         this.pelicularecibida = pelicularecibida;
         initComponents();
+        jLabelCorazon.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         jLabelTitulo.setText("Titulo: "+pelicularecibida.getTitulo());
@@ -73,6 +74,7 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazon = new javax.swing.JLabel();
         jTextFieldRate = new javax.swing.JTextField();
         jLabelRate = new javax.swing.JLabel();
+        jLabelCorazonVacio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -214,6 +216,14 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelRate.setText("X/10");
         jPanelPelicula.add(jLabelRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 60, 40));
 
+        jLabelCorazonVacio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CorazonVacio.png"))); // NOI18N
+        jLabelCorazonVacio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCorazonVacioMouseClicked(evt);
+            }
+        });
+        jPanelPelicula.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
+
         jPanelverPelicula.add(jPanelPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -280,7 +290,19 @@ public class verPelicula extends javax.swing.JFrame {
     private void jLabelCorazonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonMouseClicked
         // TODO add your handling code here:
         padre.getClientelogeado().addFavoritos(pelicularecibida);
+        jLabelCorazonVacio.setVisible(true);
+        jLabelCorazonVacio.setFocusable(true);
+        jLabelCorazon.setVisible(false);
+        jLabelCorazonVacio.setFocusable(false);
     }//GEN-LAST:event_jLabelCorazonMouseClicked
+
+    private void jLabelCorazonVacioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonVacioMouseClicked
+        // TODO add your handling code here:
+        jLabelCorazonVacio.setVisible(false);
+        jLabelCorazonVacio.setFocusable(false);
+        jLabelCorazon.setVisible(true);
+        jLabelCorazonVacio.setFocusable(true);
+    }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,6 +312,7 @@ public class verPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelCorazon;
+    private javax.swing.JLabel jLabelCorazonVacio;
     private javax.swing.JLabel jLabelDirector;
     private javax.swing.JLabel jLabelDuracion;
     private javax.swing.JLabel jLabelGenero;

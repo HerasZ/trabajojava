@@ -68,6 +68,10 @@ public class Cliente extends Usuario {
         favoritos.add(contenido);
     }
     
+    public void deleteFavoritos(Contenido contenido){
+        favoritos.remove(contenido);
+    }
+    
     @Override
     public String toString() {
         return "Cliente{" + "dni=" + dni + ", nombre=" + nombre + ", tarjetacredito=" + tarjetacredito + '}';
