@@ -68,7 +68,7 @@ public class Cliente extends Usuario {
         favoritos.add(contenido);
     }
     
-    public void deleteFavoritos(Contenido contenido){
+    public void removeFavoritos(Contenido contenido){
         favoritos.remove(contenido);
     }
     

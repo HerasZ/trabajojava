@@ -289,19 +289,20 @@ public class verPelicula extends javax.swing.JFrame {
 
     private void jLabelCorazonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonMouseClicked
         // TODO add your handling code here:
-        padre.getClientelogeado().addFavoritos(pelicularecibida);
+        padre.getClientelogeado().removeFavoritos(pelicularecibida);
         jLabelCorazonVacio.setVisible(true);
         jLabelCorazonVacio.setFocusable(true);
         jLabelCorazon.setVisible(false);
-        jLabelCorazonVacio.setFocusable(false);
+        jLabelCorazon.setFocusable(false);
     }//GEN-LAST:event_jLabelCorazonMouseClicked
 
     private void jLabelCorazonVacioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonVacioMouseClicked
         // TODO add your handling code here:
+        padre.getClientelogeado().addFavoritos(pelicularecibida);
         jLabelCorazonVacio.setVisible(false);
         jLabelCorazonVacio.setFocusable(false);
         jLabelCorazon.setVisible(true);
-        jLabelCorazonVacio.setFocusable(true);
+        jLabelCorazon.setFocusable(true);
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
 
