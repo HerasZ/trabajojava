@@ -32,6 +32,7 @@ public class modificarSeries extends javax.swing.JFrame {
     private File file;
     private BufferedImage bimage;
     private Serie seriemodificar;
+    private ImageIcon portadamodificar;
 
     public ArrayList<Temporada> getTemporadas() {
         return temporadas;
@@ -72,12 +73,6 @@ public class modificarSeries extends javax.swing.JFrame {
 
         int option = filechooser.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
-            try {
-                File borrar = new File(rutaImagen);
-                borrar.delete();
-            } catch (Exception ex) {
-                System.out.println("La portada anterior no existe en el directorio");
-            }
             file = filechooser.getSelectedFile();
             rutaImagen = file.getAbsolutePath();
             nombreImagen = file.getName();
@@ -86,21 +81,6 @@ public class modificarSeries extends javax.swing.JFrame {
         }
         ImageIcon portada = new ImageIcon(rutaImagen);
         return portada;
-    }
-
-    public String guardarFoto() {
-        try {
-            bimage = ImageIO.read(file);
-            File fout = new File("./portadas/" + nombreImagen);
-            ImageIO.write(bimage, extension, fout);
-            String savedimagepath = fout.getPath();
-            ImageIcon savedimage = new ImageIcon(savedimagepath);
-            //Devolvemos el path para guardarlo en el archivo de datos
-            return savedimagepath;
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al guardar imagen");
-        }
-        return null;
     }
 
     public ArrayList<String> parseActores(String actores) {
@@ -125,17 +105,16 @@ public class modificarSeries extends javax.swing.JFrame {
         padre = main;
         this.seriemodificar = seriemodificar;
         this.temporadas = seriemodificar.getTemporada();
+        this.portadamodificar = seriemodificar.getPortada();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        rutaImagen = seriemodificar.getPortada();
         fieldNombreS.setText(seriemodificar.getTitulo());
         fieldGeneroS.setText(seriemodificar.getGenero());
         fieldAnnoS.setText(String.valueOf(seriemodificar.getAnno()));
         fieldActoresS.setText(String.join(",", seriemodificar.getActores()));
         fieldSinopsisS.setText(seriemodificar.getSinopsis());
-        ImageIcon portadaanterior = new ImageIcon(rutaImagen);
-        ImageIcon portadaredimen = new ImageIcon(portadaanterior.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
+        ImageIcon portadaredimen = new ImageIcon(seriemodificar.getPortada().getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
         jLabelportadaserie.setIcon(portadaredimen);
         showTabla(seriemodificar.getTemporada());
     }
@@ -451,22 +430,16 @@ public class modificarSeries extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ImageIcon portadaSerie = cargarFoto();
-        ImageIcon imgRedimensionada = new ImageIcon(portadaSerie.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
+        this.portadamodificar = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadamodificar.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
         jLabelportadaserie.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void crearserieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearserieMouseClicked
         // TODO add your handling code here:
-        String imagenfinalpath;
-        try {
-            imagenfinalpath = guardarFoto();
-        } catch (IllegalArgumentException ex) {
-            imagenfinalpath = rutaImagen;
-        }
         try {
             Serie serieasustituir = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
-                    parseActores(fieldActoresS.getText()), imagenfinalpath);
+                    parseActores(fieldActoresS.getText()), portadamodificar);
             ArrayList<Serie> listacompleta = UtilJavaflix.getSeries();
             int indexasustituir = listacompleta.indexOf(seriemodificar);
             listacompleta.set(indexasustituir, serieasustituir);

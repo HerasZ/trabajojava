@@ -31,6 +31,7 @@ public class addContenido extends javax.swing.JFrame {
     private String nombreImagen, rutaImagen, extension = "jpg";
     private File file;
     private BufferedImage bimage;
+    private ImageIcon portadaparasubir;
 
     public ArrayList<Temporada> getTemporadas() {
         return temporadas;
@@ -78,20 +79,6 @@ public class addContenido extends javax.swing.JFrame {
         return portada;
     }
 
-    public String guardarFoto() {
-        try {
-            bimage = ImageIO.read(file);
-            File fout = new File("./portadas/" + nombreImagen);
-            ImageIO.write(bimage, extension, fout);
-            String savedimagepath = fout.getPath();
-            ImageIcon savedimage = new ImageIcon(savedimagepath);
-            //Devolvemos el path para guardarlo en el archivo de datos
-            return savedimagepath;
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al guardar imagen");
-        }
-        return null;
-    }
 
     public ArrayList<String> parseActores(String actores) {
         ArrayList<String> arrayactores = new ArrayList<>();
@@ -656,16 +643,16 @@ public class addContenido extends javax.swing.JFrame {
     }//GEN-LAST:event_addpeliculalabelMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        ImageIcon portadaPelicula = cargarFoto();
-        ImageIcon imgRedimensionada = new ImageIcon(portadaPelicula.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
+        // TODO add your handling code here:        
+        this.portadaparasubir = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadaparasubir.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
         jLabelportadapelicula.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ImageIcon portadaSerie = cargarFoto();
-        ImageIcon imgRedimensionada = new ImageIcon(portadaSerie.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
+        this.portadaparasubir = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadaparasubir.getImage().getScaledInstance(jLabelportadaserie.getWidth(), jLabelportadaserie.getHeight(), 1));
         jLabelportadaserie.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -678,10 +665,9 @@ public class addContenido extends javax.swing.JFrame {
     private void crearpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearpeliculaMouseClicked
         // TODO add your handling code here:
         try {
-            String imagenfinalpath = guardarFoto();
             Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(),
                     fieldSinopsis.getText(), fieldGeneroP.getText(), Integer.parseInt(fieldAnnoP.getText()),
-                    parseActores(fieldActoresP.getText()), imagenfinalpath);
+                    parseActores(fieldActoresP.getText()), portadaparasubir);
             UtilJavaflix.addPelicula(nuevapelicula);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Pelicula creada correctamente\nPortada guardada en ./portadas");
@@ -693,10 +679,9 @@ public class addContenido extends javax.swing.JFrame {
 
     private void crearserieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearserieMouseClicked
         // TODO add your handling code here:
-        String imagenfinalpath = guardarFoto();
         try {
             Serie nuevaserie = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
-                    parseActores(fieldActoresS.getText()), imagenfinalpath);
+                    parseActores(fieldActoresS.getText()), portadaparasubir);
             UtilJavaflix.addSerie(nuevaserie);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");

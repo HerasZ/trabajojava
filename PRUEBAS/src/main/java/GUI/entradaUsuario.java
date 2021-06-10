@@ -231,7 +231,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda.setToolTipText("Palabras clave");
         jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 45));
 
-        jLabel1.setText("Palabras clave");
+        jLabel1.setText("Palabras clave:");
         jPanelBusqueda.add(jLabel1);
 
         jTextFieldBuscar.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
@@ -260,7 +260,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda.add(jFormattedTextFieldAño);
 
         jComboBoxGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "acccion", "comedia", "suspense", "crimen", "romance", "aventura" }));
+        jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genero", "Acccion", "Comedia", "Suspense", "Crimen", "Romance", "Aventura" }));
         jComboBoxGenero.setMinimumSize(new java.awt.Dimension(170, 30));
         jComboBoxGenero.setPreferredSize(new java.awt.Dimension(170, 30));
         jComboBoxGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -273,7 +273,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 970, 90));
 
         jToggleButtonBuscar.setText("BUSCAR");
-        jPanelRegistro.add(jToggleButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 90, 30));
+        jPanelRegistro.add(jToggleButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 90, 30));
 
         jPanelTarjetas.setLayout(new java.awt.GridLayout(1, 1, 0, 10));
         jScrollPane1.setViewportView(jPanelTarjetas);

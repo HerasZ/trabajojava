@@ -18,7 +18,7 @@ public class Pelicula extends Contenido implements Serializable {
     private String duracion;
     private String director;
 
-    public Pelicula(String duracion, String director, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores,String portada) {
+    public Pelicula(String duracion, String director, String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores,ImageIcon portada) {
         super(titulo, sinopsis, genero, anno, actores,portada);
         this.duracion = duracion;
         this.director = director;

@@ -6,15 +6,9 @@
 package GUI;
 
 
-import Clases.Cliente;
 import Clases.Contenido;
 import java.awt.Color;
 import Clases.UtilJavaflix;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 
 
@@ -24,71 +18,14 @@ import javax.swing.JPanel;
  */
 public class verPelicula extends javax.swing.JFrame {
 
-    private ventanaPrincipal padre;
-    private Cliente clientelogeado;
-    private ArrayList<Contenido> listacontenido = new ArrayList<>();
-
-    public ventanaPrincipal getPadre() {
-        return padre;
-    }
+    private entradaUsuario padre;
+    private Contenido contenidorecibido;
     
-    /**
-     * Creates new form ventanaPrincipal
-     */
-    
-    /**
-    public void colocarPortadas(JPanel catalogo, ArrayList<Contenido> contenidos){
-        int totalcontenidos = contenidos.size();
-        if (totalcontenidos <= 3){
-            catalogo.setPreferredSize(new java.awt.Dimension(900, 570));
-            for ( int i = 0; i < contenidos.size(); i++){
-                String titulo = contenidos.get(i).getTitulo();
-                JLabel titulolabel = new JLabel(titulo);
-                catalogo.add(titulolabel);
-            }
-        } else if (totalcontenidos <= 3){
-            
-        }
-    }
-    */
-    
-    public verPelicula(ventanaPrincipal main,Cliente clientelogeado) {
+    public verPelicula(entradaUsuario main,Contenido contenidorecibido) {
         padre = main;
-        this.clientelogeado = clientelogeado;
-        this.listacontenido.addAll(UtilJavaflix.getPeliculas());
-        this.listacontenido.addAll(UtilJavaflix.getSeries());
+        this.contenidorecibido = contenidorecibido;
         initComponents();
         this.setLocationRelativeTo(null);
-        generarTarjetas();
-        //crea jlabel para cada objeto de la clase
-        /**
-        for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
-            String titulo = UtilJavaflix.getContenido().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            //portada.setIcon(UtilJavaflix.getContenido().get(i).getPortada());
-            jPanelTodo.add(portada);
-            portada.setText(titulo);
-        }
-        for ( int i = 0; i < UtilJavaflix.getPeliculas().size(); i++) {
-            String titulo = UtilJavaflix.getPeliculas().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            jPanelPeliculas.add(portada);
-            portada.setText(titulo);
-        }
-        for ( int i = 0; i < UtilJavaflix.getSeries().size(); i++) {
-            String titulo = UtilJavaflix.getSeries().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            jPanelSeries.add(portada);
-            portada.setText(titulo);
-        }
-        /**
-        for ( int i = 0; i < Cliente.getFavoritos().size(); i++) {
-            String titulo = Cliente.getFavoritos().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            jPanelTodo.add(portada);
-            portada.setText(titulo);
-        }
-        **/
         this.setVisible(true);
 
     }
@@ -279,14 +216,6 @@ public class verPelicula extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void generarTarjetas() {
-        /**
-        jPanel3.setSize(968,listacontenido.size()*100 );
-        jPanel3.setLayout(new GridLayout(listacontenido.size(),1));
-        for (Contenido contenidoiterando : listacontenido) {
-            jPanel3.add(new tarjetaContenido(contenidoiterando));
-        }**/
-    }
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();

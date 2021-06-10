@@ -310,7 +310,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Palabras clave"/>
+                <Property name="text" type="java.lang.String" value="Palabras clave:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldBuscar">
@@ -376,13 +376,14 @@
                   <Font name="Roboto" size="11" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="acccion"/>
-                    <StringItem index="1" value="comedia"/>
-                    <StringItem index="2" value="suspense"/>
-                    <StringItem index="3" value="crimen"/>
-                    <StringItem index="4" value="romance"/>
-                    <StringItem index="5" value="aventura"/>
+                  <StringArray count="7">
+                    <StringItem index="0" value="Genero"/>
+                    <StringItem index="1" value="Acccion"/>
+                    <StringItem index="2" value="Comedia"/>
+                    <StringItem index="3" value="Suspense"/>
+                    <StringItem index="4" value="Crimen"/>
+                    <StringItem index="5" value="Romance"/>
+                    <StringItem index="6" value="Aventura"/>
                   </StringArray>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -407,7 +408,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="630" y="120" width="90" height="30"/>
+              <AbsoluteConstraints x="730" y="120" width="90" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

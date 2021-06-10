@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -22,9 +23,9 @@ public abstract class Contenido implements Serializable {
     private int anno;
     private ArrayList<String> actores;
     private HashMap<Cliente, Integer> calificacion = new HashMap<Cliente, Integer>();
-    private String portada;
+    private ImageIcon portada;
 
-    public Contenido(String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores, String portada) {
+    public Contenido(String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores, ImageIcon portada) {
         this.titulo = titulo;
         this.sinopsis = sinopsis;
         this.genero = genero;
@@ -81,11 +82,11 @@ public abstract class Contenido implements Serializable {
         this.calificacion = calificacion;
     }
 
-    public String getPortada() {
+    public ImageIcon getPortada() {
         return portada;
     }
 
-    public void setPortada(String portada) {
+    public void setPortada(ImageIcon portada) {
         this.portada = portada;
     }
     

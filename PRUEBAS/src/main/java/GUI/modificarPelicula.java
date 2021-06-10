@@ -28,6 +28,7 @@ public class modificarPelicula extends javax.swing.JFrame {
     private File file;
     private BufferedImage bimage;
     private Pelicula pelimodificar;
+    private ImageIcon portadamodificar;
 
     public ImageIcon cargarFoto() {
         JFileChooser filechooser = new JFileChooser();
@@ -36,12 +37,6 @@ public class modificarPelicula extends javax.swing.JFrame {
 
         int option = filechooser.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
-            try {
-                File borrar = new File(rutaImagen);
-                borrar.delete();
-            } catch (Exception ex) {
-                System.out.println("La portada anterior no existe en el directorio");
-            }
             file = filechooser.getSelectedFile();
             rutaImagen = file.getAbsolutePath();
             nombreImagen = file.getName();
@@ -50,22 +45,6 @@ public class modificarPelicula extends javax.swing.JFrame {
         }
         ImageIcon portada = new ImageIcon(rutaImagen);
         return portada;
-    }
-
-    public String guardarFoto() {
-        try {
-
-            bimage = ImageIO.read(file);
-            File fout = new File("./portadas/" + nombreImagen);
-            ImageIO.write(bimage, extension, fout);
-            String savedimagepath = fout.getPath();
-            ImageIcon savedimage = new ImageIcon(savedimagepath);
-            //Devolvemos el path para guardarlo en el archivo de datos
-            return savedimagepath;
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al guardar imagen");
-        }
-        return null;
     }
 
     public ArrayList<String> parseActores(String actores) {
@@ -89,10 +68,10 @@ public class modificarPelicula extends javax.swing.JFrame {
     public modificarPelicula(consultaContenido main, Pelicula pelimodificar) {
         padre = main;
         this.pelimodificar = pelimodificar;
+        this.portadamodificar = pelimodificar.getPortada();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        rutaImagen = pelimodificar.getPortada();
         fieldTitulo.setText(pelimodificar.getTitulo());
         fieldGeneroP.setText(pelimodificar.getTitulo());
         fieldAnnoP.setText(String.valueOf(pelimodificar.getAnno()));
@@ -100,8 +79,7 @@ public class modificarPelicula extends javax.swing.JFrame {
         fieldDuracion.setText(pelimodificar.getDuracion());
         fieldActoresP.setText(String.join(",", pelimodificar.getActores()));
         fieldSinopsis.setText(pelimodificar.getSinopsis());
-        ImageIcon portadaanterior = new ImageIcon(rutaImagen);
-        ImageIcon portadaredimen = new ImageIcon(portadaanterior.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
+        ImageIcon portadaredimen = new ImageIcon(pelimodificar.getPortada().getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
         jLabelportadapelicula.setIcon(portadaredimen);
 
     }
@@ -395,17 +373,16 @@ public class modificarPelicula extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        ImageIcon portadaPelicula = cargarFoto();
-        ImageIcon imgRedimensionada = new ImageIcon(portadaPelicula.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
+        this.portadamodificar = cargarFoto();
+        ImageIcon imgRedimensionada = new ImageIcon(portadamodificar.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
         jLabelportadapelicula.setIcon(imgRedimensionada);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void actualizarpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarpeliculaMouseClicked
         try {
             ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
-            rutaImagen = guardarFoto();
             Pelicula peliculareemplazar = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(), fieldSinopsis.getText(), fieldGeneroP.getText(),
-                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()), rutaImagen);
+                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()), portadamodificar);
             int indexparainsertar = listacompleta.indexOf(pelimodificar);
             System.out.println(indexparainsertar);
             listacompleta.set(indexparainsertar, peliculareemplazar);
