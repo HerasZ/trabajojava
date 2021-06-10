@@ -670,7 +670,7 @@ public class addContenido extends javax.swing.JFrame {
                     parseActores(fieldActoresP.getText()), portadaparasubir);
             UtilJavaflix.addPelicula(nuevapelicula);
             UtilJavaflix.guardarDatos();
-            JOptionPane.showMessageDialog(this, "Pelicula creada correctamente\nPortada guardada en ./portadas");
+            JOptionPane.showMessageDialog(this, "Pelicula creada correctamente");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Error al crear la pelicula");
         }
@@ -684,7 +684,7 @@ public class addContenido extends javax.swing.JFrame {
                     parseActores(fieldActoresS.getText()), portadaparasubir);
             UtilJavaflix.addSerie(nuevaserie);
             UtilJavaflix.guardarDatos();
-            JOptionPane.showMessageDialog(this, "Serie creada correctamente\nPortada guardada en ./portadas");
+            JOptionPane.showMessageDialog(this, "Serie creada correctamente");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Error al crear la serie");
         }
