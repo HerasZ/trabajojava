@@ -7,8 +7,10 @@ package GUI;
 
 
 import Clases.Contenido;
+import Clases.Pelicula;
 import java.awt.Color;
 import Clases.UtilJavaflix;
+import static java.awt.Color.black;
 
 
 
@@ -19,15 +21,23 @@ import Clases.UtilJavaflix;
 public class verPelicula extends javax.swing.JFrame {
 
     private entradaUsuario padre;
-    private Contenido contenidorecibido;
+    private Pelicula pelicularecibida;
     
-    public verPelicula(entradaUsuario main,Contenido contenidorecibido) {
+    public verPelicula(entradaUsuario main, Pelicula pelicularecibida) {
         padre = main;
-        this.contenidorecibido = contenidorecibido;
+        this.pelicularecibida = pelicularecibida;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-
+        jLabelTitulo.setText("Titulo: "+pelicularecibida.getTitulo());
+        jLabelActores.setText("Actores: "+String.join(",", pelicularecibida.getActores()));
+        jLabelDirector.setText("Director: "+pelicularecibida.getDirector());
+        jLabelDuracion.setText("Duracion: "+pelicularecibida.getDuracion());
+        jTextAreaSinopsis.setText("Sinopsis: "+pelicularecibida.getSinopsis());
+        jLabelPortada.setIcon(pelicularecibida.getPortada());
+        jLabelGenero.setText(pelicularecibida.getGenero());
+        jLabelAnno.setText(String.valueOf(pelicularecibida.getAnno()));
+        jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia())+"/10");
     }
 
     /**
@@ -51,18 +61,18 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jPanelPelicula = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelPortada = new javax.swing.JLabel();
+        jLabelDirector = new javax.swing.JLabel();
+        jLabelActores = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
-        jLabelTitulo1 = new javax.swing.JLabel();
-        jLabelTitulo2 = new javax.swing.JLabel();
-        jLabelTitulo3 = new javax.swing.JLabel();
-        jLabelTitulo5 = new javax.swing.JLabel();
-        jLabelTitulo6 = new javax.swing.JLabel();
+        jLabelGenero = new javax.swing.JLabel();
+        jLabelAnno = new javax.swing.JLabel();
+        jLabelDuracion = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jTextAreaSinopsis = new javax.swing.JTextArea();
+        jLabelCorazon = new javax.swing.JLabel();
+        jTextFieldRate = new javax.swing.JTextField();
+        jLabelRate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -144,61 +154,65 @@ public class verPelicula extends javax.swing.JFrame {
         jPanelPelicula.setBackground(java.awt.Color.lightGray);
         jPanelPelicula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelPelicula.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 490, 250));
+        jLabelPortada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelPelicula.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 490, 250));
+
+        jLabelDirector.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelDirector.setText("DIRECTOR:");
+        jPanelPelicula.add(jLabelDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 640, 60));
+
+        jLabelActores.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelActores.setText("ACTORES:");
+        jPanelPelicula.add(jLabelActores, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 640, 60));
 
         jLabelTitulo.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabelTitulo.setText("DIRECTOR:");
-        jPanelPelicula.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 190, 60));
+        jLabelTitulo.setText("TITULO: ");
+        jPanelPelicula.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 300, 60));
 
-        jLabelTitulo1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabelTitulo1.setText("ACTORES:");
-        jPanelPelicula.add(jLabelTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 190, 60));
+        jLabelGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelGenero.setText("GÉNERO:");
+        jPanelPelicula.add(jLabelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 190, 60));
 
-        jLabelTitulo2.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabelTitulo2.setText("TITULO: ");
-        jPanelPelicula.add(jLabelTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 190, 60));
+        jLabelAnno.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelAnno.setText("AÑO:");
+        jPanelPelicula.add(jLabelAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 190, 60));
 
-        jLabelTitulo3.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabelTitulo3.setText("GÉNERO:");
-        jPanelPelicula.add(jLabelTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 190, 60));
+        jLabelDuracion.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelDuracion.setText("DURACION:");
+        jPanelPelicula.add(jLabelDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 640, 60));
 
-        jLabelTitulo5.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabelTitulo5.setText("AÑO:");
-        jPanelPelicula.add(jLabelTitulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 190, 60));
-
-        jLabelTitulo6.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabelTitulo6.setText("DURACION:");
-        jPanelPelicula.add(jLabelTitulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 190, 60));
-
-        jTextArea1.setBackground(java.awt.Color.lightGray);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("SINOPSIS:");
-        jTextArea1.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaSinopsis.setBackground(java.awt.Color.lightGray);
+        jTextAreaSinopsis.setColumns(20);
+        jTextAreaSinopsis.setRows(5);
+        jTextAreaSinopsis.setText("SINOPSIS:");
+        jTextAreaSinopsis.setBorder(null);
+        jScrollPane1.setViewportView(jTextAreaSinopsis);
 
         jPanelPelicula.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 640, 100));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Corazon.png"))); // NOI18N
-        jPanelPelicula.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
-
-        jTextField1.setBackground(java.awt.Color.lightGray);
-        jTextField1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jTextField1.setForeground(java.awt.Color.gray);
-        jTextField1.setText("RATE...");
-        jTextField1.setBorder(null);
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelCorazon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Corazon.png"))); // NOI18N
+        jLabelCorazon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+                jLabelCorazonMouseClicked(evt);
             }
         });
-        jPanelPelicula.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 60, 40));
+        jPanelPelicula.add(jLabelCorazon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel3.setText("X/10");
-        jPanelPelicula.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 60, 40));
+        jTextFieldRate.setBackground(java.awt.Color.lightGray);
+        jTextFieldRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jTextFieldRate.setForeground(java.awt.Color.gray);
+        jTextFieldRate.setText("RATE...");
+        jTextFieldRate.setBorder(null);
+        jTextFieldRate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldRateMouseClicked(evt);
+            }
+        });
+        jPanelPelicula.add(jTextFieldRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 60, 40));
+
+        jLabelRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelRate.setText("X/10");
+        jPanelPelicula.add(jLabelRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 60, 40));
 
         jPanelverPelicula.add(jPanelPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
 
@@ -254,30 +268,36 @@ public class verPelicula extends javax.swing.JFrame {
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
-
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+    private void jTextFieldRateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRateMouseClicked
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextField1MouseClicked
+        if (jTextFieldRate.getText().isEmpty())
+            jTextFieldRate.setText("");
+            jTextFieldRate.setForeground(black);
+    }//GEN-LAST:event_jTextFieldRateMouseClicked
+
+    private void jLabelCorazonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonMouseClicked
+        // TODO add your handling code here:
+        padre.getClientelogeado().addFavoritos(pelicularecibida);
+    }//GEN-LAST:event_jLabelCorazonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelActores;
+    private javax.swing.JLabel jLabelAnno;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
+    private javax.swing.JLabel jLabelCorazon;
+    private javax.swing.JLabel jLabelDirector;
+    private javax.swing.JLabel jLabelDuracion;
+    private javax.swing.JLabel jLabelGenero;
     private javax.swing.JLabel jLabelJAVAFLIXRegistro;
     private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
+    private javax.swing.JLabel jLabelPortada;
+    private javax.swing.JLabel jLabelRate;
     private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JLabel jLabelTitulo1;
-    private javax.swing.JLabel jLabelTitulo2;
-    private javax.swing.JLabel jLabelTitulo3;
-    private javax.swing.JLabel jLabelTitulo5;
-    private javax.swing.JLabel jLabelTitulo6;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelIntroDatosverPelicula;
@@ -286,7 +306,7 @@ public class verPelicula extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelverPelicula;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextAreaSinopsis;
+    private javax.swing.JTextField jTextFieldRate;
     // End of variables declaration//GEN-END:variables
 }

@@ -303,6 +303,10 @@ public class entradaUsuario extends javax.swing.JFrame {
         }
     }
 
+    public Cliente getClientelogeado() {
+        return clientelogeado;
+    }
+    
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
         this.padre.setVisible(true);
