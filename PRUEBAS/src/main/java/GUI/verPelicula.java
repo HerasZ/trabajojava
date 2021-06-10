@@ -188,6 +188,7 @@ public class verPelicula extends javax.swing.JFrame {
         jTextAreaSinopsis.setRows(5);
         jTextAreaSinopsis.setText("SINOPSIS:");
         jTextAreaSinopsis.setBorder(null);
+        jTextAreaSinopsis.setFocusable(false);
         jScrollPane1.setViewportView(jTextAreaSinopsis);
 
         jPanelPelicula.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 640, 100));
