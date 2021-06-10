@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Francisco
  */
 public class OrdenarContenido {
-    
+        
     public static ArrayList<Contenido> masReciente(ArrayList<Contenido> Contenido){
     Contenido temp; // temporal para intercambio
     boolean estaOrdenado; // indica si esta ordenada

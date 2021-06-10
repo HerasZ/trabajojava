@@ -294,6 +294,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelBusqueda">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Palabras clave"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="270" y="30" width="970" height="90"/>
@@ -301,10 +304,15 @@
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
-            <Property name="horizontalGap" type="int" value="60"/>
+            <Property name="horizontalGap" type="int" value="10"/>
             <Property name="verticalGap" type="int" value="45"/>
           </Layout>
           <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Palabras clave"/>
+              </Properties>
+            </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldBuscar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -313,7 +321,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="buscar... "/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 30]"/>
                 </Property>
@@ -321,9 +328,11 @@
                   <Dimension value="[170, 30]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextFieldBuscarMouseClicked"/>
-              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actor:"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldActor">
               <Properties>
@@ -333,7 +342,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="actor..."/>
+                <Property name="toolTipText" type="java.lang.String" value="Actores"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 30]"/>
                 </Property>
@@ -341,17 +350,18 @@
                   <Dimension value="[170, 30]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextFieldActorMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldActorActionPerformed"/>
-              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldA&#xf1;o">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="a&#xf1;o..."/>
+                <Property name="toolTipText" type="java.lang.String" value="A&#xf1;o"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 30]"/>
                 </Property>
@@ -366,14 +376,13 @@
                   <Font name="Roboto" size="11" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="7">
+                  <StringArray count="6">
                     <StringItem index="0" value="acccion"/>
                     <StringItem index="1" value="comedia"/>
                     <StringItem index="2" value="suspense"/>
                     <StringItem index="3" value="crimen"/>
                     <StringItem index="4" value="romance"/>
                     <StringItem index="5" value="aventura"/>
-                    <StringItem index="6" value=" "/>
                   </StringArray>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -392,46 +401,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonBuscarAnno">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BUSCAR"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="830" y="120" width="90" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonBuscarGenero">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BUSCAR"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1060" y="120" width="90" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButtonBuscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="BUSCAR"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="120" width="90" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonBuscarActor">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BUSCAR"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleButtonBuscarActorMouseClicked"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="600" y="120" width="90" height="-1"/>
+              <AbsoluteConstraints x="630" y="120" width="90" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -444,11 +420,12 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="jPanelTarjetas">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                 <Property name="columns" type="int" value="1"/>
                 <Property name="rows" type="int" value="1"/>
+                <Property name="verticalGap" type="int" value="10"/>
               </Layout>
             </Container>
           </SubComponents>

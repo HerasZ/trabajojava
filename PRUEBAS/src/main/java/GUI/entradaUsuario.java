@@ -5,18 +5,13 @@
  */
 package GUI;
 
-
 import Clases.Cliente;
 import Clases.Contenido;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.awt.GridLayout;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-
 
 /**
  *
@@ -31,12 +26,11 @@ public class entradaUsuario extends javax.swing.JFrame {
     public ventanaPrincipal getPadre() {
         return padre;
     }
-    
+
     /**
      * Creates new form ventanaPrincipal
      */
-    
-    /**
+    /*
     public void colocarPortadas(JPanel catalogo, ArrayList<Contenido> contenidos){
         int totalcontenidos = contenidos.size();
         if (totalcontenidos <= 3){
@@ -50,9 +44,8 @@ public class entradaUsuario extends javax.swing.JFrame {
             
         }
     }
-    */
-    
-    public entradaUsuario(ventanaPrincipal main,Cliente clientelogeado) {
+     */
+    public entradaUsuario(ventanaPrincipal main, Cliente clientelogeado) {
         padre = main;
         this.clientelogeado = clientelogeado;
         this.listacontenido.addAll(UtilJavaflix.getPeliculas());
@@ -61,7 +54,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         generarTarjetas();
         //crea jlabel para cada objeto de la clase
-        /**
+        /*
         for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
             String titulo = UtilJavaflix.getContenido().get(i).getTitulo();
             JLabel portada = new JLabel();
@@ -88,7 +81,7 @@ public class entradaUsuario extends javax.swing.JFrame {
             jPanelTodo.add(portada);
             portada.setText(titulo);
         }
-        **/
+         */
         this.setVisible(true);
 
     }
@@ -118,16 +111,16 @@ public class entradaUsuario extends javax.swing.JFrame {
         jLabelSERIES = new javax.swing.JLabel();
         jLabelFAVORITOS = new javax.swing.JLabel();
         jPanelBusqueda = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jTextFieldBuscar = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jTextFieldActor = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jFormattedTextFieldAño = new javax.swing.JFormattedTextField();
         jComboBoxGenero = new javax.swing.JComboBox<>();
-        jToggleButtonBuscarAnno = new javax.swing.JToggleButton();
-        jToggleButtonBuscarGenero = new javax.swing.JToggleButton();
         jToggleButtonBuscar = new javax.swing.JToggleButton();
-        jToggleButtonBuscarActor = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelTarjetas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -235,45 +228,39 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 270, 710));
 
-        jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 45));
+        jPanelBusqueda.setToolTipText("Palabras clave");
+        jPanelBusqueda.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 45));
+
+        jLabel1.setText("Palabras clave");
+        jPanelBusqueda.add(jLabel1);
 
         jTextFieldBuscar.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldBuscar.setForeground(java.awt.Color.gray);
-        jTextFieldBuscar.setText("buscar... ");
         jTextFieldBuscar.setMinimumSize(new java.awt.Dimension(170, 30));
         jTextFieldBuscar.setPreferredSize(new java.awt.Dimension(170, 30));
-        jTextFieldBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldBuscarMouseClicked(evt);
-            }
-        });
         jPanelBusqueda.add(jTextFieldBuscar);
+
+        jLabel2.setText("Actor:");
+        jPanelBusqueda.add(jLabel2);
 
         jTextFieldActor.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldActor.setForeground(java.awt.Color.gray);
-        jTextFieldActor.setText("actor...");
+        jTextFieldActor.setToolTipText("Actores");
         jTextFieldActor.setMinimumSize(new java.awt.Dimension(170, 30));
         jTextFieldActor.setPreferredSize(new java.awt.Dimension(170, 30));
-        jTextFieldActor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldActorMouseClicked(evt);
-            }
-        });
-        jTextFieldActor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldActorActionPerformed(evt);
-            }
-        });
         jPanelBusqueda.add(jTextFieldActor);
 
+        jLabel3.setText("Año:");
+        jPanelBusqueda.add(jLabel3);
+
         jFormattedTextFieldAño.setForeground(java.awt.Color.gray);
-        jFormattedTextFieldAño.setText("año...");
+        jFormattedTextFieldAño.setToolTipText("Año");
         jFormattedTextFieldAño.setMinimumSize(new java.awt.Dimension(170, 30));
         jFormattedTextFieldAño.setPreferredSize(new java.awt.Dimension(170, 30));
         jPanelBusqueda.add(jFormattedTextFieldAño);
 
         jComboBoxGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "acccion", "comedia", "suspense", "crimen", "romance", "aventura", " " }));
+        jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "acccion", "comedia", "suspense", "crimen", "romance", "aventura" }));
         jComboBoxGenero.setMinimumSize(new java.awt.Dimension(170, 30));
         jComboBoxGenero.setPreferredSize(new java.awt.Dimension(170, 30));
         jComboBoxGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -285,25 +272,11 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 970, 90));
 
-        jToggleButtonBuscarAnno.setText("BUSCAR");
-        jPanelRegistro.add(jToggleButtonBuscarAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 90, -1));
-
-        jToggleButtonBuscarGenero.setText("BUSCAR");
-        jPanelRegistro.add(jToggleButtonBuscarGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 120, 90, -1));
-
         jToggleButtonBuscar.setText("BUSCAR");
-        jPanelRegistro.add(jToggleButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 90, -1));
+        jPanelRegistro.add(jToggleButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 90, 30));
 
-        jToggleButtonBuscarActor.setText("BUSCAR");
-        jToggleButtonBuscarActor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButtonBuscarActorMouseClicked(evt);
-            }
-        });
-        jPanelRegistro.add(jToggleButtonBuscarActor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 90, -1));
-
-        jPanel3.setLayout(new java.awt.GridLayout(1, 1));
-        jScrollPane1.setViewportView(jPanel3);
+        jPanelTarjetas.setLayout(new java.awt.GridLayout(1, 1, 0, 10));
+        jScrollPane1.setViewportView(jPanelTarjetas);
 
         jPanelRegistro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 970, 580));
 
@@ -322,13 +295,14 @@ public class entradaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void generarTarjetas() {
-        jPanel3.setSize(968,listacontenido.size()*100 );
-        jPanel3.setLayout(new GridLayout(listacontenido.size(),1));
+        jScrollPane1.setSize(968, 578);
+        jPanelTarjetas.setSize(968, listacontenido.size() * 100);
+        jPanelTarjetas.setLayout(new GridLayout(listacontenido.size(), 1));
         for (Contenido contenidoiterando : listacontenido) {
-            jPanel3.add(new tarjetaContenido(contenidoiterando));
+            jPanelTarjetas.add(new tarjetaContenido(contenidoiterando));
         }
     }
-    
+
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
         this.padre.setVisible(true);
@@ -369,40 +343,21 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
-    private void jTextFieldBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldBuscarMouseClicked
-        // TODO add your handling code here:
-        if (jTextFieldBuscar.getText().equals("buscar...")) {
-            jTextFieldBuscar.setText("");
-        }
-    }//GEN-LAST:event_jTextFieldBuscarMouseClicked
-
-    private void jTextFieldActorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldActorMouseClicked
-        // TODO add your handling code here:
-        if (jTextFieldActor.getText().equals("actor...")) {
-            jTextFieldActor.setText("");
-        }
-    }//GEN-LAST:event_jTextFieldActorMouseClicked
-
-    private void jTextFieldActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldActorActionPerformed
-
     private void jComboBoxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGeneroActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldActor.getText().isEmpty()){
+        if (jTextFieldActor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Escriba el nombre de un actor para ver su contenido");
-        } 
+        }
     }//GEN-LAST:event_jComboBoxGeneroActionPerformed
-
-    private void jToggleButtonBuscarActorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonBuscarActorMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButtonBuscarActorMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jComboBoxGenero;
     private javax.swing.JFormattedTextField jFormattedTextFieldAño;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFAVORITOS;
@@ -411,20 +366,17 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPELICULAS;
     private javax.swing.JLabel jLabelSERIES;
     private javax.swing.JLabel jLabelTODO;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelBusqueda;
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelIntroDatosRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
+    private javax.swing.JPanel jPanelTarjetas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldBuscar;
     private javax.swing.JToggleButton jToggleButtonBuscar;
-    private javax.swing.JToggleButton jToggleButtonBuscarActor;
-    private javax.swing.JToggleButton jToggleButtonBuscarAnno;
-    private javax.swing.JToggleButton jToggleButtonBuscarGenero;
     // End of variables declaration//GEN-END:variables
 }

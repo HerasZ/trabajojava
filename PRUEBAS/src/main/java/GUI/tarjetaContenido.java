@@ -58,19 +58,23 @@ public class tarjetaContenido extends javax.swing.JPanel {
 
         labeltitulo.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         labeltitulo.setText("Titulo");
-        add(labeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 270, 60));
+        add(labeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 270, 60));
 
+        labelanno.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         labelanno.setText("Año");
-        add(labelanno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        add(labelanno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
+        labelnota.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         labelnota.setText("Nota Media");
-        add(labelnota, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        add(labelnota, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
+        labeltempdur.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         labeltempdur.setText("Temporadas / Duracion");
-        add(labeltempdur, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, -1, -1));
+        add(labeltempdur, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 140, -1));
 
+        labelgenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         labelgenero.setText("Genero");
-        add(labelgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, -1, -1));
+        add(labelgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
