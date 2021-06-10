@@ -54,6 +54,11 @@ public class tarjetaContenido extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(968, 100));
         setMinimumSize(new java.awt.Dimension(968, 100));
         setPreferredSize(new java.awt.Dimension(968, 100));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labeltitulo.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
@@ -76,6 +81,10 @@ public class tarjetaContenido extends javax.swing.JPanel {
         labelgenero.setText("Genero");
         add(labelgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
