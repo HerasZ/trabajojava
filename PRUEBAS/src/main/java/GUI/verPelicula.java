@@ -72,9 +72,9 @@ public class verPelicula extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaSinopsis = new javax.swing.JTextArea();
         jLabelCorazon = new javax.swing.JLabel();
-        jTextFieldRate = new javax.swing.JTextField();
         jLabelRate = new javax.swing.JLabel();
         jLabelCorazonVacio = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -201,23 +201,6 @@ public class verPelicula extends javax.swing.JFrame {
         });
         jPanelPelicula.add(jLabelCorazon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
-        jTextFieldRate.setBackground(java.awt.Color.lightGray);
-        jTextFieldRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jTextFieldRate.setForeground(java.awt.Color.gray);
-        jTextFieldRate.setText("RATE...");
-        jTextFieldRate.setBorder(null);
-        jTextFieldRate.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldRateFocusLost(evt);
-            }
-        });
-        jTextFieldRate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldRateMouseClicked(evt);
-            }
-        });
-        jPanelPelicula.add(jTextFieldRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 60, 40));
-
         jLabelRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelRate.setText("X/10");
         jPanelPelicula.add(jLabelRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 60, 40));
@@ -229,6 +212,11 @@ public class verPelicula extends javax.swing.JFrame {
             }
         });
         jPanelPelicula.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
+
+        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Rate", " " }));
+        jComboBox1.setSelectedIndex(10);
+        jPanelPelicula.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, 40));
 
         jPanelverPelicula.add(jPanelPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
 
@@ -286,13 +274,6 @@ public class verPelicula extends javax.swing.JFrame {
         UtilJavaflix.cerrarPrograma();
     }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
 
-    private void jTextFieldRateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRateMouseClicked
-        // TODO add your handling code here:
-        if (jTextFieldRate.getText().isEmpty())
-            jTextFieldRate.setText("");
-            jTextFieldRate.setForeground(black);
-    }//GEN-LAST:event_jTextFieldRateMouseClicked
-
     private void jLabelCorazonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonMouseClicked
         // TODO add your handling code here:
         padre.getClientelogeado().removeFavoritos(pelicularecibida);
@@ -311,14 +292,10 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazon.setFocusable(true);
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
-    private void jTextFieldRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldRateFocusLost
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextFieldRateFocusLost
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelActores;
     private javax.swing.JLabel jLabelAnno;
     private javax.swing.JLabel jLabelAtrasRegistro;
@@ -342,6 +319,5 @@ public class verPelicula extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextAreaSinopsis;
-    private javax.swing.JTextField jTextFieldRate;
     // End of variables declaration//GEN-END:variables
 }
