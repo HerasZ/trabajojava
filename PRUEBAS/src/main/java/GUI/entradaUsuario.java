@@ -10,6 +10,7 @@ import Clases.Cliente;
 import Clases.Contenido;
 import java.awt.Color;
 import Clases.UtilJavaflix;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,6 +26,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private ventanaPrincipal padre;
     private Cliente clientelogeado;
+    private ArrayList<Contenido> listacontenido = new ArrayList<>();
 
     public ventanaPrincipal getPadre() {
         return padre;
@@ -33,6 +35,7 @@ public class entradaUsuario extends javax.swing.JFrame {
     /**
      * Creates new form ventanaPrincipal
      */
+    
     /**
     public void colocarPortadas(JPanel catalogo, ArrayList<Contenido> contenidos){
         int totalcontenidos = contenidos.size();
@@ -40,19 +43,23 @@ public class entradaUsuario extends javax.swing.JFrame {
             catalogo.setPreferredSize(new java.awt.Dimension(900, 570));
             for ( int i = 0; i < contenidos.size(); i++){
                 String titulo = contenidos.get(i).getTitulo();
-                JLabel contenidos.get(i).getTitulo() = new JLabel();
-                catalogo.add(contenidos.get(i).getTitulo());
+                JLabel titulolabel = new JLabel(titulo);
+                catalogo.add(titulolabel);
             }
         } else if (totalcontenidos <= 3){
             
         }
     }
-    **/
+    */
+    
     public entradaUsuario(ventanaPrincipal main,Cliente clientelogeado) {
         padre = main;
         this.clientelogeado = clientelogeado;
+        this.listacontenido.addAll(UtilJavaflix.getPeliculas());
+        this.listacontenido.addAll(UtilJavaflix.getSeries());
         initComponents();
         this.setLocationRelativeTo(null);
+        generarTarjetas();
         //crea jlabel para cada objeto de la clase
         /**
         for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
@@ -115,19 +122,12 @@ public class entradaUsuario extends javax.swing.JFrame {
         jTextFieldActor = new javax.swing.JTextField();
         jFormattedTextFieldAño = new javax.swing.JFormattedTextField();
         jComboBoxGenero = new javax.swing.JComboBox<>();
-        jScrollPaneContenido = new javax.swing.JScrollPane();
-        jPanelTodo = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jToggleButtonBuscarAnno = new javax.swing.JToggleButton();
         jToggleButtonBuscarGenero = new javax.swing.JToggleButton();
         jToggleButtonBuscar = new javax.swing.JToggleButton();
         jToggleButtonBuscarActor = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -285,50 +285,6 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 970, 90));
 
-        jScrollPaneContenido.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPaneContenido.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPaneContenido.setPreferredSize(new java.awt.Dimension(900, 570));
-
-        jPanelTodo.setForeground(new java.awt.Color(240, 240, 240));
-        jPanelTodo.setPreferredSize(new java.awt.Dimension(900, 570));
-        jPanelTodo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
-
-        jPanelTodo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 310, 560));
-
-        jPanel2.setLayout(new java.awt.GridLayout(5, 1, 0, 20));
-
-        jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1);
-
-        jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2);
-
-        jLabel3.setText("jLabel3");
-        jPanel2.add(jLabel3);
-
-        jLabel4.setText("jLabel4");
-        jPanel2.add(jLabel4);
-
-        jLabel5.setText("jLabel5");
-        jPanel2.add(jLabel5);
-
-        jPanelTodo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 560));
-
-        jScrollPaneContenido.setViewportView(jPanelTodo);
-
-        jPanelRegistro.add(jScrollPaneContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 970, 570));
-
         jToggleButtonBuscarAnno.setText("BUSCAR");
         jPanelRegistro.add(jToggleButtonBuscarAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 90, -1));
 
@@ -346,6 +302,11 @@ public class entradaUsuario extends javax.swing.JFrame {
         });
         jPanelRegistro.add(jToggleButtonBuscarActor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 90, -1));
 
+        jPanel3.setLayout(new java.awt.GridLayout(1, 1));
+        jScrollPane1.setViewportView(jPanel3);
+
+        jPanelRegistro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 970, 580));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -360,6 +321,14 @@ public class entradaUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void generarTarjetas() {
+        jPanel3.setSize(968,listacontenido.size()*100 );
+        jPanel3.setLayout(new GridLayout(listacontenido.size(),1));
+        for (Contenido contenidoiterando : listacontenido) {
+            jPanel3.add(new tarjetaContenido(contenidoiterando));
+        }
+    }
+    
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
         this.padre.setVisible(true);
@@ -422,19 +391,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(jTextFieldActor.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Escriba el nombre de un actor para ver su contenido");
-        } else {
-            if(jScrollPaneContenido.isVisible()){
-                
-            } else if(jScrollPaneContenido.isVisible()){
-                
-            } else if(jScrollPaneContenido.isVisible()){
-               
-            } else if(jScrollPaneContenido.isVisible()){
-                
-            }
-            
-            
-        }
+        } 
     }//GEN-LAST:event_jComboBoxGeneroActionPerformed
 
     private void jToggleButtonBuscarActorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonBuscarActorMouseClicked
@@ -446,11 +403,6 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jComboBoxGenero;
     private javax.swing.JFormattedTextField jFormattedTextFieldAño;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFAVORITOS;
@@ -459,16 +411,14 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPELICULAS;
     private javax.swing.JLabel jLabelSERIES;
     private javax.swing.JLabel jLabelTODO;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelBusqueda;
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelIntroDatosRegistro;
     private javax.swing.JPanel jPanelOpcionesRegistro;
     private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JPanel jPanelTodo;
-    private javax.swing.JScrollPane jScrollPaneContenido;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldBuscar;

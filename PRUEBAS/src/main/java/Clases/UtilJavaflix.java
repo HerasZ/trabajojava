@@ -6,7 +6,6 @@ import Excepciones.EmailNoValido;
 import Excepciones.PasswordIncorrecta;
 import java.util.*;
 import java.io.*;
-import javax.swing.JOptionPane;
 
 /**
  *

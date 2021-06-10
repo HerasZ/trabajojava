@@ -8,22 +8,23 @@ package Clases;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.Map;
 
 /**
  *
  * @author Daniel
  */
 public abstract class Contenido implements Serializable {
+
     private String titulo;
     private String sinopsis;
     private String genero;
     private int anno;
     private ArrayList<String> actores;
-    private HashMap<Cliente, Integer> calificacion = new HashMap<Cliente,Integer>();
+    private HashMap<Cliente, Integer> calificacion = new HashMap<Cliente, Integer>();
     private String portada;
 
-    public Contenido(String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores,String portada) {
+    public Contenido(String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores, String portada) {
         this.titulo = titulo;
         this.sinopsis = sinopsis;
         this.genero = genero;
@@ -88,9 +89,24 @@ public abstract class Contenido implements Serializable {
         this.portada = portada;
     }
     
+    public double getCalificacionMedia() {
+        int sum = 0;
+        int divisor = 0;
+        for (Integer key : calificacion.values()) {
+            sum += key;
+            divisor++;
+        }
+        try {
+            return (sum/divisor);
+        } catch (ArithmeticException e) {
+            return 0;
+        }
+        
+    }
+
     @Override
     public String toString() {
         return "Contenido{" + "titulo=" + titulo + ", sinopsis=" + sinopsis + ", genero=" + genero + ", anno=" + anno + ", actores=" + actores + '}';
     }
-    
+
 }
