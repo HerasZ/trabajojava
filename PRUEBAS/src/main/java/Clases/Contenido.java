@@ -22,7 +22,7 @@ public abstract class Contenido implements Serializable {
     private String genero;
     private int anno;
     private ArrayList<String> actores;
-    private HashMap<Cliente, Integer> calificacion = new HashMap<Cliente, Integer>();
+    private HashMap<Cliente, Integer> calificaciones = new HashMap<Cliente, Integer>();
     private ImageIcon portada;
 
     public Contenido(String titulo, String sinopsis, String genero, int anno, ArrayList<String> actores, ImageIcon portada) {
@@ -74,18 +74,24 @@ public abstract class Contenido implements Serializable {
         this.actores = actores;
     }
 
-    public HashMap<Cliente, Integer> getCalificacion() {
-        return calificacion;
+    public HashMap<Cliente, Integer> getCalificaciones() {
+        return calificaciones;
     }
 
-    public void setCalificacion(HashMap<Cliente, Integer> calificacion) {
-        this.calificacion = calificacion;
+    public int getCalificacion(Cliente cliente) {
+        return calificaciones.get(cliente);
+    }
+
+    public void setCalificaciones(HashMap<Cliente, Integer> calificacion) {
+        this.calificaciones = calificacion;
     }
     
     public void addCalificacion(Cliente cliente, int rate){
-        calificacion.put(cliente, rate);
+        calificaciones.put(cliente, rate);
     }
-
+    public void cambiarCalificacion(Cliente cliente, int rate){
+        calificaciones.replace(cliente, rate);
+    }
     public ImageIcon getPortada() {
         return portada;
     }
@@ -97,7 +103,7 @@ public abstract class Contenido implements Serializable {
     public double getCalificacionMedia() {
         int sum = 0;
         int divisor = 0;
-        for (Integer key : calificacion.values()) {
+        for (Integer key : calificaciones.values()) {
             sum += key;
             divisor++;
         }

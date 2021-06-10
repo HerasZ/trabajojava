@@ -38,16 +38,33 @@ public class verSerie extends javax.swing.JFrame {
         jLabelGenero.setText(serierecibida.getGenero());
         jLabelAnno.setText(String.valueOf(serierecibida.getAnno()));
         jLabelRate.setText(String.valueOf(serierecibida.getCalificacionMedia()) + "/10");
+        if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())){
+                setRate();
+            }else{
+            jComboBoxRate.setSelectedIndex(0);
+            }
         for (int i = 1;i <= serierecibida.getTemporada().size(); i++){
             jComboBoxTemporadas.addItem("Temporada "+i);
         }
         DefaultListModel<String> model = new DefaultListModel<String>();
+        setTabla(1);
+    }
+    public void setRate(){
+        try{           
+            jComboBoxRate.setSelectedIndex(serierecibida.getCalificacion(padre.getClientelogeado()));
+            
+        } catch (Exception ex){           
+           
+        }
+    }
+ 
+    public void setTabla(int temporada){
+        DefaultListModel<String> model = new DefaultListModel<String>();
         for (int i = 1;i <= serierecibida.getTemporada().size(); i++){
-            model.addElement(serierecibida.getTemporada().get(i).getCapitulos().get(i).toString());
+            model.addElement(serierecibida.getTemporada().get(temporada-1).getCapitulos().get(i).toString());
         }
         jListCapitulos.setModel(model);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -236,6 +253,11 @@ public class verSerie extends javax.swing.JFrame {
         jPanelPelicula.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, 260));
 
         jComboBoxTemporadas.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jComboBoxTemporadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTemporadasActionPerformed(evt);
+            }
+        });
         jPanelPelicula.add(jComboBoxTemporadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 640, 30));
 
         jPanelverPelicula.add(jPanelPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
@@ -313,23 +335,28 @@ public class verSerie extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
     private void jComboBoxRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRateActionPerformed
-        // TODO add your handling code here:
-        if (jComboBoxRate.getSelectedIndex() != 0) {
-            jComboBoxRate.removeItemAt(0);
-        }
+        // TODO add your handling code here:       
+        try {
+            int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
+            if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())){
+                serierecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
+            }else{
+            serierecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Elige una calificacion","Error",JOptionPane.ERROR_MESSAGE);
+        }               
     }//GEN-LAST:event_jComboBoxRateActionPerformed
 
     private void jComboBoxRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxRateFocusLost
         // TODO add your handling code here:
-        try {
-            int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
-            serierecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Elige una calificacion","Error",JOptionPane.ERROR_MESSAGE);
-        }
-
-
     }//GEN-LAST:event_jComboBoxRateFocusLost
+
+    private void jComboBoxTemporadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTemporadasActionPerformed
+        // TODO add your handling code here:
+        int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
+        setTabla(valorSeleccionado);
+    }//GEN-LAST:event_jComboBoxTemporadasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

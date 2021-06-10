@@ -301,21 +301,16 @@ public class verPelicula extends javax.swing.JFrame {
 
     private void jComboBoxRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRateActionPerformed
         // TODO add your handling code here:
-        if (jComboBoxRate.getSelectedIndex() != 0) {
-            jComboBoxRate.removeItemAt(0);
-        }
-    }//GEN-LAST:event_jComboBoxRateActionPerformed
-
-    private void jComboBoxRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxRateFocusLost
-        // TODO add your handling code here:
         try {
             int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
             pelicularecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Elige una calificacion","Error",JOptionPane.ERROR_MESSAGE);
         }
+    }//GEN-LAST:event_jComboBoxRateActionPerformed
 
-
+    private void jComboBoxRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxRateFocusLost
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxRateFocusLost
 
 
