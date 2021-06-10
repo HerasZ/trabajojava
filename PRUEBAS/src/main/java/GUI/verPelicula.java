@@ -206,6 +206,11 @@ public class verPelicula extends javax.swing.JFrame {
         jTextFieldRate.setForeground(java.awt.Color.gray);
         jTextFieldRate.setText("RATE...");
         jTextFieldRate.setBorder(null);
+        jTextFieldRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldRateFocusLost(evt);
+            }
+        });
         jTextFieldRate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextFieldRateMouseClicked(evt);
@@ -305,6 +310,11 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazon.setVisible(true);
         jLabelCorazon.setFocusable(true);
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
+
+    private void jTextFieldRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldRateFocusLost
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextFieldRateFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

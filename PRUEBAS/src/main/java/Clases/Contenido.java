@@ -81,6 +81,10 @@ public abstract class Contenido implements Serializable {
     public void setCalificacion(HashMap<Cliente, Integer> calificacion) {
         this.calificacion = calificacion;
     }
+    
+    public void addCalificacion(HashMap<Cliente, Integer> calificacion, Cliente cliente, int rate){
+        calificacion.put(cliente, rate);
+    }
 
     public ImageIcon getPortada() {
         return portada;
