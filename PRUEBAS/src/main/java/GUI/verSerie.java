@@ -12,6 +12,7 @@ import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import static java.awt.Color.black;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,8 +41,11 @@ public class verSerie extends javax.swing.JFrame {
         for (int i = 1;i <= serierecibida.getTemporada().size(); i++){
             jComboBoxTemporadas.addItem("Temporada "+i);
         }
-      
-        
+        DefaultListModel<String> model = new DefaultListModel<String>();
+        for (int i = 1;i <= serierecibida.getTemporada().size(); i++){
+            model.addElement(serierecibida.getTemporada().get(i).getCapitulos().get(i).toString());
+        }
+        jListCapitulos.setModel(model);
     }
 
     /**
