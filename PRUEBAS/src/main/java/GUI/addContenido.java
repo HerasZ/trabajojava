@@ -677,8 +677,8 @@ public class addContenido extends javax.swing.JFrame {
 
     private void crearpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearpeliculaMouseClicked
         // TODO add your handling code here:
-        String imagenfinalpath = guardarFoto();
         try {
+            String imagenfinalpath = guardarFoto();
             Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(),
                     fieldSinopsis.getText(), fieldGeneroP.getText(), Integer.parseInt(fieldAnnoP.getText()),
                     parseActores(fieldActoresP.getText()), imagenfinalpath);
