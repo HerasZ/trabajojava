@@ -496,6 +496,9 @@ public class modificarSeries extends javax.swing.JFrame {
         try {
             listacompleta.remove(seriemodificar);
             JOptionPane.showMessageDialog(this, "Serie eliminada correctamente");
+            UtilJavaflix.setSeries(listacompleta);
+            this.dispose();
+            padre.setVisible(true);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error al borrar la serie");
         }

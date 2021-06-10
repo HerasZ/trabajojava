@@ -5,14 +5,12 @@
  */
 package GUI;
 
-
 import Clases.Contenido;
 import Clases.Pelicula;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import static java.awt.Color.black;
-
-
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +20,7 @@ public class verPelicula extends javax.swing.JFrame {
 
     private entradaUsuario padre;
     private Pelicula pelicularecibida;
-    
+
     public verPelicula(entradaUsuario main, Pelicula pelicularecibida) {
         padre = main;
         this.pelicularecibida = pelicularecibida;
@@ -30,15 +28,15 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazon.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        jLabelTitulo.setText("Titulo: "+pelicularecibida.getTitulo());
-        jLabelActores.setText("Actores: "+String.join(",", pelicularecibida.getActores()));
-        jLabelDirector.setText("Director: "+pelicularecibida.getDirector());
-        jLabelDuracion.setText("Duracion: "+pelicularecibida.getDuracion());
-        jTextAreaSinopsis.setText("Sinopsis: "+pelicularecibida.getSinopsis());
+        jLabelTitulo.setText("Titulo: " + pelicularecibida.getTitulo());
+        jLabelActores.setText("Actores: " + String.join(",", pelicularecibida.getActores()));
+        jLabelDirector.setText("Director: " + pelicularecibida.getDirector());
+        jLabelDuracion.setText("Duracion: " + pelicularecibida.getDuracion());
+        jTextAreaSinopsis.setText("Sinopsis: " + pelicularecibida.getSinopsis());
         jLabelPortada.setIcon(pelicularecibida.getPortada());
         jLabelGenero.setText(pelicularecibida.getGenero());
         jLabelAnno.setText(String.valueOf(pelicularecibida.getAnno()));
-        jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia())+"/10");
+        jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia()) + "/10");
     }
 
     /**
@@ -243,7 +241,7 @@ public class verPelicula extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
         this.padre.setVisible(true);
@@ -310,12 +308,14 @@ public class verPelicula extends javax.swing.JFrame {
 
     private void jComboBoxRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxRateFocusLost
         // TODO add your handling code here:
-        /**
-        int valorSeleccionado = jComboBoxRate.getSelectedItem();
-        if (jComboBoxRate.getSelectedItem() != "Rate"){
-            pelicularecibida.addCalificacion(pelicularecibida.getCalificacion(), padre.getClientelogeado(), jComboBoxRate.);
+        try {
+            int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
+            pelicularecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Elige una calificacion","Error",JOptionPane.ERROR_MESSAGE);
         }
-        * **/
+
+
     }//GEN-LAST:event_jComboBoxRateFocusLost
 
 

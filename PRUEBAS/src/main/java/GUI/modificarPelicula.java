@@ -123,6 +123,8 @@ public class modificarPelicula extends javax.swing.JFrame {
         actualizarpelicula = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         fieldActoresP = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
         jLabelFondoRegistro = new javax.swing.JLabel();
@@ -295,6 +297,30 @@ public class modificarPelicula extends javax.swing.JFrame {
 
         jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 770, 480));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("ELIMINAR PELICULA");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+
+        jPanelRegistro.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 260, -1));
+
         jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
         jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -397,6 +423,21 @@ public class modificarPelicula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_actualizarpeliculaMouseClicked
 
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
+        try {
+            listacompleta.remove(pelimodificar);
+            JOptionPane.showMessageDialog(this, "Serie eliminada correctamente");
+            UtilJavaflix.setPeliculas(listacompleta);
+            this.dispose();
+            padre.setVisible(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al borrar la serie");
+        }
+
+    }//GEN-LAST:event_jLabel4MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel actualizarpelicula;
@@ -416,6 +457,7 @@ public class modificarPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelAtrasRegistro;
     private javax.swing.JLabel jLabelCerrarRegistro;
     private javax.swing.JLabel jLabelFondoRegistro;
@@ -424,6 +466,7 @@ public class modificarPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelportadapelicula;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelAtrasRegistro;
     private javax.swing.JPanel jPanelCerrarRegistro;
