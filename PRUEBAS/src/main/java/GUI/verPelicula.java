@@ -214,9 +214,13 @@ public class verPelicula extends javax.swing.JFrame {
         jPanelPelicula.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
         jComboBox1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Rate", " " }));
-        jComboBox1.setSelectedIndex(10);
-        jPanelPelicula.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, 40));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanelPelicula.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 40));
 
         jPanelverPelicula.add(jPanelPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
 
@@ -291,6 +295,13 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazon.setVisible(true);
         jLabelCorazon.setFocusable(true);
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        if (jComboBox1.getSelectedIndex() != 0) {
+            jComboBox1.removeItemAt(0);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
