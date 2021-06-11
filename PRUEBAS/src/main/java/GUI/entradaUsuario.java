@@ -21,7 +21,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private ventanaPrincipal padre;
     private Cliente clientelogeado;
-    private ArrayList<Contenido> listacontenido = new ArrayList<>();
+    private String tipoTargeta;
 
     public ventanaPrincipal getPadre() {
         return padre;
@@ -30,11 +30,10 @@ public class entradaUsuario extends javax.swing.JFrame {
     public entradaUsuario(ventanaPrincipal main, Cliente clientelogeado) {
         padre = main;
         this.clientelogeado = clientelogeado;
-        this.listacontenido.addAll(UtilJavaflix.getPeliculas());
-        this.listacontenido.addAll(UtilJavaflix.getSeries());
+        this.tipoTargeta = "todo";
         initComponents();
         this.setLocationRelativeTo(null);
-        generarTarjetas();
+        generarTarjetas("todo");
         this.setVisible(true);
 
     }
@@ -139,45 +138,93 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelIntroDatosRegistro.setBackground(java.awt.Color.lightGray);
         jPanelIntroDatosRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
+        jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 55)); // NOI18N
         jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(197, 49, 47));
         jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJAVAFLIXRegistro.setText("JAVAFLIX");
         jPanelIntroDatosRegistro.add(jLabelJAVAFLIXRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 130));
 
-        jLabelJAVAFLIXSombraRegistro.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
+        jLabelJAVAFLIXSombraRegistro.setFont(new java.awt.Font("Roboto Black", 0, 55)); // NOI18N
         jLabelJAVAFLIXSombraRegistro.setForeground(new java.awt.Color(112, 101, 101));
         jLabelJAVAFLIXSombraRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJAVAFLIXSombraRegistro.setText("JAVAFLIX");
         jPanelIntroDatosRegistro.add(jLabelJAVAFLIXSombraRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 150));
 
+        jLabelTODO.setBackground(java.awt.Color.lightGray);
         jLabelTODO.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelTODO.setForeground(new java.awt.Color(197, 49, 47));
         jLabelTODO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTODO.setText("TODO");
-        jLabelTODO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelTODO.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelTODO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTODOMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelTODOMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelTODOMouseExited(evt);
+            }
+        });
         jPanelIntroDatosRegistro.add(jLabelTODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 270, 40));
 
+        jLabelPELICULAS.setBackground(java.awt.Color.lightGray);
         jLabelPELICULAS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelPELICULAS.setForeground(new java.awt.Color(197, 49, 47));
         jLabelPELICULAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPELICULAS.setText("PELICULAS");
-        jLabelPELICULAS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanelIntroDatosRegistro.add(jLabelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 176, 270, 40));
+        jLabelPELICULAS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelPELICULAS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPELICULASMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelPELICULASMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelPELICULASMouseExited(evt);
+            }
+        });
+        jPanelIntroDatosRegistro.add(jLabelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 270, 40));
 
+        jLabelSERIES.setBackground(java.awt.Color.lightGray);
         jLabelSERIES.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelSERIES.setForeground(new java.awt.Color(197, 49, 47));
         jLabelSERIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSERIES.setText("SERIES");
         jLabelSERIES.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanelIntroDatosRegistro.add(jLabelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 216, 270, 40));
+        jLabelSERIES.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSERIESMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelSERIESMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelSERIESMouseExited(evt);
+            }
+        });
+        jPanelIntroDatosRegistro.add(jLabelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 270, 40));
 
+        jLabelFAVORITOS.setBackground(java.awt.Color.lightGray);
         jLabelFAVORITOS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelFAVORITOS.setForeground(new java.awt.Color(197, 49, 47));
         jLabelFAVORITOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFAVORITOS.setText("FAVORITOS");
         jLabelFAVORITOS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanelIntroDatosRegistro.add(jLabelFAVORITOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 256, 270, 40));
+        jLabelFAVORITOS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFAVORITOSMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelFAVORITOSMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelFAVORITOSMouseExited(evt);
+            }
+        });
+        jPanelIntroDatosRegistro.add(jLabelFAVORITOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 270, 40));
 
         jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 270, 710));
 
@@ -246,13 +293,44 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void generarTarjetas() {
-        jScrollPane1.setSize(968, 578);
-        jPanelTarjetas.setSize(968, listacontenido.size() * 100);
-        jPanelTarjetas.setLayout(new GridLayout(listacontenido.size(), 1));
-        for (Contenido contenidoiterando : listacontenido) {
-            jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
+    
+    private void setTipoTargeta(String tipo){
+        this.tipoTargeta = tipo;
+    }
+    
+    private String getTipoTargeta(){
+        return tipoTargeta;
+    }
+    private void generarTarjetas(String tipo) {
+        jPanelTarjetas.removeAll();
+        if(tipo.toLowerCase().equals("todo")){
+            jScrollPane1.setSize(968, 578);
+            jPanelTarjetas.setSize(968, UtilJavaflix.getContenido().size() * 100);
+            jPanelTarjetas.setLayout(new GridLayout(UtilJavaflix.getContenido().size(), 1));
+            for (Contenido contenidoiterando : UtilJavaflix.getContenido()) {
+                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
+            }
+        }else if(tipo.toLowerCase().equals("peliculas")){
+            jScrollPane1.setSize(968, 578);
+            jPanelTarjetas.setSize(968, UtilJavaflix.getPeliculas().size() * 100);
+            jPanelTarjetas.setLayout(new GridLayout(UtilJavaflix.getPeliculas().size(), 1));
+            for (Contenido contenidoiterando : UtilJavaflix.getPeliculas()) {
+                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
+            }
+        }else if(tipo.toLowerCase().equals("series")){
+            jScrollPane1.setSize(968, 578);
+            jPanelTarjetas.setSize(968, UtilJavaflix.getSeries().size() * 100);
+            jPanelTarjetas.setLayout(new GridLayout(UtilJavaflix.getSeries().size(), 1));
+            for (Contenido contenidoiterando : UtilJavaflix.getSeries()) {
+                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
+            }
+        }else if(tipo.toLowerCase().equals("favoritos")){
+            jScrollPane1.setSize(968, 578);
+            jPanelTarjetas.setSize(968, clientelogeado.getFavoritos().size() * 100);
+            jPanelTarjetas.setLayout(new GridLayout(clientelogeado.getFavoritos().size(), 1));
+            for (Contenido contenidoiterando : clientelogeado.getFavoritos()) {
+                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
+            }
         }
     }
 
@@ -306,6 +384,78 @@ public class entradaUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Escriba el nombre de un actor para ver su contenido");
         }
     }//GEN-LAST:event_jComboBoxGeneroActionPerformed
+
+    private void jLabelTODOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseEntered
+        // TODO add your handling code here:
+        jLabelTODO.setBackground(java.awt.Color.gray);
+    }//GEN-LAST:event_jLabelTODOMouseEntered
+
+    private void jLabelTODOMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseExited
+        // TODO add your handling code here:
+        jLabelTODO.setBackground(java.awt.Color.LIGHT_GRAY);
+    }//GEN-LAST:event_jLabelTODOMouseExited
+
+    private void jLabelPELICULASMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseEntered
+        // TODO add your handling code here:
+        jLabelPELICULAS.setBackground(java.awt.Color.gray);
+    }//GEN-LAST:event_jLabelPELICULASMouseEntered
+
+    private void jLabelPELICULASMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseExited
+        // TODO add your handling code here:
+        jLabelPELICULAS.setBackground(java.awt.Color.LIGHT_GRAY);
+    }//GEN-LAST:event_jLabelPELICULASMouseExited
+
+    private void jLabelSERIESMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseEntered
+        // TODO add your handling code here:
+        jLabelSERIES.setBackground(java.awt.Color.gray);
+    }//GEN-LAST:event_jLabelSERIESMouseEntered
+
+    private void jLabelSERIESMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseExited
+        // TODO add your handling code here:
+        jLabelSERIES.setBackground(java.awt.Color.LIGHT_GRAY);
+    }//GEN-LAST:event_jLabelSERIESMouseExited
+
+    private void jLabelFAVORITOSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseEntered
+        // TODO add your handling code here:
+        jLabelFAVORITOS.setBackground(java.awt.Color.gray);
+    }//GEN-LAST:event_jLabelFAVORITOSMouseEntered
+
+    private void jLabelFAVORITOSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseExited
+        // TODO add your handling code here:
+        jLabelFAVORITOS.setBackground(java.awt.Color.LIGHT_GRAY);
+    }//GEN-LAST:event_jLabelFAVORITOSMouseExited
+
+    private void jLabelTODOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseClicked
+        // TODO add your handling code here:
+        if (!getTipoTargeta().toLowerCase().equals("todo")){
+            generarTarjetas("todo");
+            setTipoTargeta("todo");
+        }
+    }//GEN-LAST:event_jLabelTODOMouseClicked
+
+    private void jLabelPELICULASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseClicked
+        // TODO add your handling code here:
+        if (!getTipoTargeta().toLowerCase().equals("peliculas")){
+            generarTarjetas("peliculas");
+            setTipoTargeta("peliculas");
+        }
+    }//GEN-LAST:event_jLabelPELICULASMouseClicked
+
+    private void jLabelSERIESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseClicked
+        // TODO add your handling code here:
+        if (!getTipoTargeta().toLowerCase().equals("series")){
+            generarTarjetas("series");
+            setTipoTargeta("series");
+        }
+    }//GEN-LAST:event_jLabelSERIESMouseClicked
+
+    private void jLabelFAVORITOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseClicked
+        // TODO add your handling code here:
+        if (!getTipoTargeta().toLowerCase().equals("favoritos")){
+            generarTarjetas("favoritos");
+            setTipoTargeta("favoritos");
+        }
+    }//GEN-LAST:event_jLabelFAVORITOSMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
