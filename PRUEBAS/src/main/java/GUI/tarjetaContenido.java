@@ -14,13 +14,15 @@ import Clases.Serie;
  * @author Heras
  */
 public class tarjetaContenido extends javax.swing.JPanel {
-    
+
     private Contenido contenidoheredado;
+    private entradaUsuario padre;
 
     /**
      * Creates new form tarjetaContenido
      */
-    public tarjetaContenido(Contenido contenidoheredado) {
+    public tarjetaContenido(entradaUsuario main, Contenido contenidoheredado) {
+        padre = main;
         this.contenidoheredado = contenidoheredado;
         initComponents();
         labeltitulo.setText(contenidoheredado.getTitulo());
@@ -84,6 +86,11 @@ public class tarjetaContenido extends javax.swing.JPanel {
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
+        if (contenidoheredado instanceof Serie) {
+            verSerie verserie = new verSerie(padre, (Serie) contenidoheredado);
+        } else if (contenidoheredado instanceof Pelicula) {
+            verPelicula verpelicula = new verPelicula(padre, (Pelicula) contenidoheredado);
+        }
     }//GEN-LAST:event_formMouseClicked
 
 

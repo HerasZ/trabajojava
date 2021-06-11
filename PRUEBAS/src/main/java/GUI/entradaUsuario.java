@@ -27,24 +27,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         return padre;
     }
 
-    /**
-     * Creates new form ventanaPrincipal
-     */
-    /*
-    public void colocarPortadas(JPanel catalogo, ArrayList<Contenido> contenidos){
-        int totalcontenidos = contenidos.size();
-        if (totalcontenidos <= 3){
-            catalogo.setPreferredSize(new java.awt.Dimension(900, 570));
-            for ( int i = 0; i < contenidos.size(); i++){
-                String titulo = contenidos.get(i).getTitulo();
-                JLabel titulolabel = new JLabel(titulo);
-                catalogo.add(titulolabel);
-            }
-        } else if (totalcontenidos <= 3){
-            
-        }
-    }
-     */
     public entradaUsuario(ventanaPrincipal main, Cliente clientelogeado) {
         padre = main;
         this.clientelogeado = clientelogeado;
@@ -53,35 +35,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         generarTarjetas();
-        //crea jlabel para cada objeto de la clase
-        /*
-        for ( int i = 0; i < UtilJavaflix.getContenido().size(); i++) {
-            String titulo = UtilJavaflix.getContenido().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            //portada.setIcon(UtilJavaflix.getContenido().get(i).getPortada());
-            jPanelTodo.add(portada);
-            portada.setText(titulo);
-        }
-        for ( int i = 0; i < UtilJavaflix.getPeliculas().size(); i++) {
-            String titulo = UtilJavaflix.getPeliculas().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            jPanelPeliculas.add(portada);
-            portada.setText(titulo);
-        }
-        for ( int i = 0; i < UtilJavaflix.getSeries().size(); i++) {
-            String titulo = UtilJavaflix.getSeries().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            jPanelSeries.add(portada);
-            portada.setText(titulo);
-        }
-        /**
-        for ( int i = 0; i < Cliente.getFavoritos().size(); i++) {
-            String titulo = Cliente.getFavoritos().get(i).getTitulo();
-            JLabel portada = new JLabel();
-            jPanelTodo.add(portada);
-            portada.setText(titulo);
-        }
-         */
         this.setVisible(true);
 
     }
@@ -299,7 +252,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelTarjetas.setSize(968, listacontenido.size() * 100);
         jPanelTarjetas.setLayout(new GridLayout(listacontenido.size(), 1));
         for (Contenido contenidoiterando : listacontenido) {
-            jPanelTarjetas.add(new tarjetaContenido(contenidoiterando));
+            jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
         }
     }
 
