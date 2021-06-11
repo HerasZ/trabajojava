@@ -50,6 +50,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabelDoblezAcceso = new javax.swing.JLabel();
         jPanelIntroDatosAcceso = new javax.swing.JPanel();
         jLabelCEAcceso = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jTextFieldCEAcceso = new javax.swing.JTextField();
         jSeparatorCEAcceso = new javax.swing.JSeparator();
         jLabelClaveAcceso = new javax.swing.JLabel();
@@ -132,6 +133,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabelCEAcceso.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelCEAcceso.setText("CORREO ELECTRÓNICO");
         jPanelIntroDatosAcceso.add(jLabelCEAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jTextField1.setText("jTextField1");
+        jPanelIntroDatosAcceso.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
 
         jTextFieldCEAcceso.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTextFieldCEAcceso.setForeground(new java.awt.Color(204, 204, 204));
@@ -436,6 +440,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldClaveAcceso;
     private javax.swing.JSeparator jSeparatorCEAcceso;
     private javax.swing.JSeparator jSeparatorClaveAcceso;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCEAcceso;
     // End of variables declaration//GEN-END:variables
 }

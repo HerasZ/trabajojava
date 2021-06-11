@@ -268,6 +268,7 @@ public class ventanaAdmin extends javax.swing.JFrame {
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
+        this.dispose();
         padre.setVisible(true);
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
