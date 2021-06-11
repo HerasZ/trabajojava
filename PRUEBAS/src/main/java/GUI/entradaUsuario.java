@@ -21,6 +21,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private ventanaPrincipal padre;
     private Cliente clientelogeado;
+    private ArrayList<Contenido> listacontenido = new ArrayList<>();
     private String tipoTargeta;
 
     public ventanaPrincipal getPadre() {
@@ -31,10 +32,12 @@ public class entradaUsuario extends javax.swing.JFrame {
         padre = main;
         this.clientelogeado = clientelogeado;
         this.tipoTargeta = "todo";
+        this.listacontenido.addAll(UtilJavaflix.getPeliculas());
+        this.listacontenido.addAll(UtilJavaflix.getSeries());
         initComponents();
         this.setLocationRelativeTo(null);
-        generarTarjetas("todo");
         this.setVisible(true);
+        generarTarjetas("todo");
 
     }
 
@@ -302,12 +305,13 @@ public class entradaUsuario extends javax.swing.JFrame {
         return tipoTargeta;
     }
     private void generarTarjetas(String tipo) {
+        setTipoTargeta(tipo);
         jPanelTarjetas.removeAll();
         if(tipo.toLowerCase().equals("todo")){
             jScrollPane1.setSize(968, 578);
-            jPanelTarjetas.setSize(968, UtilJavaflix.getContenido().size() * 100);
-            jPanelTarjetas.setLayout(new GridLayout(UtilJavaflix.getContenido().size(), 1));
-            for (Contenido contenidoiterando : UtilJavaflix.getContenido()) {
+            jPanelTarjetas.setSize(968, listacontenido.size() * 100);
+            jPanelTarjetas.setLayout(new GridLayout(listacontenido.size(), 1));
+            for (Contenido contenidoiterando : listacontenido) {
                 jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
             }
         }else if(tipo.toLowerCase().equals("peliculas")){
@@ -429,7 +433,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!getTipoTargeta().toLowerCase().equals("todo")){
             generarTarjetas("todo");
-            setTipoTargeta("todo");
         }
     }//GEN-LAST:event_jLabelTODOMouseClicked
 
@@ -437,7 +440,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!getTipoTargeta().toLowerCase().equals("peliculas")){
             generarTarjetas("peliculas");
-            setTipoTargeta("peliculas");
         }
     }//GEN-LAST:event_jLabelPELICULASMouseClicked
 
@@ -445,7 +447,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!getTipoTargeta().toLowerCase().equals("series")){
             generarTarjetas("series");
-            setTipoTargeta("series");
         }
     }//GEN-LAST:event_jLabelSERIESMouseClicked
 
@@ -453,7 +454,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!getTipoTargeta().toLowerCase().equals("favoritos")){
             generarTarjetas("favoritos");
-            setTipoTargeta("favoritos");
         }
     }//GEN-LAST:event_jLabelFAVORITOSMouseClicked
 
