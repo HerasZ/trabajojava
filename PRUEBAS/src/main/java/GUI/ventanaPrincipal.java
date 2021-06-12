@@ -39,28 +39,28 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanelAcceso = new javax.swing.JPanel();
-        jPanelOpcionesAcceso = new javax.swing.JPanel();
-        jPanelCerrarAcceso = new javax.swing.JPanel();
-        jLabelCerrarAcceso = new javax.swing.JLabel();
-        jLabelJAVAFLIXAcceso = new javax.swing.JLabel();
-        jLabelJAVAFLIXSombraAcceso = new javax.swing.JLabel();
-        jLabelINICIARSESIONAcceso = new javax.swing.JLabel();
-        jLabelFondoEtiquetasAcceso = new javax.swing.JLabel();
-        jLabelDoblezAcceso = new javax.swing.JLabel();
-        jPanelIntroDatosAcceso = new javax.swing.JPanel();
-        jLabelCEAcceso = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextFieldCEAcceso = new javax.swing.JTextField();
-        jSeparatorCEAcceso = new javax.swing.JSeparator();
-        jLabelClaveAcceso = new javax.swing.JLabel();
-        jPasswordFieldClaveAcceso = new javax.swing.JPasswordField();
-        jSeparatorClaveAcceso = new javax.swing.JSeparator();
-        jPanelAccederAcceso = new javax.swing.JPanel();
-        jLabelAccederbuttomAcceso = new javax.swing.JLabel();
-        jLabelNotienescuentaAcceso = new javax.swing.JLabel();
-        jPanelRegistrarseAcceso = new javax.swing.JPanel();
-        jLabelRegistrarsebuttomAcceso = new javax.swing.JLabel();
+        jPanelventana = new javax.swing.JPanel();
+        jPanelOpciones = new javax.swing.JPanel();
+        jPanelCerrar = new javax.swing.JPanel();
+        jLabelCerrar = new javax.swing.JLabel();
+        jLabelJAVAFLIX = new javax.swing.JLabel();
+        jLabelJAVAFLIXSombra = new javax.swing.JLabel();
+        jLabelINICIARSESION = new javax.swing.JLabel();
+        jLabelFondoEtiquetas = new javax.swing.JLabel();
+        jLabelDoblez = new javax.swing.JLabel();
+        jPanelIntroDatos = new javax.swing.JPanel();
+        jLabelCE = new javax.swing.JLabel();
+        jTextFieldDebug = new javax.swing.JTextField();
+        jTextFieldCE = new javax.swing.JTextField();
+        jSeparatorCE = new javax.swing.JSeparator();
+        jLabelClave = new javax.swing.JLabel();
+        jPasswordFieldClave = new javax.swing.JPasswordField();
+        jSeparatorClave = new javax.swing.JSeparator();
+        jPanelAcceder = new javax.swing.JPanel();
+        jLabelAccederbuttom = new javax.swing.JLabel();
+        jLabelNotienescuenta = new javax.swing.JLabel();
+        jPanelRegistrarse = new javax.swing.JPanel();
+        jLabelRegistrarsebuttom = new javax.swing.JLabel();
         jLabelFondoAcceso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,311 +71,320 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jPanelAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelOpcionesAcceso.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelOpcionesAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelCerrarAcceso.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelCerrarAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelCerrarAccesoMouseClicked(evt);
+                jPanelCerrarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelCerrarAccesoMouseEntered(evt);
+                jPanelCerrarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelCerrarAccesoMouseExited(evt);
+                jPanelCerrarMouseExited(evt);
             }
         });
-        jPanelCerrarAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelCerrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCerrarAcceso.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabelCerrarAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCerrarAcceso.setText("X");
-        jPanelCerrarAcceso.add(jLabelCerrarAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jLabelCerrar.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        jLabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCerrar.setText("X");
+        jPanelCerrar.add(jLabelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelOpcionesAcceso.add(jPanelCerrarAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jPanelOpciones.add(jPanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelAcceso.add(jPanelOpcionesAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
+        jPanelventana.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
 
-        jLabelJAVAFLIXAcceso.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXAcceso.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelJAVAFLIXAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXAcceso.setText("JAVAFLIX");
-        jPanelAcceso.add(jLabelJAVAFLIXAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
+        jLabelJAVAFLIX.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIX.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelJAVAFLIX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIX.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
 
-        jLabelJAVAFLIXSombraAcceso.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXSombraAcceso.setForeground(new java.awt.Color(112, 101, 101));
-        jLabelJAVAFLIXSombraAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXSombraAcceso.setText("JAVAFLIX");
-        jPanelAcceso.add(jLabelJAVAFLIXSombraAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
+        jLabelJAVAFLIXSombra.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIXSombra.setForeground(new java.awt.Color(112, 101, 101));
+        jLabelJAVAFLIXSombra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIXSombra.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIXSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
 
-        jLabelINICIARSESIONAcceso.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
-        jLabelINICIARSESIONAcceso.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelINICIARSESIONAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelINICIARSESIONAcceso.setText("INICIAR SESIÓN");
-        jPanelAcceso.add(jLabelINICIARSESIONAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
+        jLabelINICIARSESION.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
+        jLabelINICIARSESION.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelINICIARSESION.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelINICIARSESION.setText("INICIAR SESIÓN");
+        jPanelventana.add(jLabelINICIARSESION, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
 
-        jLabelFondoEtiquetasAcceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondoetiquetas.jpg"))); // NOI18N
-        jLabelFondoEtiquetasAcceso.setText("jLabel7");
-        jPanelAcceso.add(jLabelFondoEtiquetasAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
+        jLabelFondoEtiquetas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondoetiquetas.jpg"))); // NOI18N
+        jLabelFondoEtiquetas.setText("jLabel7");
+        jPanelventana.add(jLabelFondoEtiquetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
 
-        jLabelDoblezAcceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/doblez.jpg"))); // NOI18N
-        jPanelAcceso.add(jLabelDoblezAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
+        jLabelDoblez.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/doblez.jpg"))); // NOI18N
+        jPanelventana.add(jLabelDoblez, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
 
-        jPanelIntroDatosAcceso.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelIntroDatosAcceso.setMinimumSize(new java.awt.Dimension(360, 520));
-        jPanelIntroDatosAcceso.setName(""); // NOI18N
-        jPanelIntroDatosAcceso.setPreferredSize(new java.awt.Dimension(360, 582));
-        jPanelIntroDatosAcceso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelIntroDatos.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelIntroDatos.setMinimumSize(new java.awt.Dimension(360, 520));
+        jPanelIntroDatos.setName(""); // NOI18N
+        jPanelIntroDatos.setPreferredSize(new java.awt.Dimension(360, 582));
+        jPanelIntroDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCEAcceso.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jLabelCEAcceso.setText("CORREO ELECTRÓNICO");
-        jPanelIntroDatosAcceso.add(jLabelCEAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        jLabelCE.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
+        jLabelCE.setText("CORREO ELECTRÓNICO");
+        jPanelIntroDatos.add(jLabelCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
-        jTextField1.setText("jTextField1");
-        jPanelIntroDatosAcceso.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
+        jTextFieldDebug.setText("jTextField1");
+        jPanelIntroDatos.add(jTextFieldDebug, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
 
-        jTextFieldCEAcceso.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldCEAcceso.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldCEAcceso.setText("Escriba su correo electrónico");
-        jTextFieldCEAcceso.setToolTipText("");
-        jTextFieldCEAcceso.setBorder(null);
-        jTextFieldCEAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTextFieldCE.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jTextFieldCE.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldCE.setText("Escriba su correo electrónico");
+        jTextFieldCE.setToolTipText("");
+        jTextFieldCE.setBorder(null);
+        jTextFieldCE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldCEAccesoMousePressed(evt);
+                jTextFieldCEMousePressed(evt);
             }
         });
-        jTextFieldCEAcceso.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCEAccesoActionPerformed(evt);
+                jTextFieldCEActionPerformed(evt);
             }
         });
-        jPanelIntroDatosAcceso.add(jTextFieldCEAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 300, -1));
-        jPanelIntroDatosAcceso.add(jSeparatorCEAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 310, 18));
+        jPanelIntroDatos.add(jTextFieldCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 300, -1));
+        jPanelIntroDatos.add(jSeparatorCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 310, 18));
 
-        jLabelClaveAcceso.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jLabelClaveAcceso.setText("CLAVE");
-        jPanelIntroDatosAcceso.add(jLabelClaveAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        jLabelClave.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
+        jLabelClave.setText("CLAVE");
+        jPanelIntroDatos.add(jLabelClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        jPasswordFieldClaveAcceso.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordFieldClaveAcceso.setText("**********");
-        jPasswordFieldClaveAcceso.setToolTipText("");
-        jPasswordFieldClaveAcceso.setBorder(null);
-        jPasswordFieldClaveAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPasswordFieldClave.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordFieldClave.setText("**********");
+        jPasswordFieldClave.setToolTipText("");
+        jPasswordFieldClave.setBorder(null);
+        jPasswordFieldClave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPasswordFieldClaveAccesoMousePressed(evt);
+                jPasswordFieldClaveMousePressed(evt);
             }
         });
-        jPanelIntroDatosAcceso.add(jPasswordFieldClaveAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 290, -1));
-        jPanelIntroDatosAcceso.add(jSeparatorClaveAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 310, 20));
+        jPasswordFieldClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldClaveActionPerformed(evt);
+            }
+        });
+        jPanelIntroDatos.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 290, -1));
+        jPanelIntroDatos.add(jSeparatorClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 310, 20));
 
-        jPanelAccederAcceso.setBackground(new java.awt.Color(180, 45, 49));
-        jPanelAccederAcceso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelAcceder.setBackground(new java.awt.Color(180, 45, 49));
+        jPanelAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelAccederbuttomAcceso.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabelAccederbuttomAcceso.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAccederbuttomAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAccederbuttomAcceso.setText("ACCEDER");
-        jLabelAccederbuttomAcceso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelAccederbuttomAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelAccederbuttom.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelAccederbuttom.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelAccederbuttom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAccederbuttom.setText("ACCEDER");
+        jLabelAccederbuttom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelAccederbuttom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelAccederbuttomAccesoMouseClicked(evt);
+                jLabelAccederbuttomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelAccederbuttomAccesoMouseEntered(evt);
+                jLabelAccederbuttomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelAccederbuttomAccesoMouseExited(evt);
+                jLabelAccederbuttomMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabelAccederbuttomAccesoMousePressed(evt);
+                jLabelAccederbuttomMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabelAccederbuttomAccesoMouseReleased(evt);
+                jLabelAccederbuttomMouseReleased(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelAccederAccesoLayout = new javax.swing.GroupLayout(jPanelAccederAcceso);
-        jPanelAccederAcceso.setLayout(jPanelAccederAccesoLayout);
-        jPanelAccederAccesoLayout.setHorizontalGroup(
-            jPanelAccederAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelAccederbuttomAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelAccederLayout = new javax.swing.GroupLayout(jPanelAcceder);
+        jPanelAcceder.setLayout(jPanelAccederLayout);
+        jPanelAccederLayout.setHorizontalGroup(
+            jPanelAccederLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelAccederbuttom, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
-        jPanelAccederAccesoLayout.setVerticalGroup(
-            jPanelAccederAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelAccederbuttomAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+        jPanelAccederLayout.setVerticalGroup(
+            jPanelAccederLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelAccederbuttom, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
         );
 
-        jPanelIntroDatosAcceso.add(jPanelAccederAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 170, -1));
+        jPanelIntroDatos.add(jPanelAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 170, -1));
 
-        jLabelNotienescuentaAcceso.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jLabelNotienescuentaAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNotienescuentaAcceso.setText("¿No tienes cuenta? Registrate");
-        jPanelIntroDatosAcceso.add(jLabelNotienescuentaAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 410, -1));
+        jLabelNotienescuenta.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
+        jLabelNotienescuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNotienescuenta.setText("¿No tienes cuenta? Registrate");
+        jPanelIntroDatos.add(jLabelNotienescuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 410, -1));
 
-        jPanelRegistrarseAcceso.setBackground(new java.awt.Color(180, 45, 49));
-        jPanelRegistrarseAcceso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelRegistrarseAcceso.setPreferredSize(new java.awt.Dimension(170, 62));
-        jPanelRegistrarseAcceso.setRequestFocusEnabled(false);
+        jPanelRegistrarse.setBackground(new java.awt.Color(180, 45, 49));
+        jPanelRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelRegistrarse.setPreferredSize(new java.awt.Dimension(170, 62));
+        jPanelRegistrarse.setRequestFocusEnabled(false);
 
-        jLabelRegistrarsebuttomAcceso.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
-        jLabelRegistrarsebuttomAcceso.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelRegistrarsebuttomAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelRegistrarsebuttomAcceso.setText("REGISTRASRE");
-        jLabelRegistrarsebuttomAcceso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelRegistrarsebuttomAcceso.setMaximumSize(new java.awt.Dimension(62, 17));
-        jLabelRegistrarsebuttomAcceso.setMinimumSize(new java.awt.Dimension(62, 17));
-        jLabelRegistrarsebuttomAcceso.setName(""); // NOI18N
-        jLabelRegistrarsebuttomAcceso.setPreferredSize(new java.awt.Dimension(62, 17));
-        jLabelRegistrarsebuttomAcceso.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelRegistrarsebuttom.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelRegistrarsebuttom.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistrarsebuttom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelRegistrarsebuttom.setText("REGISTRASRE");
+        jLabelRegistrarsebuttom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelRegistrarsebuttom.setMaximumSize(new java.awt.Dimension(62, 17));
+        jLabelRegistrarsebuttom.setMinimumSize(new java.awt.Dimension(62, 17));
+        jLabelRegistrarsebuttom.setName(""); // NOI18N
+        jLabelRegistrarsebuttom.setPreferredSize(new java.awt.Dimension(62, 17));
+        jLabelRegistrarsebuttom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRegistrarsebuttomAccesoMouseClicked(evt);
+                jLabelRegistrarsebuttomMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelRegistrarsebuttomAccesoMouseEntered(evt);
+                jLabelRegistrarsebuttomMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelRegistrarsebuttomAccesoMouseExited(evt);
+                jLabelRegistrarsebuttomMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelRegistrarseAccesoLayout = new javax.swing.GroupLayout(jPanelRegistrarseAcceso);
-        jPanelRegistrarseAcceso.setLayout(jPanelRegistrarseAccesoLayout);
-        jPanelRegistrarseAccesoLayout.setHorizontalGroup(
-            jPanelRegistrarseAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelRegistrarsebuttomAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelRegistrarseLayout = new javax.swing.GroupLayout(jPanelRegistrarse);
+        jPanelRegistrarse.setLayout(jPanelRegistrarseLayout);
+        jPanelRegistrarseLayout.setHorizontalGroup(
+            jPanelRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
-        jPanelRegistrarseAccesoLayout.setVerticalGroup(
-            jPanelRegistrarseAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelRegistrarsebuttomAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+        jPanelRegistrarseLayout.setVerticalGroup(
+            jPanelRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelRegistrarsebuttom, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
         );
 
-        jPanelIntroDatosAcceso.add(jPanelRegistrarseAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 170, -1));
+        jPanelIntroDatos.add(jPanelRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 170, -1));
 
-        jPanelAcceso.add(jPanelIntroDatosAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 640));
+        jPanelventana.add(jPanelIntroDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 640));
 
         jLabelFondoAcceso.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFondoAcceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
         jLabelFondoAcceso.setText("jLabel2");
-        jPanelAcceso.add(jLabelFondoAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
+        jPanelventana.add(jLabelFondoAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabelAccederbuttomAccesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomAccesoMouseClicked
+    private void jLabelAccederbuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseClicked
         // TODO add your handling code here:
         
         try {
-            UtilJavaflix.validarEmail(jTextFieldCEAcceso.getText());
-            if (UtilJavaflix.checkAdminlogin(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()))){
+            UtilJavaflix.validarEmail(jTextFieldCE.getText());
+            if (UtilJavaflix.checkAdminlogin(jTextFieldCE.getText(),String.valueOf(jPasswordFieldClave.getPassword()))){
                 this.dispose();
                 ventanaAdmin ventanaAdmin = new ventanaAdmin(this);
             } else {
-            Cliente cliente_logeado = UtilJavaflix.iniciarSesion(jTextFieldCEAcceso.getText(),String.valueOf(jPasswordFieldClaveAcceso.getPassword()));
+            Cliente cliente_logeado = UtilJavaflix.iniciarSesion(jTextFieldCE.getText(),String.valueOf(jPasswordFieldClave.getPassword()));
             entradaUsuario principal = new entradaUsuario(this, cliente_logeado);
             this.dispose();
             }
         } catch (EmailNoValido | EmailNoEncontrado | PasswordIncorrecta ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jLabelAccederbuttomAccesoMouseClicked
+    }//GEN-LAST:event_jLabelAccederbuttomMouseClicked
 
-    private void jTextFieldCEAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEAccesoActionPerformed
+    private void jTextFieldCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCEAccesoActionPerformed
+    }//GEN-LAST:event_jTextFieldCEActionPerformed
 
-    private void jLabelRegistrarsebuttomAccesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomAccesoMouseClicked
+    private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
         this.setVisible(false);
         registroUsuario registro = new registroUsuario(this);
         registro.setVisible(true);
-    }//GEN-LAST:event_jLabelRegistrarsebuttomAccesoMouseClicked
+    }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
-    private void jLabelAccederbuttomAccesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomAccesoMouseEntered
+    private void jLabelAccederbuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseEntered
         // TODO add your handling code here:   
-        jPanelAccederAcceso.setBackground(new Color(148, 13, 30));
-    }//GEN-LAST:event_jLabelAccederbuttomAccesoMouseEntered
+        jPanelAcceder.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabelAccederbuttomMouseEntered
 
-    private void jLabelAccederbuttomAccesoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomAccesoMouseReleased
+    private void jLabelAccederbuttomMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelAccederbuttomAccesoMouseReleased
+    }//GEN-LAST:event_jLabelAccederbuttomMouseReleased
 
-    private void jLabelAccederbuttomAccesoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomAccesoMousePressed
+    private void jLabelAccederbuttomMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelAccederbuttomAccesoMousePressed
+    }//GEN-LAST:event_jLabelAccederbuttomMousePressed
 
-    private void jLabelAccederbuttomAccesoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomAccesoMouseExited
+    private void jLabelAccederbuttomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAccederbuttomMouseExited
         // TODO add your handling code here:
-        jPanelAccederAcceso.setBackground(new Color(180, 45, 49));
-    }//GEN-LAST:event_jLabelAccederbuttomAccesoMouseExited
+        jPanelAcceder.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabelAccederbuttomMouseExited
 
-    private void jLabelRegistrarsebuttomAccesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomAccesoMouseEntered
+    private void jLabelRegistrarsebuttomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseEntered
         // TODO add your handling code here:
-        jPanelRegistrarseAcceso.setBackground(new Color(148, 13, 30));
-    }//GEN-LAST:event_jLabelRegistrarsebuttomAccesoMouseEntered
+        jPanelRegistrarse.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabelRegistrarsebuttomMouseEntered
 
-    private void jLabelRegistrarsebuttomAccesoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomAccesoMouseExited
+    private void jLabelRegistrarsebuttomMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseExited
         // TODO add your handling code here:
-        jPanelRegistrarseAcceso.setBackground(new Color(180, 45, 49));
-    }//GEN-LAST:event_jLabelRegistrarsebuttomAccesoMouseExited
+        jPanelRegistrarse.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabelRegistrarsebuttomMouseExited
 
-    private void jTextFieldCEAccesoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCEAccesoMousePressed
+    private void jTextFieldCEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCEMousePressed
         // TODO add your handling code here:
-        if (jTextFieldCEAcceso.getText().equals("Escriba su correo electrónico")) {
-            jTextFieldCEAcceso.setText("");
-            jTextFieldCEAcceso.setForeground(Color.black);
+        if (jTextFieldCE.getText().equals("Escriba su correo electrónico")) {
+            jTextFieldCE.setText("");
+            jTextFieldCE.setForeground(Color.black);
         }
-        if (String.valueOf(jPasswordFieldClaveAcceso.getPassword()).isEmpty()) {
-            jPasswordFieldClaveAcceso.setText("**********");
-            jPasswordFieldClaveAcceso.setForeground(Color.gray);
+        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
+            jPasswordFieldClave.setText("**********");
+            jPasswordFieldClave.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_jTextFieldCEAccesoMousePressed
+    }//GEN-LAST:event_jTextFieldCEMousePressed
 
-    private void jPasswordFieldClaveAccesoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveAccesoMousePressed
+    private void jPasswordFieldClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(jPasswordFieldClaveAcceso.getPassword()).equals("**********")) {
-            jPasswordFieldClaveAcceso.setText("");
-            jPasswordFieldClaveAcceso.setForeground(Color.black);
+        if (String.valueOf(jPasswordFieldClave.getPassword()).equals("**********")) {
+            jPasswordFieldClave.setText("");
+            jPasswordFieldClave.setForeground(Color.black);
         }
-        if (jTextFieldCEAcceso.getText().isEmpty()) {
-            jTextFieldCEAcceso.setText("Escriba su correo electrónico");
-            jTextFieldCEAcceso.setForeground(Color.gray);
+        if (jTextFieldCE.getText().isEmpty()) {
+            jTextFieldCE.setText("Escriba su correo electrónico");
+            jTextFieldCE.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_jPasswordFieldClaveAccesoMousePressed
+    }//GEN-LAST:event_jPasswordFieldClaveMousePressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
     }//GEN-LAST:event_formWindowClosing
 
-    private void jPanelCerrarAccesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseEntered
+    private void jPanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarAcceso.setBackground( new Color(232,17,35));
-        jLabelCerrarAcceso.setForeground( new Color(255,255,255));
-    }//GEN-LAST:event_jPanelCerrarAccesoMouseEntered
+        jPanelCerrar.setBackground( new Color(232,17,35));
+        jLabelCerrar.setForeground( new Color(255,255,255));
+    }//GEN-LAST:event_jPanelCerrarMouseEntered
 
-    private void jPanelCerrarAccesoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseExited
+    private void jPanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseExited
         // TODO add your handling code here:
-        jPanelCerrarAcceso.setBackground( new Color(255,255,255));
-        jLabelCerrarAcceso.setForeground( new Color(0,0,0));
-    }//GEN-LAST:event_jPanelCerrarAccesoMouseExited
+        jPanelCerrar.setBackground( new Color(255,255,255));
+        jLabelCerrar.setForeground( new Color(0,0,0));
+    }//GEN-LAST:event_jPanelCerrarMouseExited
 
-    private void jPanelCerrarAccesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarAccesoMouseClicked
+    private void jPanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseClicked
         // TODO add your handling code here:       
         UtilJavaflix.cerrarPrograma();
         
-    }//GEN-LAST:event_jPanelCerrarAccesoMouseClicked
+    }//GEN-LAST:event_jPanelCerrarMouseClicked
+
+    private void jPasswordFieldClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldClaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,28 +428,28 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabelAccederbuttomAcceso;
-    private javax.swing.JLabel jLabelCEAcceso;
-    private javax.swing.JLabel jLabelCerrarAcceso;
-    private javax.swing.JLabel jLabelClaveAcceso;
-    private javax.swing.JLabel jLabelDoblezAcceso;
+    private javax.swing.JLabel jLabelAccederbuttom;
+    private javax.swing.JLabel jLabelCE;
+    private javax.swing.JLabel jLabelCerrar;
+    private javax.swing.JLabel jLabelClave;
+    private javax.swing.JLabel jLabelDoblez;
     private javax.swing.JLabel jLabelFondoAcceso;
-    private javax.swing.JLabel jLabelFondoEtiquetasAcceso;
-    private javax.swing.JLabel jLabelINICIARSESIONAcceso;
-    private javax.swing.JLabel jLabelJAVAFLIXAcceso;
-    private javax.swing.JLabel jLabelJAVAFLIXSombraAcceso;
-    private javax.swing.JLabel jLabelNotienescuentaAcceso;
-    private javax.swing.JLabel jLabelRegistrarsebuttomAcceso;
-    private javax.swing.JPanel jPanelAccederAcceso;
-    private javax.swing.JPanel jPanelAcceso;
-    private javax.swing.JPanel jPanelCerrarAcceso;
-    private javax.swing.JPanel jPanelIntroDatosAcceso;
-    private javax.swing.JPanel jPanelOpcionesAcceso;
-    private javax.swing.JPanel jPanelRegistrarseAcceso;
-    private javax.swing.JPasswordField jPasswordFieldClaveAcceso;
-    private javax.swing.JSeparator jSeparatorCEAcceso;
-    private javax.swing.JSeparator jSeparatorClaveAcceso;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldCEAcceso;
+    private javax.swing.JLabel jLabelFondoEtiquetas;
+    private javax.swing.JLabel jLabelINICIARSESION;
+    private javax.swing.JLabel jLabelJAVAFLIX;
+    private javax.swing.JLabel jLabelJAVAFLIXSombra;
+    private javax.swing.JLabel jLabelNotienescuenta;
+    private javax.swing.JLabel jLabelRegistrarsebuttom;
+    private javax.swing.JPanel jPanelAcceder;
+    private javax.swing.JPanel jPanelCerrar;
+    private javax.swing.JPanel jPanelIntroDatos;
+    private javax.swing.JPanel jPanelOpciones;
+    private javax.swing.JPanel jPanelRegistrarse;
+    private javax.swing.JPanel jPanelventana;
+    private javax.swing.JPasswordField jPasswordFieldClave;
+    private javax.swing.JSeparator jSeparatorCE;
+    private javax.swing.JSeparator jSeparatorClave;
+    private javax.swing.JTextField jTextFieldCE;
+    private javax.swing.JTextField jTextFieldDebug;
     // End of variables declaration//GEN-END:variables
 }

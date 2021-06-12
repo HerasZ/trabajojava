@@ -40,16 +40,16 @@ public class addCapitulo extends javax.swing.JFrame {
     private void showTabla(ArrayList<Capitulo> capitulos_a_ordenar) {
         int contador = 0;
         for (Capitulo capituloactual : capitulos_a_ordenar) {
-            jTable1.setValueAt(capituloactual.getTitulo(), contador, 0);
-            jTable1.setValueAt(capituloactual.getDuracion(), contador, 1);
+            jTableCapitulos.setValueAt(capituloactual.getTitulo(), contador, 0);
+            jTableCapitulos.setValueAt(capituloactual.getDuracion(), contador, 1);
             contador++;
         }
     }
 
     private void limpiarTabla() {
-        for (int i = 0; i < jTable1.getRowCount(); i++) {
-            for (int j = 0; j < jTable1.getColumnCount(); j++) {
-                jTable1.setValueAt(null, i, j);
+        for (int i = 0; i < jTableCapitulos.getRowCount(); i++) {
+            for (int j = 0; j < jTableCapitulos.getColumnCount(); j++) {
+                jTableCapitulos.setValueAt(null, i, j);
             }
         }
     }
@@ -65,25 +65,25 @@ public class addCapitulo extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanelRegistro = new javax.swing.JPanel();
-        jPanelOpcionesRegistro = new javax.swing.JPanel();
-        jPanelCerrarRegistro = new javax.swing.JPanel();
-        jLabelCerrarRegistro = new javax.swing.JLabel();
-        jPanelAtrasRegistro = new javax.swing.JPanel();
-        jLabelAtrasRegistro = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelventana = new javax.swing.JPanel();
+        jPanelOpciones = new javax.swing.JPanel();
+        jPanelCerrar = new javax.swing.JPanel();
+        jLabelCerrar = new javax.swing.JLabel();
+        jPanelAtras = new javax.swing.JPanel();
+        jLabelAtras = new javax.swing.JLabel();
+        jPaneladd = new javax.swing.JPanel();
         jPanelFin = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
-        jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
-        jLabelFondoRegistro = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelDuracion = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jScrollPaneCapitulos = new javax.swing.JScrollPane();
+        jTableCapitulos = new javax.swing.JTable();
+        jButtonAnnadir = new javax.swing.JButton();
+        jFormattedTextFieldDuracion = new javax.swing.JFormattedTextField();
+        jLabelJAVAFLIX = new javax.swing.JLabel();
+        jLabelJAVAFLIXSombra = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -94,58 +94,58 @@ public class addCapitulo extends javax.swing.JFrame {
             }
         });
 
-        jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelOpcionesRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelOpcionesRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelCerrarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseClicked(evt);
+                jPanelCerrarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseEntered(evt);
+                jPanelCerrarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseExited(evt);
+                jPanelCerrarMouseExited(evt);
             }
         });
-        jPanelCerrarRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelCerrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelCerrarRegistro.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabelCerrarRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCerrarRegistro.setText("X");
-        jPanelCerrarRegistro.add(jLabelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jLabelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelCerrar.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        jLabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCerrar.setText("X");
+        jPanelCerrar.add(jLabelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelOpcionesRegistro.add(jPanelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jPanelOpciones.add(jPanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelAtrasRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseClicked(evt);
+                jPanelAtrasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseEntered(evt);
+                jPanelAtrasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseExited(evt);
+                jPanelAtrasMouseExited(evt);
             }
         });
-        jPanelAtrasRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelAtras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelAtrasRegistro.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
-        jLabelAtrasRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAtrasRegistro.setText("< ");
-        jPanelAtrasRegistro.add(jLabelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
+        jLabelAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAtras.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jLabelAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAtras.setText("< ");
+        jPanelAtras.add(jLabelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
 
-        jPanelOpcionesRegistro.add(jPanelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
+        jPanelOpciones.add(jPanelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
 
-        jPanelRegistro.add(jPanelOpcionesRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
+        jPanelventana.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPaneladd.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanelFin.setBackground(new java.awt.Color(180, 45, 49));
 
@@ -176,11 +176,11 @@ public class addCapitulo extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
         );
 
-        jLabel4.setText("Nombre:");
+        jLabelNombre.setText("Nombre:");
 
-        jLabel5.setText("Duracion(HH:MM:SS):");
+        jLabelDuracion.setText("Duracion(HH:MM:SS):");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCapitulos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -188,96 +188,96 @@ public class addCapitulo extends javax.swing.JFrame {
                 "Capitulo", "Duracion"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPaneCapitulos.setViewportView(jTableCapitulos);
 
-        jButton1.setText("Añadir Capitulo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAnnadir.setText("Añadir Capitulo");
+        jButtonAnnadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAnnadirActionPerformed(evt);
             }
         });
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm:ss"))));
+        jFormattedTextFieldDuracion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm:ss"))));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPaneladdLayout = new javax.swing.GroupLayout(jPaneladd);
+        jPaneladd.setLayout(jPaneladdLayout);
+        jPaneladdLayout.setHorizontalGroup(
+            jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPaneladdLayout.createSequentialGroup()
+                .addGroup(jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPaneladdLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonAnnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPaneladdLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                        .addGroup(jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneladdLayout.createSequentialGroup()
+                                .addComponent(jLabelNombre)
                                 .addGap(41, 41, 41))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                            .addGroup(jPaneladdLayout.createSequentialGroup()
+                                .addComponent(jLabelDuracion)
                                 .addGap(36, 36, 36)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(jTextField1))))
+                        .addGroup(jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jFormattedTextFieldDuracion, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNombre))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneCapitulos, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPaneladdLayout.createSequentialGroup()
                 .addGap(271, 271, 271)
                 .addComponent(jPanelFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jPaneladdLayout.setVerticalGroup(
+            jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneladdLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPaneladdLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre)
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPaneladdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelDuracion)
+                            .addComponent(jFormattedTextFieldDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonAnnadir))
+                    .addComponent(jScrollPaneCapitulos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanelFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
 
-        jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 240, 700, -1));
+        jPanelventana.add(jPaneladd, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 240, 700, -1));
 
-        jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXRegistro.setText("JAVAFLIX");
-        jPanelRegistro.add(jLabelJAVAFLIXRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
+        jLabelJAVAFLIX.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIX.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelJAVAFLIX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIX.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
 
-        jLabelJAVAFLIXSombraRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXSombraRegistro.setForeground(new java.awt.Color(112, 101, 101));
-        jLabelJAVAFLIXSombraRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXSombraRegistro.setText("JAVAFLIX");
-        jPanelRegistro.add(jLabelJAVAFLIXSombraRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
+        jLabelJAVAFLIXSombra.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIXSombra.setForeground(new java.awt.Color(112, 101, 101));
+        jLabelJAVAFLIXSombra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIXSombra.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIXSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
 
-        jLabelFondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelFondoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
-        jLabelFondoRegistro.setText("jLabel2");
-        jPanelRegistro.add(jLabelFondoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
+        jLabelFondo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
+        jLabelFondo.setText("jLabel2");
+        jPanelventana.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -289,39 +289,39 @@ public class addCapitulo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
+    private void jPanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
-        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
+        jPanelCerrar.setBackground(new Color(232, 17, 35));
+        jLabelCerrar.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelCerrarMouseEntered
 
-    private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
+    private void jPanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
-        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
+        jPanelCerrar.setBackground(new Color(255, 255, 255));
+        jLabelCerrar.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_jPanelCerrarMouseExited
 
-    private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
+    private void jPanelAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
+        jPanelAtras.setBackground(new Color(229, 229, 229));
+    }//GEN-LAST:event_jPanelAtrasMouseEntered
 
-    private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
+    private void jPanelAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
+        jPanelAtras.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelAtrasMouseExited
 
-    private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
+    private void jPanelAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseClicked
         // TODO add your handling code here:
         this.dispose();
         padre.setEnabled(true);
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
+    }//GEN-LAST:event_jPanelAtrasMouseClicked
 
-    private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
+    private void jPanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
 
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
+    }//GEN-LAST:event_jPanelCerrarMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
@@ -345,43 +345,43 @@ public class addCapitulo extends javax.swing.JFrame {
         jPanelFin.setBackground(new Color(180, 45, 49));
     }//GEN-LAST:event_jLabel2MouseExited
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnadirActionPerformed
         // TODO add your handling code here:
         try {
-            Capitulo nuevocapitulo = new Capitulo(jTextField1.getText(), jFormattedTextField1.getText());
+            Capitulo nuevocapitulo = new Capitulo(jTextFieldNombre.getText(), jFormattedTextFieldDuracion.getText());
             addCapituloactual(nuevocapitulo);
             limpiarTabla();
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTableCapitulos.getModel();
             model.addRow(new Object[]{null,null});
             showTabla(capitulos_temporada);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Error creando el capitulo", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAnnadirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton jButtonAnnadir;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDuracion;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabelAtrasRegistro;
-    private javax.swing.JLabel jLabelCerrarRegistro;
-    private javax.swing.JLabel jLabelFondoRegistro;
-    private javax.swing.JLabel jLabelJAVAFLIXRegistro;
-    private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelAtrasRegistro;
-    private javax.swing.JPanel jPanelCerrarRegistro;
+    private javax.swing.JLabel jLabelAtras;
+    private javax.swing.JLabel jLabelCerrar;
+    private javax.swing.JLabel jLabelDuracion;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelJAVAFLIX;
+    private javax.swing.JLabel jLabelJAVAFLIXSombra;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JPanel jPanelAtras;
+    private javax.swing.JPanel jPanelCerrar;
     private javax.swing.JPanel jPanelFin;
-    private javax.swing.JPanel jPanelOpcionesRegistro;
-    private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanelOpciones;
+    private javax.swing.JPanel jPaneladd;
+    private javax.swing.JPanel jPanelventana;
+    private javax.swing.JScrollPane jScrollPaneCapitulos;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTableCapitulos;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }

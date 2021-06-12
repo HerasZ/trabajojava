@@ -95,39 +95,39 @@ public class modificarPelicula extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanelRegistro = new javax.swing.JPanel();
-        jPanelOpcionesRegistro = new javax.swing.JPanel();
-        jPanelCerrarRegistro = new javax.swing.JPanel();
-        jLabelCerrarRegistro = new javax.swing.JLabel();
-        jPanelAtrasRegistro = new javax.swing.JPanel();
-        jLabelAtrasRegistro = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelventana = new javax.swing.JPanel();
+        jPanelOpciones = new javax.swing.JPanel();
+        jPanelCerrar = new javax.swing.JPanel();
+        jLabelCerrar = new javax.swing.JLabel();
+        jPanelAtras = new javax.swing.JPanel();
+        jLabelAtras = new javax.swing.JLabel();
+        jPanelModificar = new javax.swing.JPanel();
         jPanelPeliculas = new javax.swing.JPanel();
         fieldTitulo = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        jLabelTitulo = new javax.swing.JLabel();
+        jLabelGenero = new javax.swing.JLabel();
         fieldGeneroP = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
+        jLabelSinopsis = new javax.swing.JLabel();
+        jScrollPaneSinopsis = new javax.swing.JScrollPane();
         fieldSinopsis = new javax.swing.JTextArea();
         fieldAnnoP = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        jLabelAnno = new javax.swing.JLabel();
+        jLabelDirector = new javax.swing.JLabel();
         fieldDirector = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
+        jLabelDuracion = new javax.swing.JLabel();
         fieldDuracion = new javax.swing.JFormattedTextField();
-        jButton5 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
+        jButtonFoto = new javax.swing.JButton();
+        jPanelFoto = new javax.swing.JPanel();
         jLabelportadapelicula = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        jPanelActualizar = new javax.swing.JPanel();
         actualizarpelicula = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        jLabelActores = new javax.swing.JLabel();
         fieldActoresP = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
-        jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
-        jLabelFondoRegistro = new javax.swing.JLabel();
+        jPanelEliminar = new javax.swing.JPanel();
+        jLabelEliminar = new javax.swing.JLabel();
+        jLabelJAVAFLIX = new javax.swing.JLabel();
+        jLabelJAVAFLIXSombra = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -141,115 +141,115 @@ public class modificarPelicula extends javax.swing.JFrame {
             }
         });
 
-        jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelOpcionesRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelOpcionesRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelCerrarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseClicked(evt);
+                jPanelCerrarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseEntered(evt);
+                jPanelCerrarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseExited(evt);
+                jPanelCerrarMouseExited(evt);
             }
         });
-        jPanelCerrarRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelCerrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelCerrarRegistro.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabelCerrarRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCerrarRegistro.setText("X");
-        jPanelCerrarRegistro.add(jLabelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jLabelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelCerrar.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        jLabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCerrar.setText("X");
+        jPanelCerrar.add(jLabelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelOpcionesRegistro.add(jPanelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jPanelOpciones.add(jPanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelAtrasRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseClicked(evt);
+                jPanelAtrasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseEntered(evt);
+                jPanelAtrasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseExited(evt);
+                jPanelAtrasMouseExited(evt);
             }
         });
-        jPanelAtrasRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelAtras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelAtrasRegistro.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
-        jLabelAtrasRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAtrasRegistro.setText("< ");
-        jPanelAtrasRegistro.add(jLabelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
+        jLabelAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAtras.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jLabelAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAtras.setText("< ");
+        jPanelAtras.add(jLabelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
 
-        jPanelOpcionesRegistro.add(jPanelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
+        jPanelOpciones.add(jPanelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
 
-        jPanelRegistro.add(jPanelOpcionesRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
+        jPanelventana.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelModificar.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanelPeliculas.setBackground(new java.awt.Color(255, 255, 255));
         jPanelPeliculas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanelPeliculas.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 105, -1));
 
-        jLabel18.setText("Título:");
-        jPanelPeliculas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 20));
+        jLabelTitulo.setText("Título:");
+        jPanelPeliculas.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 20));
 
-        jLabel19.setText("Genero:");
-        jPanelPeliculas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
+        jLabelGenero.setText("Genero:");
+        jPanelPeliculas.add(jLabelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
         jPanelPeliculas.add(fieldGeneroP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 105, -1));
 
-        jLabel20.setText("Sinopsis:");
-        jPanelPeliculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        jLabelSinopsis.setText("Sinopsis:");
+        jPanelPeliculas.add(jLabelSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         fieldSinopsis.setColumns(20);
         fieldSinopsis.setRows(5);
-        jScrollPane7.setViewportView(fieldSinopsis);
+        jScrollPaneSinopsis.setViewportView(fieldSinopsis);
 
-        jPanelPeliculas.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 180, 90));
+        jPanelPeliculas.add(jScrollPaneSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 180, 90));
         jPanelPeliculas.add(fieldAnnoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 105, -1));
 
-        jLabel21.setText("Año:");
-        jPanelPeliculas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
+        jLabelAnno.setText("Año:");
+        jPanelPeliculas.add(jLabelAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
 
-        jLabel22.setText("Director:");
-        jPanelPeliculas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 58, 20));
+        jLabelDirector.setText("Director:");
+        jPanelPeliculas.add(jLabelDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 58, 20));
         jPanelPeliculas.add(fieldDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
 
-        jLabel23.setText("Duracion(HH:MM:SS)");
-        jPanelPeliculas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
+        jLabelDuracion.setText("Duracion(HH:MM:SS)");
+        jPanelPeliculas.add(jLabelDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
         jPanelPeliculas.add(fieldDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, -1));
 
-        jButton5.setText("Subir Foto");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFoto.setText("Subir Foto");
+        jButtonFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonFotoActionPerformed(evt);
             }
         });
-        jPanelPeliculas.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 89, -1));
+        jPanelPeliculas.add(jButtonFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 89, -1));
 
-        jPanel9.setBackground(new java.awt.Color(130, 130, 130));
+        jPanelFoto.setBackground(new java.awt.Color(130, 130, 130));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelFotoLayout = new javax.swing.GroupLayout(jPanelFoto);
+        jPanelFoto.setLayout(jPanelFotoLayout);
+        jPanelFotoLayout.setHorizontalGroup(
+            jPanelFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelportadapelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelFotoLayout.setVerticalGroup(
+            jPanelFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelportadapelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
 
-        jPanelPeliculas.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
+        jPanelPeliculas.add(jPanelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
-        jPanel11.setBackground(new java.awt.Color(180, 45, 49));
+        jPanelActualizar.setBackground(new java.awt.Color(180, 45, 49));
 
         actualizarpelicula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         actualizarpelicula.setForeground(new java.awt.Color(255, 255, 255));
@@ -261,92 +261,92 @@ public class modificarPelicula extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelActualizarLayout = new javax.swing.GroupLayout(jPanelActualizar);
+        jPanelActualizar.setLayout(jPanelActualizarLayout);
+        jPanelActualizarLayout.setHorizontalGroup(
+            jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(actualizarpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelActualizarLayout.setVerticalGroup(
+            jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(actualizarpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
-        jPanelPeliculas.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 670, -1));
+        jPanelPeliculas.add(jPanelActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 670, -1));
 
-        jLabel26.setText("Actores(separados por ,):");
-        jPanelPeliculas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 20));
+        jLabelActores.setText("Actores(separados por ,):");
+        jPanelPeliculas.add(jLabelActores, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 20));
         jPanelPeliculas.add(fieldActoresP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 150, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelModificarLayout = new javax.swing.GroupLayout(jPanelModificar);
+        jPanelModificar.setLayout(jPanelModificarLayout);
+        jPanelModificarLayout.setHorizontalGroup(
+            jPanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelModificarLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jPanelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(758, 758, 758))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelModificarLayout.setVerticalGroup(
+            jPanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelModificarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanelRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 770, 480));
+        jPanelventana.add(jPanelModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 770, 480));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelEliminar.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ELIMINAR PELICULA");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelEliminar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabelEliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEliminar.setText("ELIMINAR PELICULA");
+        jLabelEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                jLabelEliminarMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelEliminarLayout = new javax.swing.GroupLayout(jPanelEliminar);
+        jPanelEliminar.setLayout(jPanelEliminarLayout);
+        jPanelEliminarLayout.setHorizontalGroup(
+            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        jPanelEliminarLayout.setVerticalGroup(
+            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        jPanelRegistro.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 260, -1));
+        jPanelventana.add(jPanelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 260, -1));
 
-        jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXRegistro.setText("JAVAFLIX");
-        jPanelRegistro.add(jLabelJAVAFLIXRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
+        jLabelJAVAFLIX.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIX.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelJAVAFLIX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIX.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
 
-        jLabelJAVAFLIXSombraRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXSombraRegistro.setForeground(new java.awt.Color(112, 101, 101));
-        jLabelJAVAFLIXSombraRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXSombraRegistro.setText("JAVAFLIX");
-        jPanelRegistro.add(jLabelJAVAFLIXSombraRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
+        jLabelJAVAFLIXSombra.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIXSombra.setForeground(new java.awt.Color(112, 101, 101));
+        jLabelJAVAFLIXSombra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIXSombra.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIXSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
 
-        jLabelFondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelFondoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
-        jLabelFondoRegistro.setText("jLabel2");
-        jPanelRegistro.add(jLabelFondoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
+        jLabelFondo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
+        jLabelFondo.setText("jLabel2");
+        jPanelventana.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -358,51 +358,51 @@ public class modificarPelicula extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
+    private void jPanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
-        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
+        jPanelCerrar.setBackground(new Color(232, 17, 35));
+        jLabelCerrar.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelCerrarMouseEntered
 
-    private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
+    private void jPanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
-        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
+        jPanelCerrar.setBackground(new Color(255, 255, 255));
+        jLabelCerrar.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_jPanelCerrarMouseExited
 
-    private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
+    private void jPanelAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
+        jPanelAtras.setBackground(new Color(229, 229, 229));
+    }//GEN-LAST:event_jPanelAtrasMouseEntered
 
-    private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
+    private void jPanelAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
+        jPanelAtras.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelAtrasMouseExited
 
-    private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
+    private void jPanelAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseClicked
         // TODO add your handling code here:
         this.dispose();
         padre.setEnabled(true);
         padre.setVisible(true);
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
+    }//GEN-LAST:event_jPanelAtrasMouseClicked
 
-    private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
+    private void jPanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
 
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
+    }//GEN-LAST:event_jPanelCerrarMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code h
     }//GEN-LAST:event_formWindowActivated
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFotoActionPerformed
         // TODO add your handling code here:
         this.portadamodificar = cargarFoto();
         ImageIcon imgRedimensionada = new ImageIcon(portadamodificar.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
         jLabelportadapelicula.setIcon(imgRedimensionada);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonFotoActionPerformed
 
     private void actualizarpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarpeliculaMouseClicked
         try {
@@ -423,7 +423,7 @@ public class modificarPelicula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_actualizarpeliculaMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void jLabelEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMouseClicked
         // TODO add your handling code here:
         ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
         try {
@@ -436,7 +436,7 @@ public class modificarPelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error al borrar la serie");
         }
 
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_jLabelEliminarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -449,31 +449,31 @@ public class modificarPelicula extends javax.swing.JFrame {
     private javax.swing.JTextField fieldGeneroP;
     private javax.swing.JTextArea fieldSinopsis;
     private javax.swing.JTextField fieldTitulo;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelAtrasRegistro;
-    private javax.swing.JLabel jLabelCerrarRegistro;
-    private javax.swing.JLabel jLabelFondoRegistro;
-    private javax.swing.JLabel jLabelJAVAFLIXRegistro;
-    private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
+    private javax.swing.JButton jButtonFoto;
+    private javax.swing.JLabel jLabelActores;
+    private javax.swing.JLabel jLabelAnno;
+    private javax.swing.JLabel jLabelAtras;
+    private javax.swing.JLabel jLabelCerrar;
+    private javax.swing.JLabel jLabelDirector;
+    private javax.swing.JLabel jLabelDuracion;
+    private javax.swing.JLabel jLabelEliminar;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelGenero;
+    private javax.swing.JLabel jLabelJAVAFLIX;
+    private javax.swing.JLabel jLabelJAVAFLIXSombra;
+    private javax.swing.JLabel jLabelSinopsis;
+    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelportadapelicula;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JPanel jPanelAtrasRegistro;
-    private javax.swing.JPanel jPanelCerrarRegistro;
-    private javax.swing.JPanel jPanelOpcionesRegistro;
+    private javax.swing.JPanel jPanelActualizar;
+    private javax.swing.JPanel jPanelAtras;
+    private javax.swing.JPanel jPanelCerrar;
+    private javax.swing.JPanel jPanelEliminar;
+    private javax.swing.JPanel jPanelFoto;
+    private javax.swing.JPanel jPanelModificar;
+    private javax.swing.JPanel jPanelOpciones;
     private javax.swing.JPanel jPanelPeliculas;
-    private javax.swing.JPanel jPanelRegistro;
-    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JPanel jPanelventana;
+    private javax.swing.JScrollPane jScrollPaneSinopsis;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

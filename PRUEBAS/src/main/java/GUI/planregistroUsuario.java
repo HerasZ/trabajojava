@@ -55,18 +55,18 @@ public class planregistroUsuario extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanelRegistro = new javax.swing.JPanel();
-        jPanelOpcionesRegistro = new javax.swing.JPanel();
-        jPanelCerrarRegistro = new javax.swing.JPanel();
-        jLabelCerrarRegistro = new javax.swing.JLabel();
-        jPanelAtrasRegistro = new javax.swing.JPanel();
-        jLabelAtrasRegistro = new javax.swing.JLabel();
-        jLabelCREATUCUENTARegistro = new javax.swing.JLabel();
-        jLabelDoblezRegistro = new javax.swing.JLabel();
-        jLabelFondoEtiquetasRegistro = new javax.swing.JLabel();
-        jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
-        jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
-        jPanelIntroDatosRegistro = new javax.swing.JPanel();
+        jPanelventana = new javax.swing.JPanel();
+        jPanelOpciones = new javax.swing.JPanel();
+        jPanelCerrar = new javax.swing.JPanel();
+        jLabelCerrar = new javax.swing.JLabel();
+        jPanelAtras = new javax.swing.JPanel();
+        jLabelAtras = new javax.swing.JLabel();
+        jLabelCREATUCUENTA = new javax.swing.JLabel();
+        jLabelDoblez = new javax.swing.JLabel();
+        jLabelFondoEtiquetas = new javax.swing.JLabel();
+        jLabelJAVAFLIX = new javax.swing.JLabel();
+        jLabelJAVAFLIXSombra = new javax.swing.JLabel();
+        jPanelIntroDatos = new javax.swing.JPanel();
         jLabelJavaFlixBasico = new javax.swing.JLabel();
         jPanelJavaFlixBasicoPrecio = new javax.swing.JPanel();
         jLabelJavaFlixBasicoPrecio = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class planregistroUsuario extends javax.swing.JFrame {
         jLabelJavaFlixPremium = new javax.swing.JLabel();
         jPanelJavaFlixPremiumPrecio = new javax.swing.JPanel();
         jLabelJavaFlixPremiumPrecio = new javax.swing.JLabel();
-        jLabelFondoRegistro = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1239, 725));
@@ -87,89 +87,89 @@ public class planregistroUsuario extends javax.swing.JFrame {
             }
         });
 
-        jPanelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelOpcionesRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelOpcionesRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelCerrarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseClicked(evt);
+                jPanelCerrarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseEntered(evt);
+                jPanelCerrarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelCerrarRegistroMouseExited(evt);
+                jPanelCerrarMouseExited(evt);
             }
         });
-        jPanelCerrarRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelCerrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCerrarRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelCerrarRegistro.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabelCerrarRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCerrarRegistro.setText("X");
-        jPanelCerrarRegistro.add(jLabelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jLabelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelCerrar.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        jLabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCerrar.setText("X");
+        jPanelCerrar.add(jLabelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelOpcionesRegistro.add(jPanelCerrarRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
+        jPanelOpciones.add(jPanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
-        jPanelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelAtrasRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseClicked(evt);
+                jPanelAtrasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseEntered(evt);
+                jPanelAtrasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelAtrasRegistroMouseExited(evt);
+                jPanelAtrasMouseExited(evt);
             }
         });
-        jPanelAtrasRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelAtras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelAtrasRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelAtrasRegistro.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
-        jLabelAtrasRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAtrasRegistro.setText("< ");
-        jPanelAtrasRegistro.add(jLabelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
+        jLabelAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAtras.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jLabelAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAtras.setText("< ");
+        jPanelAtras.add(jLabelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
 
-        jPanelOpcionesRegistro.add(jPanelAtrasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
+        jPanelOpciones.add(jPanelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 30));
 
-        jPanelRegistro.add(jPanelOpcionesRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+        jPanelventana.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
-        jLabelCREATUCUENTARegistro.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
-        jLabelCREATUCUENTARegistro.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCREATUCUENTARegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCREATUCUENTARegistro.setText("ELIGE TU PLAN");
-        jPanelRegistro.add(jLabelCREATUCUENTARegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
+        jLabelCREATUCUENTA.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
+        jLabelCREATUCUENTA.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCREATUCUENTA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCREATUCUENTA.setText("ELIGE TU PLAN");
+        jPanelventana.add(jLabelCREATUCUENTA, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
 
-        jLabelDoblezRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/doblez.jpg"))); // NOI18N
-        jPanelRegistro.add(jLabelDoblezRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
+        jLabelDoblez.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/doblez.jpg"))); // NOI18N
+        jPanelventana.add(jLabelDoblez, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 30, -1));
 
-        jLabelFondoEtiquetasRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondoetiquetas.jpg"))); // NOI18N
-        jLabelFondoEtiquetasRegistro.setText("jLabel7");
-        jPanelRegistro.add(jLabelFondoEtiquetasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
+        jLabelFondoEtiquetas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondoetiquetas.jpg"))); // NOI18N
+        jLabelFondoEtiquetas.setText("jLabel7");
+        jPanelventana.add(jLabelFondoEtiquetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 440, 120));
 
-        jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXRegistro.setText("JAVAFLIX");
-        jPanelRegistro.add(jLabelJAVAFLIXRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
+        jLabelJAVAFLIX.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIX.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelJAVAFLIX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIX.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 830, 130));
 
-        jLabelJAVAFLIXSombraRegistro.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
-        jLabelJAVAFLIXSombraRegistro.setForeground(new java.awt.Color(112, 101, 101));
-        jLabelJAVAFLIXSombraRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelJAVAFLIXSombraRegistro.setText("JAVAFLIX");
-        jPanelRegistro.add(jLabelJAVAFLIXSombraRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
+        jLabelJAVAFLIXSombra.setFont(new java.awt.Font("Roboto Black", 0, 100)); // NOI18N
+        jLabelJAVAFLIXSombra.setForeground(new java.awt.Color(112, 101, 101));
+        jLabelJAVAFLIXSombra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelJAVAFLIXSombra.setText("JAVAFLIX");
+        jPanelventana.add(jLabelJAVAFLIXSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 810, 130));
 
-        jPanelIntroDatosRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelIntroDatosRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelIntroDatos.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelIntroDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelJavaFlixBasico.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabelJavaFlixBasico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJavaFlixBasico.setText("JavaFlix Básico");
-        jPanelIntroDatosRegistro.add(jLabelJavaFlixBasico, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 410, -1));
+        jPanelIntroDatos.add(jLabelJavaFlixBasico, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 410, -1));
 
         jPanelJavaFlixBasicoPrecio.setBackground(new java.awt.Color(180, 45, 49));
         jPanelJavaFlixBasicoPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -207,12 +207,12 @@ public class planregistroUsuario extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanelIntroDatosRegistro.add(jPanelJavaFlixBasicoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 130, 60));
+        jPanelIntroDatos.add(jPanelJavaFlixBasicoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 130, 60));
 
         jLabelJavaFlixEstandar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabelJavaFlixEstandar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJavaFlixEstandar.setText("JavaFlix Estándar\n");
-        jPanelIntroDatosRegistro.add(jLabelJavaFlixEstandar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 410, -1));
+        jPanelIntroDatos.add(jLabelJavaFlixEstandar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 410, -1));
 
         jPanelJavaFlixEstandarPrecio.setBackground(new java.awt.Color(180, 45, 49));
         jPanelJavaFlixEstandarPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -250,12 +250,12 @@ public class planregistroUsuario extends javax.swing.JFrame {
             .addComponent(jLabelJavaFlixEstandarPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanelIntroDatosRegistro.add(jPanelJavaFlixEstandarPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 130, 60));
+        jPanelIntroDatos.add(jPanelJavaFlixEstandarPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 130, 60));
 
         jLabelJavaFlixPremium.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabelJavaFlixPremium.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJavaFlixPremium.setText("JavaFlix Premium\n");
-        jPanelIntroDatosRegistro.add(jLabelJavaFlixPremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 410, -1));
+        jPanelIntroDatos.add(jLabelJavaFlixPremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 410, -1));
 
         jPanelJavaFlixPremiumPrecio.setBackground(new java.awt.Color(180, 45, 49));
         jPanelJavaFlixPremiumPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -293,24 +293,24 @@ public class planregistroUsuario extends javax.swing.JFrame {
             .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanelIntroDatosRegistro.add(jPanelJavaFlixPremiumPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 130, 60));
+        jPanelIntroDatos.add(jPanelJavaFlixPremiumPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 130, 60));
 
-        jPanelRegistro.add(jPanelIntroDatosRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
+        jPanelventana.add(jPanelIntroDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 410, 710));
 
-        jLabelFondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelFondoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
-        jLabelFondoRegistro.setText("jLabel2");
-        jPanelRegistro.add(jLabelFondoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
+        jLabelFondo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/palomitasbienrojo.jpg"))); // NOI18N
+        jLabelFondo.setText("jLabel2");
+        jPanelventana.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1239, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelventana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -322,39 +322,39 @@ public class planregistroUsuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jPanelCerrarRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseEntered
+    private void jPanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseEntered
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground(new Color(232, 17, 35));
-        jLabelCerrarRegistro.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseEntered
+        jPanelCerrar.setBackground(new Color(232, 17, 35));
+        jLabelCerrar.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelCerrarMouseEntered
 
-    private void jPanelCerrarRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseExited
+    private void jPanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseExited
         // TODO add your handling code here:
-        jPanelCerrarRegistro.setBackground(new Color(255, 255, 255));
-        jLabelCerrarRegistro.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseExited
+        jPanelCerrar.setBackground(new Color(255, 255, 255));
+        jLabelCerrar.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_jPanelCerrarMouseExited
 
-    private void jPanelAtrasRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseEntered
+    private void jPanelAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseEntered
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground(new Color(229, 229, 229));
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseEntered
+        jPanelAtras.setBackground(new Color(229, 229, 229));
+    }//GEN-LAST:event_jPanelAtrasMouseEntered
 
-    private void jPanelAtrasRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseExited
+    private void jPanelAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseExited
         // TODO add your handling code here:
-        jPanelAtrasRegistro.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseExited
+        jPanelAtras.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelAtrasMouseExited
 
-    private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
+    private void jPanelAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         padre.setVisible(true);
-    }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
+    }//GEN-LAST:event_jPanelAtrasMouseClicked
 
-    private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
+    private void jPanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarMouseClicked
         // TODO add your handling code here:      
         UtilJavaflix.cerrarPrograma();
 
-    }//GEN-LAST:event_jPanelCerrarRegistroMouseClicked
+    }//GEN-LAST:event_jPanelCerrarMouseClicked
 
     private void jPanelJavaFlixBasicoPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixBasicoPrecioMouseEntered
         // TODO add your handling code here:
@@ -429,28 +429,28 @@ public class planregistroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabelAtrasRegistro;
-    private javax.swing.JLabel jLabelCREATUCUENTARegistro;
-    private javax.swing.JLabel jLabelCerrarRegistro;
-    private javax.swing.JLabel jLabelDoblezRegistro;
-    private javax.swing.JLabel jLabelFondoEtiquetasRegistro;
-    private javax.swing.JLabel jLabelFondoRegistro;
-    private javax.swing.JLabel jLabelJAVAFLIXRegistro;
-    private javax.swing.JLabel jLabelJAVAFLIXSombraRegistro;
+    private javax.swing.JLabel jLabelAtras;
+    private javax.swing.JLabel jLabelCREATUCUENTA;
+    private javax.swing.JLabel jLabelCerrar;
+    private javax.swing.JLabel jLabelDoblez;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelFondoEtiquetas;
+    private javax.swing.JLabel jLabelJAVAFLIX;
+    private javax.swing.JLabel jLabelJAVAFLIXSombra;
     private javax.swing.JLabel jLabelJavaFlixBasico;
     private javax.swing.JLabel jLabelJavaFlixBasicoPrecio;
     private javax.swing.JLabel jLabelJavaFlixEstandar;
     private javax.swing.JLabel jLabelJavaFlixEstandarPrecio;
     private javax.swing.JLabel jLabelJavaFlixPremium;
     private javax.swing.JLabel jLabelJavaFlixPremiumPrecio;
-    private javax.swing.JPanel jPanelAtrasRegistro;
-    private javax.swing.JPanel jPanelCerrarRegistro;
-    private javax.swing.JPanel jPanelIntroDatosRegistro;
+    private javax.swing.JPanel jPanelAtras;
+    private javax.swing.JPanel jPanelCerrar;
+    private javax.swing.JPanel jPanelIntroDatos;
     private javax.swing.JPanel jPanelJavaFlixBasicoPrecio;
     private javax.swing.JPanel jPanelJavaFlixEstandarPrecio;
     private javax.swing.JPanel jPanelJavaFlixPremiumPrecio;
-    private javax.swing.JPanel jPanelOpcionesRegistro;
-    private javax.swing.JPanel jPanelRegistro;
+    private javax.swing.JPanel jPanelOpciones;
+    private javax.swing.JPanel jPanelventana;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
