@@ -204,4 +204,8 @@ public class UtilJavaflix {
         UtilJavaflix.guardarDatos();
         System.exit(0);
     }
+    
+    public static boolean existenteEmailRegistrado(String mail) {
+        return clientes.stream().anyMatch(cliente -> (cliente.getCorreoelectronico().equals(mail)));
+    }
 }

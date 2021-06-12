@@ -5,16 +5,11 @@
  */
 package GUI;
 
-import Clases.Cliente;
 import Clases.TarjetaCredito;
 import java.awt.Color;
-
-import Clases.UtilJavaflix;
-
-import java.awt.Color;
-
 import Clases.UtilJavaflix;
 import Excepciones.EmailNoValido;
+import Excepciones.EmailYaExistente;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
@@ -391,20 +386,24 @@ public class registroUsuario extends javax.swing.JFrame {
     private void jLabelRegistrarsebuttomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistrarsebuttomMouseClicked
         try {
             // Hacemos esto para validar los dos campos 
-            UtilJavaflix.validarEmail(jTextFieldCE.getText());
+            String email = jTextFieldCE.getText();
+            UtilJavaflix.validarEmail(email);
+            if (UtilJavaflix.existenteEmailRegistrado(email)){
+                throw new EmailYaExistente("El email introduco ya esta registrado");
+            }
             LocalDate fechacaducidad = LocalDate.parse(jFormattedTextFieldFechaCaducidad.getText());
             TarjetaCredito nuevatarjeta = new TarjetaCredito(jFormattedTextFieldNumTarjeta.getText(), fechacaducidad,
                     Double.parseDouble(jTextFieldSaldo.getText()));
             System.out.println(nuevatarjeta);
             planregistroUsuario nuevocliente = new planregistroUsuario(this, jTextFieldDNI.getText(), jTextFieldNombre.getText(),
-                    jTextFieldCE.getText(), String.valueOf(jPasswordFieldClave.getPassword()), nuevatarjeta);
+                    email, String.valueOf(jPasswordFieldClave.getPassword()), nuevatarjeta);
             this.dispose();
         } catch (EmailNoValido ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar dd-MM-yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            System.out.println(UtilJavaflix.getClientes());
+        } catch (EmailYaExistente ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
