@@ -14,6 +14,7 @@ import Clases.UtilJavaflix;
 import static java.awt.Color.black;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,7 +38,8 @@ public class verSerie extends javax.swing.JFrame {
         jLabelTitulo.setText("Titulo: " + serierecibida.getTitulo());
         jLabelActores.setText("Actores: " + String.join(",", serierecibida.getActores()));
         jTextAreaSinopsis.setText("Sinopsis: " + serierecibida.getSinopsis());
-        jLabelPortada.setIcon(serierecibida.getPortada());
+        ImageIcon portadaredim = new ImageIcon(serierecibida.getPortada().getImage().getScaledInstance(jLabelPortada.getWidth(), jLabelPortada.getHeight(), 1));
+        jLabelPortada.setIcon(portadaredim);
         jLabelGenero.setText(serierecibida.getGenero());
         jLabelAnno.setText(String.valueOf(serierecibida.getAnno()));
         jLabelRate.setText(String.valueOf(serierecibida.getCalificacionMedia()) + "/10");

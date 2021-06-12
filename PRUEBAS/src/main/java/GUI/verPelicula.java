@@ -8,6 +8,7 @@ package GUI;
 import Clases.Pelicula;
 import java.awt.Color;
 import Clases.UtilJavaflix;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +34,8 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelDirector.setText("Director: " + pelicularecibida.getDirector());
         jLabelDuracion.setText("Duracion: " + pelicularecibida.getDuracion());
         jTextAreaSinopsis.setText("Sinopsis: " + pelicularecibida.getSinopsis());
-        jLabelPortada.setIcon(pelicularecibida.getPortada());
+        ImageIcon portadaredim = new ImageIcon(pelicularecibida.getPortada().getImage().getScaledInstance(jLabelPortada.getWidth(), jLabelPortada.getHeight(), 1));
+        jLabelPortada.setIcon(portadaredim);
         jLabelGenero.setText(pelicularecibida.getGenero());
         jLabelAnno.setText(String.valueOf(pelicularecibida.getAnno()));
         jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia()) + "/10");
