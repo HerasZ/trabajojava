@@ -358,7 +358,7 @@ public class verSerie extends javax.swing.JFrame {
 
     private void jComboBoxTemporadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTemporadasActionPerformed
         // TODO add your handling code here:
-        int valorSeleccionado = jComboBoxRate.getSelectedIndex();
+        int valorSeleccionado = jComboBoxTemporadas.getSelectedIndex();
         System.out.println(valorSeleccionado);
         setTabla(valorSeleccionado);
     }//GEN-LAST:event_jComboBoxTemporadasActionPerformed
