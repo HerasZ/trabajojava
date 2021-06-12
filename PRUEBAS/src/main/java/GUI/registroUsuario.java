@@ -398,12 +398,10 @@ public class registroUsuario extends javax.swing.JFrame {
             planregistroUsuario nuevocliente = new planregistroUsuario(this, jTextFieldDNI.getText(), jTextFieldNombre.getText(),
                     email, String.valueOf(jPasswordFieldClave.getPassword()), nuevatarjeta);
             this.dispose();
-        } catch (EmailNoValido ex) {
+        } catch (EmailNoValido | EmailYaExistente ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar dd-MM-yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (EmailYaExistente ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 

@@ -30,7 +30,7 @@ public class tarjetaContenido extends javax.swing.JPanel {
         labelgenero.setText(contenidoheredado.getGenero());
         labelnota.setText(String.valueOf(contenidoheredado.getCalificacionMedia()));
         if (contenidoheredado instanceof Serie) {
-            labeltempdur.setText(((Serie) contenidoheredado).getTemporada().size() + " temporadas");
+            labeltempdur.setText(((Serie) contenidoheredado).getTemporada().size() + " temporada(s)");
         } else if (contenidoheredado instanceof Pelicula) {
             labeltempdur.setText(((Pelicula) contenidoheredado).getDuracion());
         }
@@ -50,6 +50,7 @@ public class tarjetaContenido extends javax.swing.JPanel {
         labelnota = new javax.swing.JLabel();
         labeltempdur = new javax.swing.JLabel();
         labelgenero = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -63,25 +64,28 @@ public class tarjetaContenido extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labeltitulo.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        labeltitulo.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         labeltitulo.setText("Titulo");
         add(labeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 270, 60));
 
-        labelanno.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        labelanno.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labelanno.setText("Año");
         add(labelanno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
-        labelnota.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        labelnota.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labelnota.setText("Nota Media");
-        add(labelnota, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        add(labelnota, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
 
-        labeltempdur.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        labeltempdur.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labeltempdur.setText("Temporadas / Duracion");
         add(labeltempdur, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 140, -1));
 
-        labelgenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        labelgenero.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labelgenero.setText("Genero");
         add(labelgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 140, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/star enana.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 20, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -95,6 +99,7 @@ public class tarjetaContenido extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelanno;
     private javax.swing.JLabel labelgenero;
     private javax.swing.JLabel labelnota;
