@@ -340,16 +340,23 @@ public class verSerie extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
     private void jComboBoxRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRateActionPerformed
-        // TODO add your handling code here:       
-        try {
-            int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
-            if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
-                serierecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
-            } else {
-                serierecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+        // TODO add your handling code here:
+        if (String.valueOf(jComboBoxRate.getSelectedItem()).equals("Rate")){
+            
+        }
+        else if (!String.valueOf(jComboBoxRate.getSelectedItem()).equals("Rate") && jComboBoxRate.getItemAt(0).equals("Rate")) {
+            jComboBoxRate.removeItemAt(0);
+        } else {
+            try {
+                int valorSeleccionado =Integer.parseInt(String.valueOf(jComboBoxRate.getSelectedItem()));
+                if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
+                    serierecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
+                } else {
+                    serierecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Elige una calificacion\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Elige una calificacion", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jComboBoxRateActionPerformed
 

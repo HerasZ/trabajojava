@@ -39,7 +39,7 @@ public class Capitulo implements Serializable{
 
     @Override
     public String toString() {
-        return "Capitulo{" + "titulo=" + titulo + ", duracion=" + duracion + '}';
+        return  titulo + " (Duracion: " + duracion +')';
     }
     
 }
