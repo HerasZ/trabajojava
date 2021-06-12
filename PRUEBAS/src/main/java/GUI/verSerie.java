@@ -47,7 +47,6 @@ public class verSerie extends javax.swing.JFrame {
             jComboBoxRate.setSelectedIndex(0);
         }
         for (int i = 0; i < serierecibida.getTemporada().size(); i++) {
-            System.out.println(serierecibida.getTemporada().size());
             jComboBoxTemporadas.addItem("Temporada " + (i + 1));
         }
         DefaultListModel<String> model = new DefaultListModel<>();
