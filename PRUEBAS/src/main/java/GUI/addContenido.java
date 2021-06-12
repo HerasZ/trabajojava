@@ -47,18 +47,22 @@ public class addContenido extends javax.swing.JFrame {
 
     private void showTabla(ArrayList<Temporada> Temporadas) {
         int contador = 0;
+        DefaultTableModel model = (DefaultTableModel) jTableTemporadas.getModel();
         for (Temporada temporadaactual : Temporadas) {
+            model.addRow(new Object[]{null, null});
             jTableTemporadas.setValueAt(Temporadas.indexOf(temporadaactual) + 1, contador, 0);
             jTableTemporadas.setValueAt(temporadaactual.getCapitulos().size(), contador, 1);
             contador++;
         }
+        jTableTemporadas.setModel(model);
     }
 
     private void limpiarTabla() {
-        for (int i = 0; i < jTableTemporadas.getRowCount(); i++) {
-            for (int j = 0; j < jTableTemporadas.getColumnCount(); j++) {
-                jTableTemporadas.setValueAt(null, i, j);
-            }
+        DefaultTableModel dm = (DefaultTableModel) jTableTemporadas.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
         }
     }
 
@@ -78,7 +82,6 @@ public class addContenido extends javax.swing.JFrame {
         ImageIcon portada = new ImageIcon(rutaImagen);
         return portada;
     }
-
 
     public ArrayList<String> parseActores(String actores) {
         ArrayList<String> arrayactores = new ArrayList<>();
@@ -586,8 +589,6 @@ public class addContenido extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.temporadas.size() > 0) {
             limpiarTabla();
-            DefaultTableModel model = (DefaultTableModel) jTableTemporadas.getModel();
-            model.addRow(new Object[]{null, null});
             showTabla(temporadas);
         }
     }//GEN-LAST:event_formWindowActivated

@@ -47,6 +47,7 @@ public class modificarSeries extends javax.swing.JFrame {
     }
 
     private void showTabla(ArrayList<Temporada> Temporadas) {
+        System.out.println(Temporadas);
         int contador = 0;
         DefaultTableModel model = (DefaultTableModel) jTableTemporadas.getModel();
         for (Temporada temporadaactual : Temporadas) {
@@ -448,8 +449,6 @@ public class modificarSeries extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.temporadas.size() > 0) {
             limpiarTabla();
-            DefaultTableModel model = (DefaultTableModel) jTableTemporadas.getModel();
-            model.addRow(new Object[]{null, null});
             showTabla(temporadas);
         }
     }//GEN-LAST:event_formWindowActivated

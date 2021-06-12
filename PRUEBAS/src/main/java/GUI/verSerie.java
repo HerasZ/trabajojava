@@ -46,11 +46,12 @@ public class verSerie extends javax.swing.JFrame {
         } else {
             jComboBoxRate.setSelectedIndex(0);
         }
-        for (int i = 0; i <= serierecibida.getTemporada().size(); i++) {
+        for (int i = 0; i < serierecibida.getTemporada().size(); i++) {
+            System.out.println(serierecibida.getTemporada().size());
             jComboBoxTemporadas.addItem("Temporada " + (i + 1));
         }
         DefaultListModel<String> model = new DefaultListModel<>();
-        setTabla(1);
+        setTabla(0);
     }
 
     public void setRate() {
@@ -64,7 +65,7 @@ public class verSerie extends javax.swing.JFrame {
 
     public void setTabla(int temporada) {
         DefaultListModel<String> model = new DefaultListModel<String>();
-        for (int i = 0; i <= serierecibida.getTemporada().size(); i++) {
+        for (int i = 0; i < serierecibida.getTemporada().get(temporada).getCapitulos().size(); i++) {
             model.addElement(serierecibida.getTemporada().get(temporada).getCapitulos().get(i).toString());
         }
         jListCapitulos.setModel(model);
@@ -360,7 +361,6 @@ public class verSerie extends javax.swing.JFrame {
     private void jComboBoxTemporadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTemporadasActionPerformed
         // TODO add your handling code here:
         int valorSeleccionado = jComboBoxTemporadas.getSelectedIndex();
-        System.out.println(valorSeleccionado);
         setTabla(valorSeleccionado);
     }//GEN-LAST:event_jComboBoxTemporadasActionPerformed
 

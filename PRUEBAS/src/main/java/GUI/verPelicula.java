@@ -215,11 +215,6 @@ public class verPelicula extends javax.swing.JFrame {
 
         jComboBoxRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jComboBoxRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jComboBoxRate.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jComboBoxRateFocusLost(evt);
-            }
-        });
         jComboBoxRate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRateActionPerformed(evt);
@@ -305,15 +300,15 @@ public class verPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
-            pelicularecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+            if (pelicularecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
+                pelicularecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
+            } else {
+                pelicularecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+            }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Elige una calificacion","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Elige una calificacion", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jComboBoxRateActionPerformed
-
-    private void jComboBoxRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxRateFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxRateFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
