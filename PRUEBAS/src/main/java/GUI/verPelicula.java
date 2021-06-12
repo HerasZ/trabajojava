@@ -283,6 +283,7 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazonVacio.setFocusable(true);
         jLabelCorazon.setVisible(false);
         jLabelCorazon.setFocusable(false);
+        JOptionPane.showMessageDialog(this,"Contenido eliminado de favoritos");
     }//GEN-LAST:event_jLabelCorazonMouseClicked
 
     private void jLabelCorazonVacioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonVacioMouseClicked
@@ -292,6 +293,7 @@ public class verPelicula extends javax.swing.JFrame {
         jLabelCorazonVacio.setFocusable(false);
         jLabelCorazon.setVisible(true);
         jLabelCorazon.setFocusable(true);
+        JOptionPane.showMessageDialog(this,"Contenido añadido a favoritos");
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
     private void jComboBoxRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRateActionPerformed

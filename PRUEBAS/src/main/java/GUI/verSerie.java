@@ -328,6 +328,7 @@ public class verSerie extends javax.swing.JFrame {
         jLabelCorazonVacio.setFocusable(true);
         jLabelCorazon.setVisible(false);
         jLabelCorazon.setFocusable(false);
+        JOptionPane.showMessageDialog(this,"Contenido eliminado de favoritos");
     }//GEN-LAST:event_jLabelCorazonMouseClicked
 
     private void jLabelCorazonVacioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCorazonVacioMouseClicked
@@ -337,12 +338,13 @@ public class verSerie extends javax.swing.JFrame {
         jLabelCorazonVacio.setFocusable(false);
         jLabelCorazon.setVisible(true);
         jLabelCorazon.setFocusable(true);
+        JOptionPane.showMessageDialog(this,"Contenido añadido a favoritos");
     }//GEN-LAST:event_jLabelCorazonVacioMouseClicked
 
     private void jComboBoxRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRateActionPerformed
         // TODO add your handling code here:
         if (!String.valueOf(jComboBoxRate.getSelectedItem()).equals("Rate")) {
-            if (!String.valueOf(jComboBoxRate.getSelectedItem()).equals("Rate") && jComboBoxRate.getItemAt(0).equals("Rate")) {
+            if (jComboBoxRate.getItemAt(0).equals("Rate")) {
                 jComboBoxRate.removeItemAt(0);
             } else {
                 try {
