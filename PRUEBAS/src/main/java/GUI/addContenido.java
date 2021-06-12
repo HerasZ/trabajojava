@@ -10,6 +10,7 @@ import Clases.Serie;
 import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
+import Excepciones.FaltanDatos;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -666,14 +667,20 @@ public class addContenido extends javax.swing.JFrame {
     private void crearpeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearpeliculaMouseClicked
         // TODO add your handling code here:
         try {
+            if (portadaparasubir == null) {
+                throw new FaltanDatos("No se ha subido una portada");
+            }
             Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTituloP.getText(),
                     fieldSinopsisP.getText(), fieldGeneroP.getText(), Integer.parseInt(fieldAnnoP.getText()),
                     parseActores(fieldActoresP.getText()), portadaparasubir);
             UtilJavaflix.addPelicula(nuevapelicula);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Pelicula creada correctamente");
+        } catch (FaltanDatos ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Error al crear la pelicula");
+            JOptionPane.showMessageDialog(rootPane, "Error al crear serie", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
 
     }//GEN-LAST:event_crearpeliculaMouseClicked
@@ -681,13 +688,19 @@ public class addContenido extends javax.swing.JFrame {
     private void crearserieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearserieMouseClicked
         // TODO add your handling code here:
         try {
+            if (portadaparasubir == null) {
+                throw new FaltanDatos("No se ha subido una portada");
+            }
             Serie nuevaserie = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
                     parseActores(fieldActoresS.getText()), portadaparasubir);
             UtilJavaflix.addSerie(nuevaserie);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Serie creada correctamente");
+        } catch (FaltanDatos ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Error al crear la serie");
+            JOptionPane.showMessageDialog(rootPane, "Error al crear serie", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
 
     }//GEN-LAST:event_crearserieMouseClicked
