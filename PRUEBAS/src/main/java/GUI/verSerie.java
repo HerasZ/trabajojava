@@ -28,7 +28,9 @@ public class verSerie extends javax.swing.JFrame {
         padre = main;
         this.serierecibida = serierecibida;
         initComponents();
+        if (!padre.getClientelogeado().getFavoritos().contains(serierecibida)){
         jLabelCorazon.setVisible(false);
+        }
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         jLabelTitulo.setText("Titulo: " + serierecibida.getTitulo());
@@ -307,8 +309,8 @@ public class verSerie extends javax.swing.JFrame {
 
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-        padre.setVisible(true);
+        this.dispose();
+        entradaUsuario principal = new entradaUsuario(padre.getPadre(),padre.getClientelogeado());
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked

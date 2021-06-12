@@ -296,6 +296,14 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public ArrayList<Contenido> getListacontenido() {
+        return listacontenido;
+    }
+
+    public void setListacontenido(ArrayList<Contenido> listacontenido) {
+        this.listacontenido = listacontenido;
+    }
     
     private void setTipoTargeta(String tipo){
         this.tipoTargeta = tipo;
