@@ -7,6 +7,7 @@ package GUI;
 
 import Clases.Cliente;
 import Clases.Contenido;
+import Clases.OrdenarContenido;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.awt.GridLayout;
@@ -22,7 +23,6 @@ public class entradaUsuario extends javax.swing.JFrame {
     private ventanaPrincipal padre;
     private Cliente clientelogeado;
     private ArrayList<Contenido> listacontenido = new ArrayList<>();
-    private String tipoTargeta;
 
     public ventanaPrincipal getPadre() {
         return padre;
@@ -31,13 +31,12 @@ public class entradaUsuario extends javax.swing.JFrame {
     public entradaUsuario(ventanaPrincipal main, Cliente clientelogeado) {
         padre = main;
         this.clientelogeado = clientelogeado;
-        this.tipoTargeta = "todo";
         this.listacontenido.addAll(UtilJavaflix.getPeliculas());
         this.listacontenido.addAll(UtilJavaflix.getSeries());
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        generarTarjetas("todo");
+        generarTarjetas();
 
     }
 
@@ -72,7 +71,8 @@ public class entradaUsuario extends javax.swing.JFrame {
         jTextFieldActor = new javax.swing.JTextField();
         jLabelAnno = new javax.swing.JLabel();
         jFormattedTextFieldAño = new javax.swing.JFormattedTextField();
-        jComboBoxGenero = new javax.swing.JComboBox<>();
+        jLabelAnno1 = new javax.swing.JLabel();
+        jTextFieldGenero = new javax.swing.JTextField();
         jToggleButtonBuscar = new javax.swing.JToggleButton();
         jScrollPaneTarjetas = new javax.swing.JScrollPane();
         jPanelTarjetas = new javax.swing.JPanel();
@@ -238,7 +238,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda.add(jLabelPalabra);
 
         jTextFieldClave.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldClave.setForeground(java.awt.Color.gray);
         jTextFieldClave.setMinimumSize(new java.awt.Dimension(170, 30));
         jTextFieldClave.setPreferredSize(new java.awt.Dimension(170, 30));
         jPanelBusqueda.add(jTextFieldClave);
@@ -247,7 +246,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda.add(jLabelActor);
 
         jTextFieldActor.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldActor.setForeground(java.awt.Color.gray);
         jTextFieldActor.setToolTipText("Actores");
         jTextFieldActor.setMinimumSize(new java.awt.Dimension(170, 30));
         jTextFieldActor.setPreferredSize(new java.awt.Dimension(170, 30));
@@ -256,26 +254,29 @@ public class entradaUsuario extends javax.swing.JFrame {
         jLabelAnno.setText("Año:");
         jPanelBusqueda.add(jLabelAnno);
 
-        jFormattedTextFieldAño.setForeground(java.awt.Color.gray);
         jFormattedTextFieldAño.setToolTipText("Año");
         jFormattedTextFieldAño.setMinimumSize(new java.awt.Dimension(170, 30));
         jFormattedTextFieldAño.setPreferredSize(new java.awt.Dimension(170, 30));
         jPanelBusqueda.add(jFormattedTextFieldAño);
 
-        jComboBoxGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genero", "Acccion", "Comedia", "Suspense", "Crimen", "Romance", "Aventura" }));
-        jComboBoxGenero.setMinimumSize(new java.awt.Dimension(170, 30));
-        jComboBoxGenero.setPreferredSize(new java.awt.Dimension(170, 30));
-        jComboBoxGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxGeneroActionPerformed(evt);
-            }
-        });
-        jPanelBusqueda.add(jComboBoxGenero);
+        jLabelAnno1.setText("Genero:");
+        jPanelBusqueda.add(jLabelAnno1);
+
+        jTextFieldGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jTextFieldGenero.setForeground(java.awt.Color.gray);
+        jTextFieldGenero.setToolTipText("Actores");
+        jTextFieldGenero.setMinimumSize(new java.awt.Dimension(170, 30));
+        jTextFieldGenero.setPreferredSize(new java.awt.Dimension(170, 30));
+        jPanelBusqueda.add(jTextFieldGenero);
 
         jPanelventana.add(jPanelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 970, 90));
 
         jToggleButtonBuscar.setText("BUSCAR");
+        jToggleButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonBuscarActionPerformed(evt);
+            }
+        });
         jPanelventana.add(jToggleButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 90, 30));
 
         jPanelTarjetas.setLayout(new java.awt.GridLayout(1, 1, 0, 10));
@@ -304,52 +305,22 @@ public class entradaUsuario extends javax.swing.JFrame {
     public void setListacontenido(ArrayList<Contenido> listacontenido) {
         this.listacontenido = listacontenido;
     }
-    
-    private void setTipoTargeta(String tipo){
-        this.tipoTargeta = tipo;
-    }
-    
-    private String getTipoTargeta(){
-        return tipoTargeta;
-    }
-    private void generarTarjetas(String tipo) {
-        setTipoTargeta(tipo);
+
+    private void generarTarjetas() {
         jPanelTarjetas.removeAll();
-        if(tipo.toLowerCase().equals("todo")){
-            jScrollPaneTarjetas.setSize(968, 578);
-            jPanelTarjetas.setSize(968, listacontenido.size() * 100);
-            jPanelTarjetas.setLayout(new GridLayout(listacontenido.size(), 1));
-            for (Contenido contenidoiterando : listacontenido) {
-                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
-            }
-        }else if(tipo.toLowerCase().equals("peliculas")){
-            jScrollPaneTarjetas.setSize(968, 578);
-            jPanelTarjetas.setSize(968, UtilJavaflix.getPeliculas().size() * 100);
-            jPanelTarjetas.setLayout(new GridLayout(UtilJavaflix.getPeliculas().size(), 1));
-            for (Contenido contenidoiterando : UtilJavaflix.getPeliculas()) {
-                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
-            }
-        }else if(tipo.toLowerCase().equals("series")){
-            jScrollPaneTarjetas.setSize(968, 578);
-            jPanelTarjetas.setSize(968, UtilJavaflix.getSeries().size() * 100);
-            jPanelTarjetas.setLayout(new GridLayout(UtilJavaflix.getSeries().size(), 1));
-            for (Contenido contenidoiterando : UtilJavaflix.getSeries()) {
-                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
-            }
-        }else if(tipo.toLowerCase().equals("favoritos")){
-            jScrollPaneTarjetas.setSize(968, 578);
-            jPanelTarjetas.setSize(968, clientelogeado.getFavoritos().size() * 100);
-            jPanelTarjetas.setLayout(new GridLayout(clientelogeado.getFavoritos().size(), 1));
-            for (Contenido contenidoiterando : clientelogeado.getFavoritos()) {
-                jPanelTarjetas.add(new tarjetaContenido(this,contenidoiterando));
-            }
+        jScrollPaneTarjetas.setSize(968, 578);
+        jPanelTarjetas.setSize(968, listacontenido.size() * 100);
+        jPanelTarjetas.setLayout(new GridLayout(listacontenido.size(), 1));
+        for (Contenido contenidoiterando : listacontenido) {
+            jPanelTarjetas.add(new tarjetaContenido(this, contenidoiterando));
         }
+
     }
 
     public Cliente getClientelogeado() {
         return clientelogeado;
     }
-    
+
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         UtilJavaflix.guardarDatos();
         this.padre.setVisible(true);
@@ -389,13 +360,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         UtilJavaflix.cerrarPrograma();
 
     }//GEN-LAST:event_jPanelCerrarMouseClicked
-
-    private void jComboBoxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGeneroActionPerformed
-        // TODO add your handling code here:
-        if (jTextFieldActor.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Escriba el nombre de un actor para ver su contenido");
-        }
-    }//GEN-LAST:event_jComboBoxGeneroActionPerformed
 
     private void jLabelTODOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseEntered
         // TODO add your handling code here:
@@ -439,39 +403,64 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelTODOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseClicked
         // TODO add your handling code here:
-        if (!getTipoTargeta().toLowerCase().equals("todo")){
-            generarTarjetas("todo");
-        }
+        this.listacontenido.clear();
+        this.listacontenido.addAll(UtilJavaflix.getPeliculas());
+        this.listacontenido.addAll(UtilJavaflix.getSeries());
+        generarTarjetas();
     }//GEN-LAST:event_jLabelTODOMouseClicked
 
     private void jLabelPELICULASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseClicked
         // TODO add your handling code here:
-        if (!getTipoTargeta().toLowerCase().equals("peliculas")){
-            generarTarjetas("peliculas");
+        this.listacontenido.clear();
+        for (Contenido contenido : UtilJavaflix.getPeliculas()) {
+            this.listacontenido.add(contenido);
         }
+        generarTarjetas();
     }//GEN-LAST:event_jLabelPELICULASMouseClicked
 
     private void jLabelSERIESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseClicked
         // TODO add your handling code here:
-        if (!getTipoTargeta().toLowerCase().equals("series")){
-            generarTarjetas("series");
+        this.listacontenido.clear();
+        for (Contenido contenido : UtilJavaflix.getSeries()) {
+            this.listacontenido.add(contenido);
         }
+        generarTarjetas();
     }//GEN-LAST:event_jLabelSERIESMouseClicked
 
     private void jLabelFAVORITOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseClicked
         // TODO add your handling code here:
-        if (!getTipoTargeta().toLowerCase().equals("favoritos")){
-            generarTarjetas("favoritos");
-        }
+        this.listacontenido.clear();
+        this.listacontenido.addAll(clientelogeado.getFavoritos());
+        generarTarjetas();
     }//GEN-LAST:event_jLabelFAVORITOSMouseClicked
+
+    private void jToggleButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonBuscarActionPerformed
+        // TODO add your handling code here:
+        String busquedapalabra = jTextFieldClave.getText();
+        String busquedaactor = jTextFieldActor.getText();
+        String busquedagenero = jTextFieldGenero.getText();
+        if (!"".equals(busquedapalabra)) {
+            listacontenido = OrdenarContenido.buscarPalabra(busquedapalabra, listacontenido);
+        }
+        if (!"".equals(busquedaactor)) {
+            listacontenido = OrdenarContenido.buscarActor(busquedaactor, listacontenido);
+        }
+        if (!"".equals(busquedagenero)) {
+            listacontenido = OrdenarContenido.buscarGenero(busquedagenero, listacontenido);
+        }
+        if (!jFormattedTextFieldAño.getText().equals("")) {
+            listacontenido = OrdenarContenido.buscarAnno(Integer.parseInt(jFormattedTextFieldAño.getText()), listacontenido);
+        }
+        generarTarjetas();
+    }//GEN-LAST:event_jToggleButtonBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> jComboBoxGenero;
     private javax.swing.JFormattedTextField jFormattedTextFieldAño;
     private javax.swing.JLabel jLabelActor;
     private javax.swing.JLabel jLabelAnno;
+    private javax.swing.JLabel jLabelAnno1;
     private javax.swing.JLabel jLabelAtras;
     private javax.swing.JLabel jLabelCerrar;
     private javax.swing.JLabel jLabelFAVORITOS;
@@ -492,6 +481,7 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldClave;
+    private javax.swing.JTextField jTextFieldGenero;
     private javax.swing.JToggleButton jToggleButtonBuscar;
     // End of variables declaration//GEN-END:variables
 }

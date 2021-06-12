@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class OrdenarContenido {
 
-    public static ArrayList<Contenido> masReciente(ArrayList<Contenido> Contenido) {
+    public static ArrayList<Contenido> masRecienteMayorRating(ArrayList<Contenido> Contenido) {
         Contenido temp; // temporal para intercambio
         boolean estaOrdenado; // indica si esta ordenada
         for (int i = 0; i < Contenido.size() - 1; i++) {
@@ -51,13 +51,11 @@ public class OrdenarContenido {
         return Contenido;
     }
 
-    
-
-    public static ArrayList<Contenido> buscaractor(String actor, ArrayList<Contenido> Contenido) {
+    public static ArrayList<Contenido> buscarActor(String actor, ArrayList<Contenido> Contenido) {
         ArrayList<Contenido> listaactor = new ArrayList<Contenido>();
         for (int i = 0; i < Contenido.size(); i++) {
             for (int j = 0; j < Contenido.get(i).getActores().size(); j++) {
-                if (Contenido.get(i).getActores().get(j).toLowerCase() == actor.toLowerCase()) {
+                if (Contenido.get(i).getActores().get(j).toLowerCase().contains(actor.toLowerCase())) {
                     listaactor.add(Contenido.get(j));
                 }
             }
@@ -65,7 +63,7 @@ public class OrdenarContenido {
         return listaactor;
     }
 
-    public static ArrayList<Contenido> buscaranno(int anno, ArrayList<Contenido> Contenido) {
+    public static ArrayList<Contenido> buscarAnno(int anno, ArrayList<Contenido> Contenido) {
         ArrayList<Contenido> listaanno = new ArrayList<Contenido>();
         for (int i = 0; i < Contenido.size(); i++) {
             if (Contenido.get(i).getAnno() == anno) {
@@ -75,14 +73,24 @@ public class OrdenarContenido {
         return listaanno;
     }
 
-    public static ArrayList<Contenido> buscargenero(String genero, ArrayList<Contenido> Contenido) {
+    public static ArrayList<Contenido> buscarGenero(String genero, ArrayList<Contenido> Contenido) {
         ArrayList<Contenido> listagenero = new ArrayList<Contenido>();
         for (int i = 0; i < Contenido.size(); i++) {
-            if (Contenido.get(i).getGenero().toLowerCase() == genero.toLowerCase()) {
+            if (Contenido.get(i).getGenero().toLowerCase().contains(genero.toLowerCase())) {
                 listagenero.add(Contenido.get(i));
             }
         }
         return listagenero;
+    }
+
+    public static ArrayList<Contenido> buscarPalabra(String palabraclave, ArrayList<Contenido> Contenido) {
+        ArrayList<Contenido> listapalabra = new ArrayList<Contenido>();
+        for (int i = 0; i < Contenido.size(); i++) {
+            if (Contenido.get(i).getTitulo().toLowerCase().contains(palabraclave.toLowerCase())) {
+                listapalabra.add(Contenido.get(i));
+            }
+        }
+        return listapalabra;
     }
 
 }

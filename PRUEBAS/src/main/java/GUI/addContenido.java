@@ -32,7 +32,7 @@ public class addContenido extends javax.swing.JFrame {
     private String nombreImagen, rutaImagen, extension = "jpg";
     private File file;
     private BufferedImage bimage;
-    private ImageIcon portadaparasubir;
+    private ImageIcon portadaparasubir = null;
 
     public ArrayList<Temporada> getTemporadas() {
         return temporadas;

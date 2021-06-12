@@ -14,7 +14,6 @@ import java.io.*;
 public class UtilJavaflix {
 
     //Array para guardar todas las series,peliculas y usuarios registrados.
-    private static ArrayList<Contenido> contenido = new ArrayList<Contenido>();
     private static ArrayList<Serie> series = new ArrayList<Serie>();
     private static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
     private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -40,30 +39,47 @@ public class UtilJavaflix {
         UtilJavaflix.peliculas.add(pelicula);
     }
 
+    /**
+     * Devuelve la lista de todas las series
+     *
+     * @return ArrayList de Serie
+     */
     public static ArrayList<Serie> getSeries() {
         return series;
     }
 
+    /**
+     * Devuelve la lista de todas las peliculas
+     *
+     * @return ArrayList de Pelicula
+     */
     public static ArrayList<Pelicula> getPeliculas() {
         return peliculas;
     }
 
+    /**
+     * Devuelve la lista de todos los clientes
+     *
+     * @return ArrayList de Cliente
+     */
     public static ArrayList<Cliente> getClientes() {
         return clientes;
     }
 
+    /**
+     * Añade un cliente a el ArrayList de todos los clientes
+     *
+     * @param cliente el cliente a añadir
+     */
     public static void addCliente(Cliente cliente) {
         UtilJavaflix.clientes.add(cliente);
     }
 
-    public static ArrayList<Contenido> getContenido() {
-        return contenido;
-    }
-
-    public static void setContenido(ArrayList<Contenido> contenido) {
-        UtilJavaflix.contenido = contenido;
-    }
-
+    /**
+     * Crea un archivo (datosjavaflix.dat) donde serializa los datos del
+     * ArrayList de series, peliculas y clientes
+     *
+     */
     public static void guardarDatos() {
         try {
             File datosjavaflix = new File("datosjavaflix.dat");
@@ -83,14 +99,16 @@ public class UtilJavaflix {
             } else {
                 System.out.println("Error: No hay datos para guardar");
             }
-
         } catch (IOException ioe) {
             System.out.println("Error de Input/Output: " + ioe.getMessage());
-        } finally {
-
         }
     }
 
+    /**
+     * Carga el archivo datosjavaflix.dat y recupera los ArrayList de series,
+     * peliculas, y clientes, serializados en sesiones anteriores
+     *
+     */
     public static void cargarDatos() {
         try {
             try ( FileInputStream fileinput = new FileInputStream("datosjavaflix.dat");  ObjectInputStream objectinput = new ObjectInputStream(fileinput)) {
@@ -204,7 +222,7 @@ public class UtilJavaflix {
         UtilJavaflix.guardarDatos();
         System.exit(0);
     }
-    
+
     public static boolean existenteEmailRegistrado(String mail) {
         return clientes.stream().anyMatch(cliente -> (cliente.getCorreoelectronico().equals(mail)));
     }
