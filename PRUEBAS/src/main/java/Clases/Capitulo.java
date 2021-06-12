@@ -17,9 +17,11 @@ public class Capitulo implements Serializable{
     private String duracion;
     
     /**
-     * Constructor
-     * @param String titulo
-     * @param String duracion
+     * Crea una instancia de un capitulo, que se almacenara en una temporada
+     * 
+     * @param titulo titulo del capitulo
+     * @param duracion duracion en HH:MM:SS
+     * @see Temporada
      **/
     public Capitulo(String titulo, String duracion) {
         this.titulo = titulo;
@@ -29,7 +31,8 @@ public class Capitulo implements Serializable{
     /**
      * Devuelve el titulo del capitulo
      *
-     * @return String titulo
+     * 
+     * @return El titulo de la instancia desde donde se llame
      */
     public String getTitulo() {
         return titulo;
@@ -38,7 +41,7 @@ public class Capitulo implements Serializable{
     /**
      * Establece el titulo del capitulo
      *
-     * @param String titulo nuevo
+     * @param titulo el nuevo titulo
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -47,7 +50,7 @@ public class Capitulo implements Serializable{
     /**
      * Devuelve la duracion del capitulo
      *
-     * @return String duracion
+     * @return la duracion del capitulo (HH:MM:SS)
      */
     public String getDuracion() {
         return duracion;
@@ -56,7 +59,7 @@ public class Capitulo implements Serializable{
     /**
      * Establece la duracion del capitulo
      *
-     * @param String duracion nueva
+     * @param duracion duracion nueva del capitulo
      */
     public void setDuración(String duracion) {
         this.duracion = duracion;
