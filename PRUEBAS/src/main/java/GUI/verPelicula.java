@@ -5,11 +5,9 @@
  */
 package GUI;
 
-import Clases.Contenido;
 import Clases.Pelicula;
 import java.awt.Color;
 import Clases.UtilJavaflix;
-import static java.awt.Color.black;
 import javax.swing.JOptionPane;
 
 /**
@@ -298,15 +296,27 @@ public class verPelicula extends javax.swing.JFrame {
 
     private void jComboBoxRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRateActionPerformed
         // TODO add your handling code here:
-        try {
-            int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
-            if (pelicularecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
-                pelicularecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
+        if (!String.valueOf(jComboBoxRate.getSelectedItem()).equals("Rate")) {
+            if (!String.valueOf(jComboBoxRate.getSelectedItem()).equals("Rate") && jComboBoxRate.getItemAt(0).equals("Rate")) {
+                jComboBoxRate.removeItemAt(0);
             } else {
-                pelicularecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+                try {
+                    int valorSeleccionado = Integer.parseInt(String.valueOf(jComboBoxRate.getSelectedItem()));
+                    if (pelicularecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
+                        if (JOptionPane.showConfirmDialog(this, "¿Cambiar la calificacion a un " + valorSeleccionado + '?') == JOptionPane.YES_OPTION) {
+                           pelicularecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
+                            jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia()) + "/10");
+                        }
+                    } else {
+                        if (JOptionPane.showConfirmDialog(this, "¿Calificar este contenido con un " + valorSeleccionado + '?') == JOptionPane.YES_OPTION) {
+                            pelicularecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+                            jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia()) + "/10");
+                        }
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, "Elige una calificacion\n" + ex.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Elige una calificacion", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jComboBoxRateActionPerformed
 
