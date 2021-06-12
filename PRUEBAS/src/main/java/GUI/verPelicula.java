@@ -275,7 +275,6 @@ public class verPelicula extends javax.swing.JFrame {
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        entradaUsuario principal = new entradaUsuario(padre.getPadre(),padre.getClientelogeado());
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked

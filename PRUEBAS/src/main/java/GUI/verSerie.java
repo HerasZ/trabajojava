@@ -12,6 +12,7 @@ import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import static java.awt.Color.black;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -28,8 +29,8 @@ public class verSerie extends javax.swing.JFrame {
         padre = main;
         this.serierecibida = serierecibida;
         initComponents();
-        if (!padre.getClientelogeado().getFavoritos().contains(serierecibida)){
-        jLabelCorazon.setVisible(false);
+        if (!padre.getClientelogeado().getFavoritos().contains(serierecibida)) {
+            jLabelCorazon.setVisible(false);
         }
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -40,33 +41,35 @@ public class verSerie extends javax.swing.JFrame {
         jLabelGenero.setText(serierecibida.getGenero());
         jLabelAnno.setText(String.valueOf(serierecibida.getAnno()));
         jLabelRate.setText(String.valueOf(serierecibida.getCalificacionMedia()) + "/10");
-        if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())){
-                setRate();
-            }else{
+        if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
+            setRate();
+        } else {
             jComboBoxRate.setSelectedIndex(0);
-            }
-        for (int i = 1;i <= serierecibida.getTemporada().size(); i++){
-            jComboBoxTemporadas.addItem("Temporada "+i);
         }
-        DefaultListModel<String> model = new DefaultListModel<String>();
+        for (int i = 0; i <= serierecibida.getTemporada().size(); i++) {
+            jComboBoxTemporadas.addItem("Temporada " + (i + 1));
+        }
+        DefaultListModel<String> model = new DefaultListModel<>();
         setTabla(1);
     }
-    public void setRate(){
-        try{           
+
+    public void setRate() {
+        try {
             jComboBoxRate.setSelectedIndex(serierecibida.getCalificacion(padre.getClientelogeado()));
-            
-        } catch (Exception ex){           
-           
+
+        } catch (Exception ex) {
+
         }
     }
- 
-    public void setTabla(int temporada){
+
+    public void setTabla(int temporada) {
         DefaultListModel<String> model = new DefaultListModel<String>();
-        for (int i = 1;i <= serierecibida.getTemporada().size(); i++){
-            model.addElement(serierecibida.getTemporada().get(temporada-1).getCapitulos().get(i).toString());
+        for (int i = 0; i <= serierecibida.getTemporada().size(); i++) {
+            model.addElement(serierecibida.getTemporada().get(temporada).getCapitulos().get(i).toString());
         }
         jListCapitulos.setModel(model);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,7 +90,7 @@ public class verSerie extends javax.swing.JFrame {
         jPanelIntroDatosverPelicula = new javax.swing.JPanel();
         jLabelJAVAFLIXRegistro = new javax.swing.JLabel();
         jLabelJAVAFLIXSombraRegistro = new javax.swing.JLabel();
-        jPanelPelicula = new javax.swing.JPanel();
+        jPanelSerie = new javax.swing.JPanel();
         jLabelPortada = new javax.swing.JLabel();
         jLabelActores = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
@@ -180,27 +183,27 @@ public class verSerie extends javax.swing.JFrame {
 
         jPanelverPelicula.add(jPanelIntroDatosverPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1240, 100));
 
-        jPanelPelicula.setBackground(java.awt.Color.lightGray);
-        jPanelPelicula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelSerie.setBackground(java.awt.Color.lightGray);
+        jPanelSerie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelPortada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelPelicula.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 490, 250));
+        jPanelSerie.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 490, 250));
 
         jLabelActores.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabelActores.setText("ACTORES:");
-        jPanelPelicula.add(jLabelActores, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 640, 60));
+        jPanelSerie.add(jLabelActores, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 640, 60));
 
         jLabelTitulo.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabelTitulo.setText("TITULO: ");
-        jPanelPelicula.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 300, 60));
+        jPanelSerie.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 300, 60));
 
         jLabelGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabelGenero.setText("GÉNERO:");
-        jPanelPelicula.add(jLabelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 190, 60));
+        jPanelSerie.add(jLabelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 190, 60));
 
         jLabelAnno.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabelAnno.setText("AÑO:");
-        jPanelPelicula.add(jLabelAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 190, 60));
+        jPanelSerie.add(jLabelAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 190, 60));
 
         jTextAreaSinopsis.setBackground(java.awt.Color.lightGray);
         jTextAreaSinopsis.setColumns(20);
@@ -210,7 +213,7 @@ public class verSerie extends javax.swing.JFrame {
         jTextAreaSinopsis.setFocusable(false);
         jScrollPane1.setViewportView(jTextAreaSinopsis);
 
-        jPanelPelicula.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 640, 100));
+        jPanelSerie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 640, 100));
 
         jLabelCorazon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Corazon.png"))); // NOI18N
         jLabelCorazon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,11 +221,11 @@ public class verSerie extends javax.swing.JFrame {
                 jLabelCorazonMouseClicked(evt);
             }
         });
-        jPanelPelicula.add(jLabelCorazon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
+        jPanelSerie.add(jLabelCorazon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
         jLabelRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelRate.setText("X/10");
-        jPanelPelicula.add(jLabelRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 60, 40));
+        jPanelSerie.add(jLabelRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 60, 40));
 
         jLabelCorazonVacio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CorazonVacio.png"))); // NOI18N
         jLabelCorazonVacio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,7 +233,7 @@ public class verSerie extends javax.swing.JFrame {
                 jLabelCorazonVacioMouseClicked(evt);
             }
         });
-        jPanelPelicula.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
+        jPanelSerie.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
         jComboBoxRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jComboBoxRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
@@ -244,7 +247,7 @@ public class verSerie extends javax.swing.JFrame {
                 jComboBoxRateActionPerformed(evt);
             }
         });
-        jPanelPelicula.add(jComboBoxRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 40));
+        jPanelSerie.add(jComboBoxRate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 40));
 
         jScrollPane3.setBackground(java.awt.Color.lightGray);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -252,7 +255,7 @@ public class verSerie extends javax.swing.JFrame {
         jListCapitulos.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jScrollPane3.setViewportView(jListCapitulos);
 
-        jPanelPelicula.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, 260));
+        jPanelSerie.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, 260));
 
         jComboBoxTemporadas.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jComboBoxTemporadas.addActionListener(new java.awt.event.ActionListener() {
@@ -260,9 +263,9 @@ public class verSerie extends javax.swing.JFrame {
                 jComboBoxTemporadasActionPerformed(evt);
             }
         });
-        jPanelPelicula.add(jComboBoxTemporadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 640, 30));
+        jPanelSerie.add(jComboBoxTemporadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 640, 30));
 
-        jPanelverPelicula.add(jPanelPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
+        jPanelverPelicula.add(jPanelSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1240, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,7 +313,6 @@ public class verSerie extends javax.swing.JFrame {
     private void jPanelAtrasRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAtrasRegistroMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        entradaUsuario principal = new entradaUsuario(padre.getPadre(),padre.getClientelogeado());
     }//GEN-LAST:event_jPanelAtrasRegistroMouseClicked
 
     private void jPanelCerrarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarRegistroMouseClicked
@@ -340,14 +342,14 @@ public class verSerie extends javax.swing.JFrame {
         // TODO add your handling code here:       
         try {
             int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
-            if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())){
+            if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
                 serierecibida.cambiarCalificacion(padre.getClientelogeado(), valorSeleccionado);
-            }else{
-            serierecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
+            } else {
+                serierecibida.addCalificacion(padre.getClientelogeado(), valorSeleccionado);
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Elige una calificacion","Error",JOptionPane.ERROR_MESSAGE);
-        }               
+            JOptionPane.showMessageDialog(this, "Elige una calificacion", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jComboBoxRateActionPerformed
 
     private void jComboBoxRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxRateFocusLost
@@ -356,7 +358,8 @@ public class verSerie extends javax.swing.JFrame {
 
     private void jComboBoxTemporadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTemporadasActionPerformed
         // TODO add your handling code here:
-        int valorSeleccionado = (int) jComboBoxRate.getSelectedItem();
+        int valorSeleccionado = jComboBoxRate.getSelectedIndex();
+        System.out.println(valorSeleccionado);
         setTabla(valorSeleccionado);
     }//GEN-LAST:event_jComboBoxTemporadasActionPerformed
 
@@ -382,7 +385,7 @@ public class verSerie extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCerrarRegistro;
     private javax.swing.JPanel jPanelIntroDatosverPelicula;
     private javax.swing.JPanel jPanelOpcionesverPelicula;
-    private javax.swing.JPanel jPanelPelicula;
+    private javax.swing.JPanel jPanelSerie;
     private javax.swing.JPanel jPanelverPelicula;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
