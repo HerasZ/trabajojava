@@ -57,7 +57,7 @@ public class verSerie extends javax.swing.JFrame {
 
     public void setRate() {
         try {
-            jComboBoxRate.setSelectedIndex(serierecibida.getCalificacion(padre.getClientelogeado()));
+            jComboBoxRate.setSelectedIndex(serierecibida.getCalificacion(padre.getClientelogeado())+1);
 
         } catch (Exception ex) {
 
