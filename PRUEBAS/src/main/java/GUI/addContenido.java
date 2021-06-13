@@ -84,24 +84,6 @@ public class addContenido extends javax.swing.JFrame {
         return portada;
     }
 
-    public ArrayList<String> parseActores(String actores) {
-        ArrayList<String> arrayactores = new ArrayList<>();
-        String actorbuilder = "";
-        for (int i = 0; i < actores.length(); i++) {
-            char c = actores.charAt(i);
-            if (c == ',') {
-                arrayactores.add(actorbuilder);
-                actorbuilder = "";
-            } else if (i == actores.length()-1) {
-                actorbuilder += c;
-                arrayactores.add(actorbuilder);
-            } else {
-                actorbuilder += c;
-            }
-        }
-        return arrayactores;
-    }
-
     /**
      * Creates new form ventanaPrincipal
      */
@@ -675,7 +657,7 @@ public class addContenido extends javax.swing.JFrame {
             }
             Pelicula nuevapelicula = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTituloP.getText(),
                     fieldSinopsisP.getText(), fieldGeneroP.getText(), Integer.parseInt(fieldAnnoP.getText()),
-                    parseActores(fieldActoresP.getText()), portadaparasubir);
+                    UtilJavaflix.parseActores(fieldActoresP.getText()), portadaparasubir);
             UtilJavaflix.addPelicula(nuevapelicula);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Pelicula creada correctamente");
@@ -695,7 +677,7 @@ public class addContenido extends javax.swing.JFrame {
                 throw new FaltanDatos("No se ha subido una portada");
             }
             Serie nuevaserie = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
-                    parseActores(fieldActoresS.getText()), portadaparasubir);
+                    UtilJavaflix.parseActores(fieldActoresS.getText()), portadaparasubir);
             UtilJavaflix.addSerie(nuevaserie);
             UtilJavaflix.guardarDatos();
             JOptionPane.showMessageDialog(this, "Serie creada correctamente");

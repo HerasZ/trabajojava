@@ -226,4 +226,29 @@ public class UtilJavaflix {
     public static boolean existenteEmailRegistrado(String mail) {
         return clientes.stream().anyMatch(cliente -> (cliente.getCorreoelectronico().equals(mail)));
     }
+
+    /**
+     * Transforma una string de nombres separados entre si por comas
+     * en un ArrayList con cada nombre ocupando una posicion
+     *
+     * @param actores la string de nombres separada por comas
+     * @return ArrayList de string con los nombres 
+     */
+    public static ArrayList<String> parseActores(String actores) {
+        ArrayList<String> arrayactores = new ArrayList<>();
+        String actorbuilder = "";
+        for (int i = 0; i < actores.length(); i++) {
+            char c = actores.charAt(i);
+            if (c == ',') {
+                arrayactores.add(actorbuilder);
+                actorbuilder = "";
+            } else if (i == actores.length() - 1) {
+                actorbuilder += c;
+                arrayactores.add(actorbuilder);
+            } else {
+                actorbuilder += c;
+            }
+        }
+        return arrayactores;
+    }
 }

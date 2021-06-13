@@ -47,21 +47,6 @@ public class modificarPelicula extends javax.swing.JFrame {
         return portada;
     }
 
-    public ArrayList<String> parseActores(String actores) {
-        ArrayList<String> arrayactores = new ArrayList<>();
-        String actorbuilder = "";
-        for (int i = 0; i < actores.length(); i++) {
-            char c = actores.charAt(i);
-            if (c == ',') {
-                arrayactores.add(actorbuilder);
-                actorbuilder = "";
-            } else {
-                actorbuilder += c;
-            }
-        }
-        return arrayactores;
-    }
-
     /**
      * Creates new form ventanaPrincipal
      */
@@ -408,7 +393,7 @@ public class modificarPelicula extends javax.swing.JFrame {
         try {
             ArrayList<Pelicula> listacompleta = UtilJavaflix.getPeliculas();
             Pelicula peliculareemplazar = new Pelicula(fieldDuracion.getText(), fieldDirector.getText(), fieldTitulo.getText(), fieldSinopsis.getText(), fieldGeneroP.getText(),
-                    Integer.parseInt(fieldAnnoP.getText()), parseActores(fieldActoresP.getText()), portadamodificar);
+                    Integer.parseInt(fieldAnnoP.getText()), UtilJavaflix.parseActores(fieldActoresP.getText()), portadamodificar);
             int indexparainsertar = listacompleta.indexOf(pelimodificar);
             System.out.println(indexparainsertar);
             listacompleta.set(indexparainsertar, peliculareemplazar);

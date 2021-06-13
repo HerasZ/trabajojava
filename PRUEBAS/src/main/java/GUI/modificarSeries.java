@@ -84,20 +84,6 @@ public class modificarSeries extends javax.swing.JFrame {
         return portada;
     }
 
-    public ArrayList<String> parseActores(String actores) {
-        ArrayList<String> arrayactores = new ArrayList<>();
-        String actorbuilder = "";
-        for (int i = 0; i < actores.length(); i++) {
-            char c = actores.charAt(i);
-            if (c == ',') {
-                arrayactores.add(actorbuilder);
-                actorbuilder = "";
-            } else {
-                actorbuilder += c;
-            }
-        }
-        return arrayactores;
-    }
 
     /**
      * Creates new form ventanaPrincipal
@@ -464,7 +450,7 @@ public class modificarSeries extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Serie serieasustituir = new Serie(temporadas, fieldNombreS.getText(), fieldSinopsisS.getText(), fieldGeneroS.getText(), Integer.parseInt(fieldAnnoS.getText()),
-                    parseActores(fieldActoresS.getText()), portadamodificar);
+                    UtilJavaflix.parseActores(fieldActoresS.getText()), portadamodificar);
             ArrayList<Serie> listacompleta = UtilJavaflix.getSeries();
             int indexasustituir = listacompleta.indexOf(seriemodificar);
             listacompleta.set(indexasustituir, serieasustituir);
