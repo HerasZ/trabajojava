@@ -142,6 +142,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jTextFieldCE.setText("Escriba su correo electrónico");
         jTextFieldCE.setToolTipText("");
         jTextFieldCE.setBorder(null);
+        jTextFieldCE.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldCEFocusGained(evt);
+            }
+        });
         jTextFieldCE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextFieldCEMousePressed(evt);
@@ -163,6 +168,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPasswordFieldClave.setText("**********");
         jPasswordFieldClave.setToolTipText("");
         jPasswordFieldClave.setBorder(null);
+        jPasswordFieldClave.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordFieldClaveFocusGained(evt);
+            }
+        });
         jPasswordFieldClave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPasswordFieldClaveMousePressed(evt);
@@ -338,26 +348,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jTextFieldCEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCEMousePressed
         // TODO add your handling code here:
-        if (jTextFieldCE.getText().equals("Escriba su correo electrónico")) {
-            jTextFieldCE.setText("");
-            jTextFieldCE.setForeground(Color.black);
-        }
-        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
-            jPasswordFieldClave.setText("**********");
-            jPasswordFieldClave.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_jTextFieldCEMousePressed
 
     private void jPasswordFieldClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(jPasswordFieldClave.getPassword()).equals("**********")) {
-            jPasswordFieldClave.setText("");
-            jPasswordFieldClave.setForeground(Color.black);
-        }
-        if (jTextFieldCE.getText().isEmpty()) {
-            jTextFieldCE.setText("Escriba su correo electrónico");
-            jTextFieldCE.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_jPasswordFieldClaveMousePressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -385,6 +379,30 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void jPasswordFieldClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldClaveActionPerformed
+
+    private void jPasswordFieldClaveFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveFocusGained
+        // TODO add your handling code here:
+        if (String.valueOf(jPasswordFieldClave.getPassword()).equals("**********")) {
+            jPasswordFieldClave.setText("");
+            jPasswordFieldClave.setForeground(Color.black);
+        }
+        if (jTextFieldCE.getText().isEmpty()) {
+            jTextFieldCE.setText("Escriba su correo electrónico");
+            jTextFieldCE.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jPasswordFieldClaveFocusGained
+
+    private void jTextFieldCEFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCEFocusGained
+        // TODO add your handling code here:
+        if (jTextFieldCE.getText().equals("Escriba su correo electrónico")) {
+            jTextFieldCE.setText("");
+            jTextFieldCE.setForeground(Color.black);
+        }
+        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
+            jPasswordFieldClave.setText("**********");
+            jPasswordFieldClave.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldCEFocusGained
 
     /**
      * @param args the command line arguments

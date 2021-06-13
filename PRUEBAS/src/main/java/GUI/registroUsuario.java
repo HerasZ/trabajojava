@@ -238,6 +238,11 @@ public class registroUsuario extends javax.swing.JFrame {
         jTextFieldDNI.setText("Escriba su DNI");
         jTextFieldDNI.setToolTipText("");
         jTextFieldDNI.setBorder(null);
+        jTextFieldDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldDNIFocusGained(evt);
+            }
+        });
         jTextFieldDNI.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextFieldDNIMousePressed(evt);
@@ -259,6 +264,11 @@ public class registroUsuario extends javax.swing.JFrame {
         jTextFieldNombre.setForeground(java.awt.Color.gray);
         jTextFieldNombre.setText("Escriba su nombre");
         jTextFieldNombre.setBorder(null);
+        jTextFieldNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldNombreFocusGained(evt);
+            }
+        });
         jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextFieldNombreMousePressed(evt);
@@ -280,6 +290,11 @@ public class registroUsuario extends javax.swing.JFrame {
         jTextFieldCE.setForeground(java.awt.Color.gray);
         jTextFieldCE.setText("Escriba su correo electrónico");
         jTextFieldCE.setBorder(null);
+        jTextFieldCE.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldCEFocusGained(evt);
+            }
+        });
         jTextFieldCE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextFieldCEMousePressed(evt);
@@ -304,6 +319,11 @@ public class registroUsuario extends javax.swing.JFrame {
         jTextFieldSaldo.setForeground(java.awt.Color.gray);
         jTextFieldSaldo.setText("Escriba su saldo");
         jTextFieldSaldo.setBorder(null);
+        jTextFieldSaldo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldSaldoFocusGained(evt);
+            }
+        });
         jTextFieldSaldo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextFieldSaldoMousePressed(evt);
@@ -328,6 +348,11 @@ public class registroUsuario extends javax.swing.JFrame {
         jPasswordFieldClave.setText("**********");
         jPasswordFieldClave.setBorder(null);
         jPasswordFieldClave.setCaretPosition(0);
+        jPasswordFieldClave.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordFieldClaveFocusGained(evt);
+            }
+        });
         jPasswordFieldClave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPasswordFieldClaveMousePressed(evt);
@@ -343,6 +368,11 @@ public class registroUsuario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFormattedTextFieldFechaCaducidad.setToolTipText("");
+        jFormattedTextFieldFechaCaducidad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jFormattedTextFieldFechaCaducidadFocusGained(evt);
+            }
+        });
         jFormattedTextFieldFechaCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldFechaCaducidadMousePressed(evt);
@@ -358,6 +388,11 @@ public class registroUsuario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFormattedTextFieldNumTarjeta.setToolTipText("");
+        jFormattedTextFieldNumTarjeta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jFormattedTextFieldNumTarjetaFocusGained(evt);
+            }
+        });
         jFormattedTextFieldNumTarjeta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedTextFieldNumTarjetaMousePressed(evt);
@@ -424,22 +459,6 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jTextFieldDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDNIMousePressed
         // TODO add your handling code here:
-        if (jTextFieldDNI.getText().equals("Escriba su DNI")) {
-            jTextFieldDNI.setText("");
-            jTextFieldDNI.setForeground(Color.black);
-        }
-        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
-            jPasswordFieldClave.setText("**********");
-            jPasswordFieldClave.setForeground(Color.gray);
-        }
-        if (jTextFieldNombre.getText().isEmpty()) {
-            jTextFieldNombre.setText("Escriba su nombre");
-            jTextFieldNombre.setForeground(Color.gray);
-        }
-        if (jTextFieldCE.getText().isEmpty()) {
-            jTextFieldCE.setText("Escriba su correo electrónico");
-            jTextFieldCE.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_jTextFieldDNIMousePressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -459,62 +478,14 @@ public class registroUsuario extends javax.swing.JFrame {
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
         // TODO add your handling code here:
-        if (jTextFieldNombre.getText().equals("Escriba su nombre")) {
-            jTextFieldNombre.setText("");
-            jTextFieldNombre.setForeground(Color.black);
-        }
-        if (jTextFieldDNI.getText().isEmpty()) {
-            jTextFieldDNI.setText("Escriba su DNI");
-            jTextFieldDNI.setForeground(Color.gray);
-        }
-        if (jTextFieldCE.getText().isEmpty()) {
-            jTextFieldCE.setText("Escriba su correo electrónico");
-            jTextFieldCE.setForeground(Color.gray);
-        }
-        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
-            jPasswordFieldClave.setText("**********");
-            jPasswordFieldClave.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_jTextFieldNombreMousePressed
 
     private void jTextFieldCEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCEMousePressed
         // TODO add your handling code here:
-        if (jTextFieldCE.getText().equals("Escriba su correo electrónico")) {
-            jTextFieldCE.setText("");
-            jTextFieldCE.setForeground(Color.black);
-        }
-        if (jTextFieldDNI.getText().isEmpty()) {
-            jTextFieldDNI.setText("Escriba su DNI");
-            jTextFieldDNI.setForeground(Color.gray);
-        }
-        if (jTextFieldNombre.getText().isEmpty()) {
-            jTextFieldNombre.setText("Escriba su nombre");
-            jTextFieldNombre.setForeground(Color.gray);
-        }
-        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
-            jPasswordFieldClave.setText("**********");
-            jPasswordFieldClave.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_jTextFieldCEMousePressed
 
     private void jPasswordFieldClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(jPasswordFieldClave.getPassword()).equals("**********")) {
-            jPasswordFieldClave.setText("");
-            jPasswordFieldClave.setForeground(Color.black);
-        }
-        if (jTextFieldDNI.getText().isEmpty()) {
-            jTextFieldDNI.setText("Escriba su DNI");
-            jTextFieldDNI.setForeground(Color.gray);
-        }
-        if (jTextFieldNombre.getText().isEmpty()) {
-            jTextFieldNombre.setText("Escriba su nombre");
-            jTextFieldNombre.setForeground(Color.gray);
-        }
-        if (jTextFieldCE.getText().isEmpty()) {
-            jTextFieldCE.setText("Escriba su correo electrónico");
-            jTextFieldCE.setForeground(Color.gray);
-        }
     }//GEN-LAST:event_jPasswordFieldClaveMousePressed
 
     private void jTextFieldSaldoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSaldoMousePressed
@@ -569,6 +540,134 @@ public class registroUsuario extends javax.swing.JFrame {
     private void jFormattedTextFieldNumTarjetaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldNumTarjetaMousePressed
+
+    private void jTextFieldDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDNIFocusGained
+        // TODO add your handling code here:
+        if (jTextFieldDNI.getText().equals("Escriba su DNI")) {
+            jTextFieldDNI.setText("");
+            jTextFieldDNI.setForeground(Color.black);
+        }
+        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
+            jPasswordFieldClave.setText("**********");
+            jPasswordFieldClave.setForeground(Color.gray);
+        }
+        if (jTextFieldNombre.getText().isEmpty()) {
+            jTextFieldNombre.setText("Escriba su nombre");
+            jTextFieldNombre.setForeground(Color.gray);
+        }
+        if (jTextFieldCE.getText().isEmpty()) {
+            jTextFieldCE.setText("Escriba su correo electrónico");
+            jTextFieldCE.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldDNIFocusGained
+
+    private void jTextFieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNombreFocusGained
+        // TODO add your handling code here:
+        if (jTextFieldNombre.getText().equals("Escriba su nombre")) {
+            jTextFieldNombre.setText("");
+            jTextFieldNombre.setForeground(Color.black);
+        }
+        if (jTextFieldDNI.getText().isEmpty()) {
+            jTextFieldDNI.setText("Escriba su DNI");
+            jTextFieldDNI.setForeground(Color.gray);
+        }
+        if (jTextFieldCE.getText().isEmpty()) {
+            jTextFieldCE.setText("Escriba su correo electrónico");
+            jTextFieldCE.setForeground(Color.gray);
+        }
+        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
+            jPasswordFieldClave.setText("**********");
+            jPasswordFieldClave.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldNombreFocusGained
+
+    private void jTextFieldCEFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCEFocusGained
+        // TODO add your handling code here:
+        if (jTextFieldCE.getText().equals("Escriba su correo electrónico")) {
+            jTextFieldCE.setText("");
+            jTextFieldCE.setForeground(Color.black);
+        }
+        if (jTextFieldDNI.getText().isEmpty()) {
+            jTextFieldDNI.setText("Escriba su DNI");
+            jTextFieldDNI.setForeground(Color.gray);
+        }
+        if (jTextFieldNombre.getText().isEmpty()) {
+            jTextFieldNombre.setText("Escriba su nombre");
+            jTextFieldNombre.setForeground(Color.gray);
+        }
+        if (String.valueOf(jPasswordFieldClave.getPassword()).isEmpty()) {
+            jPasswordFieldClave.setText("**********");
+            jPasswordFieldClave.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldCEFocusGained
+
+    private void jPasswordFieldClaveFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveFocusGained
+        // TODO add your handling code here:
+        if (String.valueOf(jPasswordFieldClave.getPassword()).equals("**********")) {
+            jPasswordFieldClave.setText("");
+            jPasswordFieldClave.setForeground(Color.black);
+        }
+        if (jTextFieldDNI.getText().isEmpty()) {
+            jTextFieldDNI.setText("Escriba su DNI");
+            jTextFieldDNI.setForeground(Color.gray);
+        }
+        if (jTextFieldNombre.getText().isEmpty()) {
+            jTextFieldNombre.setText("Escriba su nombre");
+            jTextFieldNombre.setForeground(Color.gray);
+        }
+        if (jTextFieldCE.getText().isEmpty()) {
+            jTextFieldCE.setText("Escriba su correo electrónico");
+            jTextFieldCE.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jPasswordFieldClaveFocusGained
+
+    private void jFormattedTextFieldNumTarjetaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumTarjetaFocusGained
+        // TODO add your handling code here:
+        if (jFormattedTextFieldNumTarjeta.getText().equals("")){
+            jFormattedTextFieldNumTarjeta.setText("");
+            jFormattedTextFieldNumTarjeta.setForeground(Color.black);
+        }
+        if (jFormattedTextFieldFechaCaducidad.getText().isEmpty()) {
+            jFormattedTextFieldFechaCaducidad.setText("");
+            jFormattedTextFieldFechaCaducidad.setForeground(Color.gray);
+        }
+        if (jTextFieldSaldo.getText().isEmpty()) {
+            jTextFieldSaldo.setText("Escriba su saldo");
+            jTextFieldSaldo.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jFormattedTextFieldNumTarjetaFocusGained
+
+    private void jFormattedTextFieldFechaCaducidadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldFechaCaducidadFocusGained
+        // TODO add your handling code here:
+        if (jFormattedTextFieldFechaCaducidad.getText().equals("")){
+            jFormattedTextFieldFechaCaducidad.setText("");
+            jFormattedTextFieldFechaCaducidad.setForeground(Color.black);
+        }
+        if (jFormattedTextFieldNumTarjeta.getText().isEmpty()) {
+            jFormattedTextFieldNumTarjeta.setText("");
+            jFormattedTextFieldNumTarjeta.setForeground(Color.gray);
+        }
+        if (jTextFieldSaldo.getText().isEmpty()) {
+            jTextFieldSaldo.setText("Escriba su saldo");
+            jTextFieldSaldo.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jFormattedTextFieldFechaCaducidadFocusGained
+
+    private void jTextFieldSaldoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSaldoFocusGained
+        // TODO add your handling code here:
+        if (jTextFieldSaldo.getText().equals("Escriba su saldo")){
+            jTextFieldSaldo.setText("");
+            jTextFieldSaldo.setForeground(Color.black);
+        }
+        if (jFormattedTextFieldFechaCaducidad.getText().isEmpty()) {
+            jFormattedTextFieldFechaCaducidad.setText("");
+            jFormattedTextFieldFechaCaducidad.setForeground(Color.gray);
+        }
+        if (jFormattedTextFieldNumTarjeta.getText().isEmpty()) {
+            jFormattedTextFieldNumTarjeta.setText("");
+            jFormattedTextFieldNumTarjeta.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jTextFieldSaldoFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

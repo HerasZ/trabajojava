@@ -165,7 +165,15 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelIntroDatos.add(jSeparatorMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, -1));
         jPanelIntroDatos.add(jSeparatorAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 565, 270, -1));
 
-        jLabelTODO.setBackground(java.awt.Color.lightGray);
+        jPanelTODO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelTODOMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelTODOMouseExited(evt);
+            }
+        });
+
         jLabelTODO.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelTODO.setForeground(new java.awt.Color(197, 49, 47));
         jLabelTODO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -205,7 +213,15 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelIntroDatos.add(jPanelTODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 145));
 
-        jLabelPELICULAS.setBackground(java.awt.Color.lightGray);
+        jPanelPELICULAS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelPELICULASMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelPELICULASMouseExited(evt);
+            }
+        });
+
         jLabelPELICULAS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelPELICULAS.setForeground(new java.awt.Color(197, 49, 47));
         jLabelPELICULAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -245,7 +261,15 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelIntroDatos.add(jPanelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 270, 145));
 
-        jLabelSERIES.setBackground(java.awt.Color.lightGray);
+        jPanelSERIES.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelSERIESMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelSERIESMouseExited(evt);
+            }
+        });
+
         jLabelSERIES.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelSERIES.setForeground(new java.awt.Color(197, 49, 47));
         jLabelSERIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -285,7 +309,15 @@ public class entradaUsuario extends javax.swing.JFrame {
 
         jPanelIntroDatos.add(jPanelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
-        jLabelFAVORITOS.setBackground(java.awt.Color.lightGray);
+        jPanelFAVORITOS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelFAVORITOSMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelFAVORITOSMouseExited(evt);
+            }
+        });
+
         jLabelFAVORITOS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelFAVORITOS.setForeground(new java.awt.Color(197, 49, 47));
         jLabelFAVORITOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -459,42 +491,42 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelTODOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseEntered
         // TODO add your handling code here:
-        jPanelTODO.setBackground(java.awt.Color.GRAY);
+
     }//GEN-LAST:event_jLabelTODOMouseEntered
 
     private void jLabelTODOMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseExited
         // TODO add your handling code here:
-        jPanelTODO.setBackground(java.awt.Color.LIGHT_GRAY);
+
     }//GEN-LAST:event_jLabelTODOMouseExited
 
     private void jLabelPELICULASMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseEntered
         // TODO add your handling code here:
-        jPanelPELICULAS.setBackground(java.awt.Color.GRAY);
+
     }//GEN-LAST:event_jLabelPELICULASMouseEntered
 
     private void jLabelPELICULASMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseExited
         // TODO add your handling code here:
-        jPanelPELICULAS.setBackground(java.awt.Color.LIGHT_GRAY);
+
     }//GEN-LAST:event_jLabelPELICULASMouseExited
 
     private void jLabelSERIESMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseEntered
         // TODO add your handling code here:
-        jPanelSERIES.setBackground(java.awt.Color.GRAY);
+
     }//GEN-LAST:event_jLabelSERIESMouseEntered
 
     private void jLabelSERIESMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseExited
         // TODO add your handling code here:
-        jPanelSERIES.setBackground(java.awt.Color.LIGHT_GRAY);
+
     }//GEN-LAST:event_jLabelSERIESMouseExited
 
     private void jLabelFAVORITOSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseEntered
         // TODO add your handling code here:
-        jPanelFAVORITOS.setBackground(java.awt.Color.GRAY);
+
     }//GEN-LAST:event_jLabelFAVORITOSMouseEntered
 
     private void jLabelFAVORITOSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseExited
         // TODO add your handling code here:
-        jPanelFAVORITOS.setBackground(java.awt.Color.LIGHT_GRAY);
+
     }//GEN-LAST:event_jLabelFAVORITOSMouseExited
 
     private void jLabelTODOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseClicked
@@ -550,6 +582,46 @@ public class entradaUsuario extends javax.swing.JFrame {
         }
         generarTarjetas();
     }//GEN-LAST:event_jToggleButtonBuscarActionPerformed
+
+    private void jPanelTODOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelTODOMouseEntered
+        // TODO add your handling code here:
+        jPanelTODO.setBackground(new java.awt.Color(182,182,182));
+    }//GEN-LAST:event_jPanelTODOMouseEntered
+
+    private void jPanelTODOMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelTODOMouseExited
+        // TODO add your handling code here:
+        jPanelTODO.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_jPanelTODOMouseExited
+
+    private void jPanelPELICULASMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPELICULASMouseEntered
+        // TODO add your handling code here:
+        jPanelPELICULAS.setBackground(new java.awt.Color(182,182,182));
+    }//GEN-LAST:event_jPanelPELICULASMouseEntered
+
+    private void jPanelPELICULASMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPELICULASMouseExited
+        // TODO add your handling code here:
+        jPanelPELICULAS.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_jPanelPELICULASMouseExited
+
+    private void jPanelSERIESMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSERIESMouseEntered
+        // TODO add your handling code here:
+        jPanelSERIES.setBackground(new java.awt.Color(182,182,182));
+    }//GEN-LAST:event_jPanelSERIESMouseEntered
+
+    private void jPanelSERIESMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSERIESMouseExited
+        // TODO add your handling code here:
+        jPanelSERIES.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_jPanelSERIESMouseExited
+
+    private void jPanelFAVORITOSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFAVORITOSMouseEntered
+        // TODO add your handling code here:
+        jPanelFAVORITOS.setBackground(new java.awt.Color(182,182,182));
+    }//GEN-LAST:event_jPanelFAVORITOSMouseEntered
+
+    private void jPanelFAVORITOSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFAVORITOSMouseExited
+        // TODO add your handling code here:
+        jPanelFAVORITOS.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_jPanelFAVORITOSMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
