@@ -147,7 +147,7 @@ public class addContenido extends javax.swing.JFrame {
         fieldDirector = new javax.swing.JTextField();
         jLabelDuracionP = new javax.swing.JLabel();
         fieldDuracion = new javax.swing.JFormattedTextField();
-        jButton5 = new javax.swing.JButton();
+        jButtonFotoP = new javax.swing.JButton();
         jPanelFotoP = new javax.swing.JPanel();
         jLabelportadapelicula = new javax.swing.JLabel();
         jPanelCrearPelicula = new javax.swing.JPanel();
@@ -364,13 +364,13 @@ public class addContenido extends javax.swing.JFrame {
         jPanelPeliculas.add(jLabelDuracionP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
         jPanelPeliculas.add(fieldDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, -1));
 
-        jButton5.setText("Subir Foto");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFotoP.setText("Subir Foto");
+        jButtonFotoP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonFotoPActionPerformed(evt);
             }
         });
-        jPanelPeliculas.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 89, -1));
+        jPanelPeliculas.add(jButtonFotoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 89, -1));
 
         jPanelFotoP.setBackground(new java.awt.Color(130, 130, 130));
 
@@ -629,12 +629,12 @@ public class addContenido extends javax.swing.JFrame {
         jPanelPeliculas.setVisible(true);
     }//GEN-LAST:event_addpeliculalabelMouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonFotoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFotoPActionPerformed
         // TODO add your handling code here:        
         this.portadaparasubir = cargarFoto();
         ImageIcon imgRedimensionada = new ImageIcon(portadaparasubir.getImage().getScaledInstance(jLabelportadapelicula.getWidth(), jLabelportadapelicula.getHeight(), 1));
         jLabelportadapelicula.setIcon(imgRedimensionada);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonFotoPActionPerformed
 
     private void jButtonSubirFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubirFotoActionPerformed
         // TODO add your handling code here:
@@ -709,8 +709,8 @@ public class addContenido extends javax.swing.JFrame {
     private javax.swing.JTextArea fieldSinopsisP;
     private javax.swing.JTextArea fieldSinopsisS;
     private javax.swing.JTextField fieldTituloP;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAnnadirS;
+    private javax.swing.JButton jButtonFotoP;
     private javax.swing.JButton jButtonSubirFoto;
     private javax.swing.JLabel jLabelActores;
     private javax.swing.JLabel jLabelActoresS;
