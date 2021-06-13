@@ -19,22 +19,47 @@ public class UtilJavaflix {
     private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     private static final Administrador admin = new Administrador("admin@javaflix.com", "admin");
 
+    /**
+     * Cambia el valor de la base de datos de series a otro nuevo
+     *
+     * @param series el nuevo ArrayList de series
+     */
     public static void setSeries(ArrayList<Serie> series) {
         UtilJavaflix.series = series;
     }
 
+    /**
+     * Cambia el valor de la base de datos de peliculas a otro nuevo
+     *
+     * @param peliculas el nuevo ArrayList de peliculas
+     */
     public static void setPeliculas(ArrayList<Pelicula> peliculas) {
         UtilJavaflix.peliculas = peliculas;
     }
 
+    /**
+     * Cambia el valor de la base de datos de clientes a otro nuevo
+     *
+     * @param clientes el nuevo ArrayList de clientes
+     */
     public static void setClientes(ArrayList<Cliente> clientes) {
         UtilJavaflix.clientes = clientes;
     }
 
+    /**
+     * Añade una pelicula al ArrayList de todas las series
+     *
+     * @param serie la serie a añadir
+     */
     public static void addSerie(Serie serie) {
         UtilJavaflix.series.add(serie);
     }
 
+    /**
+     * Añade una pelicula al ArrayList de todas las peliculas
+     *
+     * @param pelicula la pelicula a añadir
+     */
     public static void addPelicula(Pelicula pelicula) {
         UtilJavaflix.peliculas.add(pelicula);
     }
@@ -67,7 +92,7 @@ public class UtilJavaflix {
     }
 
     /**
-     * Añade un cliente a el ArrayList de todos los clientes
+     * Añade un cliente al ArrayList de todos los clientes
      *
      * @param cliente el cliente a añadir
      */
@@ -123,6 +148,17 @@ public class UtilJavaflix {
         }
     }
 
+    /**
+     * Comprueba si el email introducido sigue determinadas convenciones para
+     * ser aceptado
+     *
+     * @param email el email a validar
+     * @throws EmailNoValido en cualquiera de estos casos:<br/>
+     *          -Hay dos "@"<br/>
+     *          -No hay ningun caracter antes de "@"<br/>
+     *          -Hay menos de dos caracteres entre el "@" y el "."<br/>
+     *          -Hay menos de dos caracteres despues del "."
+     */
     public static void validarEmail(String email) throws EmailNoValido {
         int atposition = 0, dotposition = 0, flag = 0, atcount = 0;
         for (int i = 0; i < email.length(); i++) {
@@ -144,10 +180,32 @@ public class UtilJavaflix {
         }
     }
 
+    /**
+     * Comprueba si el email y pass introducidos por un usuario coinciden con
+     * los del administrador
+     *
+     * @param email_provided el email introducido por el usuario
+     * @param pass_provided la contraseña introducida por el usuario
+     * @return <code>true</code> si el login es aceptado<br/>
+     * <code>false</code> si no
+     *
+     */
     public static boolean checkAdminlogin(String email_provided, String pass_provided) {
         return (email_provided.equals(UtilJavaflix.admin.getCorreoelectronico()) && pass_provided.equals(UtilJavaflix.admin.getClave()));
     }
 
+    /**
+     * Comprueba que los datos que introduce un cliente para iniciar sesion son
+     * correctos
+     *
+     * @param email_provided el email introducido por el usuario
+     * @param pass_provided la contraseña introducida por el usuario
+     *
+     * @return El cliente que ha inciciado sesion correctamente
+     *
+     * @throws EmailNoEncontrado si no existe el email_provided
+     * @throws PasswordIncorrecta si la contraseña no coincide con el email
+     */
     public static Cliente iniciarSesion(String email_provided, String pass_provided) throws EmailNoEncontrado, PasswordIncorrecta {
         for (Cliente cliente_actual : clientes) {
             if (cliente_actual.getCorreoelectronico().equals(email_provided)) {
@@ -161,6 +219,17 @@ public class UtilJavaflix {
         throw new EmailNoEncontrado("El email especificado no esta registrado");
     }
 
+    /**
+     * Realiza una busqueda en la base de datos de clientes de acuerdo a los
+     * parametros especificados por el administrador
+     *
+     * @param clientes la lista completa de clientes
+     * @param valorbuscado la cadena de caracteres que se quiere buscar
+     * @param criterio el campo en el que se quiere buscar
+     * @return El ArrayList recortado de acuerdo a los criterios de busqueda
+     *
+     * @throws CriterioNoValido
+     */
     public static ArrayList<Cliente> busquedaClientes(ArrayList<Cliente> clientes, String valorbuscado, String criterio) throws CriterioNoValido {
         if ("".equals(valorbuscado)) {
             return clientes;
@@ -191,6 +260,13 @@ public class UtilJavaflix {
         return clientesbuscado;
     }
 
+    /**
+     * Genera un archivo de texto en ./Facturas con la informacion de la
+     * suscripcion contratada por el cliente que se ha registrado
+     *
+     * @param sub el PlanSuscripcion correspondiente al cliente
+     * @param precio el precio de la suscripcion
+     */
     public static void generarFactura(PlanSuscripcion sub, double precio) {
         String rutanuevafactura = "./Facturas/" + sub.getCliente().getDni() + ".txt";
 
@@ -218,21 +294,36 @@ public class UtilJavaflix {
         }
     }
 
+    /**
+     * Llama a la funcion guardarDatos() y cierra todas las ventanas de la
+     * aplicacion
+     *
+     * @see guardarDatos()
+     */
     public static void cerrarPrograma() {
         UtilJavaflix.guardarDatos();
         System.exit(0);
     }
 
+    /**
+     * Comprueba la existencia de un correo especificado en la base de datos de
+     * la aplicacion
+     *
+     * @param mail el correo que se esta intentando registrar
+     * @return <code>true</code> si el correo ya existe en la base de
+     * datos,<br/>
+     * <code>false</code> si no existe
+     */
     public static boolean existenteEmailRegistrado(String mail) {
         return clientes.stream().anyMatch(cliente -> (cliente.getCorreoelectronico().equals(mail)));
     }
 
     /**
-     * Transforma una string de nombres separados entre si por comas
-     * en un ArrayList con cada nombre ocupando una posicion
+     * Transforma una string de nombres separados entre si por comas en un
+     * ArrayList con cada nombre ocupando una posicion
      *
      * @param actores la string de nombres separada por comas
-     * @return ArrayList de string con los nombres 
+     * @return ArrayList de string con los nombres
      */
     public static ArrayList<String> parseActores(String actores) {
         ArrayList<String> arrayactores = new ArrayList<>();
