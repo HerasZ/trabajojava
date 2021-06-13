@@ -406,6 +406,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         this.listacontenido.clear();
         this.listacontenido.addAll(UtilJavaflix.getPeliculas());
         this.listacontenido.addAll(UtilJavaflix.getSeries());
+        this.listacontenido = OrdenarContenido.masRecienteMayorRating(listacontenido);
         generarTarjetas();
     }//GEN-LAST:event_jLabelTODOMouseClicked
 

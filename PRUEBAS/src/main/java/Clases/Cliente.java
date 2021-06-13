@@ -12,13 +12,17 @@ public class Cliente extends Usuario {
     private ArrayList<Contenido> favoritos = new ArrayList<Contenido>();
 
     /**
-     * Constructor
-     * @param dni
-     * @param nombre
-     * @param tarjetacredito
-     * @param plan
-     * @param clave
-     * @param correoelectronico
+     * Constructor que instancia un cliente
+     * 
+     * @param dni el numero de DNI del cliente (8 digitos y 1 letra)
+     * @param nombre el nombre del cliente
+     * @param tarjetacredito la tarjeta de credito asocidada al cliente
+     * @param plan el plan asociado al cliente
+     * @param clave la clave escogida por el cliente
+     * @param correoelectronico el correo del cliente
+     * 
+     * @see TarjetaCredito
+     * @see PlanSuscripcion
      **/   
     public Cliente(String dni, String nombre, TarjetaCredito tarjetacredito, PlanSuscripcion plan, String clave, String correoelectronico) {
         super(clave, correoelectronico);
@@ -29,27 +33,29 @@ public class Cliente extends Usuario {
     }
     
     /**
-     * Devuelve el tipo de plan del cliente
+     * Devuelve el plan del cliente
      *
-     * @return PlanSuscripcion tipo de plan
+     * @return el plan de suscripcion del cliente
+     * @see PlanSuscripcion
      */
     public PlanSuscripcion getPlan() {
         return plan;
     }
     
     /**
-     * Establece el tipo de plan del cliente
+     * Establece un nuevo plan del cliente
      *
-     * @param plan nuevo
+     * @param plan nuevo plan
+     * @see PlanSuscripcion
      */
     public void setPlan(PlanSuscripcion plan) {
         this.plan = plan;
     }
 
     /**
-     * Devuelve el dni del cliente
+     * Devuelve el DNI del cliente
      *
-     * @return String dni
+     * @return DNI del cliente
      */
     public String getDni() {
         return dni;
@@ -58,7 +64,7 @@ public class Cliente extends Usuario {
     /**
      * Devuelve el nombre del cliente
      *
-     * @return String nombre
+     * @return nombre del cliente
      */
     public String getNombre() {
         return nombre;
@@ -67,16 +73,17 @@ public class Cliente extends Usuario {
     /**
      * Devuelve la tarjeta de credito del cliente
      *
-     * @return TarjetaCredito tarjeta de credito
+     * @return tarjeta de credito del cliente
+     * @see TarjetaCredito
      */
     public TarjetaCredito getTarjetacredito() {
         return tarjetacredito;
     }
 
     /**
-    * Establece el dni del cliente
+    * Establece el DNI del cliente
     *
-    * @param dni nuevo
+    * @param dni nuevo DNI del cliente
     */
     public void setDni(String dni) {
         this.dni = dni;
@@ -85,7 +92,7 @@ public class Cliente extends Usuario {
     /**
     * Establece el nombre del cliente
     *
-    * @param nombre nuevo
+    * @param nombre nuevo nombre del cliente
     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -95,6 +102,7 @@ public class Cliente extends Usuario {
     * Establece la tarjeta de credito del cliente
     *
     * @param tarjetacredito tarjeta de credito nueva
+    * @see TarjetaCredito
     */
     public void setTarjetacredito(TarjetaCredito tarjetacredito) {
         this.tarjetacredito = tarjetacredito;
@@ -121,7 +129,7 @@ public class Cliente extends Usuario {
     /**
     * Añade el contenido a la lista de favoritos del cliente
     *
-    * @param contenido a añadir
+    * @param contenido contenido para ser añadido
     */
     public void addFavoritos(Contenido contenido) {
         favoritos.add(contenido);
@@ -130,7 +138,7 @@ public class Cliente extends Usuario {
     /**
     * Elimina el contenido de la lista de favoritos del cliente
     *
-    * @param contenido a eliminar
+    * @param contenido contenido a eliminar
     */    
     public void removeFavoritos(Contenido contenido){
         favoritos.remove(contenido);
