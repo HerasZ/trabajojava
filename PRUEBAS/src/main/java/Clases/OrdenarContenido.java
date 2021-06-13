@@ -43,7 +43,7 @@ public class OrdenarContenido {
         for (int i = 0; i < Contenido.size() - 1; i++) {
             estaOrdenado = true;
             for (int j = 0; j < Contenido.size() - i - 1; j++) {
-                if (Contenido.get(j).getCalificacionMedia() > Contenido.get(j + 1).getCalificacionMedia()
+                if (Contenido.get(j).getCalificacionMedia() < Contenido.get(j + 1).getCalificacionMedia()
                         && Contenido.get(j).getAnno() == Contenido.get(j + 1).getAnno()) {
                     temp = Contenido.get(j);
                     Contenido.set(j, Contenido.get(j + 1));
