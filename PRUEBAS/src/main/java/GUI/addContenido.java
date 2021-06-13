@@ -92,6 +92,9 @@ public class addContenido extends javax.swing.JFrame {
             if (c == ',') {
                 arrayactores.add(actorbuilder);
                 actorbuilder = "";
+            } else if (i == actores.length()-1) {
+                actorbuilder += c;
+                arrayactores.add(actorbuilder);
             } else {
                 actorbuilder += c;
             }
@@ -679,7 +682,7 @@ public class addContenido extends javax.swing.JFrame {
         } catch (FaltanDatos ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Error al crear serie", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Error al crear pelicula\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
         }
 
@@ -699,7 +702,7 @@ public class addContenido extends javax.swing.JFrame {
         } catch (FaltanDatos ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Error al crear serie", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Error al crear serie\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
         }
 

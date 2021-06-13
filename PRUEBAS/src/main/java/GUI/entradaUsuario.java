@@ -363,7 +363,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelTODOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseEntered
         // TODO add your handling code here:
-        jLabelTODO.setBackground(java.awt.Color.gray);
+        jLabelTODO.setBackground(java.awt.Color.RED);
     }//GEN-LAST:event_jLabelTODOMouseEntered
 
     private void jLabelTODOMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseExited
@@ -373,7 +373,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelPELICULASMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseEntered
         // TODO add your handling code here:
-        jLabelPELICULAS.setBackground(java.awt.Color.gray);
+        jLabelPELICULAS.setBackground(java.awt.Color.RED);
     }//GEN-LAST:event_jLabelPELICULASMouseEntered
 
     private void jLabelPELICULASMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseExited
@@ -383,7 +383,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelSERIESMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseEntered
         // TODO add your handling code here:
-        jLabelSERIES.setBackground(java.awt.Color.gray);
+        jLabelSERIES.setBackground(java.awt.Color.RED);
     }//GEN-LAST:event_jLabelSERIESMouseEntered
 
     private void jLabelSERIESMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseExited
@@ -393,7 +393,7 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelFAVORITOSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseEntered
         // TODO add your handling code here:
-        jLabelFAVORITOS.setBackground(java.awt.Color.gray);
+        jLabelFAVORITOS.setBackground(java.awt.Color.RED);
     }//GEN-LAST:event_jLabelFAVORITOSMouseEntered
 
     private void jLabelFAVORITOSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseExited
