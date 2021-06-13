@@ -60,9 +60,17 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelIntroDatos = new javax.swing.JPanel();
         jLabelJAVAFLIX = new javax.swing.JLabel();
         jLabelJAVAFLIXSombra = new javax.swing.JLabel();
+        jSeparatorArribaTitulo = new javax.swing.JSeparator();
+        jSeparatorArriba = new javax.swing.JSeparator();
+        jSeparatorMedio = new javax.swing.JSeparator();
+        jSeparatorAbajo = new javax.swing.JSeparator();
+        jPanelTODO = new javax.swing.JPanel();
         jLabelTODO = new javax.swing.JLabel();
+        jPanelPELICULAS = new javax.swing.JPanel();
         jLabelPELICULAS = new javax.swing.JLabel();
+        jPanelSERIES = new javax.swing.JPanel();
         jLabelSERIES = new javax.swing.JLabel();
+        jPanelFAVORITOS = new javax.swing.JPanel();
         jLabelFAVORITOS = new javax.swing.JLabel();
         jPanelBusqueda = new javax.swing.JPanel();
         jLabelPalabra = new javax.swing.JLabel();
@@ -152,13 +160,16 @@ public class entradaUsuario extends javax.swing.JFrame {
         jLabelJAVAFLIXSombra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJAVAFLIXSombra.setText("JAVAFLIX");
         jPanelIntroDatos.add(jLabelJAVAFLIXSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 150));
+        jPanelIntroDatos.add(jSeparatorArribaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 128, 270, -1));
+        jPanelIntroDatos.add(jSeparatorArriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 270, -1));
+        jPanelIntroDatos.add(jSeparatorMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, -1));
+        jPanelIntroDatos.add(jSeparatorAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 565, 270, -1));
 
         jLabelTODO.setBackground(java.awt.Color.lightGray);
         jLabelTODO.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelTODO.setForeground(new java.awt.Color(197, 49, 47));
         jLabelTODO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTODO.setText("TODO");
-        jLabelTODO.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelTODO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelTODOMouseClicked(evt);
@@ -170,14 +181,35 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelTODOMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelTODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 145));
+
+        javax.swing.GroupLayout jPanelTODOLayout = new javax.swing.GroupLayout(jPanelTODO);
+        jPanelTODO.setLayout(jPanelTODOLayout);
+        jPanelTODOLayout.setHorizontalGroup(
+            jPanelTODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanelTODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelTODOLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTODO, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelTODOLayout.setVerticalGroup(
+            jPanelTODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 145, Short.MAX_VALUE)
+            .addGroup(jPanelTODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelTODOLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTODO, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanelIntroDatos.add(jPanelTODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 145));
 
         jLabelPELICULAS.setBackground(java.awt.Color.lightGray);
         jLabelPELICULAS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelPELICULAS.setForeground(new java.awt.Color(197, 49, 47));
         jLabelPELICULAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPELICULAS.setText("PELICULAS");
-        jLabelPELICULAS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelPELICULAS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelPELICULASMouseClicked(evt);
@@ -189,14 +221,35 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelPELICULASMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 270, 145));
+
+        javax.swing.GroupLayout jPanelPELICULASLayout = new javax.swing.GroupLayout(jPanelPELICULAS);
+        jPanelPELICULAS.setLayout(jPanelPELICULASLayout);
+        jPanelPELICULASLayout.setHorizontalGroup(
+            jPanelPELICULASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanelPELICULASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPELICULASLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelPELICULAS, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelPELICULASLayout.setVerticalGroup(
+            jPanelPELICULASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 145, Short.MAX_VALUE)
+            .addGroup(jPanelPELICULASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPELICULASLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelPELICULAS, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanelIntroDatos.add(jPanelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 270, 145));
 
         jLabelSERIES.setBackground(java.awt.Color.lightGray);
         jLabelSERIES.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelSERIES.setForeground(new java.awt.Color(197, 49, 47));
         jLabelSERIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSERIES.setText("SERIES");
-        jLabelSERIES.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelSERIES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelSERIESMouseClicked(evt);
@@ -208,14 +261,35 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelSERIESMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 145));
+
+        javax.swing.GroupLayout jPanelSERIESLayout = new javax.swing.GroupLayout(jPanelSERIES);
+        jPanelSERIES.setLayout(jPanelSERIESLayout);
+        jPanelSERIESLayout.setHorizontalGroup(
+            jPanelSERIESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanelSERIESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSERIESLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelSERIES, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelSERIESLayout.setVerticalGroup(
+            jPanelSERIESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 145, Short.MAX_VALUE)
+            .addGroup(jPanelSERIESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSERIESLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelSERIES, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanelIntroDatos.add(jPanelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
         jLabelFAVORITOS.setBackground(java.awt.Color.lightGray);
         jLabelFAVORITOS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelFAVORITOS.setForeground(new java.awt.Color(197, 49, 47));
         jLabelFAVORITOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFAVORITOS.setText("FAVORITOS");
-        jLabelFAVORITOS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelFAVORITOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelFAVORITOSMouseClicked(evt);
@@ -227,7 +301,29 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelFAVORITOSMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelFAVORITOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 565, 270, 145));
+
+        javax.swing.GroupLayout jPanelFAVORITOSLayout = new javax.swing.GroupLayout(jPanelFAVORITOS);
+        jPanelFAVORITOS.setLayout(jPanelFAVORITOSLayout);
+        jPanelFAVORITOSLayout.setHorizontalGroup(
+            jPanelFAVORITOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanelFAVORITOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFAVORITOSLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelFAVORITOS, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelFAVORITOSLayout.setVerticalGroup(
+            jPanelFAVORITOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 145, Short.MAX_VALUE)
+            .addGroup(jPanelFAVORITOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFAVORITOSLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelFAVORITOS, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanelIntroDatos.add(jPanelFAVORITOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 565, -1, -1));
 
         jPanelventana.add(jPanelIntroDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 270, 710));
 
@@ -363,42 +459,42 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelTODOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseEntered
         // TODO add your handling code here:
-        jLabelTODO.setBackground(java.awt.Color.RED);
+        jPanelTODO.setBackground(java.awt.Color.GRAY);
     }//GEN-LAST:event_jLabelTODOMouseEntered
 
     private void jLabelTODOMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseExited
         // TODO add your handling code here:
-        jLabelTODO.setBackground(java.awt.Color.LIGHT_GRAY);
+        jPanelTODO.setBackground(java.awt.Color.LIGHT_GRAY);
     }//GEN-LAST:event_jLabelTODOMouseExited
 
     private void jLabelPELICULASMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseEntered
         // TODO add your handling code here:
-        jLabelPELICULAS.setBackground(java.awt.Color.RED);
+        jPanelPELICULAS.setBackground(java.awt.Color.GRAY);
     }//GEN-LAST:event_jLabelPELICULASMouseEntered
 
     private void jLabelPELICULASMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseExited
         // TODO add your handling code here:
-        jLabelPELICULAS.setBackground(java.awt.Color.LIGHT_GRAY);
+        jPanelPELICULAS.setBackground(java.awt.Color.LIGHT_GRAY);
     }//GEN-LAST:event_jLabelPELICULASMouseExited
 
     private void jLabelSERIESMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseEntered
         // TODO add your handling code here:
-        jLabelSERIES.setBackground(java.awt.Color.RED);
+        jPanelSERIES.setBackground(java.awt.Color.GRAY);
     }//GEN-LAST:event_jLabelSERIESMouseEntered
 
     private void jLabelSERIESMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseExited
         // TODO add your handling code here:
-        jLabelSERIES.setBackground(java.awt.Color.LIGHT_GRAY);
+        jPanelSERIES.setBackground(java.awt.Color.LIGHT_GRAY);
     }//GEN-LAST:event_jLabelSERIESMouseExited
 
     private void jLabelFAVORITOSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseEntered
         // TODO add your handling code here:
-        jLabelFAVORITOS.setBackground(java.awt.Color.RED);
+        jPanelFAVORITOS.setBackground(java.awt.Color.GRAY);
     }//GEN-LAST:event_jLabelFAVORITOSMouseEntered
 
     private void jLabelFAVORITOSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseExited
         // TODO add your handling code here:
-        jLabelFAVORITOS.setBackground(java.awt.Color.LIGHT_GRAY);
+        jPanelFAVORITOS.setBackground(java.awt.Color.LIGHT_GRAY);
     }//GEN-LAST:event_jLabelFAVORITOSMouseExited
 
     private void jLabelTODOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseClicked
@@ -474,12 +570,20 @@ public class entradaUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelAtras;
     private javax.swing.JPanel jPanelBusqueda;
     private javax.swing.JPanel jPanelCerrar;
+    private javax.swing.JPanel jPanelFAVORITOS;
     private javax.swing.JPanel jPanelIntroDatos;
     private javax.swing.JPanel jPanelOpciones;
+    private javax.swing.JPanel jPanelPELICULAS;
+    private javax.swing.JPanel jPanelSERIES;
+    private javax.swing.JPanel jPanelTODO;
     private javax.swing.JPanel jPanelTarjetas;
     private javax.swing.JPanel jPanelventana;
     private javax.swing.JScrollPane jScrollPaneTarjetas;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparatorAbajo;
+    private javax.swing.JSeparator jSeparatorArriba;
+    private javax.swing.JSeparator jSeparatorArribaTitulo;
+    private javax.swing.JSeparator jSeparatorMedio;
     private javax.swing.JTextField jTextFieldActor;
     private javax.swing.JTextField jTextFieldClave;
     private javax.swing.JTextField jTextFieldGenero;
