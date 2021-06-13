@@ -13,12 +13,12 @@ public class Cliente extends Usuario {
 
     /**
      * Constructor
-     * @param String dni
-     * @param String nombre
-     * @param TarjetaCredito tarjetacredito
-     * @param PlanSuscripcion plan
-     * @param String clave
-     * @param String correoelectronico
+     * @param dni
+     * @param nombre
+     * @param tarjetacredito
+     * @param plan
+     * @param clave
+     * @param correoelectronico
      **/   
     public Cliente(String dni, String nombre, TarjetaCredito tarjetacredito, PlanSuscripcion plan, String clave, String correoelectronico) {
         super(clave, correoelectronico);
@@ -31,7 +31,7 @@ public class Cliente extends Usuario {
     /**
      * Devuelve el tipo de plan del cliente
      *
-     * @return PlanSuscripcion plan
+     * @return PlanSuscripcion tipo de plan
      */
     public PlanSuscripcion getPlan() {
         return plan;
@@ -40,7 +40,7 @@ public class Cliente extends Usuario {
     /**
      * Establece el tipo de plan del cliente
      *
-     * @param PlanSuscripcion plan nuevo
+     * @param plan nuevo
      */
     public void setPlan(PlanSuscripcion plan) {
         this.plan = plan;
@@ -76,7 +76,7 @@ public class Cliente extends Usuario {
     /**
     * Establece el dni del cliente
     *
-    * @param String dni nuevo
+    * @param dni nuevo
     */
     public void setDni(String dni) {
         this.dni = dni;
@@ -85,7 +85,7 @@ public class Cliente extends Usuario {
     /**
     * Establece el nombre del cliente
     *
-    * @param String nombre nuevo
+    * @param nombre nuevo
     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -94,7 +94,7 @@ public class Cliente extends Usuario {
     /**
     * Establece la tarjeta de credito del cliente
     *
-    * @param TarjetaCredito tarjeta de credito nueva
+    * @param tarjetacredito tarjeta de credito nueva
     */
     public void setTarjetacredito(TarjetaCredito tarjetacredito) {
         this.tarjetacredito = tarjetacredito;
@@ -112,7 +112,7 @@ public class Cliente extends Usuario {
     /**
     * Establece la lista de contenidos favoritos del cliente
     *
-    * @param ArrayList de contenidos
+    * @param favoritos lista a establecer
     */
     public void setFavoritos(ArrayList<Contenido> favoritos) {
         this.favoritos = favoritos;
@@ -121,7 +121,7 @@ public class Cliente extends Usuario {
     /**
     * Añade el contenido a la lista de favoritos del cliente
     *
-    * @param Contenido contenido a añadir
+    * @param contenido a añadir
     */
     public void addFavoritos(Contenido contenido) {
         favoritos.add(contenido);
@@ -130,7 +130,7 @@ public class Cliente extends Usuario {
     /**
     * Elimina el contenido de la lista de favoritos del cliente
     *
-    * @param Contenido contenido a eliminar
+    * @param contenido a eliminar
     */    
     public void removeFavoritos(Contenido contenido){
         favoritos.remove(contenido);
