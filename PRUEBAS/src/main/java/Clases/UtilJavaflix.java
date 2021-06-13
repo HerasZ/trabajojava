@@ -153,11 +153,11 @@ public class UtilJavaflix {
      * ser aceptado
      *
      * @param email el email a validar
-     * @throws EmailNoValido en cualquiera de estos casos:<br/>
-     *          -Hay dos "@"<br/>
-     *          -No hay ningun caracter antes de "@"<br/>
-     *          -Hay menos de dos caracteres entre el "@" y el "."<br/>
-     *          -Hay menos de dos caracteres despues del "."
+     * @throws EmailNoValido en cualquiera de estos casos:<br>
+     * -Hay dos "@"<br>
+     * -No hay ningun caracter antes de "@"<br>
+     * -Hay menos de dos caracteres entre el "@" y el "."<br>
+     * -Hay menos de dos caracteres despues del "."
      */
     public static void validarEmail(String email) throws EmailNoValido {
         int atposition = 0, dotposition = 0, flag = 0, atcount = 0;
@@ -186,7 +186,7 @@ public class UtilJavaflix {
      *
      * @param email_provided el email introducido por el usuario
      * @param pass_provided la contraseña introducida por el usuario
-     * @return <code>true</code> si el login es aceptado<br/>
+     * @return <code>true</code> si el login es aceptado<br>
      * <code>false</code> si no
      *
      */
@@ -310,8 +310,7 @@ public class UtilJavaflix {
      * la aplicacion
      *
      * @param mail el correo que se esta intentando registrar
-     * @return <code>true</code> si el correo ya existe en la base de
-     * datos,<br/>
+     * @return <code>true</code> si el correo ya existe en la base de datos,<br>
      * <code>false</code> si no existe
      */
     public static boolean existenteEmailRegistrado(String mail) {
