@@ -168,7 +168,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelTODO.setBackground(new java.awt.Color(180, 45, 49));
         jPanelTODO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelTODO.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelTODO.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabelTODO.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTODO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTODO.setText("TODO");
@@ -207,7 +207,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelPELICULAS.setBackground(new java.awt.Color(180, 45, 49));
         jPanelPELICULAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelPELICULAS.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelPELICULAS.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabelPELICULAS.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPELICULAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPELICULAS.setText("PELÍCULAS");
@@ -246,7 +246,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelSERIES.setBackground(new java.awt.Color(180, 45, 49));
         jPanelSERIES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelSERIES.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelSERIES.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabelSERIES.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSERIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSERIES.setText("SERIES");
@@ -285,7 +285,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelFAVORITOS.setBackground(new java.awt.Color(180, 45, 49));
         jPanelFAVORITOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelFAVORITOS.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabelFAVORITOS.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabelFAVORITOS.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFAVORITOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFAVORITOS.setText("FAVORITOS");
