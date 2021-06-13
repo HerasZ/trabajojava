@@ -40,8 +40,8 @@ public class verSerie extends javax.swing.JFrame {
         jTextAreaSinopsis.setText("Sinopsis: " + serierecibida.getSinopsis());
         ImageIcon portadaredim = new ImageIcon(serierecibida.getPortada().getImage().getScaledInstance(jLabelPortada.getWidth(), jLabelPortada.getHeight(), 1));
         jLabelPortada.setIcon(portadaredim);
-        jLabelGenero.setText(serierecibida.getGenero());
-        jLabelAnno.setText(String.valueOf(serierecibida.getAnno()));
+        jLabelGenero.setText("Género: "+serierecibida.getGenero());
+        jLabelAnno.setText("Año: "+String.valueOf(serierecibida.getAnno()));
         jLabelRate.setText(String.valueOf(serierecibida.getCalificacionMedia()) + "/10");
         if (serierecibida.getCalificaciones().keySet().contains(padre.getClientelogeado())) {
             setRate();

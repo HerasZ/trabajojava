@@ -36,8 +36,8 @@ public class verPelicula extends javax.swing.JFrame {
         jTextAreaSinopsis.setText("Sinopsis: " + pelicularecibida.getSinopsis());
         ImageIcon portadaredim = new ImageIcon(pelicularecibida.getPortada().getImage().getScaledInstance(jLabelPortada.getWidth(), jLabelPortada.getHeight(), 1));
         jLabelPortada.setIcon(portadaredim);
-        jLabelGenero.setText(pelicularecibida.getGenero());
-        jLabelAnno.setText(String.valueOf(pelicularecibida.getAnno()));
+        jLabelGenero.setText("Género: "+pelicularecibida.getGenero());
+        jLabelAnno.setText("Año: "+String.valueOf(pelicularecibida.getAnno()));
         jLabelRate.setText(String.valueOf(pelicularecibida.getCalificacionMedia()) + "/10");
     }
 
@@ -214,7 +214,7 @@ public class verPelicula extends javax.swing.JFrame {
         jPanelPelicula.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
         jComboBoxRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jComboBoxRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBoxRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         jComboBoxRate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRateActionPerformed(evt);
