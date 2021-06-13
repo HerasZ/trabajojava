@@ -1,13 +1,13 @@
 -------------------------------- Factura JavaFlix --------------------------------
 
 
--------------------------------- Fecha: 2021-06-11 -------------------------------
+-------------------------------- Fecha: 2021-06-13 -------------------------------
 
 
 ------------------------------- Datos del cliente -------------------------------
-Nombre del cliente: test
+Nombre del cliente: fede
 DNI del cliente: 12345678A
-Numero de tarjeta: 1111 1111 1111 1111
+Numero de tarjeta: 1234 5678 9123 4567
 
 
 Precio de la suscripcion Basico: 8.99€
