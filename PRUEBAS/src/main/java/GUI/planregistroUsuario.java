@@ -13,6 +13,7 @@ import java.awt.Color;
 
 import Clases.UtilJavaflix;
 import java.time.LocalDate;
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,6 +77,7 @@ public class planregistroUsuario extends javax.swing.JFrame {
         jLabelJavaFlixPremium = new javax.swing.JLabel();
         jPanelJavaFlixPremiumPrecio = new javax.swing.JPanel();
         jLabelJavaFlixPremiumPrecio = new javax.swing.JLabel();
+        jLabelFondoPremiun = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -192,6 +194,12 @@ public class planregistroUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelJavaFlixBasicoPrecioMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixBasicoPrecioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixBasicoPrecioMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanelJavaFlixBasicoPrecioLayout = new javax.swing.GroupLayout(jPanelJavaFlixBasicoPrecio);
@@ -235,6 +243,12 @@ public class planregistroUsuario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelJavaFlixEstandarPrecioMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixEstandarPrecioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelJavaFlixEstandarPrecioMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanelJavaFlixEstandarPrecioLayout = new javax.swing.GroupLayout(jPanelJavaFlixEstandarPrecio);
@@ -269,7 +283,9 @@ public class planregistroUsuario extends javax.swing.JFrame {
                 jPanelJavaFlixPremiumPrecioMouseExited(evt);
             }
         });
+        jPanelJavaFlixPremiumPrecio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabelJavaFlixPremiumPrecio.setBackground(new java.awt.Color(255, 255, 255));
         jLabelJavaFlixPremiumPrecio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelJavaFlixPremiumPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelJavaFlixPremiumPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -279,19 +295,11 @@ public class planregistroUsuario extends javax.swing.JFrame {
                 jLabelJavaFlixPremiumPrecioMouseClicked(evt);
             }
         });
+        jPanelJavaFlixPremiumPrecio.add(jLabelJavaFlixPremiumPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 60));
 
-        javax.swing.GroupLayout jPanelJavaFlixPremiumPrecioLayout = new javax.swing.GroupLayout(jPanelJavaFlixPremiumPrecio);
-        jPanelJavaFlixPremiumPrecio.setLayout(jPanelJavaFlixPremiumPrecioLayout);
-        jPanelJavaFlixPremiumPrecioLayout.setHorizontalGroup(
-            jPanelJavaFlixPremiumPrecioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelJavaFlixPremiumPrecioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanelJavaFlixPremiumPrecioLayout.setVerticalGroup(
-            jPanelJavaFlixPremiumPrecioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelJavaFlixPremiumPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-        );
+        jLabelFondoPremiun.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondoPremiun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/imagendorado.png"))); // NOI18N
+        jPanelJavaFlixPremiumPrecio.add(jLabelFondoPremiun, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 60));
 
         jPanelIntroDatos.add(jPanelJavaFlixPremiumPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 130, 60));
 
@@ -364,11 +372,12 @@ public class planregistroUsuario extends javax.swing.JFrame {
     private void jPanelJavaFlixEstandarPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixEstandarPrecioMouseEntered
         // TODO add your handling code here:
         jPanelJavaFlixEstandarPrecio.setBackground(new Color(126, 16, 27));
+        
     }//GEN-LAST:event_jPanelJavaFlixEstandarPrecioMouseEntered
 
     private void jPanelJavaFlixPremiumPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixPremiumPrecioMouseEntered
         // TODO add your handling code here:
-        jPanelJavaFlixBasicoPrecio.setBackground(new Color(180, 45, 49));
+        jLabelFondoPremiun.setVisible(false);
     }//GEN-LAST:event_jPanelJavaFlixPremiumPrecioMouseEntered
 
     private void jPanelJavaFlixBasicoPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixBasicoPrecioMouseExited
@@ -383,6 +392,7 @@ public class planregistroUsuario extends javax.swing.JFrame {
 
     private void jPanelJavaFlixPremiumPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelJavaFlixPremiumPrecioMouseExited
         // TODO add your handling code here:
+        jLabelFondoPremiun.setVisible(true);
     }//GEN-LAST:event_jPanelJavaFlixPremiumPrecioMouseExited
 
     private void jLabelJavaFlixBasicoPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixBasicoPrecioMouseClicked
@@ -426,6 +436,26 @@ public class planregistroUsuario extends javax.swing.JFrame {
         this.padre.getPadre().setVisible(true);
     }//GEN-LAST:event_jLabelJavaFlixPremiumPrecioMouseClicked
 
+    private void jLabelJavaFlixBasicoPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixBasicoPrecioMouseEntered
+        // TODO add your handling code here:
+        jPanelJavaFlixBasicoPrecio.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabelJavaFlixBasicoPrecioMouseEntered
+
+    private void jLabelJavaFlixBasicoPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixBasicoPrecioMouseExited
+        // TODO add your handling code here:
+        jPanelJavaFlixBasicoPrecio.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabelJavaFlixBasicoPrecioMouseExited
+
+    private void jLabelJavaFlixEstandarPrecioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixEstandarPrecioMouseEntered
+        // TODO add your handling code here:
+        jPanelJavaFlixEstandarPrecio.setBackground(new Color(148, 13, 30));
+    }//GEN-LAST:event_jLabelJavaFlixEstandarPrecioMouseEntered
+
+    private void jLabelJavaFlixEstandarPrecioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJavaFlixEstandarPrecioMouseExited
+        // TODO add your handling code here:
+        jPanelJavaFlixEstandarPrecio.setBackground(new Color(180, 45, 49));
+    }//GEN-LAST:event_jLabelJavaFlixEstandarPrecioMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -435,6 +465,7 @@ public class planregistroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDoblez;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelFondoEtiquetas;
+    private javax.swing.JLabel jLabelFondoPremiun;
     private javax.swing.JLabel jLabelJAVAFLIX;
     private javax.swing.JLabel jLabelJAVAFLIXSombra;
     private javax.swing.JLabel jLabelJavaFlixBasico;

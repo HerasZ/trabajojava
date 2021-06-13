@@ -62,6 +62,7 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanelRegistrarse = new javax.swing.JPanel();
         jLabelRegistrarsebuttom = new javax.swing.JLabel();
         jPanelIntroDatos = new javax.swing.JPanel();
+        jTextFieldbug = new javax.swing.JTextField();
         jLabelDNI = new javax.swing.JLabel();
         jTextFieldDNI = new javax.swing.JTextField();
         jSeparatorDNI = new javax.swing.JSeparator();
@@ -225,6 +226,9 @@ public class registroUsuario extends javax.swing.JFrame {
         jPanelIntroDatos.setBackground(new java.awt.Color(255, 255, 255));
         jPanelIntroDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextFieldbug.setText("jTextField1");
+        jPanelIntroDatos.add(jTextFieldbug, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+
         jLabelDNI.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
         jLabelDNI.setText("DNI");
         jPanelIntroDatos.add(jLabelDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 300, -1));
@@ -333,7 +337,11 @@ public class registroUsuario extends javax.swing.JFrame {
 
         jFormattedTextFieldFechaCaducidad.setBorder(null);
         jFormattedTextFieldFechaCaducidad.setColumns(16);
-        jFormattedTextFieldFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        try {
+            jFormattedTextFieldFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFormattedTextFieldFechaCaducidad.setToolTipText("");
         jFormattedTextFieldFechaCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -349,7 +357,6 @@ public class registroUsuario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldNumTarjeta.setText("");
         jFormattedTextFieldNumTarjeta.setToolTipText("");
         jFormattedTextFieldNumTarjeta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -401,7 +408,7 @@ public class registroUsuario extends javax.swing.JFrame {
         } catch (EmailNoValido | EmailYaExistente ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (DateTimeParseException ex) {
-            JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar dd-MM-yyyy)", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "ERROR: Formato de fecha invalido (Usar yyyy-dd-MM)", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabelRegistrarsebuttomMouseClicked
 
@@ -605,5 +612,6 @@ public class registroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldSaldo;
+    private javax.swing.JTextField jTextFieldbug;
     // End of variables declaration//GEN-END:variables
 }
