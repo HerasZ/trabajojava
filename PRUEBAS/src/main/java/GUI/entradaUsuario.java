@@ -170,7 +170,7 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelTODOMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelTODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 270, 40));
+        jPanelIntroDatos.add(jLabelTODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 145));
 
         jLabelPELICULAS.setBackground(java.awt.Color.lightGray);
         jLabelPELICULAS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -189,7 +189,7 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelPELICULASMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 270, 40));
+        jPanelIntroDatos.add(jLabelPELICULAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 270, 145));
 
         jLabelSERIES.setBackground(java.awt.Color.lightGray);
         jLabelSERIES.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -208,7 +208,7 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelSERIESMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 270, 40));
+        jPanelIntroDatos.add(jLabelSERIES, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 145));
 
         jLabelFAVORITOS.setBackground(java.awt.Color.lightGray);
         jLabelFAVORITOS.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -227,7 +227,7 @@ public class entradaUsuario extends javax.swing.JFrame {
                 jLabelFAVORITOSMouseExited(evt);
             }
         });
-        jPanelIntroDatos.add(jLabelFAVORITOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 270, 40));
+        jPanelIntroDatos.add(jLabelFAVORITOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 565, 270, 145));
 
         jPanelventana.add(jPanelIntroDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 270, 710));
 
