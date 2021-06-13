@@ -238,7 +238,7 @@ public class verSerie extends javax.swing.JFrame {
         jPanelSerie.add(jLabelCorazonVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 70, 60));
 
         jComboBoxRate.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jComboBoxRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBoxRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rate", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         jComboBoxRate.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jComboBoxRateFocusLost(evt);
