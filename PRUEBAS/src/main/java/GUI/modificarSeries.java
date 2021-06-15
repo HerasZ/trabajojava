@@ -262,7 +262,9 @@ public class modificarSeries extends javax.swing.JFrame {
         jPanelSeries.add(jScrollPaneTemporadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 220, 144));
 
         fieldSinopsisS.setColumns(20);
+        fieldSinopsisS.setLineWrap(true);
         fieldSinopsisS.setRows(5);
+        fieldSinopsisS.setWrapStyleWord(true);
         jScrollPaneSinopsis.setViewportView(fieldSinopsisS);
 
         jPanelSeries.add(jScrollPaneSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 210, 90));

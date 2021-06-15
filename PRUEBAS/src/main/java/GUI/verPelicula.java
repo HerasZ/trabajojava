@@ -185,8 +185,10 @@ public class verPelicula extends javax.swing.JFrame {
 
         jTextAreaSinopsis.setBackground(java.awt.Color.lightGray);
         jTextAreaSinopsis.setColumns(20);
+        jTextAreaSinopsis.setLineWrap(true);
         jTextAreaSinopsis.setRows(5);
         jTextAreaSinopsis.setText("SINOPSIS:");
+        jTextAreaSinopsis.setWrapStyleWord(true);
         jTextAreaSinopsis.setBorder(null);
         jTextAreaSinopsis.setFocusable(false);
         jScrollPane1.setViewportView(jTextAreaSinopsis);

@@ -66,7 +66,7 @@ public class tarjetaContenido extends javax.swing.JPanel {
 
         labeltitulo.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         labeltitulo.setText("Titulo");
-        add(labeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 270, 60));
+        add(labeltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 650, 60));
 
         labelanno.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labelanno.setText("Año");

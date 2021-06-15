@@ -278,7 +278,9 @@ public class addContenido extends javax.swing.JFrame {
         jPanelSeries.add(jButtonAnnadirS, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 133, -1));
 
         fieldSinopsisS.setColumns(20);
+        fieldSinopsisS.setLineWrap(true);
         fieldSinopsisS.setRows(5);
+        fieldSinopsisS.setWrapStyleWord(true);
         jScrollPaneSinopsisS.setViewportView(fieldSinopsisS);
 
         jPanelSeries.add(jScrollPaneSinopsisS, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 210, 90));
@@ -347,7 +349,9 @@ public class addContenido extends javax.swing.JFrame {
         jPanelPeliculas.add(jLabelSinopsisP, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         fieldSinopsisP.setColumns(20);
+        fieldSinopsisP.setLineWrap(true);
         fieldSinopsisP.setRows(5);
+        fieldSinopsisP.setWrapStyleWord(true);
         jScrollPaneSinopsisP.setViewportView(fieldSinopsisP);
 
         jPanelPeliculas.add(jScrollPaneSinopsisP, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 90));

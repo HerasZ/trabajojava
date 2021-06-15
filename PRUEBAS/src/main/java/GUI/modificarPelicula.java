@@ -194,7 +194,9 @@ public class modificarPelicula extends javax.swing.JFrame {
         jPanelPeliculas.add(jLabelSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         fieldSinopsis.setColumns(20);
+        fieldSinopsis.setLineWrap(true);
         fieldSinopsis.setRows(5);
+        fieldSinopsis.setWrapStyleWord(true);
         jScrollPaneSinopsis.setViewportView(fieldSinopsis);
 
         jPanelPeliculas.add(jScrollPaneSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 180, 90));
