@@ -72,7 +72,7 @@ public class OrdenarContenido {
         for (int i = 0; i < Contenido.size(); i++) {
             for (int j = 0; j < Contenido.get(i).getActores().size(); j++) {
                 if (Contenido.get(i).getActores().get(j).toLowerCase().contains(actor.toLowerCase())) {
-                    listaactor.add(Contenido.get(j));
+                    listaactor.add(Contenido.get(i));
                 }
             }
         }
