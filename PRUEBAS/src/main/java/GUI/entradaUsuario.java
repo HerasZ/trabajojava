@@ -356,7 +356,6 @@ public class entradaUsuario extends javax.swing.JFrame {
         jPanelBusqueda.add(jLabelAnno1);
 
         jTextFieldGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jTextFieldGenero.setForeground(java.awt.Color.gray);
         jTextFieldGenero.setToolTipText("Actores");
         jTextFieldGenero.setMinimumSize(new java.awt.Dimension(170, 30));
         jTextFieldGenero.setPreferredSize(new java.awt.Dimension(170, 30));
@@ -476,6 +475,10 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelTODOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTODOMouseClicked
         // TODO add your handling code here:
+        jTextFieldActor.setText("");
+        jTextFieldClave.setText("");
+        jTextFieldGenero.setText("");
+        jFormattedTextFieldAño.setText("");
         this.listacontenido.clear();
         this.listacontenido.addAll(UtilJavaflix.getPeliculas());
         this.listacontenido.addAll(UtilJavaflix.getSeries());
@@ -503,6 +506,10 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelPELICULASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPELICULASMouseClicked
         // TODO add your handling code here:
+        jTextFieldActor.setText("");
+        jTextFieldClave.setText("");
+        jTextFieldGenero.setText("");
+        jFormattedTextFieldAño.setText("");
         this.listacontenido.clear();
         for (Contenido contenido : UtilJavaflix.getPeliculas()) {
             this.listacontenido.add(contenido);
@@ -531,6 +538,10 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelSERIESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSERIESMouseClicked
         // TODO add your handling code here:
+        jTextFieldActor.setText("");
+        jTextFieldClave.setText("");
+        jTextFieldGenero.setText("");
+        jFormattedTextFieldAño.setText("");
         this.listacontenido.clear();
         for (Contenido contenido : UtilJavaflix.getSeries()) {
             this.listacontenido.add(contenido);
@@ -559,6 +570,10 @@ public class entradaUsuario extends javax.swing.JFrame {
 
     private void jLabelFAVORITOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFAVORITOSMouseClicked
         // TODO add your handling code here:
+        jTextFieldActor.setText("");
+        jTextFieldClave.setText("");
+        jTextFieldGenero.setText("");
+        jFormattedTextFieldAño.setText("");
         this.listacontenido.clear();
         this.listacontenido.addAll(clientelogeado.getFavoritos());
         this.listacontenido = OrdenarContenido.masRecienteMayorRating(listacontenido);
