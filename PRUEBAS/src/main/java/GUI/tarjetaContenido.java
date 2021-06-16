@@ -73,8 +73,8 @@ public class tarjetaContenido extends javax.swing.JPanel {
         add(labelanno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         labelnota.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        labelnota.setText("Nota Media");
-        add(labelnota, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        labelnota.setText("0.0");
+        add(labelnota, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
         labeltempdur.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labeltempdur.setText("Temporadas / Duracion");

@@ -168,9 +168,10 @@ public class verSerie extends javax.swing.JFrame {
 
         jPanelverPelicula.add(jPanelOpcionesverPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, -1));
 
-        jPanelIntroDatosverPelicula.setBackground(java.awt.Color.lightGray);
+        jPanelIntroDatosverPelicula.setBackground(java.awt.Color.white);
         jPanelIntroDatosverPelicula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabelJAVAFLIXRegistro.setBackground(new java.awt.Color(255, 255, 255));
         jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
         jLabelJAVAFLIXRegistro.setForeground(new java.awt.Color(197, 49, 47));
         jLabelJAVAFLIXRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -185,30 +186,30 @@ public class verSerie extends javax.swing.JFrame {
 
         jPanelverPelicula.add(jPanelIntroDatosverPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1240, 100));
 
-        jPanelSerie.setBackground(java.awt.Color.lightGray);
+        jPanelSerie.setBackground(new java.awt.Color(250, 250, 250));
         jPanelSerie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelPortada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelSerie.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 490, 250));
+        jPanelSerie.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 500, 260));
 
-        jLabelActores.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelActores.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelActores.setText("ACTORES:");
         jPanelSerie.add(jLabelActores, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 640, 60));
 
-        jLabelTitulo.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelTitulo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelTitulo.setText("TITULO: ");
         jPanelSerie.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 300, 60));
 
-        jLabelGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelGenero.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelGenero.setText("GÉNERO:");
         jPanelSerie.add(jLabelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 190, 60));
 
-        jLabelAnno.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelAnno.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelAnno.setText("AÑO:");
         jPanelSerie.add(jLabelAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 190, 60));
 
-        jTextAreaSinopsis.setBackground(java.awt.Color.lightGray);
         jTextAreaSinopsis.setColumns(20);
+        jTextAreaSinopsis.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextAreaSinopsis.setLineWrap(true);
         jTextAreaSinopsis.setRows(5);
         jTextAreaSinopsis.setText("SINOPSIS:");

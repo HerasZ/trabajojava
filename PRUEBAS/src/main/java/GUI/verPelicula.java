@@ -85,6 +85,7 @@ public class verPelicula extends javax.swing.JFrame {
             }
         });
 
+        jPanelverPelicula.setBackground(new java.awt.Color(255, 255, 255));
         jPanelverPelicula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelOpcionesverPelicula.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +137,7 @@ public class verPelicula extends javax.swing.JFrame {
 
         jPanelverPelicula.add(jPanelOpcionesverPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, -1));
 
-        jPanelIntroDatosverPelicula.setBackground(java.awt.Color.lightGray);
+        jPanelIntroDatosverPelicula.setBackground(java.awt.Color.white);
         jPanelIntroDatosverPelicula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelJAVAFLIXRegistro.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
@@ -153,38 +154,38 @@ public class verPelicula extends javax.swing.JFrame {
 
         jPanelverPelicula.add(jPanelIntroDatosverPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1240, 100));
 
-        jPanelPelicula.setBackground(java.awt.Color.lightGray);
+        jPanelPelicula.setBackground(new java.awt.Color(250, 250, 250));
         jPanelPelicula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelPortada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelPelicula.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 490, 250));
+        jPanelPelicula.add(jLabelPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 500, 270));
 
-        jLabelDirector.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelDirector.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelDirector.setText("DIRECTOR:");
         jPanelPelicula.add(jLabelDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 640, 60));
 
-        jLabelActores.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelActores.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelActores.setText("ACTORES:");
         jPanelPelicula.add(jLabelActores, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 640, 60));
 
-        jLabelTitulo.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelTitulo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelTitulo.setText("TITULO: ");
         jPanelPelicula.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 300, 60));
 
-        jLabelGenero.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelGenero.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelGenero.setText("GÉNERO:");
         jPanelPelicula.add(jLabelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 190, 60));
 
-        jLabelAnno.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelAnno.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelAnno.setText("AÑO:");
         jPanelPelicula.add(jLabelAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 190, 60));
 
-        jLabelDuracion.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabelDuracion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabelDuracion.setText("DURACION:");
         jPanelPelicula.add(jLabelDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 640, 60));
 
-        jTextAreaSinopsis.setBackground(java.awt.Color.lightGray);
         jTextAreaSinopsis.setColumns(20);
+        jTextAreaSinopsis.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextAreaSinopsis.setLineWrap(true);
         jTextAreaSinopsis.setRows(5);
         jTextAreaSinopsis.setText("SINOPSIS:");
