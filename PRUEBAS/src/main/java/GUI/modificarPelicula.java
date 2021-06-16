@@ -58,7 +58,7 @@ public class modificarPelicula extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         fieldTitulo.setText(pelimodificar.getTitulo());
-        fieldGeneroP.setText(pelimodificar.getTitulo());
+        fieldGeneroP.setText(pelimodificar.getGenero());
         fieldAnnoP.setText(String.valueOf(pelimodificar.getAnno()));
         fieldDirector.setText(pelimodificar.getDirector());
         fieldDuracion.setText(pelimodificar.getDuracion());
