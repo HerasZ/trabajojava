@@ -5,15 +5,12 @@
  */
 package GUI;
 
-import Clases.Pelicula;
 import Clases.Serie;
 import Clases.Temporada;
 import java.awt.Color;
 import Clases.UtilJavaflix;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -83,7 +80,6 @@ public class modificarSeries extends javax.swing.JFrame {
         ImageIcon portada = new ImageIcon(rutaImagen);
         return portada;
     }
-
 
     /**
      * Creates new form ventanaPrincipal
@@ -461,8 +457,9 @@ public class modificarSeries extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Serie actualizada correctamente");
             this.dispose();
             padre.setVisible(true);
+            padre.setEnabled(true);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Error al crear la serie");
+            JOptionPane.showMessageDialog(rootPane, "Error al modificar la serie");
         }
 
     }//GEN-LAST:event_crearserieMouseClicked
@@ -490,7 +487,7 @@ public class modificarSeries extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error al borrar la serie");
         }
-        
+
     }//GEN-LAST:event_jLabelEliminarMouseClicked
 
 
