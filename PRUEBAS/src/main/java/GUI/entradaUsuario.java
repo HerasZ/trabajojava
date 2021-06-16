@@ -37,6 +37,7 @@ public class entradaUsuario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         generarTarjetas();
+        OrdenarContenido.masRecienteMayorRating(listacontenido);
 
     }
 
